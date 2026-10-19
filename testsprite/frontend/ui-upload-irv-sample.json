@@ -21,7 +21,11 @@
   },
   {
    "type": "assertion",
-   "description": "'eliminated' reads 'Eliminated after round 1: Dev'; row Bob in 'rounds-table' shows 6, 6, 11"
+   "description": "'eliminated' reads 'Eliminated after round 1: Dev'"
+  },
+  {
+   "type": "assertion",
+   "description": "In 'rounds-table', inside the 'table-row' with data-candidate='Bob', the cells data-testid 'cell-r1', 'cell-r2', 'cell-r3' read '6', '6', '11'"
   }
  ]
 }

@@ -9,7 +9,7 @@
   },
   {
    "type": "action",
-   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear (counting runs in a browser worker)"
+   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear"
   },
   {
    "type": "assertion",
@@ -17,7 +17,7 @@
   },
   {
    "type": "assertion",
-   "description": "The svg 'sankey' has aria-label 'Vote transfers from round 1 to round 2' and contains at least 3 'sankey-link' paths"
+   "description": "The svg with data-testid 'sankey' has aria-label 'Vote transfers from round 1 to round 2' and contains at least 3 path elements with data-testid 'sankey-link' (they also carry class 'sankey-link')"
   },
   {
    "type": "assertion",
