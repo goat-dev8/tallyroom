@@ -23,7 +23,8 @@ Rules
 | 2026-10-20 | ~00:55 | test/frontend-testids (PR #10) | fast-forward to 1cb707b + this ledger commit | Built: preview | — | 0 | 0 | Approved paid TestSprite V3 auto run (web + api). |
 | 2026-10-20 | ~01:12 | test/frontend-testids (PR #10) | this commit (window-level arrow keys, cell test ids, sankey-link class) | Built: preview | — | 0 | 0 | Fixes the 3 failures from TestSprite V3 run 6128d201. |
 | 2026-10-20 | ~01:15 | test/frontend-testids (PR #10) | 2f8c6ee via Vercel API (dpl_CS6TwXwdBhEEScS7uM1jNhAB3nk5) | Built: READY | — | 0 | 0 | Git webhook did not create a deployment for 2f8c6ee; deployed once via API. |
-| 2026-10-20 | ~01:25 | test/frontend-testids (PR #10) | this commit (ledger only) | Built: preview | — | 0 | 0 | Re-push so the GitHub status and TestSprite V3 check attach to the PR head. |
+| 2026-10-20 | ~01:25 | test/frontend-testids (PR #10) | this commit (ledger only) | Built: preview | — | 0 | 0 | Ledger-only, so the ignore step skipped it (CANCELED). |
+| 2026-10-20 | ~01:30 | test/frontend-testids (PR #10) | this commit (e2e for window arrow keys, BUGS.md) | Built: preview | — | 0 | 0 | Builds, so the Vercel status and TestSprite V3 check attach to the PR head. |
 
 ## Daily totals
 | Date (Cairo) | Deploys built | Builds skipped | Peak 24 h count | Credits used |
