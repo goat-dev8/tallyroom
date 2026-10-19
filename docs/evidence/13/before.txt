@@ -1,0 +1,3 @@
+BEFORE (b41aab8): POST https://tallyroom-git-fix-csv-single-choice-goats-projects-3f023cc9.vercel.app/api/tabulate  text/csv  '3,A\n2,B\n'
+{"error":{"code":"CSV_FORMAT_AMBIGUOUS","message":"Row 1, column 1: candidate name \"3\" is purely numeric. With no header, a leading count belongs in count,rank1,rank2,...","details":{"row":1,"column":1,"candidate":"3"}}}
+HTTP 422

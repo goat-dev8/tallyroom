@@ -19,6 +19,6 @@ def test():
     r = post_csv("4,A\n3,B>A\n2,C>B\n"); assert r.status_code == 200, r.text[:300]
     j = r.json(); assert j["rounds"][0]["tallies"] == {"A": 4, "B": 3, "C": 2} and j["winner"] == "A", j
     # a single-choice line with a zero count is still a clear 4xx error, not a numeric-candidate guess
-    r = post_csv("0,A\n2,B\n"); assert 400 <= r.status_code < 500 and r.json()["error"]["code"] != "CSV_FORMAT_AMBIGUOUS", r.text[:300]
+    r = post_csv("0,A\n2,B\n"); assert r.status_code == 400 and r.json()["error"]["code"] == "INVALID_COUNT", r.text[:300]
 
 test()
