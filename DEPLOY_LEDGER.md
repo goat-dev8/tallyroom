@@ -13,8 +13,10 @@ Rules
 | Date (Cairo, UTC+3) | Time | PR # | Commit | Built or skipped | Deploys in last 24 h | TestSprite tests run | Credits used | Note |
 |---|---|---|---|---|---|---|---|---|
 | 2026-10-19 | 22:22 | – (push to main) | f6405bf | Built: READY, production, dpl_4GgLHxvrbvXhkUipJ2tiN5caVpFj | 1 | 0 | 0 | First deploy. Project prj_yw32SAP9ZGvSOJ0bgeeUxdeTiwxc created and linked to goat-dev8/tallyroom. The earlier push of 567ba2b came before the project existed, so it made no deploy. |
+| 2026-10-20 | ~00:15 | probe PR (chore/testsprite-check-probe) | this commit (health no-store header) | Built: preview | 11 | 0 | 0 | Probe to confirm TestSprite PR trigger fires. |
 
 ## Daily totals
 | Date (Cairo) | Deploys built | Builds skipped | Peak 24 h count | Credits used |
 |---|---|---|---|---|
 | 2026-10-19 | 1 | 0 | 1 | 0 |
+| 2026-10-20 | 1 | 0 | 11 | 0 |
