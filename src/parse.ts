@@ -49,13 +49,13 @@ export function parseBallots(text: string, declared?: string[]): { ballots: Ball
 
 /** Well-formed ballot input that cannot be counted (empty file, bad count, unknown candidate). */
 export class BallotSemanticError extends Error {
-  constructor(message: string, public row?: number, public column?: number, public candidate?: string) {
+  constructor(message: string, public row?: number, public column?: number, public candidate?: string, public code?: string) {
     super(message);
     this.name = 'BallotSemanticError';
   }
 }
 
-const RANK_HEADER = /^(?:rank|choice|preference|pref)\s*\d+$|^\d+\s*(?:st|nd|rd|th)?(?:\s*(?:choice|rank|preference|pref))?$|^(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)(?:\s+(?:choice|rank|preference))?$/i;
+const RANK_HEADER = /^(?:rank|choice|preference|pref)\s*\d+$|^\d+\s*(?:(?:st|nd|rd|th)(?:\s*(?:choice|rank|preference|pref))?|\s+(?:choice|rank|preference|pref))$|^(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)(?:\s+(?:choice|rank|preference))?$/i;
 const COUNT_HEADER = /^(?:count|weight|ballots|votes|qty|quantity)$/i;
 const IGNORE_HEADER = /^(?:id|ballot|ballot[_\s-]?id|#|precinct|style)$/i;
 const SKIP_CELL = /^(?:_|undervote|skip|blank)$/i;
@@ -87,7 +87,29 @@ function collectCandidates(ballots: BallotGroup[], declared?: string[]): string[
   return seen;
 }
 
-/** Parse a CSV file whose columns are ranks (optional header, optional count column). */
+const COLUMN_HINT = 'count,rank1,rank2,...';
+const POSITIVE_INT = /^[1-9]\d*$/;
+const PURE_NUMBER = /^\d+$/;
+
+function arrowColumn(cells: string[]): number | undefined {
+  const i = cells.findIndex(c => c.includes('>'));
+  return i < 0 ? undefined : i + 1;
+}
+
+function ambiguousCsv(row: number, column: number | undefined, why: string) {
+  throw new BallotSemanticError(
+    `Row ${row}${column ? `, column ${column}` : ''}: ${why} Use ranking lines such as "5,A>B", or one candidate per column: ${COLUMN_HINT}`,
+    row,
+    column,
+    undefined,
+    'CSV_FORMAT_AMBIGUOUS',
+  );
+}
+
+/**
+ * Parse a CSV file whose columns are ranks (optional header, optional count column).
+ * A headerless file of `count,A>B` lines is the ranking format, not two candidate names.
+ */
 export function parseRankCsv(text: string, declared?: string[]): { ballots: BallotGroup[]; candidates: string[] } {
   const rows = parseCsvRows(text);
   const useful = rows.map((cells, index) => ({ cells, row: index + 1 })).filter(({ cells }) => {
@@ -100,6 +122,28 @@ export function parseRankCsv(text: string, declared?: string[]): { ballots: Ball
   const header = looksLikeRankHeader(useful[0].cells) ? useful[0].cells.map(c => c.trim()) : null;
   const data = header ? useful.slice(1) : useful;
   if (data.length === 0) throw new BallotSemanticError('No valid ballots to count');
+  if (!header) {
+    const ranking = data.every(({ cells }) => cells.length === 2 && POSITIVE_INT.test(cells[0].trim()));
+    if (ranking && data.some(({ cells }) => arrowColumn(cells) !== undefined)) return parseBallots(text, declared);
+  }
+  for (const { cells, row } of data) {
+    const column = arrowColumn(cells);
+    if (column !== undefined) ambiguousCsv(row, column, '">" joins ranks inside one cell, so this is not one candidate per column.');
+  }
+  if (!header) {
+    for (const { cells, row } of data) {
+      const name = cells[0]?.trim() ?? '';
+      if (PURE_NUMBER.test(name)) {
+        throw new BallotSemanticError(
+          `Row ${row}, column 1: candidate name "${name}" is purely numeric. With no header, a leading count belongs in ${COLUMN_HINT}`,
+          row,
+          1,
+          name,
+          'CSV_FORMAT_AMBIGUOUS',
+        );
+      }
+    }
+  }
   const countCol = header ? header.findIndex(c => COUNT_HEADER.test(c)) : -1;
   const rankCols = header
     ? header.map((c, i) => ({ c, i })).filter(({ c, i }) => i !== countCol && !IGNORE_HEADER.test(c)).map(({ i }) => i)

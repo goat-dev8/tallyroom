@@ -106,6 +106,50 @@ describe('POST /api/tabulate CSV and JSON ballots', () => {
     });
   });
 
+  it('reads headerless count,A>B as a ranking instead of two candidate names', () => {
+    const r = handleTabulate('POST', '5,A>B', { contentType: 'text/csv' }) as any;
+    expect(r.status).toBe(200);
+    expect(r.body.candidates).toEqual(['A', 'B']);
+    expect(r.body.totalBallots).toBe(5);
+    expect(r.body.rounds[0].tallies).toEqual({ A: 5, B: 0 });
+    expect(r.body.winner).toBe('A');
+    const several = handleTabulate('POST', '5,A>B\n3,B>A\n', { contentType: 'text/csv' }) as any;
+    expect(several.status).toBe(200);
+    expect(several.body.totalBallots).toBe(8);
+    expect(several.body.rounds[0].tallies).toEqual({ A: 5, B: 3 });
+    const viaJson = handleTabulate('POST', JSON.stringify({ csv: '5,A>B' })) as any;
+    expect(viaJson.status).toBe(200);
+    expect(viaJson.body.candidates).toEqual(['A', 'B']);
+    expect(viaJson.body.totalBallots).toBe(5);
+  });
+
+  it('rejects a ">" ranking mixed into rank columns, and a numeric headerless first column', () => {
+    const mixed = handleTabulate('POST', '5,A>B,C\n', { contentType: 'text/csv' });
+    expect(mixed.status).toBe(422);
+    expect(mixed.body).toEqual({
+      error: {
+        code: 'CSV_FORMAT_AMBIGUOUS',
+        message: 'Row 1, column 2: ">" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as "5,A>B", or one candidate per column: count,rank1,rank2,...',
+        details: { row: 1, column: 2 },
+      },
+    });
+    const headed = handleTabulate('POST', 'count,rank1\n5,A>B\n', { contentType: 'text/csv' });
+    expect(headed.status).toBe(422);
+    expect(headed.body).toMatchObject({ error: { code: 'CSV_FORMAT_AMBIGUOUS', details: { row: 2, column: 2 } } });
+    const numeric = handleTabulate('POST', '5,A,B\n', { contentType: 'text/csv' });
+    expect(numeric.status).toBe(422);
+    expect(numeric.body).toEqual({
+      error: {
+        code: 'CSV_FORMAT_AMBIGUOUS',
+        message: 'Row 1, column 1: candidate name "5" is purely numeric. With no header, a leading count belongs in count,rank1,rank2,...',
+        details: { row: 1, column: 1, candidate: '5' },
+      },
+    });
+    const named = handleTabulate('POST', 'rank1,rank2\n5,Alice\n', { contentType: 'text/csv' }) as any;
+    expect(named.status).toBe(200);
+    expect(named.body.candidates).toEqual(['5', 'Alice']);
+  });
+
   it('413 still applies to a CSV body over 4 MB', () => {
     expect(handleTabulate('POST', 'a,b\n' + 'x'.repeat(4 * 1024 * 1024), { contentType: 'text/csv' }).status).toBe(413);
   });
