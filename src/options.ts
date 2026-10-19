@@ -1,3 +1,4 @@
+import { PRESET_IDS, RULE_PRESETS } from './presets.js';
 import { DEFAULT_RULES } from './types.js';
 
 export const TIEBREAK_OPTIONS = ['previous-round', 'lot'] as const;
@@ -61,6 +62,15 @@ export function validateTabulateOptions(value: { seats?: unknown; quota?: unknow
 /** Public description of the tie-break and multi-seat options the counter accepts. */
 export function countingOptions() {
   return {
+    defaults: {
+      rules: { ...DEFAULT_RULES, duplicates: 'ignore' as const },
+      description: 'If rules is omitted, the count uses overvote "exhaust", skips "continue", duplicates "ignore", batch false, and tiebreak "previous-round". These defaults are not the certified rules for Maine 2018, Alaska 2022, or New York City 2021. Under the defaults, Maine 2018 CD2 finishes Golden 142,558 and Poliquin 139,113, not the certified 142,440 and 138,931. Pass rules as the preset id "maine-2018", "alaska-2022", or "nyc-2021" to use that election\'s certified rules.',
+    },
+    presets: {
+      field: 'rules',
+      ids: PRESET_IDS,
+      sets: RULE_PRESETS,
+    },
     tiebreak: {
       field: 'rules.tiebreak',
       default: DEFAULT_RULES.tiebreak,
