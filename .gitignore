@@ -1,3 +1,7 @@
 node_modules
 data/raw/
 .vercel
+.next
+next-env.d.ts
+public/data/
+*.tsbuildinfo
