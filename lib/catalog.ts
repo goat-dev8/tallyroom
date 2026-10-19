@@ -37,7 +37,8 @@ export const CERTIFIED: Record<string, { rounds: number; ballots: number; final:
   'alaska-2022-special': { rounds: 2, ballots: 192289, final: [['Peltola', 91266], ['Palin', 86026]], continuing: 177292 },
   'nyc-2021-dem-mayor': { rounds: 8, ballots: 947932, final: [['Adams', 404513], ['Garcia', 397316]], continuing: 801829 },
 };
-export const PALETTE = ['#F5B83D', '#7C8CFF', '#3DDC97', '#FF6B6B', '#4CC9F0', '#C77DFF', '#FF9F68', '#A3E635', '#F472B6', '#94A3B8', '#FACC15', '#2DD4BF', '#FB7185', '#818CF8'];
+// Candidate colours: 14 distinct hues chosen to stay clear of the brand accents (amber = majority/focus, green = verified, iris = transfers).
+export const PALETTE = ['#4CC9F0', '#C084FC', '#FF8A5B', '#2DD4BF', '#F472B6', '#A3E635', '#60A5FA', '#E879F9', '#94A3B8', '#D6C6A5', '#F87171', '#A5F3FC', '#FDBA74', '#9F7AEA'];
 export const colorFor = (candidates: string[], name: string) => PALETTE[Math.max(0, candidates.indexOf(name)) % PALETTE.length];
 export const fmt = (n: number) => n.toLocaleString('en-US');
 export const pct = (n: number, d: number) => (d ? (100 * n / d).toFixed(1) : '0.0') + '%';
