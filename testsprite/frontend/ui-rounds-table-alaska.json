@@ -9,11 +9,11 @@
   },
   {
    "type": "action",
-   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear (counting runs in a browser worker)"
+   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear"
   },
   {
    "type": "assertion",
-   "description": "Row 'Peltola, Mary S.' shows 75,799 then 91,266"
+   "description": "Row 'Peltola, Mary S.' in 'rounds-table' shows 75,799 then 91,266"
   },
   {
    "type": "assertion",
@@ -21,7 +21,7 @@
   },
   {
    "type": "assertion",
-   "description": "Row 'Begich, Nick' shows 53,810 then '\u2014', and 'table-inactive' shows 3,707 then 14,997"
+   "description": "Row 'Begich, Nick' shows 53,810 in R1 and its R2 cell contains a 'cell-out' marker (an em dash with title 'Eliminated'); 'table-inactive' shows 3,707 then 14,997"
   }
  ]
 }

@@ -54,7 +54,7 @@ export function Sankey({ result, round }: { result: IrvResult; round: number }) 
             aria-label={`${clean(l.source.label)} to ${clean(l.target.label)}: ${fmt(l.value)} ballots`}
             className="cursor-pointer outline-none transition-[stroke-opacity] duration-150" strokeOpacity={tip && tip.from === clean(l.source.label) && tip.to === clean(l.target.label) ? 0.7 : 0.32}
             initial={reduce ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1, delay: i * 0.03, ease: [0.22, 1, 0.36, 1] }}
-            onMouseEnter={e => show(l, e.currentTarget)} onFocus={e => show(l, e.currentTarget)} onBlur={() => setTip(null)} />))}</g>
+            onMouseEnter={e => show(l, e.currentTarget)} onClick={e => show(l, e.currentTarget)} onFocus={e => show(l, e.currentTarget)} onBlur={() => setTip(null)} />))}</g>
         {g.nodes.map((n: any) => {
           const left = n.x0 < W / 2;
           return <g key={n.id}><rect x={n.x0} y={n.y0} width={n.x1 - n.x0} height={Math.max(1, n.y1 - n.y0)} rx={2} fill={n.color} />

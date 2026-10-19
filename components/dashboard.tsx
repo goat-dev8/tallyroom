@@ -131,6 +131,7 @@ export function Dashboard() {
               <span className="hidden text-xs text-mute sm:inline">or drop it here</span>
               <button type="button" className="text-xs text-mute underline-offset-2 hover:text-fg hover:underline" data-testid="sample-irv" onClick={() => { setText(SAMPLE); setSeats(1); setFileName(''); }}>IRV sample</button>
               <button type="button" className="text-xs text-mute underline-offset-2 hover:text-fg hover:underline" data-testid="sample-stv" onClick={() => { setText(STV_SAMPLE); setSeats(2); setFileName(''); }}>STV sample</button>
+              <a href="/samples/ballots.csv" download className="text-xs text-mute underline-offset-2 hover:text-fg hover:underline" data-testid="sample-download">Sample CSV</a>
               <label className="ml-auto flex items-center gap-2 text-mute">Seats <input type="number" min={1} max={50} value={seats} data-testid="seats-input" onChange={e => setSeats(Math.min(50, Math.max(1, Number(e.target.value) || 1)))} className="w-16 rounded-md border border-line bg-ink px-2 py-1 text-fg" /></label>
               <Button variant="tally" onClick={runUpload} disabled={busy} data-testid="run-count">{busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Vote className="h-4 w-4" />} Count</Button>
             </div>
@@ -147,7 +148,7 @@ export function Dashboard() {
         {busy && !res && !err && src.kind === 'bundled' && <LoadingState progress={progress} />}
         {src.kind === 'upload' && !res && !stv && !busy && !err && (
           <div className="mt-6 grid place-items-center rounded-xl border border-dashed border-line px-6 py-14 text-center" data-testid="empty-state">
-            <Inbox className="h-6 w-6 text-mute" /><p className="mt-3 font-medium">No count yet</p><p className="mt-1 max-w-sm text-sm text-mute">Edit the sample above or open your own file, then press Count. Each line is a ballot count and a ranking, like <code className="font-mono text-fg">5,Alice&gt;Bob</code>.</p>
+            <Inbox className="h-6 w-6 text-mute" /><p className="mt-3 font-medium">No count yet</p><p className="mt-1 max-w-sm text-sm text-mute" data-testid="format-help">Edit the sample above or open your own file, then press Count. Each line is a ballot count and a ranking, like <code className="font-mono text-fg">5,Alice&gt;Bob</code>.</p>
           </div>
         )}
 
@@ -172,7 +173,7 @@ export function Dashboard() {
             <section className="card p-5" aria-label="Transfers"><h2 className="mb-1 font-medium" data-testid="sankey-title">{n > 1 ? `Transfers from round ${Math.min(round, n - 2) + 1} into round ${Math.min(round, n - 2) + 2}` : 'Transfers'}</h2><p className="mb-4 text-xs text-mute">Hover or focus a flow for the exact ballot count.</p><Sankey result={res} round={n > 1 ? Math.min(round, n - 2) : 0} /></section>
             <section className="card overflow-x-auto p-0" aria-label="All rounds">
               <table className="w-full text-sm tnum" data-testid="rounds-table"><thead className="text-left font-mono text-[11px] text-mute"><tr className="border-b border-line"><th className="p-3 font-normal">Candidate</th>{res.rounds.map(x => <th key={x.round} className={cn('p-3 text-right font-normal', x.round === round + 1 && 'text-tally')}>R{x.round}</th>)}</tr></thead>
-                <tbody>{res.candidates.map(c => <tr key={c} className="border-b border-line/60 last:border-0" data-testid="table-row" data-candidate={c}><td className="p-3 whitespace-nowrap"><span className="mr-2 inline-block h-2 w-2 rounded-[2px]" style={{ background: colorFor(res.candidates, c) }} />{c}</td>{res.rounds.map(x => <td key={x.round} className={cn('p-3 text-right', x.round === round + 1 && 'bg-white/[.02]')}>{x.tallies[c] !== undefined ? fmt(x.tallies[c]) : <span className="text-mute">—</span>}</td>)}</tr>)}
+                <tbody>{res.candidates.map(c => <tr key={c} className="border-b border-line/60 last:border-0" data-testid="table-row" data-candidate={c}><td className="p-3 whitespace-nowrap"><span className="mr-2 inline-block h-2 w-2 rounded-[2px]" style={{ background: colorFor(res.candidates, c) }} />{c}</td>{res.rounds.map(x => <td key={x.round} className={cn('p-3 text-right', x.round === round + 1 && 'bg-white/[.02]')}>{x.tallies[c] !== undefined ? fmt(x.tallies[c]) : <span className="text-mute" title="Eliminated" data-testid="cell-out">—</span>}</td>)}</tr>)}
                   <tr className="text-mute" data-testid="table-inactive"><td className="p-3">Inactive</td>{res.rounds.map(x => <td key={x.round} className="p-3 text-right">{fmt(Object.values(x.inactive).reduce((s, v) => s + v, 0))}</td>)}</tr></tbody></table>
             </section>
           </motion.div>
