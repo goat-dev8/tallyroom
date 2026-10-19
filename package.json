@@ -7,7 +7,8 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "parity:maine": "tsx scripts/parity.ts maine",
-    "parity": "tsx scripts/parity.ts"
+    "parity": "tsx scripts/parity.ts",
+    "build": "tsc --noEmit && vitest run"
   },
   "devDependencies": {
     "@types/node": "^26.6.5",
@@ -16,5 +17,8 @@
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vitest": "^4.1.12"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }
