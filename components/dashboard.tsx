@@ -90,14 +90,14 @@ export function Dashboard() {
           {CATALOG.map(c => {
             const on = src.kind === 'bundled' && src.slug === c.slug;
             return (
-              <button key={c.slug} data-testid={`election-${c.slug}`} aria-current={on ? 'page' : undefined} onClick={() => pick({ kind: 'bundled', slug: c.slug })}
+              <button key={c.slug} data-testid={`election-${c.slug}`} aria-pressed={on} data-active={on} onClick={() => pick({ kind: 'bundled', slug: c.slug })}
                 className={cn('flex min-w-0 items-center gap-2.5 rounded-lg border border-line px-2.5 py-2 text-left text-sm transition-colors hover:bg-white/5 md:border-transparent', on && 'border-tally/30 bg-white/[.07] text-fg')}>
                 <Database className={cn('h-3.5 w-3.5', on ? 'text-tally' : 'text-mute')} /><span className="truncate">{c.short} <span className="text-mute">{c.year}</span></span>
               </button>
             );
           })}
           <p className="mt-5 mb-2 hidden px-2 font-mono text-[10px] uppercase tracking-[.14em] text-mute md:block">Your data</p>
-          <button data-testid="source-upload" aria-current={src.kind === 'upload' ? 'page' : undefined} onClick={() => pick({ kind: 'upload' })}
+          <button data-testid="source-upload" aria-pressed={src.kind === 'upload'} data-active={src.kind === 'upload'} onClick={() => pick({ kind: 'upload' })}
             className={cn('flex min-w-0 items-center gap-2.5 rounded-lg border border-line px-2.5 py-2 text-left text-sm transition-colors hover:bg-white/5 md:border-transparent', src.kind === 'upload' && 'border-tally/30 bg-white/[.07]')}>
             <Upload className={cn('h-3.5 w-3.5', src.kind === 'upload' ? 'text-tally' : 'text-mute')} /> <span className="whitespace-nowrap">Upload ballots</span>
           </button>

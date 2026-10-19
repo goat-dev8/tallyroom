@@ -9,7 +9,7 @@
   },
   {
    "type": "action",
-   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear (counting runs in a browser worker)"
+   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear"
   },
   {
    "type": "action",
@@ -17,11 +17,15 @@
   },
   {
    "type": "action",
-   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear (counting runs in a browser worker)"
+   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear"
   },
   {
    "type": "assertion",
-   "description": "'dash-title' reads 'Alaska 2022, U.S. Representative special general' and 'election-alaska-2022-special' has aria-current='page'"
+   "description": "'dash-title' reads 'Alaska 2022, U.S. Representative special general'"
+  },
+  {
+   "type": "assertion",
+   "description": "The button 'election-alaska-2022-special' is highlighted as selected (aria-pressed='true') and 'election-maine-2018-cd2' is not (aria-pressed='false')"
   },
   {
    "type": "assertion",

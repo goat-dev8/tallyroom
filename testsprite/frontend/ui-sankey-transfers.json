@@ -1,0 +1,31 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:sankey-transfers",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=alaska-2022-special"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear"
+  },
+  {
+   "type": "assertion",
+   "description": "'sankey-title' reads 'Transfers from round 1 into round 2' and the 'sankey' chart is visible"
+  },
+  {
+   "type": "action",
+   "description": "Click 'transfer-toggle' ('Show transfers as a list')"
+  },
+  {
+   "type": "assertion",
+   "description": "'transfer-list' contains 'Begich, Nick \u2192 Palin, Sarah: 27,053 ballots (50.3% of source)'"
+  },
+  {
+   "type": "assertion",
+   "description": "'transfer-list' contains 'Begich, Nick \u2192 Peltola, Mary S.: 15,467 ballots (28.7% of source)' and 'Begich, Nick \u2192 Inactive: 11,290 ballots (21.0% of source)'"
+  }
+ ]
+}
