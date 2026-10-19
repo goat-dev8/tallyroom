@@ -1,0 +1,31 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:hero-rail",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /, scroll 'hero-demo' into view, wait until 'demo-play' is enabled"
+  },
+  {
+   "type": "action",
+   "description": "Click the round tab data-testid 'demo-rail-r2'"
+  },
+  {
+   "type": "assertion",
+   "description": "'demo-rail-r2' has aria-selected='true' and 'demo-round' reads 'Round 2 / 2'"
+  },
+  {
+   "type": "assertion",
+   "description": "'hero-demo' has data-state='paused' and 'demo-outcome' reads 'Golden, Jared F.'"
+  },
+  {
+   "type": "action",
+   "description": "Click 'demo-rail-r1'"
+  },
+  {
+   "type": "assertion",
+   "description": "'demo-round' reads 'Round 1 / 2'"
+  }
+ ]
+}

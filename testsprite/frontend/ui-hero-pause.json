@@ -1,0 +1,27 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:hero-pause",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /, scroll the element data-testid 'hero-demo' into view, wait until 'demo-play' is enabled and its aria-label is 'Pause'"
+  },
+  {
+   "type": "action",
+   "description": "Click data-testid 'demo-play' to pause"
+  },
+  {
+   "type": "assertion",
+   "description": "The 'demo-play' button now has aria-label 'Play' and 'hero-demo' has attribute data-state='paused'"
+  },
+  {
+   "type": "action",
+   "description": "Note the text of data-testid 'demo-round', then wait 8 seconds"
+  },
+  {
+   "type": "assertion",
+   "description": "data-testid 'demo-round' text is unchanged after waiting"
+  }
+ ]
+}

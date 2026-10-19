@@ -1,0 +1,39 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:hero-keyboard",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /, scroll 'hero-demo' into view, wait until 'demo-play' is enabled"
+  },
+  {
+   "type": "action",
+   "description": "Click 'demo-play' to pause, then click 'demo-restart' and click 'demo-play' again so it is paused at round 1"
+  },
+  {
+   "type": "action",
+   "description": "Click on the 'hero-demo' frame background (not a button) to focus it and press the ArrowRight key"
+  },
+  {
+   "type": "assertion",
+   "description": "'demo-round' reads 'Round 2 / 2'"
+  },
+  {
+   "type": "action",
+   "description": "Press ArrowLeft"
+  },
+  {
+   "type": "assertion",
+   "description": "'demo-round' reads 'Round 1 / 2'"
+  },
+  {
+   "type": "action",
+   "description": "Press the R key"
+  },
+  {
+   "type": "assertion",
+   "description": "'hero-demo' has data-state='playing'"
+  }
+ ]
+}

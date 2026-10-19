@@ -1,0 +1,27 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:rounds-table-maine",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=maine-2018-cd2"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear (counting runs in a browser worker)"
+  },
+  {
+   "type": "assertion",
+   "description": "In 'rounds-table', the row data-candidate='DEM Golden, Jared F.' shows R1 132,013 and R2 142,440"
+  },
+  {
+   "type": "assertion",
+   "description": "The row data-candidate='REP Poliquin, Bruce' shows R1 134,184 and R2 138,931"
+  },
+  {
+   "type": "assertion",
+   "description": "The row 'table-inactive' shows R1 6,453 and R2 14,706; the Bond row shows 16,552 then '\u2014'"
+  }
+ ]
+}

@@ -1,0 +1,31 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:upload-stv",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=upload"
+  },
+  {
+   "type": "action",
+   "description": "Click 'sample-stv' and confirm 'seats-input' value becomes 2"
+  },
+  {
+   "type": "action",
+   "description": "Click 'run-count'"
+  },
+  {
+   "type": "assertion",
+   "description": "'stv-method' reads 'STV (Gregory)', 'stv-seats' reads '2', 'stv-quota' reads '11.0000', 'stv-rounds' reads '4'"
+  },
+  {
+   "type": "assertion",
+   "description": "'stv-winners' lists '1 Alice' then '2 Bob' in that order"
+  },
+  {
+   "type": "assertion",
+   "description": "The 'stv-round' with data-round='1' shows 'Elected Alice' and data-round='4' shows 'Elected Bob'"
+  }
+ ]
+}

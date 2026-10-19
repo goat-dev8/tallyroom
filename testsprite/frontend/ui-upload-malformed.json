@@ -1,0 +1,27 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:upload-malformed",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=upload"
+  },
+  {
+   "type": "action",
+   "description": "Replace the 'ballots-input' text with '5,Alice>Bob\\nfoo,Bar' and click 'run-count'"
+  },
+  {
+   "type": "assertion",
+   "description": "'error-state' is visible with heading 'These ballots could not be counted'"
+  },
+  {
+   "type": "assertion",
+   "description": "'error-message' reads 'Line 2: count must be a positive integer'"
+  },
+  {
+   "type": "assertion",
+   "description": "No 'result' element is shown and the 'ballots-input' textarea is still editable"
+  }
+ ]
+}

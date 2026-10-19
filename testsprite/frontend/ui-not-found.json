@@ -1,0 +1,23 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:not-found",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /this-page-does-not-exist"
+  },
+  {
+   "type": "assertion",
+   "description": "'not-found-title' reads 'This page was not on the ballot.' and text '404 \u00b7 no such page' is visible (case-insensitive)"
+  },
+  {
+   "type": "action",
+   "description": "Click 'not-found-dashboard'"
+  },
+  {
+   "type": "assertion",
+   "description": "The URL path is /app and 'dash-title' reads 'Maine 2018, U.S. House District 2' within 60 seconds"
+  }
+ ]
+}

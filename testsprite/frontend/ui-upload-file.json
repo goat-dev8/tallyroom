@@ -1,0 +1,27 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:upload-file",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=upload"
+  },
+  {
+   "type": "action",
+   "description": "Upload a file named ballots.csv to the input data-testid 'file-input' with content: '# count,ranking\\n7,Ann>Ben>Cy\\n6,Ben>Ann\\n4,Cy>Ben\\n'"
+  },
+  {
+   "type": "assertion",
+   "description": "The file label shows 'ballots.csv' and the textarea contains '7,Ann>Ben>Cy'"
+  },
+  {
+   "type": "action",
+   "description": "Click 'run-count'"
+  },
+  {
+   "type": "assertion",
+   "description": "'kpi-winner' reads 'Ben', 'kpi-rounds' reads '2', 'kpi-ballots' reads '17', and 'eliminated' reads 'Eliminated after round 1: Cy'"
+  }
+ ]
+}

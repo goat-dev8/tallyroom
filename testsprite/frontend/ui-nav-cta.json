@@ -1,0 +1,27 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:nav-cta",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /"
+  },
+  {
+   "type": "action",
+   "description": "Click data-testid 'cta-count'"
+  },
+  {
+   "type": "assertion",
+   "description": "The URL path is /app"
+  },
+  {
+   "type": "assertion",
+   "description": "Wait up to 60 seconds for the element with data-testid 'dash-title' to appear (counting runs in a browser worker) and it reads 'Maine 2018, U.S. House District 2'"
+  },
+  {
+   "type": "assertion",
+   "description": "Election buttons 'election-maine-2018-cd2', 'election-alaska-2022-special', 'election-nyc-2021-dem-mayor' and 'source-upload' are visible"
+  }
+ ]
+}

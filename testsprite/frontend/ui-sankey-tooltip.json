@@ -1,0 +1,27 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:sankey-tooltip",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=alaska-2022-special"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear (counting runs in a browser worker)"
+  },
+  {
+   "type": "action",
+   "description": "Hover the first element with data-testid 'sankey-link' and read its aria-label, which has the form 'X to Y: N ballots'"
+  },
+  {
+   "type": "assertion",
+   "description": "A 'sankey-tooltip' appears whose text contains the same X, '\u2192', Y and 'N ballots' as that aria-label"
+  },
+  {
+   "type": "assertion",
+   "description": "The tooltip also shows a percentage followed by 'of source'"
+  }
+ ]
+}

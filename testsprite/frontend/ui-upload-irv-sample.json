@@ -1,0 +1,27 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:upload-irv-sample",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=upload"
+  },
+  {
+   "type": "assertion",
+   "description": "'dash-title' reads 'Count your own ballots' and 'empty-state' shows 'No count yet'"
+  },
+  {
+   "type": "action",
+   "description": "Click 'run-count' (the textarea is prefilled with the IRV sample)"
+  },
+  {
+   "type": "assertion",
+   "description": "'kpi-winner' reads 'Bob', 'kpi-rounds' reads '3', 'kpi-ballots' reads '21'"
+  },
+  {
+   "type": "assertion",
+   "description": "'eliminated' reads 'Eliminated after round 1: Dev'; row Bob in 'rounds-table' shows 6, 6, 11"
+  }
+ ]
+}

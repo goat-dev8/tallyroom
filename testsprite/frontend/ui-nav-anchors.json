@@ -1,0 +1,27 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:nav-anchors",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /"
+  },
+  {
+   "type": "action",
+   "description": "Click nav link data-testid 'nav-rules'"
+  },
+  {
+   "type": "assertion",
+   "description": "The URL ends with #rules and the table data-testid 'rulebook' is visible with column headers 'Maine CD2 2018', 'Alaska special 2022', 'NYC mayor 2021'"
+  },
+  {
+   "type": "action",
+   "description": "Click nav link data-testid 'nav-parity'"
+  },
+  {
+   "type": "assertion",
+   "description": "The heading 'Checked against the official record, not against itself.' is visible"
+  }
+ ]
+}

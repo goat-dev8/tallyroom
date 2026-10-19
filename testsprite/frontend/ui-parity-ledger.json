@@ -1,0 +1,23 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:parity-ledger",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to / and scroll to the section with id 'parity'"
+  },
+  {
+   "type": "assertion",
+   "description": "Card 'parity-maine-2018-cd2' shows 'Golden 142,440', 'Poliquin 138,931', Rounds '2' and Ballots '296,077'"
+  },
+  {
+   "type": "assertion",
+   "description": "Card 'parity-alaska-2022-special' shows 'Peltola 91,266', 'Palin 86,026', Rounds '2' and Ballots '192,289'"
+  },
+  {
+   "type": "assertion",
+   "description": "Card 'parity-nyc-2021-dem-mayor' shows 'Adams 404,513', 'Garcia 397,316', Rounds '8' and Ballots '947,932'"
+  }
+ ]
+}

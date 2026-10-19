@@ -1,0 +1,27 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:landing-hero",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /"
+  },
+  {
+   "type": "assertion",
+   "description": "The main heading reads 'The count, round by round. To the last ballot.'"
+  },
+  {
+   "type": "assertion",
+   "description": "A badge reads '3 / 3 exact'"
+  },
+  {
+   "type": "assertion",
+   "description": "Buttons data-testid 'cta-count' ('Count an election') and 'cta-how' ('See how counting works') are visible"
+  },
+  {
+   "type": "assertion",
+   "description": "The nav shows links Parity, How it counts, Rules, API and a button 'Open dashboard' (data-testid 'nav-dashboard')"
+  }
+ ]
+}

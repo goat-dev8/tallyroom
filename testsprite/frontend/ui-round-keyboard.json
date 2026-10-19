@@ -1,0 +1,31 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:round-keyboard",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=maine-2018-cd2"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear (counting runs in a browser worker)"
+  },
+  {
+   "type": "action",
+   "description": "Click on the 'round-title' heading to focus the page, then press ArrowRight"
+  },
+  {
+   "type": "assertion",
+   "description": "'round-title' reads 'Round 2' and the URL contains round=2"
+  },
+  {
+   "type": "action",
+   "description": "Press ArrowLeft"
+  },
+  {
+   "type": "assertion",
+   "description": "'round-title' reads 'Round 1'"
+  }
+ ]
+}

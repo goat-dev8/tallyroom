@@ -1,0 +1,23 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:unknown-election",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=does-not-exist"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear (counting runs in a browser worker)"
+  },
+  {
+   "type": "assertion",
+   "description": "'dash-note' reads 'No election called \u201cdoes-not-exist\u201d. Showing Maine CD2 2018.'"
+  },
+  {
+   "type": "assertion",
+   "description": "'dash-title' reads 'Maine 2018, U.S. House District 2' and 'kpi-winner' reads 'Golden, Jared F.'"
+  }
+ ]
+}

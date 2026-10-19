@@ -1,0 +1,27 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:upload-empty-file",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=upload"
+  },
+  {
+   "type": "action",
+   "description": "Upload an empty (0 byte) file named empty.csv to 'file-input'"
+  },
+  {
+   "type": "assertion",
+   "description": "'error-message' reads '\u201cempty.csv\u201d is empty.'"
+  },
+  {
+   "type": "action",
+   "description": "Upload a file named notes.pdf with content 'x' and MIME type application/pdf to 'file-input'"
+  },
+  {
+   "type": "assertion",
+   "description": "'error-message' reads '\u201cnotes.pdf\u201d is not a text ballot file. Use .csv or .txt with count,ranking lines.'"
+  }
+ ]
+}
