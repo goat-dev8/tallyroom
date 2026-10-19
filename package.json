@@ -8,7 +8,8 @@
     "typecheck": "tsc --noEmit",
     "parity:maine": "tsx scripts/parity.ts maine",
     "parity": "tsx scripts/parity.ts",
-    "build": "tsc --noEmit && vitest run && node scripts/copy-fixtures.mjs && next build --webpack",
+    "precompute": "tsx scripts/precompute-rounds.ts",
+    "build": "tsx scripts/precompute-rounds.ts && tsc --noEmit && vitest run && node scripts/copy-fixtures.mjs && next build --webpack",
     "dev": "node scripts/copy-fixtures.mjs && next dev --webpack",
     "start": "next start"
   },
