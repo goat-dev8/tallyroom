@@ -106,6 +106,18 @@ describe('POST /api/tabulate CSV and JSON ballots', () => {
     });
   });
 
+  // BUG-001 (BUGS.md): marked it.fails until the fix lands, so the build and preview still deploy for the red TestSprite run.
+  it.fails('BUG-001: headerless single-choice ballots ("3,A") count as ranking lines', () => {
+    const r = handleTabulate('POST', '3,A\n2,B\n', { contentType: 'text/csv' }) as any;
+    expect(r.status).toBe(200);
+    expect(r.body.candidates).toEqual(['A', 'B']);
+    expect(r.body.rounds[0].tallies).toEqual({ A: 3, B: 2 });
+    expect(r.body.winner).toBe('A');
+    const mixed = handleTabulate('POST', '4,A\n3,B>A\n2,C>B\n', { contentType: 'text/csv' }) as any;
+    expect(mixed.status).toBe(200);
+    expect(mixed.body.rounds[0].tallies).toEqual({ A: 4, B: 3, C: 2 });
+  });
+
   it('reads headerless count,A>B as a ranking instead of two candidate names', () => {
     const r = handleTabulate('POST', '5,A>B', { contentType: 'text/csv' }) as any;
     expect(r.status).toBe(200);
