@@ -1,0 +1,2 @@
+3d9ea12a0fa12064028057e02ad855ad63d349ccfb3b031afcdeb2eebfd1beab  data/raw/alaska-2022-special/cvr.zip
+7bf3289ab8493819b552a13238083ae43e7e7c518811c260c1579d0cc886ecb7  data/raw/alaska-2022-special/RcvDetailedReport.pdf

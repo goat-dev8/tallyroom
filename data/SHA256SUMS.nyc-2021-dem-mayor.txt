@@ -1,0 +1,2 @@
+f4becbe827da4c1002552919840fbc50040407a257817a64bf39fed652087472  data/raw/nyc-2021-dem-mayor/PE2021_CVR_Final.zip
+c9220813eb8f6a4790f2bef386c9fabe695ff252204714631fe7e9e66737eb7e  data/raw/nyc-2021-dem-mayor/recap.html

@@ -6,11 +6,13 @@
   "scripts": {
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
-    "parity:maine": "tsx scripts/parity-maine.ts"
+    "parity:maine": "tsx scripts/parity.ts maine",
+    "parity": "tsx scripts/parity.ts"
   },
   "devDependencies": {
     "@types/node": "^26.6.5",
     "fast-check": "^4.10.2",
+    "stream-json": "^1.9.1",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vitest": "^4.1.12"

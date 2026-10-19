@@ -7,6 +7,8 @@ export interface Rules {
   overvote: 'exhaust' | 'skip';
   /** continue: any number of blank ranks is skipped (NYC). two-exhaust: two consecutive blanks exhaust (Maine). */
   skips: 'continue' | 'two-exhaust';
+  /** ignore: a repeated candidate is passed over (resets the skip run). skip: a repeated candidate counts as a skipped rank (Dominion). */
+  duplicates?: 'ignore' | 'skip';
   /** Eliminate every candidate who cannot mathematically win in one round (Maine 21-A §723). */
   batch: boolean;
   /** previous-round: break elimination ties by looking back at earlier rounds, then lot order. lot: lot order only. */
@@ -16,7 +18,10 @@ export interface Rules {
 }
 export const DEFAULT_RULES: Rules = { overvote: 'exhaust', skips: 'continue', batch: false, tiebreak: 'previous-round' };
 
-export type InactiveReason = 'blank' | 'overvote' | 'skips' | 'exhausted';
+/** blank: no candidate marked at any rank. overvote: reached an overvoted rank (exhaust rule).
+ *  skips: hit two consecutive skipped ranks with a later mark still present (two-exhaust rule).
+ *  undervote: ran out of candidates with at least one blank rank. exhausted: ran out with every rank marked. */
+export type InactiveReason = 'blank' | 'overvote' | 'skips' | 'undervote' | 'exhausted';
 export interface Round {
   round: number;
   tallies: Record<string, number>;        // continuing candidates only

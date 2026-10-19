@@ -4,27 +4,31 @@ type Pick = { kind: 'candidate'; name: string } | { kind: 'inactive'; reason: In
 
 /** Find the ballot's current choice among continuing candidates under the given rules. Pure and deterministic. */
 export function currentChoice(marks: BallotGroup['marks'], continuing: Set<string>, rules: Rules): Pick {
-  let consecutiveSkips = 0; let sawAnyMark = false; const seen = new Set<string>();
-  for (const m of marks) {
-    if (m.kind === 'skip') {
-      consecutiveSkips++;
-      if (rules.skips === 'two-exhaust' && consecutiveSkips >= 2) return { kind: 'inactive', reason: hasLaterMark(marks, m) ? 'skips' : (sawAnyMark ? 'exhausted' : 'blank') };
+  const hasCandidate = marks.some(m => m.kind !== 'skip');
+  if (!hasCandidate) return { kind: 'inactive', reason: 'blank' };
+  let run = 0; const seen = new Set<string>();
+  const laterMark = (i: number) => marks.slice(i + 1).some(m => m.kind !== 'skip');
+  for (let i = 0; i < marks.length; i++) {
+    const m = marks[i];
+    let skipped = false;
+    if (m.kind === 'skip') skipped = true;
+    else if (m.kind === 'overvote') {
+      if (rules.overvote === 'exhaust') return { kind: 'inactive', reason: 'overvote' };
+      run = 0; continue; // overvoted rank passed over; does not count toward the two-skip rule
+    } else if (seen.has(m.name)) {
+      if (rules.duplicates === 'skip') skipped = true; else continue; // repeated candidate
+    } else {
+      seen.add(m.name); run = 0;
+      if (continuing.has(m.name)) return { kind: 'candidate', name: m.name };
       continue;
     }
-    if (m.kind === 'overvote') {
-      sawAnyMark = true;
-      if (rules.overvote === 'exhaust') return { kind: 'inactive', reason: 'overvote' };
-      consecutiveSkips = 0; continue; // overvote treated as a skipped rank but does not count toward the two-skip rule
+    if (skipped) {
+      run++;
+      if (rules.skips === 'two-exhaust' && run >= 2) return { kind: 'inactive', reason: laterMark(i) ? 'skips' : 'undervote' };
     }
-    sawAnyMark = true; consecutiveSkips = 0;
-    if (seen.has(m.name)) continue; // duplicate ranking of the same candidate is ignored
-    seen.add(m.name);
-    if (continuing.has(m.name)) return { kind: 'candidate', name: m.name };
   }
-  return { kind: 'inactive', reason: sawAnyMark ? 'exhausted' : 'blank' };
-}
-function hasLaterMark(marks: BallotGroup['marks'], at: BallotGroup['marks'][number]) {
-  const i = marks.indexOf(at); return marks.slice(i + 1).some(m => m.kind !== 'skip');
+  // Maine SoS reporting: 'exhausted choices' only when every rank was marked; any blank rank makes it an undervote.
+  return { kind: 'inactive', reason: marks.some(m => m.kind === 'skip') ? 'undervote' : 'exhausted' };
 }
 
 export function tabulateIrv(ballots: BallotGroup[], candidates: string[], partial: Partial<Rules> = {}): IrvResult {
@@ -37,7 +41,7 @@ export function tabulateIrv(ballots: BallotGroup[], candidates: string[], partia
   if (candidates.length === 0) throw new Error('No candidates');
   for (let r = 1; ; r++) {
     const tallies: Record<string, number> = {}; for (const c of candidates) if (continuing.has(c)) tallies[c] = 0;
-    const inactive: Record<InactiveReason, number> = { blank: 0, overvote: 0, skips: 0, exhausted: 0 };
+    const inactive: Record<InactiveReason, number> = { blank: 0, overvote: 0, skips: 0, undervote: 0, exhausted: 0 };
     for (const b of ballots) {
       const p = currentChoice(b.marks, continuing, rules);
       if (p.kind === 'candidate') tallies[p.name] += b.count; else inactive[p.reason] += b.count;

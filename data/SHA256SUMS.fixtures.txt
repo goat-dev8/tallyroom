@@ -1,0 +1,3 @@
+7682e04f3593a50a18dd7f1cebfc767e788371b1807e35fd2ce8b7dd8994811a  data/fixtures/alaska-2022-special.patterns.tsv
+449c8febf809225cbecda12216da825d4c7d7ca91176f02eccd7b9492732972f  data/fixtures/maine-2018-cd2.patterns.tsv
+0c8400a150c5d6f78612ef1ed9e1107d9943281730b772cca71b0e8abde58c02  data/fixtures/nyc-2021-dem-mayor.patterns.tsv
