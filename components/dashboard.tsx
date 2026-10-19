@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { AlertTriangle, BadgeCheck, ChevronLeft, ChevronRight, Database, Download, FileUp, Inbox, Link2, Loader2, Upload, Vote } from 'lucide-react';
+import { AlertTriangle, BadgeCheck, ChevronLeft, ChevronRight, Database, Download, FileUp, Inbox, Link2, Loader2, Upload, Vote, X } from 'lucide-react';
 import type { IrvResult } from '../src/types';
 import { CATALOG, CERTIFIED, colorFor, fmt, pct, type CatalogEntry } from '../lib/catalog';
 import { countBundled, unsubscribe, type Progress } from '../lib/engine';
@@ -10,6 +10,8 @@ import { Logo } from './logo';
 import { RoundBars, shortName } from './round-bars';
 import { RoundRail } from './round-rail';
 import { Sankey } from './sankey';
+import { SpotlightCard } from './spotlight-card';
+import { CountUp } from './count-up';
 import { Badge, Button, cn } from './ui';
 type Source = { kind: 'bundled'; slug: string } | { kind: 'upload' };
 type Stv = { method: 'stv'; quota: string; winners: string[]; rounds: { round: number; tallies: Record<string, string>; exhausted: string; elected: string[]; eliminated: string[] }[] };
@@ -164,8 +166,8 @@ export function Dashboard() {
         {res && r && (
           <motion.div initial={reduce ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }} className="mt-6 space-y-5" data-testid="result">
             <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-              <Kpi k="Ballots" v={fmt(res.totalBallots)} testid="kpi-ballots" /><Kpi k="Rounds" v={String(n)} testid="kpi-rounds" />
-              <Kpi k="Winner" v={shortName(res.winner)} accent testid="kpi-winner" /><Kpi k="Final share of continuing" v={pct(res.rounds.at(-1)!.tallies[res.winner], res.rounds.at(-1)!.continuing)} testid="kpi-share" />
+              <Kpi i={0} k="Ballots" v={<CountUp value={res.totalBallots} />} testid="kpi-ballots" /><Kpi i={1} k="Rounds" v={String(n)} hint={`viewing R${round + 1}`} testid="kpi-rounds" />
+              <Kpi i={2} k="Winner" v={shortName(res.winner)} accent testid="kpi-winner" /><Kpi i={3} k="Final share of continuing" v={pct(res.rounds.at(-1)!.tallies[res.winner], res.rounds.at(-1)!.continuing)} testid="kpi-share" />
             </div>
             <section className="card p-5" aria-label="Round results">
               <div className="mb-4 flex items-center gap-2">
@@ -177,7 +179,7 @@ export function Dashboard() {
               </div>
               <div className="mb-8"><RoundRail rounds={n} round={round} onPick={setRound} testid="dash-rail" /></div>
               <RoundBars result={res} round={round} />
-              {r.eliminated.length > 0 && <p className="mt-4 text-sm text-mute" data-testid="eliminated">Eliminated after round {round + 1}: <span className="text-fg">{r.eliminated.map(shortName).join(', ')}</span>{r.tieNote && ` (tie broken by ${r.tieNote})`}</p>}
+              {r.eliminated.length > 0 && <motion.p key={`el-${round}`} initial={reduce ? false : { opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.42, delay: 0.5, ease: [0.22, 1, 0.36, 1] }} className="mt-4 flex flex-wrap items-center gap-2 rounded-lg border border-line bg-white/[.02] px-3 py-2 text-sm text-mute" data-testid="eliminated"><X className="h-3.5 w-3.5 text-mute" />Eliminated after round {round + 1}: <span className="text-fg">{r.eliminated.map(shortName).join(', ')}</span>{r.tieNote && ` (tie broken by ${r.tieNote})`}{round < n - 1 && <span className="ml-auto font-mono text-[11px] text-iris">their ballots transfer ↓</span>}</motion.p>}
             </section>
             <section className="card p-5" aria-label="Transfers"><h2 className="mb-1 font-medium" data-testid="sankey-title">{n > 1 ? `Transfers from round ${Math.min(round, n - 2) + 1} into round ${Math.min(round, n - 2) + 2}` : 'Transfers'}</h2><p className="mb-4 text-xs text-mute">Hover or focus a flow for the exact ballot count.</p><Sankey result={res} round={n > 1 ? Math.min(round, n - 2) : 0} /></section>
             <section className="card overflow-x-auto p-0" aria-label="All rounds">
@@ -208,8 +210,8 @@ function LoadingState({ progress }: { progress: Progress | null }) {
       <div className="card p-4">
         <div className="flex items-center gap-2 text-sm"><Loader2 className="h-4 w-4 animate-spin text-tally" /><span data-testid="progress-phase">{p ? PHASE[p.phase] : 'Preparing'}</span>
           <span className="ml-auto font-mono text-xs text-mute tnum">{p?.phase === 'download' ? `${(p.loaded / 1048576).toFixed(1)} / ${(p.total / 1048576).toFixed(1)} MB` : ''}</span></div>
-        <div className="mt-3 h-1 overflow-hidden rounded-full bg-white/[.06]" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(frac * 100)} data-testid="progress-bar">
-          <div className="h-full origin-left rounded-full bg-tally transition-transform duration-300" style={{ transform: `scaleX(${frac})` }} />
+        <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/[.06]" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(frac * 100)} data-testid="progress-bar">
+          <div className="relative h-full origin-left rounded-full bg-[linear-gradient(90deg,#f5b83d55,var(--color-tally))] shadow-[0_0_12px_rgba(245,184,61,.6)] transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)]" style={{ transform: `scaleX(${frac})` }}><span className="skeleton absolute inset-0 rounded-full opacity-60" /></div>
         </div>
         <p className="mt-2 text-xs text-mute">Counting runs in a background worker, so the page stays responsive.</p>
       </div>
@@ -218,6 +220,15 @@ function LoadingState({ progress }: { progress: Progress | null }) {
     </div>
   );
 }
-function Kpi({ k, v, accent, testid }: { k: string; v: string; accent?: boolean; testid?: string }) {
-  return <div className="card p-4"><div className="font-mono text-[10px] uppercase tracking-[.12em] text-mute">{k}</div><div className={cn('mt-1.5 truncate text-lg font-medium tnum', accent && 'text-win')} data-testid={testid}>{v}</div></div>;
+function Kpi({ k, v, accent, testid, i = 0, hint }: { k: string; v: React.ReactNode; accent?: boolean; testid?: string; i?: number; hint?: string }) {
+  const reduce = useReducedMotion();
+  return (
+    <motion.div initial={reduce ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.42, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}>
+      <SpotlightCard className={cn('h-full p-4', accent && 'border-win/25')} color={accent ? 'rgba(61,220,151,.14)' : undefined}>
+        {accent && <span aria-hidden className="absolute inset-x-4 -top-px h-px bg-gradient-to-r from-transparent via-win/70 to-transparent" />}
+        <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[.12em] text-mute"><span>{k}</span>{hint && <span className="hidden normal-case sm:inline tracking-normal text-mute/70">{hint}</span>}</div>
+        <div className={cn('mt-2 truncate text-xl font-semibold tracking-tight tnum', accent && 'text-win')} data-testid={testid}>{v}</div>
+      </SpotlightCard>
+    </motion.div>
+  );
 }
