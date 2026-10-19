@@ -21,6 +21,7 @@ Rules
 | 2026-10-20 | ~00:35 | test/frontend-testids (PR #10) | this commit (tap-to-show Sankey tooltip, sample CSV, fixes from TestSprite run 1) | Built: preview | — | 0 | 0 | Triggered the TestSprite V3 GitHub App on PR #10 (34 UI + 18 API tests). |
 | 2026-10-20 | ~00:45 | test/frontend-testids-r3 (no PR, avoids a paid auto re-run) | this commit (transfer list, aria-pressed, inline sample CSV) | Built: preview | — | 0 | 0 | Verified with a 3-test filtered run; PR #10 fast-forwards to this commit after approval. |
 | 2026-10-20 | ~00:55 | test/frontend-testids (PR #10) | fast-forward to 1cb707b + this ledger commit | Built: preview | — | 0 | 0 | Approved paid TestSprite V3 auto run (web + api). |
+| 2026-10-20 | ~01:05 | test/stv-props | this commit (exact STV fractions in output + STV property tests) | Built: preview | ~17 | 34 (V3 app) | ~17 | One push. |
 
 ## Daily totals
 | Date (Cairo) | Deploys built | Builds skipped | Peak 24 h count | Credits used |
