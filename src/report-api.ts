@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
-import { ENGINE_VERSION, parseTabulateBody, ParsedTabulate, ApiResult } from './api.js';
+import { ENGINE_VERSION, parseTabulateBody, ParsedTabulate, ApiResult, errorResult } from './api.js';
+import { fail, MAX_BODY_BYTES, tooLarge } from './errors.js';
 import { findElection } from './elections/registry.js';
 import { tabulateIrv } from './irv.js';
 import { canonicalJson } from './report.js';
@@ -38,7 +39,7 @@ function seal(body: Omit<ShareableReport, 'contentHash'>): ShareableReport {
 
 function bundledReport(id: string): ApiResult {
   const election = findElection(id);
-  if (!election) return { status: 404, body: { error: `Unknown election "${id}"` } };
+  if (!election) return fail(404, 'UNKNOWN_ELECTION', `Unknown election "${id}"`, { id });
   const served = handleElectionRounds('GET', election.id);
   const payload = served.body as RoundsPayload;
   const rules: Rules = { ...DEFAULT_RULES, ...election.rules };
@@ -114,36 +115,33 @@ export interface ReportInput { election?: string | null; rawBody?: string; conte
 
 /** GET /api/report?election=… and POST /api/report. The content hash covers every field except itself. */
 export function handleReport(method: string, input: ReportInput = {}): ApiResult {
-  if (method !== 'GET' && method !== 'POST') return { status: 405, headers: { Allow: 'GET, POST' }, body: { error: 'Method not allowed' } };
+  if (method !== 'GET' && method !== 'POST') return fail(405, 'METHOD_NOT_ALLOWED', 'Method not allowed', null, { Allow: 'GET, POST' });
   if (method === 'GET') {
-    if (!input.election) return { status: 400, body: { error: 'Query parameter "election" is required' } };
+    if (!input.election) return fail(400, 'MISSING_ELECTION', 'Query parameter "election" is required', { field: 'election' });
     return bundledReport(input.election);
   }
   const raw = input.rawBody ?? '';
   const contentType = input.contentType ?? '';
-  if (raw.length > 10 * 1024 * 1024) return { status: 413, body: { error: 'Ballot file too large (max 10 MB)' } };
+  if (raw.length > MAX_BODY_BYTES) return tooLarge();
   const trimmed = raw.trimStart().replace(/^\uFEFF/, '');
   const csv = contentType.toLowerCase().includes('text/csv') || contentType.toLowerCase().includes('application/csv')
     || (!contentType.toLowerCase().includes('json') && trimmed.length > 0 && !trimmed.startsWith('{') && !trimmed.startsWith('['));
   if (!csv) {
     let req: any;
-    try { req = JSON.parse(raw); } catch { return { status: 400, body: { error: 'Invalid JSON body' } }; }
+    try { req = JSON.parse(raw); } catch { return fail(400, 'INVALID_JSON', 'Invalid JSON body'); }
     if (Array.isArray(req)) {
       // A JSON array is a ballot list; counted below.
     } else if (!req || typeof req !== 'object') {
-      return { status: 400, body: { error: 'JSON body must be an object' } };
+      return fail(400, 'INVALID_BODY', 'JSON body must be an object');
     } else if (typeof req.election === 'string') {
-      if (req.ballots !== undefined || typeof req.csv === 'string') return { status: 400, body: { error: 'Provide either "election" or "ballots"' } };
+      if (req.ballots !== undefined || typeof req.csv === 'string') return fail(400, 'AMBIGUOUS_REQUEST', 'Provide either "election" or "ballots"');
       return bundledReport(req.election);
     } else if (req.ballots === undefined && typeof req.csv !== 'string') {
-      return { status: 400, body: { error: 'Field "election" or "ballots" is required' } };
+      return fail(400, 'MISSING_FIELD', 'Field "election" or "ballots" is required');
     }
   }
   const parsed = parseTabulateBody(raw, contentType);
   if (!parsed.ok) return parsed.result;
   try { return { status: 200, body: uploadReport(parsed.value) }; }
-  catch (e) {
-    if (e instanceof Error) return { status: 400, body: { error: e.message } };
-    throw e;
-  }
+  catch (e) { return errorResult(e); }
 }

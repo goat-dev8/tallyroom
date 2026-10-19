@@ -81,18 +81,18 @@ describe('GET and POST /api/report', () => {
 
   it('rejects missing, unknown, and ambiguous election requests', () => {
     expect(handleReport('GET', {}).status).toBe(400);
-    expect(handleReport('GET', {}).body).toEqual({ error: 'Query parameter "election" is required' });
+    expect(handleReport('GET', {}).body).toEqual({ error: { code: 'MISSING_ELECTION', message: 'Query parameter "election" is required', details: { field: 'election' } } });
     expect(handleReport('GET', { election: 'nope' }).status).toBe(404);
-    expect(handleReport('POST', { rawBody: JSON.stringify({ election: 'nope' }) }).body).toEqual({ error: 'Unknown election "nope"' });
-    expect(handleReport('POST', { rawBody: '{}' }).body).toEqual({ error: 'Field "election" or "ballots" is required' });
-    expect(handleReport('POST', { rawBody: '{x' }).body).toEqual({ error: 'Invalid JSON body' });
+    expect(handleReport('POST', { rawBody: JSON.stringify({ election: 'nope' }) }).body).toEqual({ error: { code: 'UNKNOWN_ELECTION', message: 'Unknown election "nope"', details: { id: 'nope' } } });
+    expect(handleReport('POST', { rawBody: '{}' }).body).toEqual({ error: { code: 'MISSING_FIELD', message: 'Field "election" or "ballots" is required', details: null } });
+    expect(handleReport('POST', { rawBody: '{x' }).body).toEqual({ error: { code: 'INVALID_JSON', message: 'Invalid JSON body', details: null } });
     expect(handleReport('POST', { rawBody: JSON.stringify({ election: 'maine-2018-cd2', ballots: '1,A' }) }).status).toBe(400);
     expect(handleReport('PUT', {}).status).toBe(405);
     expect(handleReport('PUT', {}).headers).toEqual({ Allow: 'GET, POST' });
   });
 
   it('413 above 10 MB and the route serves canonical JSON', async () => {
-    expect(handleReport('POST', { rawBody: 'x'.repeat(10 * 1024 * 1024 + 1) }).status).toBe(413);
+    expect(handleReport('POST', { rawBody: 'x'.repeat(4 * 1024 * 1024 + 1) }).status).toBe(413);
     const res = await GET(new Request('http://localhost/api/report?election=nyc-2021'));
     expect(res.status).toBe(200);
     const text = await res.text();

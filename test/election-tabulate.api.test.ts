@@ -45,7 +45,7 @@ describe('POST /api/elections/[id]/tabulate', () => {
 
   it('404 for an unknown id and 405 for GET', () => {
     expect(handleElectionTabulate('POST', 'nope').status).toBe(404);
-    expect(handleElectionTabulate('POST', 'nope').body).toEqual({ error: 'Unknown election "nope"' });
+    expect(handleElectionTabulate('POST', 'nope').body).toEqual({ error: { code: 'UNKNOWN_ELECTION', message: 'Unknown election "nope"', details: { id: 'nope' } } });
     const got = handleElectionTabulate('GET', 'maine-2018-cd2');
     expect(got.status).toBe(405);
     expect(got.headers).toEqual({ Allow: 'POST' });

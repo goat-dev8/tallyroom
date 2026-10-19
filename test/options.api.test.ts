@@ -43,29 +43,29 @@ describe('tie-break and STV options', () => {
   it('422 on invalid tie-break, quota, seats type, and lot order', () => {
     const ballots = '1,A\n1,B';
     expect(handleTabulate('POST', JSON.stringify({ ballots, rules: { tiebreak: 'coin' } }))).toMatchObject({
-      status: 422, body: { error: 'rules.tiebreak must be one of: previous-round, lot' },
+      status: 422, body: { error: { code: 'INVALID_TIEBREAK', message: 'rules.tiebreak must be one of: previous-round, lot' } },
     });
     expect(handleTabulate('POST', JSON.stringify({ ballots, rules: { overvote: 'maybe' } })).status).toBe(422);
     expect(handleTabulate('POST', JSON.stringify({ ballots, rules: { skips: 'never' } })).status).toBe(422);
     expect(handleTabulate('POST', JSON.stringify({ ballots, rules: { duplicates: 'drop' } })).status).toBe(422);
     expect(handleTabulate('POST', JSON.stringify({ ballots, rules: { batch: 'yes' } }))).toMatchObject({
-      status: 422, body: { error: 'rules.batch must be a boolean' },
+      status: 422, body: { error: { code: 'INVALID_BATCH', message: 'rules.batch must be a boolean' } },
     });
     expect(handleTabulate('POST', JSON.stringify({ ballots, rules: { lotOrder: 'A,B' } }))).toMatchObject({
-      status: 422, body: { error: 'rules.lotOrder must be an array of candidate names' },
+      status: 422, body: { error: { code: 'INVALID_LOT_ORDER', message: 'rules.lotOrder must be an array of candidate names' } },
     });
     expect(handleTabulate('POST', JSON.stringify({ ballots, rules: { lotOrder: ['A'] } }))).toMatchObject({
-      status: 422, body: { error: 'rules.lotOrder is missing candidate "B"' },
+      status: 422, body: { error: { code: 'INVALID_LOT_ORDER', message: 'rules.lotOrder is missing candidate "B"' } },
     });
     expect(handleTabulate('POST', JSON.stringify({ ballots, rules: { lotOrder: ['A', 'A', 'B'] } }))).toMatchObject({
-      status: 422, body: { error: 'rules.lotOrder contains a duplicate "A"' },
+      status: 422, body: { error: { code: 'INVALID_LOT_ORDER', message: 'rules.lotOrder contains a duplicate "A"' } },
     });
     expect(handleTabulate('POST', JSON.stringify({ ballots, seats: 1.5 }))).toMatchObject({
-      status: 422, body: { error: 'seats must be an integer from 1 to the number of candidates' },
+      status: 422, body: { error: { code: 'INVALID_SEATS', message: 'seats must be an integer from 1 to the number of candidates' } },
     });
     expect(handleTabulate('POST', JSON.stringify({ ballots, seats: '2' })).status).toBe(422);
     expect(handleTabulate('POST', JSON.stringify({ ballots, quota: 'meek' }))).toMatchObject({
-      status: 422, body: { error: 'quota must be one of: droop, hare' },
+      status: 422, body: { error: { code: 'INVALID_QUOTA', message: 'quota must be one of: droop, hare' } },
     });
     expect(handleTabulate('POST', JSON.stringify({ ballots, rules: { foo: 1 } })).status).toBe(400);
   });
@@ -73,8 +73,8 @@ describe('tie-break and STV options', () => {
   it('keeps integer seats that are out of range on the existing error', () => {
     const r = handleTabulate('POST', JSON.stringify({ ballots: '1,A\n1,B', seats: 3 }));
     expect(r.status).toBe(400);
-    expect(r.body).toEqual({ error: 'Seats must be between 1 and 2' });
-    expect(handleTabulate('POST', JSON.stringify({ ballots: '1,A\n1,B', seats: 0 })).body).toEqual({ error: 'Seats must be between 1 and 2' });
+    expect(r.body).toEqual({ error: { code: 'SEATS_OUT_OF_RANGE', message: 'Seats must be between 1 and 2', details: null } });
+    expect(handleTabulate('POST', JSON.stringify({ ballots: '1,A\n1,B', seats: 0 })).body).toEqual({ error: { code: 'SEATS_OUT_OF_RANGE', message: 'Seats must be between 1 and 2', details: null } });
   });
 
   it('Hare quota is accepted for multi-seat STV and changes the quota', () => {
@@ -91,7 +91,7 @@ describe('tie-break and STV options', () => {
   it('report uploads use the same option checks', () => {
     const r = handleReport('POST', { rawBody: JSON.stringify({ ballots: '1,A\n1,B', rules: { tiebreak: 'coin' } }) });
     expect(r.status).toBe(422);
-    expect(r.body).toEqual({ error: 'rules.tiebreak must be one of: previous-round, lot' });
+    expect(r.body).toEqual({ error: { code: 'INVALID_TIEBREAK', message: 'rules.tiebreak must be one of: previous-round, lot', details: { field: 'rules.tiebreak', value: 'coin' } } });
   });
 
   it('route serves the options document', async () => {
