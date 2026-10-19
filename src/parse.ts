@@ -2,7 +2,23 @@ import { BallotGroup, Mark } from './types.js';
 export class ParseError extends Error { constructor(public line: number, msg: string) { super(`Line ${line}: ${msg}`); } }
 const clean = (s: string) => s.trim().replace(/^"(.*)"$/s, '$1').normalize('NFC');
 
-/** Parse `count,A>B>C` lines. `[A=B]` is an overvote at that rank, `_` a skipped rank. Quoted names may contain commas. */
+/** Ballot token for an unresolved write-in. Counted only when listed in the declared candidates. */
+export const WRITE_IN = 'Write-in';
+
+/**
+ * "Write-in" may appear on a ballot without being a continuing candidate (Alaska: those marks are passed over).
+ * It joins the continuing set only when the caller lists it in `declared` (New York City counts that row).
+ */
+export function writeInContinues(name: string, declared?: string[]): boolean {
+  return name === WRITE_IN && !!declared?.includes(WRITE_IN);
+}
+
+function remember(seen: string[], name: string, declared?: string[]) {
+  if (name === WRITE_IN && !writeInContinues(name, declared)) return;
+  if (!seen.includes(name)) seen.push(name);
+}
+
+/** Parse `count,A>B>C` lines. `[A=B]` or `overvote` is an overvote, `_` or `undervote` a skipped rank. Quoted names may contain commas. */
 export function parseBallots(text: string, declared?: string[]): { ballots: BallotGroup[]; candidates: string[] } {
   const ballots: BallotGroup[] = []; const seen: string[] = [];
   const lines = text.replace(/^\uFEFF/, '').split(/\r?\n/);
@@ -13,11 +29,11 @@ export function parseBallots(text: string, declared?: string[]): { ballots: Ball
     if (!/^[1-9]\d*$/.test(countStr)) throw new ParseError(i + 1, 'count must be a positive integer');
     const marks: Mark[] = line.slice(comma + 1).split('>').map(tok => {
       const t = tok.trim();
-      if (t === '_' || t === '') return { kind: 'skip' } as Mark;
-      if (/^\[.*\]$/.test(t)) return { kind: 'overvote' } as Mark;
+      if (t === '_' || t === '' || /^undervote$/i.test(t)) return { kind: 'skip' } as Mark;
+      if (/^\[.*\]$/.test(t) || /^overvote$/i.test(t)) return { kind: 'overvote' } as Mark;
       const name = clean(t);
-      if (declared && !declared.includes(name)) throw new ParseError(i + 1, `unknown candidate "${name}"`);
-      if (!seen.includes(name)) seen.push(name);
+      if (declared && !declared.includes(name) && name !== WRITE_IN) throw new ParseError(i + 1, `unknown candidate "${name}"`);
+      remember(seen, name, declared);
       return { kind: 'candidate', name } as Mark;
     });
     ballots.push({ count: Number(countStr), marks });
@@ -50,14 +66,14 @@ function cellMark(cell: string, declared: string[] | undefined, rowLabel: string
   const t = clean(cell);
   if (t === '' || SKIP_CELL.test(t)) return { kind: 'skip' };
   if (/^overvote$/i.test(t) || /^\[.*\]$/.test(t)) return { kind: 'overvote' };
-  if (declared && !declared.includes(t)) throw new BallotSemanticError(`${rowLabel}: unknown candidate "${t}"`);
+  if (declared && !declared.includes(t) && t !== WRITE_IN) throw new BallotSemanticError(`${rowLabel}: unknown candidate "${t}"`);
   return { kind: 'candidate', name: t };
 }
 
 function collectCandidates(ballots: BallotGroup[], declared?: string[]): string[] {
   if (declared) return declared;
   const seen: string[] = [];
-  for (const b of ballots) for (const m of b.marks) if (m.kind === 'candidate' && !seen.includes(m.name)) seen.push(m.name);
+  for (const b of ballots) for (const m of b.marks) if (m.kind === 'candidate') remember(seen, m.name, declared);
   return seen;
 }
 

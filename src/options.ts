@@ -94,6 +94,10 @@ export function countingOptions() {
         ],
       },
     },
+    writeIn: {
+      name: 'Write-in',
+      description: 'A ballot mark "Write-in" is legal. It is a continuing candidate only when candidates lists "Write-in". Otherwise the mark is passed over, which is the Alaska 2022 convention. List "Write-in" to count that row, which is the New York City 2021 convention.',
+    },
     rules: {
       overvote: { field: 'rules.overvote', default: DEFAULT_RULES.overvote, options: [...OVERVOTE_OPTIONS] },
       skips: { field: 'rules.skips', default: DEFAULT_RULES.skips, options: [...SKIP_OPTIONS] },
