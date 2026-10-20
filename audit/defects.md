@@ -30,3 +30,11 @@ Found by hand in the browser and fixed with Playwright regression tests that wer
 | QA-1 | ui | Sankey and dashboard accessibility, 10 items: bounding-box focus ring, focused flow not scrolled into view, 28 Tab stops, no bar or node tooltips, keyboard tooltip mid-diagram, overlapping and struck labels, thin flows not hoverable, low-contrast round tabs. Item 6 (second mouse move) did not reproduce in Chromium and has only a guard test | manual QA; regression test Playwright `tests/e2e/sankey-a11y.spec.ts` | `audit/sankey-a11y/before/`, `audit/sankey-a11y/red-playwright-production.txt` (9 of 10 red) | fix/sankey-a11y (not pushed yet) | `audit/sankey-a11y/green-playwright-local.txt`, `audit/sankey-a11y/after/` |
 
 | QA-2 | ui/api | Browser QA follow-up, 6 items: copy-link banner shifted the layout and never went away; eliminated names truncated; election switch collapsed the page; seats input clamped while typing and zoomed on iOS; no mobile section menu; upload errors listed only the first bad line | manual QA; regression tests Playwright `tests/e2e/ui-polish.spec.ts` and Vitest `test/multi-error.test.ts` | `audit/ui-polish/red-playwright-production.txt` | fix/ui-polish (not pushed yet) | `audit/ui-polish/green-playwright-local.txt`, `audit/ui-polish/after/` |
+
+## Local bug hunt (append-only)
+
+Bugs found by probing the engine, parsers and API by hand on a local build. Each one has a red test, a fix and a green run. Not TestSprite catches.
+
+| ID | Area | Bug | Found by | Red | Fix | Green |
+|---|---|---|---|---|---|---|
+| BUG-013 | api | The declared `candidates` list was not checked the way ballot names are. A repeated name raised the STV seat limit: 3 seats with 2 real candidates returned 2 winners and a quota worked out for 3 seats. Blank strings, `{}` and numbers became phantom candidates (`""`, `[object Object]`). `" A "` or an NFD name did not match the same name on a ballot (UNKNOWN_CANDIDATE) | local API probing; regression test `test/declared-candidates.test.ts` | `audit/bugs/BUG-013/red-vitest.txt` (4 of 4 fail) + `audit/bugs/BUG-013/red-production-curl.txt` | stack tip (not pushed yet) | `audit/bugs/BUG-013/green-vitest.txt` (4 of 4 pass) |

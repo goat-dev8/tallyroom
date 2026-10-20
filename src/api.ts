@@ -91,7 +91,18 @@ export function parseTabulateBody(rawBody: string, contentType = ''): { ok: true
     const rules = resolved.rules;
     const unknown = Object.keys(rules ?? {}).filter(k => !RULE_KEYS.has(k));
     if (unknown.length) return { ok: false, result: fail(400, 'UNKNOWN_RULE', `Unknown rule key(s): ${unknown.join(', ')}`, { keys: unknown }) };
-    const declared = Array.isArray(req.candidates) ? req.candidates.map((c: unknown) => String(c)) : undefined;
+    // BUG-013: declared names get the same trim + NFC as ballot names, and must be non-blank strings with no repeats
+    // (a repeat used to raise the STV seat limit, and blanks or objects became phantom candidates).
+    let declared: string[] | undefined;
+    if (Array.isArray(req.candidates)) {
+      declared = [];
+      for (const [i, c] of (req.candidates as unknown[]).entries()) {
+        const name = typeof c === 'string' ? c.trim().normalize('NFC') : '';
+        if (!name) return { ok: false, result: fail(422, 'INVALID_CANDIDATES', `candidates[${i}] must be a non-blank string`, { field: 'candidates', index: i }) };
+        if (declared.includes(name)) return { ok: false, result: fail(422, 'DUPLICATE_CANDIDATE', `candidates lists "${name}" more than once`, { field: 'candidates', candidate: name }) };
+        declared.push(name);
+      }
+    }
     const parsed = hasBallots ? parseBallotJson(req.ballots, declared) : parseRankCsv(req.csv, declared);
     return checked({ seats: req.seats, quota: req.quota, rules, ballots: parsed.ballots, candidates: parsed.candidates });
   } catch (e) {
