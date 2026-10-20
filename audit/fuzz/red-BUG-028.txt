@@ -1,0 +1,53 @@
+
+ RUN  v4.1.12 /tmp/pf
+
+ ❯ test/fuzz-findings.test.ts (2 tests | 2 failed) 11ms
+     × accepts rules.overvote = "continuing" 8ms
+     × an overvote [A=B] reached after B is eliminated counts for A (names are kept from the text format) 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/fuzz-findings.test.ts > BUG-028: overvote rule "continuing" through the public API > accepts rules.overvote = "continuing"
+AssertionError: expected 422 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 422
+
+ ❯ test/fuzz-findings.test.ts:11:22
+      9|   it('accepts rules.overvote = "continuing"', () => {
+     10|     const r = post({ ballots: '22,Bo>Ada\n8,Ada', candidates: ['Ada', …
+     11|     expect(r.status).toBe(200);
+       |                      ^
+     12|     expect((r.body as any).winner).toBe('Bo');
+     13|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/fuzz-findings.test.ts > BUG-028: overvote rule "continuing" through the public API > an overvote [A=B] reached after B is eliminated counts for A (names are kept from the text format)
+AssertionError: expected 422 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 422
+
+ ❯ test/fuzz-findings.test.ts:16:22
+     14|   it('an overvote [A=B] reached after B is eliminated counts for A (na…
+     15|     const r = post({ ballots: '4,Ada\n4,Bo\n1,Dee>[Ada=Dee]', candidat…
+     16|     expect(r.status).toBe(200);
+       |                      ^
+     17|     const b = r.body as any;
+     18|     expect(b.rounds[0].tallies).toEqual({ Ada: 4, Bo: 4, Dee: 1 });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  20:59:45
+   Duration  359ms (transform 119ms, setup 0ms, import 148ms, tests 11ms, environment 0ms)
+
