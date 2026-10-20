@@ -41,13 +41,13 @@ Paths: Vitest in `test/`, Playwright in `tests/e2e/`, TestSprite API tests in `t
 | R18 | produce shareable reports whose hash changes only when the result does | `report.api.test.ts` | `api_report.py` |
 | R19 | offer the certified rule sets of each bundled election as one-word presets | `presets.api.test.ts`, `mcp.test.ts` | `api_options.py` |
 | R20 | show upload errors in words and clear old results when new data loads | (UI) | `upload-fixes.spec.ts`, `ui-upload-malformed.json`, `ui-upload-no-ballots.json` |
-| R21 | publish a machine-readable contract that matches what the API really does | `openapi.test.ts` | |
-| R22 | let AI agents count through MCP with the same answers as the REST API | `mcp.test.ts` | `audit/api-mcp/sdk-interop-2026-10-20.txt` |
-| R23 | agree with an independently written counter on random elections | `fuzz-corpus.test.ts`, `fuzz-findings.test.ts` | `.github/workflows/fuzz-nightly.yml` |
+| R21 | publish a machine-readable contract that matches what the API really does | `openapi.test.ts` | none yet (no TestSprite test; planned) |
+| R22 | let AI agents count through MCP with the same answers as the REST API | `mcp.test.ts` | none in TestSprite yet; official MCP SDK client log `audit/api-mcp/sdk-interop-2026-10-20.txt` |
+| R23 | agree with an independently written counter on random and hostile inputs | `fuzz-corpus.test.ts`, `fuzz-hostile.test.ts`, `fuzz-findings.test.ts` | `.github/workflows/fuzz-nightly.yml` (scheduled, not fired yet) |
 
 R1-R20 keep the numbering of `audit/traceability.md`. R21-R23 are new with the API, MCP and fuzz work.
 
 ## Measures of success (measured, with where to find them)
 - Certified parity: 4 of 4 elections, 119 of 119 compared figures exact (`audit/parity/`).
-- Differential fuzz: 100,000 random elections, 0 divergences after BUG-028 was fixed (`audit/fuzz/`).
+- Differential fuzz: one local sweep of 100,000 random elections, 0 divergences after BUG-012 was fixed. Hostile mode finds every past input bug on the builds that had it, and 0 now (`audit/fuzz/`).
 - Every defect has a failing test, a fix and a passing run (`audit/defects.md`).

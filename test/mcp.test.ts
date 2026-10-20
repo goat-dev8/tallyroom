@@ -44,7 +44,7 @@ describe('MCP server', () => {
   });
   it('certified elections: list and rounds', () => {
     const list = call('list_elections', {}).structuredContent.elections;
-    expect(list.map((e: any) => e.id)).toEqual(['maine-2018-cd2', 'alaska-2022', 'nyc-2021']);
+    expect(list.map((e: any) => e.id)).toEqual(['maine-2018-cd2', 'alaska-2022', 'nyc-2021', 'burlington-2009']);
     const rounds = call('election_rounds', { id: 'alaska-2022' });
     expect(rounds.isError).toBe(false);
     expect(call('election_rounds', { id: 'mars-2030' }).structuredContent.error.code).toBe('UNKNOWN_ELECTION');
