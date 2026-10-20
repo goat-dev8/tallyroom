@@ -46,7 +46,10 @@ The local Playwright mirror (`pr25/hero-autoplay-strengthened.spec.ts`) failed 3
 | App API check on R′ | 01:37 | 4e933fb3 | **internal error again**: all 37 failed in about 2.6 s, 0 steps, status stuck at '37 tests queued'. Not reds. Balance 222.4 → 193.6 (28.8) | |
 | Regress guards by CLI on the R′ preview | 02:05 | 301b2e15, ed8b2c98, f4e9d9b2, f2d67159, 220f0dfb, 1c337be7, 8110c4d0, 938169f0, 6ba281ca, 4f2ec48c, 20ab7501, cfcafa91, a233b485, 997a84ac, e0bb13d0 (bug-009..030, `regress-rp/runs.jsonl`) | **0/15 passed: all 15 failed on assertions** (the bugs are live on R′). 3.0 credits | |
 | Merge blocked while red | 02:00 | PR #26 | merge box shows failing checks | `shots/rp-pr-checks.png`, `shots/rp-merge-box.png`, `shots/rp-portal-ui.png`, `shots/rp-portal-ui-hero.png`, `shots/rp-portal-api.png` |
-| G′ pushed | _pending_ | | expected 34/34 and 37/37 | |
+| G′ pushed (9d01828) | 02:05 | | | |
+| App UI check on G′ | 02:09 | fb723d72 | **33/34 passed · 1 failed**: `ui:hero-autoplay` now passes; `ui:rounds-table-maine` (run 1fe56bcf) failed. All the numbers matched, but the agent couldn't read Bond's R2 em dash (rendered as a span titled "Eliminated"). This is test fragility, not an app bug | |
+| testsprite-cli on G′ | 02:08 | `api:` 22/22 passed; regress 15/15 passed (40b1a449, c798bdcd, 7a149137, 64365c9b, a09960b9, 569c9d6d, bb634546, ddd4677c, 10acda51, ee6f5be9, e07d7dc4, e7d10329, 96e825f5, 3c91f3ea, efecaa05) | green | |
+| Gate on G′ | 02:10 | testsprite-v3-gate | red (correctly: UI 33/34) | |
 | Merged | _pending_ | | | |
 | Production | _pending_ | `/api/health`, `/proof` | 4 elections, 200 | |
 | Branch protection | _pending_ | | gate required, admins enforced | |
