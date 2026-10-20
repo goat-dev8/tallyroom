@@ -39,6 +39,7 @@
     "scripts",
     "test",
     "app",
+    "tests",
     "components",
     "lib",
     "*.ts",
