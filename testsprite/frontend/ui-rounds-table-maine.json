@@ -21,7 +21,7 @@
   },
   {
    "type": "assertion",
-   "description": "The row 'table-inactive' shows R1 6,453 and R2 14,706; the Bond row shows 16,552 then '\u2014'"
+   "description": "The row 'table-inactive' shows R1 6,453 and R2 14,706. In the 'Bond, Tiffany L.' row, cell-r1 shows 16,552 and cell-r2 contains only the em dash character '\u2014' (data-testid 'cell-out'; its hover title 'Eliminated' is a tooltip, not cell text)"
   }
  ]
 }
