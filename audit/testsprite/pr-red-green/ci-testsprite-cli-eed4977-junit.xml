@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="testsprite:api" tests="22" failures="2" errors="0" skipped="0" time="58.284">
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:certified-rounds-alaska" testId="35ede88d-ff3d-4559-92c3-6e70d8d44f09" runId="41b12e9e-06f8-4bad-b2c6-377c3defb530" time="2.214">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:tabulate-alaska" testId="3fe00403-8580-4d0d-8308-63b1f7b690e0" runId="29d597ee-27f4-4eba-9715-9de197c41ad1" time="2.39">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:err-unknown-election" testId="59472827-3c05-4ba2-9747-754f4638c361" runId="1fdf16ef-3544-493b-8dc3-dc8b5fb79842" time="2.265">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:tabulate-csv-and-presets" testId="62337329-b383-409c-a892-8cc5fa6eb5ec" runId="29262ddd-876a-4f7c-8180-c664ce3e00c8" time="2.328">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:csv-single-choice" testId="b279248e-679b-41ad-83e5-ef8debdc73ed" runId="4aca6d16-f126-4a73-9cca-b6732d757070" time="2.373">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:rounds-maine" testId="87d2cf22-9d8d-44f4-a8d9-292f7b2040f2" runId="95e6ed1d-94fc-4bd8-af35-a1e65f2c94c1" time="2.269">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:tabulate-maine" testId="d8c4d5c6-05f3-4a65-90a9-69f919057c91" runId="ffecaf01-4366-4b6b-8d8a-8dcd2e736730" time="2.352">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:err-validation-422" testId="6f4c2d1e-eb12-4a29-a81c-87bc466c9e3a" runId="a23d712c-9a43-4613-96c0-e8e175044ee0" time="2.337">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:err-method-405" testId="8f0ef7d5-5e2d-4616-95d0-f8f1bde1b31f" runId="14fd1975-63cb-4230-a2c6-04cdb9e31262" time="2.41">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:tie-break" testId="31a99dc3-bc3b-456d-8c61-1823076d55e2" runId="f0f1bb1c-7e96-48f1-922e-90a12c37a010" time="2.294">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:certified-rounds-maine" testId="d30525ed-56a0-474e-b5ce-d332ff043b9d" runId="953783b9-d2ae-4f43-964f-01e93a1dbe02" time="2.305">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:options" testId="cdba2df2-e2be-4962-8618-1ffc34196f36" runId="ed3b45f4-a850-4501-86aa-58a99b36a4d7" time="2.303">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:exhausted" testId="ea62ec6e-b098-46f6-9b0f-3aa724e8b9e6" runId="fdc90501-8b89-49ad-8f96-15bd59938aa8" time="2.216">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:stv-multiseat" testId="edeca9f2-1070-460d-a6e3-c99cec9dae35" runId="e513341b-ecb2-4c56-ac5a-5f8e2e353f2a" time="2.365">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:certified-rounds-nyc" testId="e323141b-6c66-44f1-81d1-97918cf928e9" runId="54b7de26-7e94-4b93-a1b5-299e28b164b7" time="2.258">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:report-hash-stable" testId="3c3cb06d-adb2-490c-a916-862dcc71e2f9" runId="01c99342-b79c-40c3-a13a-729c03cf6729" time="2.479">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:input-edges" testId="6ea8ff4f-91fd-41d3-8dc3-b64230b55ccc" runId="08ce373e-3e90-4b7f-81ee-2e3d39b6dcab" time="2.601">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:err-too-large-413" testId="66c1b78d-8dc5-4aa3-8c3d-43227f78b462" runId="330e27d8-7b74-4965-aeed-f8997e7be081" time="2.612">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:err-parse-400" testId="161411ae-5fb1-403a-b9e9-12f08e150715" runId="bf26bc82-f2d6-4e81-b3b3-da8f46699959" time="2.626">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:tabulate-nyc" testId="131488e3-d0d3-4b5f-8460-9d2d252cc9d1" runId="cb7c0e0e-0c26-499f-be68-836147afa4cf" time="3.116">
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:health" testId="520e57d4-9650-4eea-886e-9d3af5915b24" runId="a4a7ac8a-3c00-4b35-8e35-34e37d58092f" time="4.544">
+      <failure message="{&apos;ok&apos;: True, &apos;engineVersion&apos;: &apos;0.1.0&apos;, &apos;status&apos;: &apos;ok&apos;, &apos;version&apos;: &apos;0.1.0&apos;, &apos;elections&apos;: [&apos;maine-2018-cd2&apos;, &apos;alaska-2022&apos;, &apos;nyc-2021&apos;]}" type="failed">status: failed
+runId: a4a7ac8a-3c00-4b35-8e35-34e37d58092f
+code: INTERNAL
+message: {&apos;ok&apos;: True, &apos;engineVersion&apos;: &apos;0.1.0&apos;, &apos;status&apos;: &apos;ok&apos;, &apos;version&apos;: &apos;0.1.0&apos;, &apos;elections&apos;: [&apos;maine-2018-cd2&apos;, &apos;alaska-2022&apos;, &apos;nyc-2021&apos;]}</failure>
+    </testcase>
+    <testcase classname="a7aa06b0-0721-49ff-a7aa-0181ad8586d6" name="api:elections-list" testId="1c0540a4-b4c8-40f5-af2d-86c477e754d7" runId="c5b4c6fb-a73b-475a-a289-4640e72686a3" time="5.627">
+      <failure message="failed" type="failed">status: failed
+runId: c5b4c6fb-a73b-475a-a289-4640e72686a3</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

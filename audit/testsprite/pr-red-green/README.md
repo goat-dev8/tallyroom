@@ -34,3 +34,24 @@ PR checks from our CLI job:
 The PR's CLI check doesn't show the red. The reds are the CLI runs above, against the same PR's preview. TestSprite GitHub App PR triggers were off for this window (momo's choice, to stay within credits), so there is no `TestSprite V3` status. The `testsprite-v3-gate` job therefore fails closed on these heads.
 
 Credits: 16 → 13 (red, 15 × 0.2) → 5.6 (green 15 × 0.2 = 3.0, plus the CI job's 22 × 0.2 = 4.4).
+
+## The latest red `testsprite-cli` check on eed4977 is a production fallback, not a PR failure
+
+The eed4977 push changed only CI files and evidence, so Vercel skipped the preview. The old workflow then ran the
+whole PR's `api:` selection against production (https://tallyroom-rosy.vercel.app). Its notice said production "runs
+this PR's app code", which was false here: production is main, and this PR changes the app.
+
+Result: 20/22 passed, 2 failed (run f0a92ee7-6ca1-4dcb-977a-306d610978cf, JUnit in `ci-testsprite-cli-eed4977-junit.xml`):
+- `api:health`: expects `burlington-2009` in `elections`; production lists only maine-2018-cd2, alaska-2022, nyc-2021.
+- `api:elections-list`: the same missing election (added by this PR's stack, not deployed).
+
+Both failures come from testing the wrong deployment, not from this PR's code, which passed 22/22 on its own preview
+at aea3fce. The run cost 4.4 credits and took the balance from 5.6 to 1.2, under the 3-credit reserve.
+
+Fix, committed locally and not pushed: `scripts/testsprite-preview.mjs` with `test/testsprite-preview.test.ts`.
+- The CLI job runs only against the commit's own preview. If the preview was skipped, is missing, still pending, or
+  failed, the job says "no preview, not run" and exits without running tests. GitHub has no neutral job conclusion,
+  so the check shows success and the summary says not run.
+- Suites are picked from the latest push's diff (`before..head`) on synchronize. Opened, reopened and force-pushed PRs
+  use the whole PR diff.
+- Known limit: if a head's run was cancelled, the next CI-only push won't re-test that head's app changes.
