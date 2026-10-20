@@ -36,6 +36,9 @@ function located(row?: number, column?: number, candidate?: string): Record<stri
 }
 
 export function errorResult(e: unknown): ApiResult {
+  if (e instanceof BallotSemanticError && e.code) {
+    return fail(422, e.code, e.message, located(e.row, e.column, e.candidate));
+  }
   if (e instanceof BallotSemanticError || e instanceof ParseError) {
     const unknown = e.candidate ?? (/unknown candidate "([^"]*)"/.exec(e.message)?.[1]);
     const details = located(e instanceof ParseError ? e.line : e.row, e.column, unknown);
