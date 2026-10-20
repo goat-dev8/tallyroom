@@ -1,0 +1,30 @@
+{
+ "runId": "2797990e-a1bc-4bac-9ab8-3d29b9551f4a",
+ "testId": "28a6c190-394e-48b1-ba0a-ae78b929d580",
+ "testTitle": "regress:bug-024",
+ "projectId": "a7aa06b0-0721-49ff-a7aa-0181ad8586d6",
+ "userId": "04180438-a0a1-70ab-b51f-4dce971c378f",
+ "status": "failed",
+ "source": "cli",
+ "createdAt": "2026-10-20T21:06:57.602Z",
+ "startedAt": "2026-10-20T21:06:57.602Z",
+ "finishedAt": "2026-10-20T21:07:02.341Z",
+ "codeVersion": "v-fa0a875ae265",
+ "targetUrl": null,
+ "environment": null,
+ "createdFrom": null,
+ "failedStepIndex": null,
+ "failureKind": "assertion",
+ "error": "(200, {'engineVersion': '0.1.0', 'method': 'irv', 'candidates': ['A', 'B', 'C'], 'rules': {'overvote': 'exhaust', 'skips': 'continue', 'batch': False, 'tiebreak': 'previous-round'}, 'rounds': [{'round': 1, 'tallies': {'A': 3, 'B': 2, 'C': 2}, 'continuing': 7, 'inactive': {'blank': 0, 'overvote': 0, 'skips': 0, 'undervote': 0, 'exhausted': 0}, 'threshold': 4, 'eliminated': ['C'], 'tieNote': 'lot'}, {'round': 2, 'tallies': {'A': 3, 'B': 2}, 'continuing': 5, 'inactive': {'blank': 0, 'overvote': 0, 'skips': 0, 'undervote': 0, 'exhausted': 2}, 'threshold': 3, 'eliminated': [], 'transfers': {'A': 0, 'B': 0}}], 'winner': 'A', 'totalBallots': 7})",
+ "videoUrl": null,
+ "stepSummary": {
+  "total": 0,
+  "completed": 0,
+  "passedCount": 0,
+  "failedCount": 0
+ },
+ "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/28a6c190-394e-48b1-ba0a-ae78b929d580",
+ "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/4919404e-8bf8-4a79-9a1d-9e0d36527dc8/test/2797990e-a1bc-4bac-9ab8-3d29b9551f4a",
+ "apiOutput": "",
+ "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 149, in test\nAssertionError: (200, {'engineVersion': '0.1.0', 'method': 'irv', 'candidates': ['A', 'B', 'C'], 'rules': {'overvote': 'exhaust', 'skips': 'continue', 'batch': False, 'tiebreak': 'previous-round'}, 'rounds': [{'round': 1, 'tallies': {'A': 3, 'B': 2, 'C': 2}, 'continuing': 7, 'inactive': {'blank': 0, 'overvote': 0, 'skips': 0, 'undervote': 0, 'exhausted': 0}, 'threshold': 4, 'eliminated': ['C'], 'tieNote': 'lot'}, {'round': 2, 'tallies': {'A': 3, 'B': 2}, 'continuing': 5, 'inactive': {'blank': 0, 'overvote': 0, 'skips': 0, 'undervote': 0, 'exhausted': 2}, 'threshold': 3, 'eliminated': [], 'transfers': {'A': 0, 'B': 0}}], 'winner': 'A', 'totalBallots': 7})\n"
+}

@@ -1,0 +1,21 @@
+{
+  "testId": "2c3b8c12-b610-49ef-a1c6-e730cd44564c",
+  "status": "failed",
+  "startedAt": "2026-10-20T21:06:45.751Z",
+  "finishedAt": "2026-10-20T21:06:50.674Z",
+  "videoUrl": null,
+  "failureAnalysisUrl": null,
+  "snapshotId": "snap_c273c7a21e292cb7",
+  "runIdIfAvailable": "bf47297d-ed7b-44a6-aa3d-d9c5f1f6718a",
+  "codeVersion": "v-4c24a6dd9044",
+  "targetUrl": null,
+  "targetUrlSource": null,
+  "environment": null,
+  "failedStepIndex": null,
+  "failureKind": "assertion",
+  "verdict": "failed",
+  "executionStatus": "completed",
+  "summary": "Failed (assertion): POST https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app/api/tabulate → 200\nResponse: {\"engineVersion\":\"0.1.0\",\"method\":\"stv\",\"quota\":\"3.0000\",\"quotaExact\":\"3/1\",\"winners\":[\"A\",\"B\"],\"rounds\":[{\"round\":1,\"tallies\":{\"A\":\"3.0000\",\"B\":\"2.0000\",\"C\":\"2.0000\"},\"exhausted\":\"0.0000\",\"elected\":[\"A\"],\"eliminated\":[],\"exact\":{\"tallies\":{\"A\":\"3/1\",\"B\":\"2/1\",\"C\":\"2/1\"},\"exhausted\":\"0/1\"}},{\"round\":2,\"tallies\":{\"B\":\"2…\n{'round': 1, 'tallies': {'A': '3.0000', 'B': '2.0000'…",
+  "apiOutput": "",
+  "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 153, in <module>\n  File \"<string>\", line 150, in test\nAssertionError: {'round': 1, 'tallies': {'A': '3.0000', 'B': '2.0000', 'C': '2.0000'}, 'exhausted': '0.0000', 'elected': ['A'], 'eliminated': [], 'exact': {'tallies': {'A': '3/1', 'B': '2/1', 'C': '2/1'}, 'exhausted': '0/1'}}\n"
+}

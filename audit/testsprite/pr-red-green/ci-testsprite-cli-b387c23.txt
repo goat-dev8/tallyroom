@@ -1,0 +1,5 @@
+testsprite-cli	Pick API suites from the PR's changed paths	2026-10-20T21:04:31.5723637Z   GH_TOKEN: ***
+testsprite-cli	Pick API suites from the PR's changed paths	2026-10-20T21:04:31.5724772Z   SHA: b387c23915bef2c8bc28c876b4cd1ad4459102a0
+testsprite-cli	Pick API suites from the PR's changed paths	2026-10-20T21:04:31.5726163Z   BRANCH: ts-red-green
+testsprite-cli	Pick API suites from the PR's changed paths	2026-10-20T21:04:31.5727185Z   PR: 24
+testsprite-cli	Pick API suites from the PR's changed paths	2026-10-20T21:04:31.5728085Z ##[endgroup]
