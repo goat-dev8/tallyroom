@@ -123,8 +123,11 @@ export function parseRankCsv(text: string, declared?: string[]): { ballots: Ball
   const data = header ? useful.slice(1) : useful;
   if (data.length === 0) throw new BallotSemanticError('No valid ballots to count');
   if (!header) {
-    const ranking = data.every(({ cells }) => cells.length === 2 && POSITIVE_INT.test(cells[0].trim()));
-    if (ranking && data.some(({ cells }) => arrowColumn(cells) !== undefined)) return parseBallots(text, declared);
+    const ranking = data.every(({ cells }) => cells.length === 2 && PURE_NUMBER.test(cells[0].trim()));
+    // Every row is "count,ranking". A single-choice line ("3,A") has no ">", but a headerless rank-column file
+    // can never start with a numeric candidate (rejected below), so a leading integer always means a count (parseBallots rejects 0 with a line number).
+    const numericNames = ranking && data.some(({ cells }) => cells[1].split('>').some(t => PURE_NUMBER.test(t.trim())));
+    if (ranking && !numericNames) return parseBallots(text, declared);
   }
   for (const { cells, row } of data) {
     const column = arrowColumn(cells);
