@@ -22,5 +22,19 @@ describe('ballot parser', () => {
     const { ballots } = parseBallots('1,_>[A=B]>C');
     expect(ballots[0].marks.map(m => m.kind)).toEqual(['skip', 'overvote', 'candidate']);
   });
+  it('overvote and undervote tokens match the pattern-file convention', () => {
+    const { ballots, candidates } = parseBallots('2,A>overvote>undervote');
+    expect(ballots[0].marks.map(m => m.kind)).toEqual(['candidate', 'overvote', 'skip']);
+    expect(candidates).toEqual(['A']);
+  });
+  it('Write-in is a mark, and a continuing candidate only when declared', () => {
+    const passed = parseBallots('1,Write-in>A\n2,A', ['A', 'B']);
+    expect(passed.candidates).toEqual(['A', 'B']);
+    expect(passed.ballots[0].marks[0]).toEqual({ kind: 'candidate', name: 'Write-in' });
+    const discovered = parseBallots('1,Write-in>A\n2,A');
+    expect(discovered.candidates).toEqual(['A']);
+    const counted = parseBallots('3,Write-in\n2,A', ['Write-in', 'A']);
+    expect(counted.candidates).toEqual(['Write-in', 'A']);
+  });
   it('ignores comment lines', () => { expect(parseBallots('# header\n2,A').ballots).toHaveLength(1); });
 });

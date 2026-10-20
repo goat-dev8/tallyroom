@@ -1,0 +1,82 @@
+{
+  "id": "maine-2018-cd2",
+  "name": "Maine 2018, U.S. House District 2 (general)",
+  "method": "IRV",
+  "seats": 1,
+  "winner": "DEM Golden, Jared F.",
+  "totalBallots": 296077,
+  "rounds": [
+    {
+      "round": 1,
+      "tallies": {
+        "REP Poliquin, Bruce": 134184,
+        "DEM Golden, Jared F.": 132013,
+        "Bond, Tiffany L.": 16552,
+        "Hoar, William R.S.": 6875
+      },
+      "continuing": 289624,
+      "inactive": {
+        "blank": 5711,
+        "overvote": 435,
+        "skips": 307,
+        "undervote": 0,
+        "exhausted": 0
+      },
+      "threshold": 144813,
+      "eliminated": [
+        "Hoar, William R.S.",
+        "Bond, Tiffany L."
+      ],
+      "transfers": []
+    },
+    {
+      "round": 2,
+      "tallies": {
+        "REP Poliquin, Bruce": 138931,
+        "DEM Golden, Jared F.": 142440
+      },
+      "continuing": 281371,
+      "inactive": {
+        "blank": 5711,
+        "overvote": 533,
+        "skips": 443,
+        "undervote": 7684,
+        "exhausted": 335
+      },
+      "threshold": 140686,
+      "eliminated": [],
+      "transfers": [
+        {
+          "from": "Bond, Tiffany L.",
+          "to": "REP Poliquin, Bruce",
+          "count": 3117
+        },
+        {
+          "from": "Bond, Tiffany L.",
+          "to": "DEM Golden, Jared F.",
+          "count": 7862
+        },
+        {
+          "from": "Bond, Tiffany L.",
+          "to": "exhausted",
+          "count": 5573
+        },
+        {
+          "from": "Hoar, William R.S.",
+          "to": "REP Poliquin, Bruce",
+          "count": 1630
+        },
+        {
+          "from": "Hoar, William R.S.",
+          "to": "DEM Golden, Jared F.",
+          "count": 2565
+        },
+        {
+          "from": "Hoar, William R.S.",
+          "to": "exhausted",
+          "count": 2680
+        }
+      ]
+    }
+  ]
+}
