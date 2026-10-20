@@ -1,0 +1,104 @@
+# TestSprite API suite against production: after every merge to main, nightly, and on demand.
+# Uses the official TestSprite/testsprite-action pinned to the v1.0.0 commit.
+name: TestSprite API (production)
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '30 1 * * *' # 04:30 Cairo
+  workflow_dispatch:
+    inputs:
+      filter:
+        description: 'Only run tests whose name contains this (default api: = whole API suite)'
+        required: false
+        default: 'api:'
+permissions:
+  contents: read
+concurrency:
+  group: testsprite-api-bound # shared with testsprite-cli.yml (stored test code is shared)
+  cancel-in-progress: false
+jobs:
+  api-suite:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Wait for the production deployment of this commit
+        if: github.event_name == 'push'
+        run: |
+          for i in $(seq 60); do
+            code=$(curl -s -o /tmp/h.json -w '%{http_code}' https://tallyroom-rosy.vercel.app/api/health || true)
+            [ "$code" = 200 ] && break; sleep 10
+          done
+          sleep 60 # let the Vercel production build for ${{ github.sha }} finish promoting
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Bind the production URL into the stored API tests (free, no run)
+        env:
+          TESTSPRITE_API_KEY: ${{ secrets.TESTSPRITE_API_KEY }}
+        run: |
+          npm i -g @testsprite/testsprite-cli@latest >/dev/null
+          node scripts/testsprite-api.mjs --base https://tallyroom-rosy.vercel.app --bind-only
+      - id: ts
+        uses: TestSprite/testsprite-action@9f3ac52a42baae6c7099d1f89fa603b31d636d63 # v1.0.0
+        with:
+          api-key: ${{ secrets.TESTSPRITE_API_KEY }}
+          project: a7aa06b0-0721-49ff-a7aa-0181ad8586d6 # tallyroom-api
+          filter: ${{ inputs.filter || 'api:' }}
+          report-file: testsprite-api-junit.xml
+          artifact-name: testsprite-api-junit
+          timeout: '1200'
+      - name: Failure bundles for every failed test
+        if: failure()
+        env:
+          TESTSPRITE_API_KEY: ${{ secrets.TESTSPRITE_API_KEY }}
+        run: |
+          mkdir -p failure-bundles
+          python3 - <<'PY' > failed.txt
+          import xml.etree.ElementTree as ET
+          r = ET.parse('testsprite-api-junit.xml').getroot()
+          for tc in r.iter('testcase'):
+              if tc.find('failure') is not None or tc.find('error') is not None:
+                  print(tc.get('classname') or '', tc.get('name') or '', sep='\t')
+          PY
+          testsprite test list --project a7aa06b0-0721-49ff-a7aa-0181ad8586d6 --output json > tests.json || true
+          python3 - <<'PY' > ids.txt
+          import json
+          failed = {l.split('\t')[1].strip() for l in open('failed.txt') if '\t' in l}
+          d = json.load(open('tests.json')); items = d.get('items', d) if isinstance(d, dict) else d
+          for t in items:
+              if t.get('name') in failed: print(t.get('id'))
+          PY
+          while read -r id; do [ -n "$id" ] && testsprite test failure get "$id" --out "failure-bundles/$id" || true; done < ids.txt
+          echo "### Failure bundles: $(wc -l < ids.txt) test(s)" >> "$GITHUB_STEP_SUMMARY"
+          cat failed.txt | sed 's/^/- /' >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: testsprite-failure-bundles
+          path: failure-bundles
+          if-no-files-found: ignore
+      - name: Slack run summary (main only)
+        if: always() && github.ref == 'refs/heads/main' && github.repository == 'goat-dev8/tallyroom'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          VERDICT: ${{ job.status }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          [ -n "$SLACK_WEBHOOK_URL" ] || { echo "::notice::SLACK_WEBHOOK_URL not set; no Slack summary."; exit 0; }
+          counts=$(python3 - <<'PY'
+          import xml.etree.ElementTree as ET, os
+          f = 'testsprite-api-junit.xml'
+          if not os.path.exists(f): print('no JUnit report'); raise SystemExit
+          r = ET.parse(f).getroot(); t = f_ = e = s = 0
+          for su in ([r] if r.tag == 'testsuite' else r.iter('testsuite')):
+              t += int(su.get('tests', 0)); f_ += int(su.get('failures', 0)); e += int(su.get('errors', 0)); s += int(su.get('skipped', 0))
+          print(f'{t - f_ - e - s}/{t} passed, {f_ + e} failed, {s} skipped')
+          PY
+          )
+          icon=$([ "$VERDICT" = success ] && echo ':white_check_mark:' || echo ':x:')
+          text="$icon Tallyroom TestSprite API suite on production ($EVENT, ${GITHUB_SHA::7}): $VERDICT, $counts. <$RUN_URL|Run log + JUnit>"
+          python3 -c 'import json,sys; print(json.dumps({"text": sys.argv[1]}))' "$text" > slack.json
+          curl -sS -f -X POST -H 'Content-Type: application/json' --data @slack.json "$SLACK_WEBHOOK_URL" -o /dev/null

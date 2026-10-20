@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "react", "react-hooks", "unicorn", "import", "jsx-a11y"],
+  "categories": { "correctness": "error", "suspicious": "warn" },
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "unicorn/no-useless-fallback-in-spread": "warn",
+    "unicorn/no-useless-spread": "warn",
+    "react/react-in-jsx-scope": "off",
+    "react/refs": "warn",
+    "react/set-state-in-effect": "warn",
+    "jsx-a11y/prefer-tag-over-role": "off",
+    "jsx-a11y/no-static-element-interactions": "warn",
+    "eslint/no-unused-vars": "warn"
+  },
+  "ignorePatterns": [".next/**", "node_modules/**", "public/**", "data/**", "testsprite_tests/**", "playwright-report/**", "test-results/**"]
+}
