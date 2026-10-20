@@ -1,0 +1,12 @@
+{
+ "summary": {
+  "cases": 3000,
+  "irv": 2146,
+  "stv": 854,
+  "rounds": 7698,
+  "irvCasesWithTieBreak": 280,
+  "irvCasesWithBatch": 170,
+  "divergences": 0
+ },
+ "divergences": []
+}

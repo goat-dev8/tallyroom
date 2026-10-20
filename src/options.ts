@@ -4,7 +4,7 @@ import { DEFAULT_RULES } from './types.js';
 
 export const TIEBREAK_OPTIONS = ['previous-round', 'lot'] as const;
 export const QUOTA_OPTIONS = ['droop', 'hare'] as const;
-export const OVERVOTE_OPTIONS = ['exhaust', 'skip'] as const;
+export const OVERVOTE_OPTIONS = ['exhaust', 'skip', 'continuing'] as const;
 export const SKIP_OPTIONS = ['continue', 'two-exhaust'] as const;
 export const DUPLICATE_OPTIONS = ['ignore', 'skip'] as const;
 

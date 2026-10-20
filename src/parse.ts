@@ -7,6 +7,12 @@ export class ParseError extends Error {
 }
 const clean = (s: string) => s.trim().replace(/^"(.*)"$/s, '$1').normalize('NFC');
 
+/** `[A=B]` keeps the names it lists (needed by overvote rule "continuing", BUG-028); bare `overvote` has none. */
+function overvoteMark(t: string): Mark {
+  const names = /^\[(.*)\]$/.exec(t)?.[1].split('=').map(clean).filter(Boolean);
+  return names && names.length ? { kind: 'overvote', names } : { kind: 'overvote' };
+}
+
 /** Ballot token for an unresolved write-in. Counted only when listed in the declared candidates. */
 export const WRITE_IN = 'Write-in';
 
@@ -50,7 +56,7 @@ export function parseBallots(text: string, declared?: string[]): { ballots: Ball
     const marks: Mark[] = line.slice(comma + 1).split('>').map((tok, idx) => {
       const t = tok.trim();
       if (t === '_' || t === '' || /^undervote$/i.test(t)) return { kind: 'skip' } as Mark;
-      if (/^\[.*\]$/.test(t) || /^overvote$/i.test(t)) return { kind: 'overvote' } as Mark;
+      if (/^\[.*\]$/.test(t) || /^overvote$/i.test(t)) return overvoteMark(t);
       const name = clean(t);
       if (declared && !declared.includes(name) && name !== WRITE_IN) throw new ParseError(i + 1, `unknown candidate "${name}"`, idx + 1, name);
       remember(seen, name, declared);
@@ -89,7 +95,7 @@ function marksFromRanking(ranking: string, declared: string[] | undefined, row: 
 function cellMark(cell: string, declared: string[] | undefined, row: number, column: number): Mark {
   const t = clean(cell);
   if (t === '' || SKIP_CELL.test(t)) return { kind: 'skip' };
-  if (/^overvote$/i.test(t) || /^\[.*\]$/.test(t)) return { kind: 'overvote' };
+  if (/^overvote$/i.test(t) || /^\[.*\]$/.test(t)) return overvoteMark(t);
   if (declared && !declared.includes(t) && t !== WRITE_IN) {
     throw new BallotSemanticError(`Row ${row}, column ${column}: unknown candidate "${t}"`, row, column, t);
   }
