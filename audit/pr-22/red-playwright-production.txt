@@ -1,0 +1,8 @@
+Playwright run against https://tallyroom-rosy.vercel.app (production, bugs present), desktop 1440, 2026-10-20 ~10:35 Cairo
+failed  BUG-007: the 404 page has its own tab title
+         Error: expect(page).toHaveTitle(expected) failed
+failed  BUG-005: API errors show their message, not [object Object]
+         Error: expect(locator).toHaveText(expected) failed
+failed  BUG-006: loading a sample clears the previous result and error
+         Error: expect(locator).toHaveCount(expected) failed
+passed  (guard) the sample CSV downloads as ballots.csv: manual-QA report not reproduced in Chromium

@@ -1,6 +1,10 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Logo } from '../components/logo';
 import { buttonVariants } from '../components/ui';
+
+// BUG-007: the 404 page used the landing page's tab title.
+export const metadata: Metadata = { title: 'Page not found — Tallyroom' };
 
 export default function NotFound() {
   return (
