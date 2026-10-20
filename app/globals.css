@@ -1,0 +1,35 @@
+@import "tailwindcss";
+@theme {
+  --color-ink: #07080a; --color-panel: #0e1013; --color-line: #1c1f25; --color-mute: #8a8f98; --color-fg: #eceef1;
+  --color-tally: #f5b83d; --color-win: #3ddc97; --color-iris: #7c8cff;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+html { background: var(--color-ink); color: var(--color-fg); color-scheme: dark; }
+body { font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; }
+::selection { background: color-mix(in oklab, var(--color-tally) 35%, transparent); }
+.grid-bg { background-image: linear-gradient(to right, #ffffff08 1px, transparent 1px), linear-gradient(to bottom, #ffffff08 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse at 50% 0%, #000 30%, transparent 75%); }
+.glow { background: radial-gradient(600px 300px at 50% 0%, color-mix(in oklab, var(--color-iris) 22%, transparent), transparent 70%); }
+.text-grad { background: linear-gradient(180deg, #fff 30%, #9aa0aa); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.card { background: linear-gradient(180deg, #ffffff07, #ffffff02); border: 1px solid var(--color-line); border-radius: 14px; }
+.tnum { font-variant-numeric: tabular-nums; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+/* ---- Brand system (see qa/BRAND.md) ---- */
+.hero-grid { background-image: linear-gradient(to right, #ffffff09 1px, transparent 1px), linear-gradient(to bottom, #ffffff09 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 35%, transparent 80%); }
+.threads-mask { mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%); }
+.fade-in { animation: tr-fade 1.6s cubic-bezier(.22,1,.36,1) both; }
+@keyframes tr-fade { from { opacity: 0 } to { opacity: 1 } }
+.demo-frame { background: linear-gradient(180deg, #11131a 0%, #0b0c10 100%); border: 1px solid #23262e; box-shadow: 0 0 0 1px #00000080, 0 1px 0 0 #ffffff12 inset, 0 40px 120px -40px rgba(124,140,255,.35), 0 20px 50px -20px #000; }
+.skeleton { background: linear-gradient(90deg, #ffffff08 0%, #ffffff12 50%, #ffffff08 100%); background-size: 200% 100%; animation: tr-shimmer 1.4s linear infinite; }
+@keyframes tr-shimmer { from { background-position: 200% 0 } to { background-position: -200% 0 } }
+/* Headline is hidden only while JS motion is about to run; reduced motion and no-JS always see it. */
+@media (prefers-reduced-motion: no-preference) and (min-width: 1024px) { html.js:not(.motion-ready) [data-split] { visibility: hidden; } }
+[data-split] { font-kerning: none; }
+.step { transition: none; }
+:focus-visible { outline: 2px solid var(--color-tally); outline-offset: 2px; }
+/* Above-the-fold entrance runs in CSS (no JS wait), so the hero paints at first frame and LCP is not delayed. */
+.rise { animation: tr-rise .9s cubic-bezier(.22,1,.36,1) both; }
+@keyframes tr-rise { from { opacity: 0.001; transform: translateY(16px); } to { opacity: 1; transform: none; } }
