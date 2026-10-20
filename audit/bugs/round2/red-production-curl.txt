@@ -1,0 +1,16 @@
+# Round 2: production (https://tallyroom-rosy.vercel.app, main 98d523f), captured 2026-10-20 22:15:26 Cairo (UTC+3)
+
+## BUG-019a STV ignores skips two-exhaust (expected: the 3 ballots _>_>A are inactive, A gets 0)
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' -d '{"seats":2,"ballots":"3,_>_>A\n2,B\n2,C","rules":{"skips":"two-exhaust"}}'
+{"winners": ["A", "B"], "rules": null, "round1": {"A": "3.0000", "B": "2.0000", "C": "2.0000"}, "exhausted1": "0.0000"}
+HTTP 200
+
+## BUG-019b STV ignores overvote skip (expected: [A=B]>C counts for C)
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' -d '{"seats":2,"ballots":"3,[A=B]>C\n2,A\n2,B","rules":{"overvote":"skip"}}'
+{"winners": ["A", "B"], "rules": null, "round1": {"C": "0.0000", "A": "2.0000", "B": "2.0000"}, "exhausted1": "3.0000"}
+HTTP 200
+
+## BUG-019c STV ignores duplicates skip + two-exhaust (expected: A>A>_>B inactive)
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' -d '{"seats":2,"ballots":"3,C>A>A>_>B\n4,A\n2,B\n2,D","rules":{"skips":"two-exhaust","duplicates":"skip"}}'
+{"winners": ["A", "C"], "rules": null, "round1": {"C": "3.0000", "A": "4.0000", "B": "2.0000", "D": "2.0000"}, "exhausted1": "0.0000"}
+HTTP 200

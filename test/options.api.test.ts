@@ -17,8 +17,8 @@ describe('tie-break and STV options', () => {
     expect(r.body.stv.seats.minimum).toBe(1);
     expect(r.body.stv.quota.default).toBe('droop');
     expect(r.body.stv.quota.options.map((o: { id: string }) => o.id)).toEqual(['droop', 'hare']);
-    expect(r.body.stv.quota.options[0].description).toContain('floor(ballots / (seats + 1)) + 1');
-    expect(r.body.rules.overvote.options).toEqual(['exhaust', 'skip']);
+    expect(r.body.stv.quota.options[0].description).toContain('floor(valid ballots / (seats + 1)) + 1');
+    expect(r.body.rules.overvote.options).toEqual(['exhaust', 'skip', 'continuing']);
     expect(r.body.rules.skips.options).toEqual(['continue', 'two-exhaust']);
     expect(r.body.rules.duplicates.options).toEqual(['ignore', 'skip']);
     expect(r.body.rules.batch.default).toBe(false);

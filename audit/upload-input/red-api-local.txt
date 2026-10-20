@@ -1,0 +1,8 @@
+# local npm run dev (port 3420), before the BUG-010/011 fix, 2026-10-20 12:12 UTC+3 (code as on main for these paths)
+## BUG-010 5,010,000-byte body (2,507,500 chars), limit 4,194,304 bytes
+HTTP 200 {"engineVersion":"0.1.0","method":"irv","candidates":["éééé…  (accepted and counted)
+## BUG-011 '{"ballots":["A","B"]}' with Content-Type: text/csv
+HTTP 200 {"engineVersion":"0.1.0","method":"irv","candidates":["{ballots:[A","B]}"],… (counted as CSV cells)
+## BUG-009 (vitest, parseRankCsv on main): see red-vitest-main.txt
+"# exported 2024-10-01, Ward 3\n3,A>B\n2,B" -> CSV_FORMAT_AMBIGUOUS (Row 2, column 2: ">" joins ranks ...)
+"# source: county, state\nrank1,rank2\nA,B" -> 3 ballots: "# source: county>state", "rank1>rank2", "A>B"

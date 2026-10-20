@@ -9,3 +9,7 @@ test-results/
 playwright-report/
 AGENTS.md
 .testsprite/
+.stryker-tmp/
+reports/
+audit/mutation/latest.*
+__pycache__/

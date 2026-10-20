@@ -1,0 +1,53 @@
+
+ RUN  v4.1.12 /tmp/csvfix
+
+ ❯ test/upload-input.test.ts (4 tests | 2 failed) 382ms
+     × rejects a body over 4 MB in UTF-8 bytes even when it has fewer than 4M characters 375ms
+     × is read as JSON, not as CSV cells 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/upload-input.test.ts > BUG-010 byte limit > rejects a body over 4 MB in UTF-8 bytes even when it has fewer than 4M characters
+AssertionError: expected 200 to be 413 // Object.is equality
+
+- Expected
++ Received
+
+- 413
++ 200
+
+ ❯ test/upload-input.test.ts:12:22
+     10|     expect(body.length).toBeLessThan(MAX_BODY_BYTES);
+     11|     const r = handleTabulate('POST', body, { contentType: 'text/csv' }…
+     12|     expect(r.status).toBe(413); expect(r.body.error.code).toBe('PAYLOA…
+       |                      ^
+     13|   });
+     14|   it('still accepts a body just under the limit', () => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/upload-input.test.ts > BUG-011 JSON labelled text/csv > is read as JSON, not as CSV cells
+AssertionError: expected 422 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 422
+
+ ❯ test/upload-input.test.ts:21:22
+     19|   it('is read as JSON, not as CSV cells', () => {
+     20|     const r = handleTabulate('POST', '{"ballots":["A>B","B","A"]}', { …
+     21|     expect(r.status).toBe(200); expect(r.body.candidates).toEqual(['A'…
+       |                      ^
+     22|     const a = handleTabulate('POST', '[["A","B"],["B"],["A"]]', { cont…
+     23|     expect(a.status).toBe(200); expect(a.body.candidates).toEqual(['A'…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 2 passed (4)
+   Start at  12:13:24
+   Duration  814ms (transform 132ms, setup 0ms, import 237ms, tests 382ms, environment 0ms)
+

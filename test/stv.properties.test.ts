@@ -12,11 +12,15 @@ const ballotArb = fc.record({
     { weight: 1, arbitrary: fc.constant({ kind: 'skip' as const }) },
     { weight: 1, arbitrary: fc.constant({ kind: 'overvote' as const }) }), { minLength: 1, maxLength: 5 }),
 });
-const elect = fc.array(ballotArb, { minLength: 1, maxLength: 25 });
+const electAll = fc.array(ballotArb, { minLength: 1, maxLength: 25 });
 const seatsArb = fc.integer({ min: 1, max: 4 });
 const quotaArb = fc.constantFrom('droop' as const, 'hare' as const);
 const num = (s: string) => Number(s);
 const total = (bs: BallotGroup[]) => bs.reduce((s, b) => s + b.count, 0);
+// BUG-028: a count with no valid ballot is refused (422 NO_VALID_BALLOTS); every other property runs on counts with one.
+const hasValid = (bs: BallotGroup[]) => { try { tabulateStv(bs, C, 1, 'droop'); return true; } catch (e) { if ((e as { code?: string }).code === 'NO_VALID_BALLOTS') return false; throw e; } };
+const elect = electAll.filter(bs => hasValid(bs as BallotGroup[]));
+const stage1 = (r: { rounds: { tallies: Record<string, string> }[] }) => Object.values(r.rounds[0].tallies).reduce((a, v) => a + Number(v), 0);
 
 describe('STV invariants (property-based)', () => {
   it('fills exactly `seats` distinct seats from the candidate list', () => fc.assert(fc.property(elect, seatsArb, quotaArb, (bs, seats, q) => {
@@ -27,9 +31,15 @@ describe('STV invariants (property-based)', () => {
   })));
 
   it('Droop quota is floor(valid/(seats+1))+1 and Hare is valid/seats', () => fc.assert(fc.property(elect, seatsArb, (bs, seats) => {
-    const n = total(bs as BallotGroup[]);
-    expect(tabulateStv(bs as BallotGroup[], C, seats, 'droop').quota).toBe(`${Math.floor(n / (seats + 1)) + 1}.0000`);
+    // valid = the first-stage tallies (papers counting for a candidate), not every ballot (BUG-028, SSI 2007/42 Sch. 1 r. 46)
+    const d = tabulateStv(bs as BallotGroup[], C, seats, 'droop'); const n = Math.round(stage1(d));
+    expect(d.quota).toBe(`${Math.floor(n / (seats + 1)) + 1}.0000`);
     expect(num(tabulateStv(bs as BallotGroup[], C, seats, 'hare').quota)).toBeCloseTo(n / seats, 4);
+  })));
+
+  it('a count where no ballot counts for a candidate is refused with NO_VALID_BALLOTS', () => fc.assert(fc.property(electAll, seatsArb, (bs, seats) => {
+    const voidOnly = bs.map(b => ({ count: b.count, marks: b.marks.filter(m => m.kind !== 'candidate') }));
+    expect(() => tabulateStv(voidOnly as BallotGroup[], C, seats, 'droop')).toThrow(/no quota/);
   })));
 
   it('conservation: hopeful tallies + exhausted + quota kept by earlier winners = total ballots', () => fc.assert(fc.property(elect, seatsArb, quotaArb, (bs, seats, q) => {
@@ -39,7 +49,8 @@ describe('STV invariants (property-based)', () => {
       const sum = vals.reduce((a, b) => a + b, 0) + num(rd.exhausted) + keptBy * num(r.quota);
       // each reported value is rounded to 4 dp: error at most 0.00005 per term
       expect(Math.abs(sum - n)).toBeLessThanOrEqual(0.00005 * (vals.length + 2 + keptBy) + 1e-9);
-      keptBy += rd.elected.filter(c => Object.prototype.hasOwnProperty.call(rd.tallies, c) && num(rd.tallies[c]) >= num(r.quota) - 1e-9).length;
+      // after its surplus is transferred, an elected candidate keeps exactly the quota and leaves the tallies
+      if (rd.surplusTransferred) keptBy++;
     }
   })));
 
@@ -51,13 +62,16 @@ describe('STV invariants (property-based)', () => {
   it('a candidate elected on quota reached the quota in that round', () => fc.assert(fc.property(elect, seatsArb, quotaArb, (bs, seats, q) => {
     const r = tabulateStv(bs as BallotGroup[], C, seats, q);
     for (const rd of r.rounds) if (rd.eliminated.length) expect(rd.elected).toEqual([]);
-    const last = r.rounds.at(-1)!;
-    for (const rd of r.rounds) if (rd !== last) for (const c of rd.elected) expect(num(rd.tallies[c])).toBeGreaterThanOrEqual(num(r.quota) - 1e-9);
+    // a stage that fills the last seats by rule 52 may elect below quota; every earlier election is on quota
+    const fills = (rd: (typeof r.rounds)[number]) => r.rounds.indexOf(rd) === r.rounds.length - 1;
+    for (const rd of r.rounds) if (!fills(rd)) for (const c of rd.elected) expect(num(rd.tallies[c])).toBeGreaterThanOrEqual(num(r.quota) - 1e-9);
   })));
 
   it('the eliminated candidate has the lowest tally of that round', () => fc.assert(fc.property(elect, seatsArb, quotaArb, (bs, seats, q) => {
     for (const rd of tabulateStv(bs as BallotGroup[], C, seats, q).rounds) for (const e of rd.eliminated) {
-      const min = Math.min(...Object.values(rd.tallies).map(num)); expect(num(rd.tallies[e])).toBe(min);
+      // elected candidates waiting for their surplus are listed in tallies but cannot be excluded
+      const won = new Set(tabulateStv(bs as BallotGroup[], C, seats, q).rounds.slice(0, rd.round - 1).flatMap(x => x.elected));
+      const min = Math.min(...Object.entries(rd.tallies).filter(([c]) => !won.has(c)).map(([, v]) => num(v))); expect(num(rd.tallies[e])).toBe(min);
     }
   })));
 
@@ -85,13 +99,13 @@ describe('STV invariants (property-based)', () => {
 
 const frac = (s: string) => { const [n, d] = s.split('/'); return new Fraction(BigInt(n), BigInt(d)); };
 describe('STV exact surplus conservation (no rounding)', () => {
-  it('every round: Σ hopeful + exhausted + quota × seats already filled = ballots, exactly', () => fc.assert(fc.property(elect, seatsArb, quotaArb, (bs, seats, q) => {
+  it('every round: Σ tallies + exhausted + quota × surpluses already transferred = ballots, exactly', () => fc.assert(fc.property(elect, seatsArb, quotaArb, (bs, seats, q) => {
     const r = tabulateStv(bs as BallotGroup[], C, seats, q); const n = Fraction.of(total(bs as BallotGroup[])); const quota = frac(r.quotaExact); let filled = 0;
     for (const rd of r.rounds) {
       let sum = frac(rd.exact.exhausted).add(quota.mul(Fraction.of(filled)));
       for (const v of Object.values(rd.exact.tallies)) sum = sum.add(frac(v));
       expect(sum.cmp(n)).toBe(0);
-      filled += rd.elected.length;
+      if (rd.surplusTransferred) filled++;
     }
   }), { numRuns: 300 }));
   it('display values are the exact values rounded to 4 dp', () => fc.assert(fc.property(elect, seatsArb, quotaArb, (bs, seats, q) => {

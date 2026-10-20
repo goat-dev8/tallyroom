@@ -8,9 +8,9 @@ describe('GET /api/elections', () => {
   const res = handleElectionList('GET');
   const elections = (res.body as { elections: Record<string, unknown>[] }).elections;
 
-  it('lists the three bundled elections with the public metadata fields', () => {
+  it('lists the four bundled elections with the public metadata fields', () => {
     expect(res.status).toBe(200);
-    expect(elections.map(e => e.id)).toEqual(['maine-2018-cd2', 'alaska-2022', 'nyc-2021']);
+    expect(elections.map(e => e.id)).toEqual(['maine-2018-cd2', 'alaska-2022', 'nyc-2021', 'burlington-2009']);
     for (const e of elections) {
       expect(Object.keys(e).sort()).toEqual([
         'ballotCount', 'candidates', 'certifiedWinner', 'id', 'jurisdiction', 'method', 'name', 'seats', 'source', 'year',

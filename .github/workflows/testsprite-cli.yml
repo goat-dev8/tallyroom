@@ -49,6 +49,9 @@ jobs:
           { echo "### TestSprite CLI suite selection (PR #$PR)"; echo; echo '```'; cat changed.txt; echo '```'; echo
             if [ -s suites.txt ]; then echo "Suites: $(cut -d' ' -f1 suites.txt | tr '\n' ' ')"; else echo "Suites: none (no API-affecting change; UI is covered by the TestSprite V3 check)"; fi
           } >> "$GITHUB_STEP_SUMMARY"
+          if [ ! -s suites.txt ] && grep -qE '^(app/api|src|data)/' changed.txt; then
+            echo "::error::API-facing code changed (app/api/, src/ or data/) but no API suite was selected. Fix scripts/testsprite-filter.mjs."; exit 1
+          fi
           [ -s suites.txt ] && echo "run=true" >> "$GITHUB_OUTPUT" || echo "run=false" >> "$GITHUB_OUTPUT"
 
       - name: Wait for this commit's Vercel preview
@@ -82,7 +85,7 @@ jobs:
         env:
           PREVIEW_URL: ${{ steps.preview.outputs.url }}
         run: |
-          if [ -z "$TESTSPRITE_API_KEY" ]; then echo "::warning::TESTSPRITE_API_KEY secret is not set; skipping the CLI gate."; exit 0; fi
+          if [ -z "$TESTSPRITE_API_KEY" ]; then echo "::error::TESTSPRITE_API_KEY secret is not set; the API gate cannot run."; exit 1; fi
           mkdir -p reports
           # Binds PREVIEW_URL into each stored backend test (free), then one `testsprite ci run --filter api:` with JUnit.
           node scripts/testsprite-api.mjs --base "$PREVIEW_URL" --junit reports/testsprite-api.xml

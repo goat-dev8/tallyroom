@@ -1,0 +1,17 @@
+# BUG-013 on production (https://tallyroom-rosy.vercel.app, main 98d523f), captured 2026-10-20 21:52:39 Cairo (UTC+3)
+
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' -d '{"ballots":"3,A\n1,B","candidates":["A","A","B"],"seats":3}'
+{"candidates": null, "winners": ["A", "B"], "winner": null, "quota": "2.0000", "seats": null}
+HTTP 200
+
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' -d '{"ballots":"3,A\n1,B","candidates":["","A","B"]}'
+{"candidates": ["", "A", "B"], "winners": null, "winner": "A", "quota": null, "seats": null}
+HTTP 200
+
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' -d '{"ballots":"3,A\n1,B","candidates":[{},"A","B"]}'
+{"candidates": ["[object Object]", "A", "B"], "winners": null, "winner": "A", "quota": null, "seats": null}
+HTTP 200
+
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' -d '{"ballots":"3,A\n1,B","candidates":[" A ","B"]}'
+{"code": "UNKNOWN_CANDIDATE", "message": "Line 1: unknown candidate \"A\"", "details": {"row": 1, "column": 1, "candidate": "A"}}
+HTTP 422

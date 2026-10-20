@@ -1,0 +1,138 @@
+
+## Maine 2018, U.S. House District 2 (general)
+| Round | Item | Computed | Certified | Gap |
+|---|---|---|---|---|
+| 1 | REP Poliquin, Bruce | 134,184 | 134,184 | 0 |
+| 1 | DEM Golden, Jared F. | 132,013 | 132,013 | 0 |
+| 1 | Bond, Tiffany L. | 16,552 | 16,552 | 0 |
+| 1 | Hoar, William R.S. | 6,875 | 6,875 | 0 |
+| 1 | overvotes | 435 | 435 | 0 |
+| 1 | undervotes | 6,018 | 6,018 | 0 |
+| 1 | exhausted choices | 0 | 0 | 0 |
+| 1 | continuing | 289,624 | 289,624 | 0 |
+| 2 | DEM Golden, Jared F. | 142,440 | 142,440 | 0 |
+| 2 | REP Poliquin, Bruce | 138,931 | 138,931 | 0 |
+| 2 | overvotes | 533 | 533 | 0 |
+| 2 | undervotes | 13,838 | 13,838 | 0 |
+| 2 | exhausted choices | 335 | 335 | 0 |
+| 2 | continuing | 281,371 | 281,371 | 0 |
+| - | total ballots | 296,077 | 296,077 | 0 |
+| - | rounds | 2 | 2 | 0 |
+
+## Alaska 2022, U.S. Representative special general (Aug 16)
+| Round | Item | Computed | Certified | Gap |
+|---|---|---|---|---|
+| 1 | Begich, Nick | 53,810 | 53,810 | 0 |
+| 1 | Palin, Sarah | 58,973 | 58,973 | 0 |
+| 1 | Peltola, Mary S. | 75,799 | 75,799 | 0 |
+| 1 | continuing | 188,582 | 188,582 | 0 |
+| 1 | blanks | 3,412 | 3,412 | 0 |
+| 1 | exhausted | 0 | 0 | 0 |
+| 1 | overvotes | 295 | 295 | 0 |
+| 2 | Palin, Sarah | 86,026 | 86,026 | 0 |
+| 2 | Peltola, Mary S. | 91,266 | 91,266 | 0 |
+| 2 | continuing | 177,292 | 177,292 | 0 |
+| 2 | blanks | 3,412 | 3,412 | 0 |
+| 2 | exhausted | 11,243 | 11,243 | 0 |
+| 2 | overvotes | 342 | 342 | 0 |
+| - | total ballots | 192,289 | 192,289 | 0 |
+| - | rounds | 2 | 2 | 0 |
+
+## New York City 2021 Democratic primary, Mayor
+| Round | Item | Computed | Certified | Gap |
+|---|---|---|---|---|
+| 1 | Eric L. Adams | 289,403 | 289,403 | 0 |
+| 1 | Maya D. Wiley | 201,127 | 201,127 | 0 |
+| 1 | Kathryn A. Garcia | 184,463 | 184,463 | 0 |
+| 1 | Andrew Yang | 115,130 | 115,130 | 0 |
+| 1 | Scott M. Stringer | 51,778 | 51,778 | 0 |
+| 1 | Dianne Morales | 26,495 | 26,495 | 0 |
+| 1 | Raymond J. McGuire | 25,242 | 25,242 | 0 |
+| 1 | Shaun Donovan | 23,167 | 23,167 | 0 |
+| 1 | Aaron S. Foldenauer | 7,742 | 7,742 | 0 |
+| 1 | Art Chang | 7,048 | 7,048 | 0 |
+| 1 | Paperboy Love Prince | 3,964 | 3,964 | 0 |
+| 1 | Joycelyn Taylor | 2,662 | 2,662 | 0 |
+| 1 | Isaac Wright Jr. | 2,242 | 2,242 | 0 |
+| 1 | Write-in | 1,568 | 1,568 | 0 |
+| 1 | inactive since R1 | 0 | 0 | 0 |
+| 2 | Eric L. Adams | 289,603 | 289,603 | 0 |
+| 2 | Maya D. Wiley | 201,193 | 201,193 | 0 |
+| 2 | Kathryn A. Garcia | 184,571 | 184,571 | 0 |
+| 2 | Andrew Yang | 115,301 | 115,301 | 0 |
+| 2 | Scott M. Stringer | 51,850 | 51,850 | 0 |
+| 2 | Dianne Morales | 26,534 | 26,534 | 0 |
+| 2 | Raymond J. McGuire | 25,272 | 25,272 | 0 |
+| 2 | Shaun Donovan | 23,189 | 23,189 | 0 |
+| 2 | Aaron S. Foldenauer | 7,758 | 7,758 | 0 |
+| 2 | Art Chang | 7,064 | 7,064 | 0 |
+| 2 | Paperboy Love Prince | 4,007 | 4,007 | 0 |
+| 2 | Joycelyn Taylor | 2,683 | 2,683 | 0 |
+| 2 | Isaac Wright Jr. | 2,254 | 2,254 | 0 |
+| 2 | inactive since R1 | 752 | 752 | 0 |
+| 3 | Eric L. Adams | 290,055 | 290,055 | 0 |
+| 3 | Maya D. Wiley | 201,518 | 201,518 | 0 |
+| 3 | Kathryn A. Garcia | 184,669 | 184,669 | 0 |
+| 3 | Andrew Yang | 115,502 | 115,502 | 0 |
+| 3 | Scott M. Stringer | 51,951 | 51,951 | 0 |
+| 3 | Dianne Morales | 26,645 | 26,645 | 0 |
+| 3 | Raymond J. McGuire | 25,418 | 25,418 | 0 |
+| 3 | Shaun Donovan | 23,314 | 23,314 | 0 |
+| 3 | Aaron S. Foldenauer | 7,819 | 7,819 | 0 |
+| 3 | Art Chang | 7,093 | 7,093 | 0 |
+| 3 | Paperboy Love Prince | 4,060 | 4,060 | 0 |
+| 3 | Joycelyn Taylor | 2,780 | 2,780 | 0 |
+| 3 | inactive since R1 | 1,207 | 1,207 | 0 |
+| 4 | Eric L. Adams | 291,806 | 291,806 | 0 |
+| 4 | Maya D. Wiley | 206,013 | 206,013 | 0 |
+| 4 | Kathryn A. Garcia | 186,731 | 186,731 | 0 |
+| 4 | Andrew Yang | 118,008 | 118,008 | 0 |
+| 4 | Scott M. Stringer | 53,599 | 53,599 | 0 |
+| 4 | Dianne Morales | 30,157 | 30,157 | 0 |
+| 4 | Raymond J. McGuire | 26,361 | 26,361 | 0 |
+| 4 | Shaun Donovan | 24,042 | 24,042 | 0 |
+| 4 | inactive since R1 | 5,314 | 5,314 | 0 |
+| 5 | Eric L. Adams | 295,798 | 295,798 | 0 |
+| 5 | Maya D. Wiley | 209,108 | 209,108 | 0 |
+| 5 | Kathryn A. Garcia | 191,876 | 191,876 | 0 |
+| 5 | Andrew Yang | 121,597 | 121,597 | 0 |
+| 5 | Scott M. Stringer | 56,723 | 56,723 | 0 |
+| 5 | Dianne Morales | 30,933 | 30,933 | 0 |
+| 5 | Raymond J. McGuire | 27,934 | 27,934 | 0 |
+| 5 | inactive since R1 | 8,062 | 8,062 | 0 |
+| 6 | Eric L. Adams | 317,092 | 317,092 | 0 |
+| 6 | Maya D. Wiley | 239,174 | 239,174 | 0 |
+| 6 | Kathryn A. Garcia | 223,634 | 223,634 | 0 |
+| 6 | Andrew Yang | 135,686 | 135,686 | 0 |
+| 6 | inactive since R1 | 26,445 | 26,445 | 0 |
+| 7 | Eric L. Adams | 354,657 | 354,657 | 0 |
+| 7 | Maya D. Wiley | 254,728 | 254,728 | 0 |
+| 7 | Kathryn A. Garcia | 266,932 | 266,932 | 0 |
+| 7 | inactive since R1 | 65,714 | 65,714 | 0 |
+| 8 | Eric L. Adams | 404,513 | 404,513 | 0 |
+| 8 | Kathryn A. Garcia | 397,316 | 397,316 | 0 |
+| 8 | inactive since R1 | 140,202 | 140,202 | 0 |
+| - | rounds | 8 | 8 | 0 |
+(ballots with a mark in this race: 947,932; inactive in R1: 5901)
+
+## Burlington VT 2009, Mayor (Mar 3)
+| Round | Item | Computed | Certified | Gap |
+|---|---|---|---|---|
+| 1 | Kurt Wright | 2,951 | 2,951 | 0 |
+| 1 | Bob Kiss | 2,585 | 2,585 | 0 |
+| 1 | Andy Montroll | 2,063 | 2,063 | 0 |
+| 1 | Dan Smith | 1,306 | 1,306 | 0 |
+| 1 | Write-In | 36 | 36 | 0 |
+| 1 | James Simpson | 35 | 35 | 0 |
+| 1 | exhausted pile | 4 | 4 | 0 |
+| 2 | Kurt Wright | 3,294 | 3,294 | 0 |
+| 2 | Bob Kiss | 2,981 | 2,981 | 0 |
+| 2 | Andy Montroll | 2,554 | 2,554 | 0 |
+| 2 | exhausted pile | 151 | 151 | 0 |
+| 3 | Bob Kiss | 4,313 | 4,313 | 0 |
+| 3 | Kurt Wright | 4,061 | 4,061 | 0 |
+| 3 | exhausted pile | 606 | 606 | 0 |
+| - | total ballots | 8,980 | 8,980 | 0 |
+| - | rounds | 3 | 3 | 0 |
+
+PARITY: EXACT

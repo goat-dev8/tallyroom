@@ -5,11 +5,13 @@ import type { RoundsPayload } from './rounds-build.js';
 import maine from '../data/rounds/maine-2018-cd2.json';
 import alaska from '../data/rounds/alaska-2022.json';
 import nyc from '../data/rounds/nyc-2021.json';
+import burlington from '../data/rounds/burlington-2009.json';
 
 const PRECOMPUTED: Record<string, RoundsPayload> = {
   'maine-2018-cd2': maine as RoundsPayload,
   'alaska-2022': alaska as RoundsPayload,
   'nyc-2021': nyc as RoundsPayload,
+  'burlington-2009': burlington as RoundsPayload,
 };
 
 /** GET /api/elections/:id/rounds — precomputed tallies, eliminations, and from→to transfers. */

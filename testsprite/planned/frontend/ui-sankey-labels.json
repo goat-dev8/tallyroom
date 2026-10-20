@@ -1,0 +1,23 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:sankey-labels",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=nyc-2021-dem-mayor&round=1"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 60 seconds for the element with data-testid 'sankey' to appear, then wait 2 seconds for the flows to finish drawing"
+  },
+  {
+   "type": "assertion",
+   "description": "No two node labels (text inside 'sankey-node') in the same column overlap vertically, including the small candidates Art Chang, Paperboy Love Prince, Joycelyn Taylor, Isaac Wright Jr. and Write-in"
+  },
+  {
+   "type": "assertion",
+   "description": "The round tabs 'dash-rail-r2' to 'dash-rail-r8' have readable light-grey text (contrast at least 7:1 on the dark panel)"
+  }
+ ]
+}

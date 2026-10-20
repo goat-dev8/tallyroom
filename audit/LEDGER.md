@@ -11,5 +11,6 @@ Every artifact a pull request produced (TestSprite reports, JUnit, before/after 
 | [#17](https://github.com/goat-dev8/tallyroom/pull/17) | Backend TestSprite tests bound to the PR preview, not a hard-coded deployment; 21/21 green | [`pr-17/`](pr-17/) (`testsprite-api.xml` JUnit, `testsprite-api.json` summary) |
 | [#20](https://github.com/goat-dev8/tallyroom/pull/20) | BUG-002..004: count,ranking header, `__proto__` candidate, unsafe counts; red TestSprite run on production, fix, green CLI gate | [`pr-20/`](pr-20/) (`before-production.txt`, `red-failure-bundle/`) |
 | [#22](https://github.com/goat-dev8/tallyroom/pull/22) | BUG-005..007: upload error text, samples clear old results, 404 tab title | [`pr-22/`](pr-22/) (red screenshots on production, red/green Playwright summaries) |
+| fix/hero-demo (pending) | BUG-008: hero replay holds on the certified final round | [`hero-hold/`](hero-hold/) |
 
 CI artifacts (JUnit from the TestSprite CLI gate, production API suite, Vitest, parity report) are attached to each GitHub Actions run; see the Actions tab.

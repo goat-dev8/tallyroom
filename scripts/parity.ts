@@ -3,6 +3,7 @@ import { tabulateIrv, maineCategories, dominionCategories } from '../src/index.j
 import { MAINE_2018_CD2 } from '../src/elections/maine-2018-cd2.js';
 import { ALASKA_2022_SPECIAL } from '../src/elections/alaska-2022-special.js';
 import { NYC_2021_DEM_MAYOR } from '../src/elections/nyc-2021-dem-mayor.js';
+import { BURLINGTON_2009_MAYOR } from '../src/elections/burlington-2009-mayor.js';
 let bad = 0;
 const line = (round: number | string, item: string, got: number, want: number) => { const g = got - want; if (g) bad++; console.log(`| ${round} | ${item} | ${got.toLocaleString('en-US')} | ${want.toLocaleString('en-US')} | ${g} |`); };
 const only = process.argv[2];
@@ -36,5 +37,14 @@ if (!only || only === 'nyc') {
   });
   line('-', 'rounds', r.rounds.length, 8);
   console.log(`(ballots with a mark in this race: ${r.totalBallots.toLocaleString('en-US')}; inactive in R1: ${base(0)})`);
+}
+if (!only || only === 'burlington') {
+  const E = BURLINGTON_2009_MAYOR, r = tabulateIrv(E.load(), E.candidates, E.rules);
+  console.log(`\n## ${E.title}\n| Round | Item | Computed | Certified | Gap |\n|---|---|---|---|---|`);
+  E.certified.rounds.forEach((cr, i) => {
+    for (const [k, v] of Object.entries(cr.tallies)) line(i + 1, k, r.rounds[i]?.tallies[k] ?? 0, v);
+    line(i + 1, 'exhausted pile', Object.values(r.rounds[i]?.inactive ?? {}).reduce((a, b) => a + b, 0), cr.exhausted);
+  });
+  line('-', 'total ballots', r.totalBallots, E.certified.totalBallots); line('-', 'rounds', r.rounds.length, 3);
 }
 console.log(bad ? `\nPARITY: MISMATCH (${bad} gaps)` : '\nPARITY: EXACT'); process.exit(bad ? 1 : 0);

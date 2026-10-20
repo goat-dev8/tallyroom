@@ -1,0 +1,13 @@
+# Production red evidence, public deployment https://tallyroom-rosy.vercel.app (main 98d523f, before the fixes in this stack)
+## BUG-012 — overvote rule 'continuing'
+$ curl -X POST -H content-type: application/json --data-binary {"ballots":"22,Bo>Ada\n8,Ada","candidates":["Ada","Bo"],"rules":{"overvote":"continuing"}} $PROD/api/tabulate
+captured 2026-10-20 21:36:32 Cairo (UTC+3)
+{"error":{"code":"INVALID_OVERVOTE","message":"rules.overvote must be one of: exhaust, skip","details":{"field":"rules.overvote","value":"continuing"}}}
+HTTP 422
+
+## context — /api/health elections
+$ curl $PROD/api/health
+captured 2026-10-20 21:36:32 Cairo (UTC+3)
+{"ok":true,"engineVersion":"0.1.0","status":"ok","version":"0.1.0","elections":["maine-2018-cd2","alaska-2022","nyc-2021"]}
+HTTP 200
+

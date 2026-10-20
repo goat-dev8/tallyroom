@@ -1,0 +1,12 @@
+case 0: candidates 12, seats 6, ballot lines 2000, body 85809 B -> status 200  rounds 10, 27 ms, response 5278 B, largest denominator 56 digits
+case 1: candidates 30, seats 15, ballot lines 3000, body 344640 B -> status 200  rounds 27, 200 ms, response 126309 B, largest denominator 3073 digits
+case 2: candidates 51, seats 25, ballot lines 3000, body 596666 B -> status 200  rounds 50, 133 ms, response 103263 B, largest denominator 2126 digits
+case 3: candidates 51, seats 50, ballot lines 3000, body 596663 B -> status 200  rounds 42, 114 ms, response 68458 B, largest denominator 328 digits
+case 4: candidates 51, seats 25, ballot lines 20000, body 3977540 B -> status 200  rounds 49, 712 ms, response 85236 B, largest denominator 896 digits
+case 5: candidates 51, seats 10, ballot lines 20000, body 3977538 B -> status 200  rounds 49, 515 ms, response 59985 B, largest denominator 323 digits
+case 6: candidates 20, seats 10, ballot lines 50000, body 3743571 B -> status 200  rounds 17, 490 ms, response 24138 B, largest denominator 392 digits
+case 7: candidates 30, seats 15, ballot lines 20000, body 2297355 B -> status 200  rounds 28, 340 ms, response 92252 B, largest denominator 2609 digits
+case 8: candidates 40, seats 20, ballot lines 20000, body 3097918 B -> status 200  rounds 37, 456 ms, response 74929 B, largest denominator 1373 digits
+case 9: candidates 30, seats 14, ballot lines 3000, body 344636 B -> status 200  rounds 27, 64 ms, response 65155 B, largest denominator 1509 digits
+case 10: candidates 30, seats 12, ballot lines 3000, body 344638 B -> status 200  rounds 27, 52 ms, response 46019 B, largest denominator 647 digits
+case 11: candidates 25, seats 12, ballot lines 30000, body 2846683 B -> status 200  rounds 20, 422 ms, response 34597 B, largest denominator 313 digits

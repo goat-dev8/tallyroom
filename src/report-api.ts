@@ -69,7 +69,8 @@ function bundledReport(id: string): ApiResult {
 function uploadReport(value: ParsedTabulate): ShareableReport {
   const ballotCount = value.ballots.reduce((s, b) => s + b.count, 0);
   if (value.seats !== undefined && value.seats !== 1) {
-    const result = tabulateStv(value.ballots, value.candidates, value.seats, value.quota ?? 'droop');
+    const stvRules: Rules = { ...DEFAULT_RULES, ...(value.rules ?? {}) }; // BUG-027: recorded in the sealed report
+    const result = tabulateStv(value.ballots, value.candidates, value.seats, value.quota ?? 'droop', stvRules);
     return seal({
       engineVersion: ENGINE_VERSION,
       election: null,
@@ -83,7 +84,7 @@ function uploadReport(value: ParsedTabulate): ShareableReport {
       certifiedWinner: null,
       winner: null,
       winners: result.winners,
-      rules: null,
+      rules: stvRules,
       quota: result.quota,
       source: null,
       rounds: result.rounds,
@@ -128,7 +129,7 @@ export function handleReport(method: string, input: ReportInput = {}): ApiResult
     || (!contentType.toLowerCase().includes('json') && trimmed.length > 0 && !trimmed.startsWith('{') && !trimmed.startsWith('['));
   if (!csv) {
     let req: any;
-    try { req = JSON.parse(raw); } catch { return fail(400, 'INVALID_JSON', 'Invalid JSON body'); }
+    try { req = JSON.parse(raw.replace(/^\uFEFF/, '')); } catch { return fail(400, 'INVALID_JSON', 'Invalid JSON body'); } // BUG-023
     if (Array.isArray(req)) {
       // A JSON array is a ballot list; counted below.
     } else if (!req || typeof req !== 'object') {

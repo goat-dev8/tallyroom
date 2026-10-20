@@ -1,0 +1,23 @@
+# TestSprite backend scripts run locally with python against next start of the round-3 working tree, 2026-10-20 23:05:14 Cairo (UTC+3). No TestSprite credits used.
+PASS api_alaska.py
+PASS api_certified_rounds_alaska.py
+PASS api_certified_rounds_maine.py
+PASS api_certified_rounds_nyc.py
+PASS api_csv_single_choice.py
+PASS api_elections.py
+PASS api_err_400.py
+PASS api_err_405.py
+PASS api_err_413.py
+PASS api_err_422.py
+PASS api_err_election.py
+PASS api_exhausted.py
+PASS api_formats.py
+PASS api_health.py
+PASS api_input_edges.py
+PASS api_maine.py
+PASS api_nyc.py
+PASS api_options.py
+PASS api_report.py
+PASS api_rounds.py
+PASS api_stv.py
+PASS api_tie.py

@@ -1,0 +1,4 @@
+Playwright tests/e2e/hero-hold.spec.ts against https://tallyroom-rosy.vercel.app (production), 2026-10-20 ~11:00 Cairo
+desktop-1440 FAILED data-round sampled every 0.5 s for 12 s after reaching round 2: 222222222111112222222211 (expected all 2)
+mobile-390   FAILED 222222221111112222222211
+TestSprite V3 on #22 (eef98f7b): ui:hero-autoplay failed, 'stuck showing the first-round state'.

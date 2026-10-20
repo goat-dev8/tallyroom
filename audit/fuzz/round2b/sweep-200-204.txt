@@ -1,0 +1,13 @@
+seed 200 fixed: {"cases":20000,"irv":14174,"stv":5826,"rounds":51642,"irvCasesWithTieBreak":1889,"irvCasesWithBatch":1294,"divergences":0}
+seed 200 pre-fix: {"cases":20000,"irv":14167,"stv":5826,"rounds":51642,"irvCasesWithTieBreak":1872,"irvCasesWithBatch":1292,"divergences":597}
+seed 201 fixed: {"cases":20000,"irv":14164,"stv":5836,"rounds":51572,"irvCasesWithTieBreak":1801,"irvCasesWithBatch":1307,"divergences":0}
+seed 201 pre-fix: {"cases":20000,"irv":14160,"stv":5836,"rounds":51572,"irvCasesWithTieBreak":1786,"irvCasesWithBatch":1304,"divergences":576}
+seed 202 fixed: {"cases":20000,"irv":14102,"stv":5898,"rounds":51803,"irvCasesWithTieBreak":1796,"irvCasesWithBatch":1349,"divergences":0}
+seed 202 pre-fix: {"cases":20000,"irv":14098,"stv":5898,"rounds":51803,"irvCasesWithTieBreak":1784,"irvCasesWithBatch":1346,"divergences":575}
+seed 203 fixed: {"cases":20000,"irv":14224,"stv":5776,"rounds":51304,"irvCasesWithTieBreak":1764,"irvCasesWithBatch":1310,"divergences":0}
+seed 203 pre-fix: {"cases":20000,"irv":14221,"stv":5776,"rounds":51304,"irvCasesWithTieBreak":1753,"irvCasesWithBatch":1310,"divergences":666}
+seed 204 fixed: {"cases":20000,"irv":14167,"stv":5833,"rounds":51775,"irvCasesWithTieBreak":1856,"irvCasesWithBatch":1296,"divergences":0}
+seed 204 pre-fix: {"cases":20000,"irv":14167,"stv":5833,"rounds":51775,"irvCasesWithTieBreak":1846,"irvCasesWithBatch":1294,"divergences":597}
+adbec6772ac9bdae0aede5f92e0bd99ba7bd2f6ecf162c5d986ced2da984fdbd  fuzz/gen.py
+1778ff47eef4cdd94ca91d0dbfb75e2dcc2bcf635489bbf1e84aaf9e9fe67bfe  fuzz/oracle.py
+eb17d07a424b20627a29eb871890521ea2d17d30fb94a474b725cab09abb0da9  fuzz/run.ts

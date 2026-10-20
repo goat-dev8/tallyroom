@@ -1,0 +1,32 @@
+# Independent-review bugs on production (https://tallyroom-rosy.vercel.app, main 98d523f), captured 2026-10-20 21:58:15 Cairo (UTC+3)
+
+## BUG-014a STV ignores previous-round tie-break (expected: C out in round 2, winners A,B)
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' -d '{"seats":2,"ballots":"8,A>C\n5,B\n3,C","candidates":["A","C","B"]}'
+{"winners": ["A", "C"], "winner": null, "totalBallots": null, "eliminated": [[], ["B"], []], "lastTallies": {"C": "5.0000"}}
+HTTP 200
+
+## BUG-014b STV ignores lotOrder (expected: A out, winners B,C)
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' -d '{"seats":2,"ballots":"1,A\n1,B\n1,C","rules":{"tiebreak":"lot","lotOrder":["C","B","A"]}}'
+{"winners": ["A", "B"], "winner": null, "totalBallots": null, "eliminated": [["C"], []], "lastTallies": {"A": "1.0000", "B": "1.0000"}}
+HTTP 200
+
+## BUG-015 duplicates ignore does not reset the skip run (expected: winner B, round 2 B 5 C 4)
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' -d '{"ballots":"4,C\n3,B\n2,A>_>A>_>B","rules":{"skips":"two-exhaust","duplicates":"ignore"}}'
+{"winners": null, "winner": "C", "totalBallots": 9, "eliminated": [["A"], []], "lastTallies": {"C": 4, "B": 3}}
+HTTP 200
+
+## BUG-016 bare CR fuses records (expected: 6 ballots, winner A)
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' -d '{"ballots":"1,B\r5,A\r"}'
+{"winners": null, "winner": "B\r5,A", "totalBallots": 1, "eliminated": [[]], "lastTallies": {"B\r5,A": 1}}
+HTTP 200
+
+## BUG-013 (review item 5) NFD name in candidates and ballots (expected 200)
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' -d '{"ballots":"3,Jose\u0301\n1,B","candidates":["Jose\u0301","B"]}'
+{"code": "UNKNOWN_CANDIDATE", "message": "Line 1: unknown candidate \"José\"", "details": {"row": 1, "column": 1, "candidate": "José"}}
+HTTP 422
+
+## BUG-018 lotOrder is not NFC-normalised (found by the extended differential fuzz). Expected 200; B is last in lotOrder, so B goes and José wins
+captured 2026-10-20 22:00:31 Cairo (UTC+3)
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' -d '{"ballots":"1,Jose\u0301\n1,B","rules":{"tiebreak":"lot","lotOrder":["Jose\u0301","B"]}}'
+{"error":{"code":"INVALID_LOT_ORDER","message":"rules.lotOrder is missing candidate \"José\"","details":{"field":"rules.lotOrder","candidate":"José"}}}
+HTTP 422

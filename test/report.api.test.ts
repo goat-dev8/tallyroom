@@ -43,7 +43,7 @@ describe('GET and POST /api/report', () => {
     expect(edges).toEqual([
       { from: 'Begich, Nick', to: 'Palin, Sarah', count: 27053 },
       { from: 'Begich, Nick', to: 'Peltola, Mary S.', count: 15467 },
-      { from: 'Begich, Nick', to: 'exhausted', count: 11290 },
+      { from: 'Begich, Nick', to: 'exhausted', count: 11290, exhausted: true },
     ]);
   });
 

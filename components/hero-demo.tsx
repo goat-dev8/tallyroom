@@ -10,7 +10,7 @@ import { RoundBars, shortName } from './round-bars';
 import { RoundRail } from './round-rail';
 import { Button } from './ui';
 const MAINE = CATALOG[0];
-const HOLD = 2800, HOLD_LAST = 4200;
+const HOLD = 2800;
 /** Live mini dashboard: the real engine counts Maine 2018 CD2 in a Web Worker and replays the rounds. */
 export function HeroDemo() {
   const reduce = useReducedMotion();
@@ -25,8 +25,10 @@ export function HeroDemo() {
   const n = res?.rounds.length ?? 0;
   useEffect(() => { if (n) setDemoRound(round, n); }, [round, n]);
   useEffect(() => {
-    if (!res || !playing || !visible) return;
-    const id = setTimeout(() => setRound(r => (r + 1) % n), round === n - 1 ? HOLD_LAST : HOLD);
+    // The replay plays once and then holds on the certified final round (it used to loop back to round 1,
+    // so a visitor or a slow test could keep landing on round 1). Restart (R) replays it.
+    if (!res || !playing || !visible || round >= n - 1) return;
+    const id = setTimeout(() => setRound(r => Math.min(r + 1, n - 1)), HOLD);
     return () => clearTimeout(id);
   }, [res, playing, visible, round, n]);
   const step = useCallback((d: number) => { setPlaying(false); setRound(x => (x + d + n) % n); }, [n]);

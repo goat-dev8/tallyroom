@@ -1,5 +1,6 @@
 import { BallotGroup, Rules } from '../types.js';
 import { ALASKA_2022_SPECIAL } from './alaska-2022-special.js';
+import { BURLINGTON_2009_MAYOR } from './burlington-2009-mayor.js';
 import { MAINE_2018_CD2 } from './maine-2018-cd2.js';
 import { NYC_2021_DEM_MAYOR } from './nyc-2021-dem-mayor.js';
 
@@ -25,10 +26,11 @@ export interface BundledElection extends ElectionMetadata {
 }
 
 /**
- * Official result pages for the three certified elections.
+ * Official result pages for the four certified elections.
  * Maine: Secretary of State updated CD2 summary report (file name matches data/SHA256SUMS.maine-2018-cd2.txt).
  * Alaska: Division of Elections 2022 special general results.
  * NYC: Board of Elections election-results summary (2021 primary recap).
+ * Burlington: ChoicePlus Pro Round Detail Report (copy linked; the city's own page is gone). Ballots from PrefLib 00005.
  */
 export const BUNDLED_ELECTIONS: BundledElection[] = [
   {
@@ -76,6 +78,21 @@ export const BUNDLED_ELECTIONS: BundledElection[] = [
     source: 'https://vote.nyc/page/election-results-summary',
     rules: NYC_2021_DEM_MAYOR.rules,
     load: () => NYC_2021_DEM_MAYOR.load(),
+  },
+  {
+    id: 'burlington-2009',
+    aliases: ['burlington-2009-mayor'],
+    name: BURLINGTON_2009_MAYOR.title,
+    jurisdiction: 'Burlington, Vermont',
+    year: 2009,
+    method: 'IRV',
+    seats: 1,
+    candidates: BURLINGTON_2009_MAYOR.candidates,
+    ballotCount: BURLINGTON_2009_MAYOR.certified.totalBallots,
+    certifiedWinner: BURLINGTON_2009_MAYOR.certified.winner,
+    source: 'https://rangevoting.org/BurlOfficialTallies.html',
+    rules: BURLINGTON_2009_MAYOR.rules,
+    load: () => BURLINGTON_2009_MAYOR.load(),
   },
 ];
 

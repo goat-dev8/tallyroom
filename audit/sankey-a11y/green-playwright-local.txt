@@ -1,0 +1,78 @@
+
+Running 72 tests using 4 workers
+
+  ✓   3 [desktop-1440] › tests/e2e/dashboard.spec.ts:11:3 › maine-2018-cd2: certified winner, round count and final-round totals (1.5s)
+  ✓   1 [desktop-1440] › tests/e2e/dashboard.spec.ts:11:3 › alaska-2022-special: certified winner, round count and final-round totals (1.6s)
+  ✓   2 [desktop-1440] › tests/e2e/bars.spec.ts:2:1 › transfer segment equals the exact votes gained this round (NYC R8) (1.7s)
+  ✓   4 [desktop-1440] › tests/e2e/dashboard.spec.ts:11:3 › nyc-2021-dem-mayor: certified winner, round count and final-round totals (2.2s)
+  ✓   5 [desktop-1440] › tests/e2e/dashboard.spec.ts:29:1 › NYC is counted in a Web Worker (1.6s)
+  ✓   6 [desktop-1440] › tests/e2e/dashboard.spec.ts:36:1 › deep links: election + round, clamping, unknown election, URL sync (1.7s)
+  ✓   7 [desktop-1440] › tests/e2e/dashboard.spec.ts:54:1 › keyboard arrows step rounds on the dashboard (1.9s)
+  ✓   9 [desktop-1440] › tests/e2e/dashboard.spec.ts:79:3 › upload › valid IRV sample counts on the API (778ms)
+  ✓  10 [desktop-1440] › tests/e2e/dashboard.spec.ts:87:3 › upload › valid CSV file via the file picker (710ms)
+  ✓   8 [desktop-1440] › tests/e2e/dashboard.spec.ts:64:1 › Sankey tooltip shows an exact transfer count (2.0s)
+  ✓  11 [desktop-1440] › tests/e2e/dashboard.spec.ts:94:3 › upload › invalid ballots show the API line error (762ms)
+  ✓  12 [desktop-1440] › tests/e2e/dashboard.spec.ts:104:3 › upload › empty input and bad files are rejected before counting (633ms)
+  ✓  13 [desktop-1440] › tests/e2e/dashboard.spec.ts:116:3 › upload › STV with 2 seats (829ms)
+  ✓  14 [desktop-1440] › tests/e2e/dashboard.spec.ts:127:1 › arrow keys step rounds even when focus is on the page body (936ms)
+  ✓  17 [desktop-1440] › tests/e2e/landing.spec.ts:43:3 › landing hero live demo › keyboard: arrows step, space toggles, R restarts (942ms)
+  ✓  19 [desktop-1440] › tests/e2e/landing.spec.ts:86:3 › landing hero live demo › parity ledger shows the certified figures and deep-links into the dashboard (519ms)
+  ✓  20 [desktop-1440] › tests/e2e/landing.spec.ts:96:3 › landing hero live demo › no horizontal overflow and nav works (613ms)
+  ✓  15 [desktop-1440] › tests/e2e/landing.spec.ts:5:3 › landing hero live demo › counts Maine 2018 CD2 with the real engine and auto-plays (3.6s)
+  ✓  16 [desktop-1440] › tests/e2e/landing.spec.ts:21:3 › landing hero live demo › pause, step, back and restart controls (4.7s)
+  ✓  18 [desktop-1440] › tests/e2e/landing.spec.ts:61:3 › landing hero live demo › majority line sits exactly at 50% of continuing ballots, and only the winner crosses it (4.2s)
+  ✓  21 [desktop-1440] › tests/e2e/landing.spec.ts:115:3 › reduced motion › no autoplay, static visuals, everything readable (4.0s)
+  ✓  22 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:25:1 › 1 focus ring follows the curve, not a bounding box (3.5s)
+  ✓  24 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:46:1 › 3 one Tab leaves the diagram; the list toggle and the table follow; Shift+Tab comes back (3.3s)
+  ✓  25 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:55:1 › 4 round bars show a tooltip on hover (3.3s)
+  ✓  26 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:62:1 › 5 sankey nodes show a tooltip on hover (3.0s)
+  ✓  23 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:33:1 › 2 arrow keys move between flows and each focused flow is scrolled into view (5.5s)
+  ✓  27 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:68:1 › 6 one pointer move onto a flow shows its tooltip (3.8s)
+  ✓  29 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:84:1 › 8 node labels do not overlap and have a halo over flows (3.0s)
+  ✓  30 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:94:1 › 9 thin flows have a wide invisible hit path (3.5s)
+  ✓  28 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:75:1 › 7 keyboard tooltip sits at the flow, next to its destination (3.9s)
+  ✓  33 [desktop-1440] › tests/e2e/upload-fixes.spec.ts:5:3 › upload errors and samples › BUG-005: API errors show their message, not [object Object] (459ms)
+  ✓  34 [desktop-1440] › tests/e2e/upload-fixes.spec.ts:15:3 › upload errors and samples › BUG-006: loading a sample clears the previous result and error (626ms)
+  ✓  35 [desktop-1440] › tests/e2e/upload-fixes.spec.ts:29:3 › upload errors and samples › guard: the sample CSV downloads as ballots.csv (manual-QA report, not reproduced in Chromium) (350ms)
+  ✓  36 [desktop-1440] › tests/e2e/upload-fixes.spec.ts:36:1 › BUG-007: the 404 page has its own tab title (247ms)
+  ✓  31 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:103:1 › 10 round tabs R2-R8 meet 7:1 contrast at 10-11px (2.8s)
+  ✓  32 [desktop-1440] › tests/e2e/sankey.spec.ts:2:1 › sankey is compact, ordered by votes, and the tooltip follows the pointer (1.8s)
+  ✓  38 [mobile-390] › tests/e2e/dashboard.spec.ts:11:3 › maine-2018-cd2: certified winner, round count and final-round totals (1.3s)
+  ✓  40 [mobile-390] › tests/e2e/dashboard.spec.ts:11:3 › alaska-2022-special: certified winner, round count and final-round totals (1.2s)
+  ✓  37 [mobile-390] › tests/e2e/bars.spec.ts:2:1 › transfer segment equals the exact votes gained this round (NYC R8) (1.6s)
+  ✓  39 [mobile-390] › tests/e2e/dashboard.spec.ts:11:3 › nyc-2021-dem-mayor: certified winner, round count and final-round totals (1.7s)
+  ✓  41 [mobile-390] › tests/e2e/dashboard.spec.ts:29:1 › NYC is counted in a Web Worker (1.3s)
+  ✓  43 [mobile-390] › tests/e2e/dashboard.spec.ts:54:1 › keyboard arrows step rounds on the dashboard (1.7s)
+  ✓  42 [mobile-390] › tests/e2e/dashboard.spec.ts:36:1 › deep links: election + round, clamping, unknown election, URL sync (1.8s)
+  ✓  45 [mobile-390] › tests/e2e/dashboard.spec.ts:79:3 › upload › valid IRV sample counts on the API (599ms)
+  ✓  44 [mobile-390] › tests/e2e/dashboard.spec.ts:64:1 › Sankey tooltip shows an exact transfer count (1.8s)
+  ✓  46 [mobile-390] › tests/e2e/dashboard.spec.ts:87:3 › upload › valid CSV file via the file picker (560ms)
+  ✓  48 [mobile-390] › tests/e2e/dashboard.spec.ts:104:3 › upload › empty input and bad files are rejected before counting (578ms)
+  ✓  47 [mobile-390] › tests/e2e/dashboard.spec.ts:94:3 › upload › invalid ballots show the API line error (656ms)
+  ✓  49 [mobile-390] › tests/e2e/dashboard.spec.ts:116:3 › upload › STV with 2 seats (705ms)
+  ✓  50 [mobile-390] › tests/e2e/dashboard.spec.ts:127:1 › arrow keys step rounds even when focus is on the page body (766ms)
+  ✓  53 [mobile-390] › tests/e2e/landing.spec.ts:43:3 › landing hero live demo › keyboard: arrows step, space toggles, R restarts (835ms)
+  ✓  55 [mobile-390] › tests/e2e/landing.spec.ts:86:3 › landing hero live demo › parity ledger shows the certified figures and deep-links into the dashboard (415ms)
+  ✓  56 [mobile-390] › tests/e2e/landing.spec.ts:96:3 › landing hero live demo › no horizontal overflow and nav works (527ms)
+  ✓  51 [mobile-390] › tests/e2e/landing.spec.ts:5:3 › landing hero live demo › counts Maine 2018 CD2 with the real engine and auto-plays (3.5s)
+  -  58 [mobile-390] › tests/e2e/sankey-a11y.spec.ts:25:1 › 1 focus ring follows the curve, not a bounding box
+  -  59 [mobile-390] › tests/e2e/sankey-a11y.spec.ts:33:1 › 2 arrow keys move between flows and each focused flow is scrolled into view
+  -  60 [mobile-390] › tests/e2e/sankey-a11y.spec.ts:46:1 › 3 one Tab leaves the diagram; the list toggle and the table follow; Shift+Tab comes back
+  -  61 [mobile-390] › tests/e2e/sankey-a11y.spec.ts:55:1 › 4 round bars show a tooltip on hover
+  -  62 [mobile-390] › tests/e2e/sankey-a11y.spec.ts:62:1 › 5 sankey nodes show a tooltip on hover
+  -  63 [mobile-390] › tests/e2e/sankey-a11y.spec.ts:68:1 › 6 one pointer move onto a flow shows its tooltip
+  -  64 [mobile-390] › tests/e2e/sankey-a11y.spec.ts:75:1 › 7 keyboard tooltip sits at the flow, next to its destination
+  -  65 [mobile-390] › tests/e2e/sankey-a11y.spec.ts:84:1 › 8 node labels do not overlap and have a halo over flows
+  -  66 [mobile-390] › tests/e2e/sankey-a11y.spec.ts:94:1 › 9 thin flows have a wide invisible hit path
+  -  67 [mobile-390] › tests/e2e/sankey-a11y.spec.ts:103:1 › 10 round tabs R2-R8 meet 7:1 contrast at 10-11px
+  -  68 [mobile-390] › tests/e2e/sankey.spec.ts:2:1 › sankey is compact, ordered by votes, and the tooltip follows the pointer
+  ✓  69 [mobile-390] › tests/e2e/upload-fixes.spec.ts:5:3 › upload errors and samples › BUG-005: API errors show their message, not [object Object] (427ms)
+  ✓  52 [mobile-390] › tests/e2e/landing.spec.ts:21:3 › landing hero live demo › pause, step, back and restart controls (4.5s)
+  ✓  71 [mobile-390] › tests/e2e/upload-fixes.spec.ts:29:3 › upload errors and samples › guard: the sample CSV downloads as ballots.csv (manual-QA report, not reproduced in Chromium) (325ms)
+  ✓  70 [mobile-390] › tests/e2e/upload-fixes.spec.ts:15:3 › upload errors and samples › BUG-006: loading a sample clears the previous result and error (612ms)
+  ✓  72 [mobile-390] › tests/e2e/upload-fixes.spec.ts:36:1 › BUG-007: the 404 page has its own tab title (247ms)
+  ✓  54 [mobile-390] › tests/e2e/landing.spec.ts:61:3 › landing hero live demo › majority line sits exactly at 50% of continuing ballots, and only the winner crosses it (4.7s)
+  ✓  57 [mobile-390] › tests/e2e/landing.spec.ts:115:3 › reduced motion › no autoplay, static visuals, everything readable (4.0s)
+
+  11 skipped
+  61 passed (31.0s)

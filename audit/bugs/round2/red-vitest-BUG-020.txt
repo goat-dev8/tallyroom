@@ -1,0 +1,39 @@
+
+ RUN  v4.1.12 /tmp/stack
+
+ ❯ test/openapi-status.test.ts (6 tests | 2 failed) 10ms
+     × POST /api/report -> 413 is documented 6ms
+     × POST /api/mcp -> 400 is documented 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/openapi-status.test.ts > BUG-020: OpenAPI lists every status a documented operation returns > POST /api/report -> 413 is documented
+AssertionError: expected [ '200', '400', '422' ] to include '413'
+ ❯ test/openapi-status.test.ts:22:40
+     20|   for (const [path, method, call] of cases) {
+     21|     it(`${method.toUpperCase()} ${path} -> ${call().status} is documen…
+     22|       expect(documented(path, method)).toContain(String(call().status)…
+       |                                        ^
+     23|     });
+     24|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/openapi-status.test.ts > BUG-020: OpenAPI lists every status a documented operation returns > POST /api/mcp -> 400 is documented
+AssertionError: expected [ '200', '202' ] to include '400'
+ ❯ test/openapi-status.test.ts:22:40
+     20|   for (const [path, method, call] of cases) {
+     21|     it(`${method.toUpperCase()} ${path} -> ${call().status} is documen…
+     22|       expect(documented(path, method)).toContain(String(call().status)…
+       |                                        ^
+     23|     });
+     24|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 4 passed (6)
+   Start at  22:18:51
+   Duration  430ms (transform 176ms, setup 0ms, import 224ms, tests 10ms, environment 0ms)
+
