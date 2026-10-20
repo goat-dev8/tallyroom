@@ -2,6 +2,8 @@ import { BallotSemanticError, parseBallotJson, parseRankCsv } from './parse.js';
 import { ParseError } from './parse.js';
 import { tabulateIrv } from './irv.js';
 import { tabulateStv } from './stv.js';
+import { validateTabulateOptions } from './options.js';
+import { resolveRules } from './presets.js';
 import { BallotGroup, DEFAULT_RULES, Rules } from './types.js';
 export const ENGINE_VERSION = '0.1.0';
 const RULE_KEYS = new Set([...Object.keys(DEFAULT_RULES), 'duplicates', 'lotOrder']);
@@ -37,7 +39,7 @@ export function parseTabulateBody(rawBody: string, contentType = ''): { ok: true
   try {
     if (isCsvUpload(contentType, rawBody)) {
       const parsed = parseRankCsv(rawBody);
-      return { ok: true, value: { ballots: parsed.ballots, candidates: parsed.candidates } };
+      return checked({ ballots: parsed.ballots, candidates: parsed.candidates });
     }
     let req: any;
     try { req = JSON.parse(rawBody); } catch { return { ok: false, result: { status: 400, body: { error: 'Invalid JSON body' } } }; }
@@ -49,14 +51,23 @@ export function parseTabulateBody(rawBody: string, contentType = ''): { ok: true
     if (hasBallots && req.ballots !== null && typeof req.ballots !== 'string' && !Array.isArray(req.ballots)) {
       return { ok: false, result: { status: 400, body: { error: 'Field "ballots" must be a ranking string or an array of ballots' } } };
     }
-    const unknown = Object.keys(req.rules ?? {}).filter(k => !RULE_KEYS.has(k));
+    const resolved = resolveRules(req.rules);
+    if (!resolved.ok) return { ok: false, result: { status: 400, body: { error: resolved.error } } };
+    const rules = resolved.rules;
+    const unknown = Object.keys(rules ?? {}).filter(k => !RULE_KEYS.has(k));
     if (unknown.length) return { ok: false, result: { status: 400, body: { error: `Unknown rule key(s): ${unknown.join(', ')}` } } };
     const declared = Array.isArray(req.candidates) ? req.candidates.map((c: unknown) => String(c)) : undefined;
     const parsed = hasBallots ? parseBallotJson(req.ballots, declared) : parseRankCsv(req.csv, declared);
-    return { ok: true, value: { seats: req.seats, quota: req.quota, rules: req.rules, ballots: parsed.ballots, candidates: parsed.candidates } };
+    return checked({ seats: req.seats, quota: req.quota, rules, ballots: parsed.ballots, candidates: parsed.candidates });
   } catch (e) {
     return { ok: false, result: errorResult(e) };
   }
+}
+
+function checked(value: ParsedTabulate): { ok: true; value: ParsedTabulate } | { ok: false; result: ApiResult } {
+  const invalid = validateTabulateOptions(value);
+  if (invalid) return { ok: false, result: invalid };
+  return { ok: true, value };
 }
 
 function finish(value: ParsedTabulate): ApiResult {
