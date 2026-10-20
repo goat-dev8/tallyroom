@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { parsePatternTsv } from '../parse.js';
 import { Rules } from '../types.js';
 
@@ -30,6 +30,6 @@ export const NYC_2021_DEM_MAYOR = {
     ],
   },
   load() {
-    return parsePatternTsv(readFileSync(fileURLToPath(new URL('../../data/fixtures/nyc-2021-dem-mayor.patterns.tsv', import.meta.url)), 'utf8'));
+    return parsePatternTsv(readFileSync(join(process.cwd(), 'data', 'fixtures', 'nyc-2021-dem-mayor.patterns.tsv'), 'utf8'));
   },
 };
