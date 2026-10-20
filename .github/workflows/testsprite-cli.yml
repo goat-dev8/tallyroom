@@ -1,0 +1,79 @@
+# TestSprite CLI gate: runs only the suites a pull request can affect, against that PR's Vercel preview.
+# Vercel deploys every PR, so this listens for its successful preview deployment_status.
+# Suite choice: scripts/testsprite-filter.mjs (api: -> tallyroom-api, ui: -> tallyroom-web).
+# Output: one JUnit file per suite (artifact) plus the TestSprite execution report in the job summary.
+name: TestSprite CLI
+
+on:
+  deployment_status:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  testsprite-cli:
+    concurrency:
+      group: testsprite-cli-${{ github.event.deployment.sha }}
+      cancel-in-progress: true
+    if: >-
+      github.event.deployment_status.state == 'success' &&
+      !github.event.deployment.production_environment &&
+      github.event.deployment.environment != 'production'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      TESTSPRITE_API_KEY: ${{ secrets.TESTSPRITE_API_KEY }}
+      GITHUB_TOKEN: ${{ github.token }}
+      GH_TOKEN: ${{ github.token }}
+      PREVIEW_URL: ${{ github.event.deployment_status.environment_url }}
+      SHA: ${{ github.event.deployment.sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.deployment.sha }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Pick suites from the PR's changed paths
+        id: pick
+        run: |
+          PR=$(gh api "repos/$GITHUB_REPOSITORY/commits/$SHA/pulls" --jq '[.[] | select(.state=="open")][0].number // empty')
+          if [ -z "$PR" ]; then echo "::notice::No open pull request for $SHA; nothing to gate."; exit 0; fi
+          gh api --paginate "repos/$GITHUB_REPOSITORY/pulls/$PR/files" --jq '.[].filename' > changed.txt
+          node scripts/testsprite-filter.mjs < changed.txt > suites.txt
+          { echo "### TestSprite suite selection (PR #$PR)"; echo; echo '```'; cat changed.txt; echo '```'; echo
+            if [ -s suites.txt ]; then echo "Suites: $(cut -d' ' -f1 suites.txt | tr '\n' ' ')"; else echo "Suites: none (docs/tests-only change)"; fi
+          } >> "$GITHUB_STEP_SUMMARY"
+          echo "pr=$PR" >> "$GITHUB_OUTPUT"
+
+      - name: Install the TestSprite CLI
+        if: hashFiles('suites.txt') != ''
+        run: npm i -g @testsprite/testsprite-cli@latest
+
+      - name: Run TestSprite on this PR's preview
+        if: hashFiles('suites.txt') != ''
+        run: |
+          if [ -z "$TESTSPRITE_API_KEY" ]; then echo "::warning::TESTSPRITE_API_KEY secret is not set; skipping the CLI gate."; exit 0; fi
+          [ -s suites.txt ] || { echo "No suites selected."; exit 0; }
+          mkdir -p reports; status=0
+          while read -r filter project; do
+            [ -n "$filter" ] || continue
+            name="${filter%:}"
+            testsprite ci run --project "$project" --env default --filter "$filter" \
+              --target-url "$PREVIEW_URL" --fail-on-skipped \
+              --idempotency-key "tallyroom-$SHA-$name" \
+              --report junit --report-file "reports/testsprite-$name.xml" \
+              --report-suite-name "testsprite:$filter" \
+              --summary-file "reports/testsprite-$name.json" || status=$?
+          done < suites.txt
+          exit $status
+
+      - name: Upload JUnit reports
+        if: always() && hashFiles('reports/*') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: testsprite-junit
+          path: reports/
