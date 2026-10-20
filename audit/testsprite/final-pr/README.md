@@ -66,3 +66,8 @@ From G′ on, the API side runs in our `testsprite-cli` job on the PR preview:
 - the 15 `regress:bug-*` guards, failing closed unless 15/15 pass
 
 The gate (`scripts/testsprite-gate.mjs`) requires the UI App run at N/N and a green `testsprite-cli` check on the same head.
+
+## Fix for the `ui:rounds-table-maine` fragility (pushed after G′)
+The eliminated cell now carries the plain "—" as its text, and the hover title "Eliminated" sits on the `<td>`; before, the dash was inside a span that had the title. `data-testid="cell-out"` is kept. The local Playwright check (`gp/bond-r2-emdash.spec.ts`) passed 3/3.
+
+The full local e2e run under `next dev` showed the same dev-mode failures with and without this change: 4 with it, 7 without, including hero-hold, the reduced-motion landing test and the timing-sensitive tests. None of them touch the rounds table.

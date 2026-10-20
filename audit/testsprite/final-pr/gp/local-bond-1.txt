@@ -1,0 +1,9 @@
+
+Running 1 test using 1 worker
+
+[1/1] tests/bond.spec.ts:2:5 › Bond R2 shows a plain em dash with the Eliminated title
+tests/bond.spec.ts:2:5 › Bond R2 shows a plain em dash with the Eliminated title
+cell: <td data-testid="cell-r2" title="Eliminated" class="p-3 text-right text-mute"><span data-testid="cell-out">—</span></td>
+
+
+  1 passed (4.4s)
