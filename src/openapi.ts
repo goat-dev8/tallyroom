@@ -27,7 +27,7 @@ export function openApiDocument() {
     openapi: '3.1.0',
     info: {
       title: 'Tallyroom counting API', version: ENGINE_VERSION,
-      description: 'Exact instant-runoff (IRV) and multi-seat STV counts with per-round tallies. The engine reproduces the certified results of Maine 2018 CD2, Alaska 2022 and NYC 2021 (see /proof).',
+      description: 'Exact instant-runoff (IRV) and multi-seat STV counts with per-round tallies. The engine reproduces the certified results of Maine 2018 CD2, Alaska 2022, NYC 2021 and Burlington 2009 (see PARITY.md in the repository).',
     },
     servers: [{ url: '/', description: 'Same origin as this document' }],
     paths: {
