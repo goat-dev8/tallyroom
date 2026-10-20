@@ -16,8 +16,12 @@
    "description": "'kpi-ballots' reads '18', 'kpi-rounds' reads '2' and 'kpi-winner' reads 'Ann'"
   },
   {
+   "type": "action",
+   "description": "Click the round tab 'dash-rail-r1' so round 1 is shown"
+  },
+  {
    "type": "assertion",
-   "description": "'eliminated' reads 'Eliminated after round 1: Cy'"
+   "description": "The element data-testid 'eliminated' (below the round bars, not the transfer list) reads 'Eliminated after round 1: Cy'"
   },
   {
    "type": "assertion",
