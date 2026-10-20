@@ -1,0 +1,28 @@
+{
+  "rootCauseHypothesis": "The hosting-side issue is likely that the requested table data is not available in the page state the test can inspect without additional interaction. This can happen if the results table is rendered conditionally, loaded asynchronously after the test snapshot, collapsed by default, or updated only after a user action the test is not allowed to perform. As a result, the test could confirm the ballot count and elimination message but could not reliably access the Inactive/Ann/Ben values for R1/R2. Underlying error: TEST BLOCKED\n\nThe ballot count and the Round 1 elimination message were verified, but the requested inactive and candidate table values could not be confirmed without further page interaction, which the instructions prohibited after the final step.\n\nObservations:\n- Ballots: 18; rounds: 2; winner: Ann\n- Round 1 shows “Eliminated after round 1: Cy”\n- The values for Inactive, Ann, and Ben in the R1/R2 table were not verified",
+  "recommendedFixTarget": {
+    "kind": "unknown",
+    "reference": null,
+    "rationale": "Ensure the round-by-round result table is fully rendered in the initial DOM state the test inspects, with stable, accessible text for the Inactive, Ann, and Ben values in both R1 and R2. If the table is currently hidden behind a client-side interaction, collapsible section, delayed fetch, or virtualized/lazy-rendered content, change it so those cells are present immediately on page load or after the already-performed final step. Also avoid dynamic reordering or text truncation that could prevent automated verification."
+  },
+  "evidence": [
+    {
+      "kind": "snapshot",
+      "stepIndex": 6,
+      "url": "https://frontend-test-recordings-production.s3.us-east-1.amazonaws.com/raw_html/6d04478f-a5f5-4568-9ed9-ee773f628bee/f3c1f477-f2bb-414d-adda-7939b9c83426/006.html",
+      "summary": "Step 6 'Click 'R ound 1 button'' passed (captured at 2026-10-20T23:33:42.959Z)."
+    },
+    {
+      "kind": "snapshot",
+      "stepIndex": 7,
+      "url": "https://frontend-test-recordings-production.s3.us-east-1.amazonaws.com/raw_html/6d04478f-a5f5-4568-9ed9-ee773f628bee/f3c1f477-f2bb-414d-adda-7939b9c83426/007.html",
+      "summary": "Step 7 'The count shows 18 ballots across 2 rounds.' failed. Error: TEST BLOCKED\n\nThe ballot count and the Round 1 elimination message were verified, but the requested inactive and candidate table values could not be confirmed without further page interaction, which the instructions prohibited after the final step.\n\nObservations:\n- Ballots: 18; rounds: 2; winner: Ann\n- Round 1 shows “Eliminated after round 1: Cy”\n- The values for Inactive, Ann, and Ben in the R1/R2 table were not verified"
+    },
+    {
+      "kind": "snapshot",
+      "stepIndex": 8,
+      "url": "https://frontend-test-recordings-production.s3.us-east-1.amazonaws.com/raw_html/6d04478f-a5f5-4568-9ed9-ee773f628bee/f3c1f477-f2bb-414d-adda-7939b9c83426/007.html",
+      "summary": "Step 8 'Round 1 marks Cy as eliminated.' failed. Error: TEST BLOCKED\n\nThe ballot count and the Round 1 elimination message were verified, but the requested inactive and candidate table values could not be confirmed without further page interaction, which the instructions prohibited after the final step.\n\nObservations:\n- Ballots: 18; rounds: 2; winner: Ann\n- Round 1 shows “Eliminated after round 1: Cy”\n- The values for Inactive, Ann, and Ben in the R1/R2 table were not verified"
+    }
+  ]
+}

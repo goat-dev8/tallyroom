@@ -37,6 +37,10 @@ test.describe('landing hero live demo', () => {
     await expect(demo.locator('[data-candidate="REP Poliquin, Bruce"]')).toHaveAttribute('data-votes', '138931');
     await page.getByTestId('demo-restart').click();
     await expect(demo).toHaveAttribute('data-round', '1');
+    await expect(demo).toHaveAttribute('data-state', 'paused'); // restart keeps a paused demo paused
+    await page.waitForTimeout(3500);
+    await expect(demo).toHaveAttribute('data-round', '1');
+    await page.getByTestId('demo-play').click();
     await expect(demo).toHaveAttribute('data-state', 'playing');
   });
 

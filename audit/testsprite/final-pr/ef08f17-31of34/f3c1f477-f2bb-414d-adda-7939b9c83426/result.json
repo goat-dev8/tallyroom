@@ -1,0 +1,24 @@
+{
+  "testId": "6d04478f-a5f5-4568-9ed9-ee773f628bee",
+  "status": "blocked",
+  "startedAt": "2026-10-20T23:32:46.024Z",
+  "finishedAt": "2026-10-20T23:34:34.227Z",
+  "videoUrl": "https://testsprite-videos.s3.us-east-1.amazonaws.com/20261020-233432-a7e513b7.webm",
+  "failureAnalysisUrl": null,
+  "snapshotId": "snap_9ef9a59276727d80",
+  "runIdIfAvailable": "f3c1f477-f2bb-414d-adda-7939b9c83426",
+  "codeVersion": null,
+  "targetUrl": "https://tallyroom-git-s4-final-goats-projects-3f023cc9.vercel.app",
+  "targetUrlSource": null,
+  "environment": {
+    "id": "16313ea2-7af4-4b71-9ee8-a035bda94a3a",
+    "name": "github-pr-26"
+  },
+  "failedStepIndex": 7,
+  "failureKind": null,
+  "verdict": "blocked",
+  "executionStatus": "completed",
+  "summary": "Blocked before a verdict could be produced: The hosting-side issue is likely that the requested table data is not available in the page state the test can inspect without additional interaction. This can happen if the results table is rendered conditionally, loaded asynchronously after the test snapshot, collapsed by default, or updated only after a user action the test is not allowed to perform. As a result, the test could confirm the ballot count and elimination message but could not reliably… Target: environment github-pr-26 (https://tallyroom-git-s4-final-goats-projects-3f023cc9.vercel.app).",
+  "apiOutput": null,
+  "trace": null
+}

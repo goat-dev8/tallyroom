@@ -136,3 +136,11 @@ test('arrow keys step rounds even when focus is on the page body', async ({ page
   await expect(golden.getByTestId('cell-r1')).toHaveText('132,013');
   await expect(golden.getByTestId('cell-r2')).toHaveText('142,440');
 });
+
+test('sankey node labels carry the middle-dot separator (ui:sankey-render)', async ({ page }) => {
+  await page.goto('/app?election=maine-2018-cd2');
+  await expect(page.getByTestId('result')).toBeVisible({ timeout: 60000 });
+  const labels = await page.getByTestId('sankey').locator('text').allTextContents();
+  expect(labels).toContain('Golden, Jared F. · 142,440');
+  expect(labels).toContain('Poliquin, Bruce · 138,931');
+});

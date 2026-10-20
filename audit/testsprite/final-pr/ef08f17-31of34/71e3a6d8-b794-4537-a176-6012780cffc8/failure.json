@@ -1,0 +1,22 @@
+{
+  "rootCauseHypothesis": "The hosted app is rendering a stale or incorrect Sankey label format, likely due to a production-side formatting regression or an older cached build. The data and chart are present, but the label text generator is omitting the required middle-dot character, causing the DOM text to differ from the expected test string. Underlying error: TEST FAILURE\n\nThe Sankey node labels do not match the required text. The candidate names and totals are shown, but the middle-dot separator is missing.\n\nObservations:\n- The Sankey title reads “Transfers from round 1 into round 2.”\n- The Sankey SVG has the required aria-label and six link paths.\n- The rendered labels show “Golden, Jared F. 142,440” and “Poliquin, Bruce 138,931,” without “·.”",
+  "recommendedFixTarget": {
+    "kind": "selector",
+    "reference": "Golden, Jared F. · 142,440",
+    "rationale": "Update the Sankey node label formatting in the production build to include the middle-dot separator between the candidate name and the total (for example, render labels as `Golden, Jared F. · 142,440` and `Poliquin, Bruce · 138,931`). This likely means fixing the label formatter/template used by the chart data or SVG text rendering, then redeploying the app so the hosted version reflects the corrected string output."
+  },
+  "evidence": [
+    {
+      "kind": "snapshot",
+      "stepIndex": 2,
+      "url": "https://frontend-test-recordings-production.s3.us-east-1.amazonaws.com/raw_html/44dc520c-ca8f-4702-9a82-45479d732440/71e3a6d8-b794-4537-a176-6012780cffc8/002.html",
+      "summary": "Step 2 'Navigate to https://tallyroom-git-s4-final-goats-projects-3f023cc9.vercel.app/app?election=maine-2018-cd2' passed (captured at 2026-10-20T23:33:13.688Z)."
+    },
+    {
+      "kind": "snapshot",
+      "stepIndex": 3,
+      "url": "https://frontend-test-recordings-production.s3.us-east-1.amazonaws.com/raw_html/44dc520c-ca8f-4702-9a82-45479d732440/71e3a6d8-b794-4537-a176-6012780cffc8/009.html",
+      "summary": "Step 3 'Sankey node labels show Golden and Poliquin with the required middle-dot separator.' failed. Error: TEST FAILURE\n\nThe Sankey node labels do not match the required text. The candidate names and totals are shown, but the middle-dot separator is missing.\n\nObservations:\n- The Sankey title reads “Transfers from round 1 into round 2.”\n- The Sankey SVG has the required aria-label and six link paths.\n- The rendered labels show “Golden, Jared F. 142,440” and “Poliquin, Bruce 138,931,” without “·.”"
+    }
+  ]
+}

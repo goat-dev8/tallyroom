@@ -129,7 +129,7 @@ export function Sankey({ result, round }: { result: IrvResult; round: number }) 
             <rect x={n.x0 - 3} y={n.y0 - 3} width={n.x1 - n.x0 + 6} height={Math.max(2, n.y1 - n.y0) + 6} fill="transparent" onPointerEnter={e => onNode(n, e)} onPointerMove={e => onNode(n, e)} onPointerLeave={() => setTip(null)} data-testid="sankey-node-hit" />
             <rect x={n.x0} y={n.y0} width={n.x1 - n.x0} height={Math.max(2, n.y1 - n.y0)} rx={3} fill={n.color} className="pointer-events-none" style={{ filter: `drop-shadow(0 0 6px ${n.color}88)` }} />
             {Math.abs(ly - cy) > 2 && <path d={`M${left ? n.x1 + 1 : n.x0 - 1},${cy} L${left ? n.x1 + 5 : n.x0 - 5},${ly}`} stroke={n.color} strokeOpacity={0.6} fill="none" className="pointer-events-none" />}
-            <text x={left ? n.x1 + 8 : n.x0 - 8} y={ly} dy="0.35em" textAnchor={left ? 'start' : 'end'} className="pointer-events-none fill-[#e3e5e9] text-[11px] font-medium" style={{ paintOrder: 'stroke', stroke: '#0b0d10', strokeWidth: 4, strokeLinejoin: 'round' }}>{clean(n.label)}<tspan className="fill-[#8a8f98] font-mono text-[10px]" dx="6">{fmt(n.value)}</tspan></text></g>;
+            <text x={left ? n.x1 + 8 : n.x0 - 8} y={ly} dy="0.35em" textAnchor={left ? 'start' : 'end'} className="pointer-events-none fill-[#e3e5e9] text-[11px] font-medium" style={{ paintOrder: 'stroke', stroke: '#0b0d10', strokeWidth: 4, strokeLinejoin: 'round' }}>{clean(n.label)}<tspan className="fill-[#8a8f98] font-mono text-[10px]" dx="2">{` · ${fmt(n.value)}`}</tspan></text></g>;
         })}
         <g fill="none">{hitOrder.map((i: number) => {
           const l: any = g.links[i]; const d = data(l);

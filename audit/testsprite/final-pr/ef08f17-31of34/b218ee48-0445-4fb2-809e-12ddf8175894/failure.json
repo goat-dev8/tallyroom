@@ -1,0 +1,28 @@
+{
+  "rootCauseHypothesis": "The hosting build likely has a state-management bug in the demo’s restart/pause logic: after restart, a delayed timer or effect continues advancing the round, or the restart handler restores only part of the state. As a result, the app ends up paused on Round 2 / 2 with updated vote totals instead of remaining on Round 1 / 2 for verification. This is consistent with a race condition or stale interval cleanup problem in the production bundle rather than a hosting outage. Underlying error: TEST FAILURE\n\nThe demo did not remain on Round 1 / 2 after the restart-and-pause sequence, so the required Round 1 totals and final playing state could not be verified.\n\nObservations:\n- The demo is paused on Round 2 / 2.\n- Majority needed is 140,686; Golden shows 142,440 and Poliquin shows 138,931.",
+  "recommendedFixTarget": {
+    "kind": "unknown",
+    "reference": null,
+    "rationale": "Inspect the restart-and-pause flow in the hosted app and make sure the restart action fully resets the demo state to Round 1 / 2 before resuming. Likely fixes include: resetting the round index and any derived totals on restart, clearing stale interval/timer state so the next tick starts from the first round again, and ensuring the pause button truly freezes the current round instead of allowing a queued state update to advance to Round 2. If the round progression is driven by asynchronous state updates, use a single source of truth and atomic state transitions so restart cannot leave the app paused on Round 2."
+  },
+  "evidence": [
+    {
+      "kind": "snapshot",
+      "stepIndex": 9,
+      "url": "https://frontend-test-recordings-production.s3.us-east-1.amazonaws.com/raw_html/73c10ab7-b7cc-4def-822c-03176752c32b/b218ee48-0445-4fb2-809e-12ddf8175894/009.html",
+      "summary": "Step 9 'Click 'Pause button'' passed (captured at 2026-10-20T23:34:22.118Z)."
+    },
+    {
+      "kind": "snapshot",
+      "stepIndex": 10,
+      "url": "https://frontend-test-recordings-production.s3.us-east-1.amazonaws.com/raw_html/73c10ab7-b7cc-4def-822c-03176752c32b/b218ee48-0445-4fb2-809e-12ddf8175894/010.html",
+      "summary": "Step 10 'The demo should return to Round 1 / 2 with the majority-needed statistic displayed.' failed. Error: TEST FAILURE\n\nThe demo did not remain on Round 1 / 2 after the restart-and-pause sequence, so the required Round 1 totals and final playing state could not be verified.\n\nObservations:\n- The demo is paused on Round 2 / 2.\n- Majority needed is 140,686; Golden shows 142,440 and Poliquin shows 138,931."
+    },
+    {
+      "kind": "snapshot",
+      "stepIndex": 11,
+      "url": "https://frontend-test-recordings-production.s3.us-east-1.amazonaws.com/raw_html/73c10ab7-b7cc-4def-822c-03176752c32b/b218ee48-0445-4fb2-809e-12ddf8175894/010.html",
+      "summary": "Step 11 'The demo should display rows for Poliquin and Golden.' failed. Error: TEST FAILURE\n\nThe demo did not remain on Round 1 / 2 after the restart-and-pause sequence, so the required Round 1 totals and final playing state could not be verified.\n\nObservations:\n- The demo is paused on Round 2 / 2.\n- Majority needed is 140,686; Golden shows 142,440 and Poliquin shows 138,931."
+    }
+  ]
+}

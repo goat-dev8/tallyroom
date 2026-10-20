@@ -5,7 +5,7 @@
  "planSteps": [
   {
    "type": "action",
-   "description": "Navigate to /, scroll 'hero-demo' into view, wait until 'demo-play' is enabled, click 'demo-play' to pause"
+   "description": "Navigate to /, scroll 'hero-demo' into view, wait until 'demo-play' is enabled, click 'demo-play' to pause and confirm 'hero-demo' has data-state='paused'"
   },
   {
    "type": "action",
@@ -13,19 +13,23 @@
   },
   {
    "type": "action",
-   "description": "Click data-testid 'demo-restart', then immediately click 'demo-play' to pause so the demo cannot auto-advance"
+   "description": "Click data-testid 'demo-restart' once (do not click 'demo-play'; restart keeps a paused demo paused)"
   },
   {
    "type": "assertion",
-   "description": "'demo-round' reads 'Round 1 / 2' and the 'Majority needed' stat reads '144,813'"
+   "description": "'demo-round' reads 'Round 1 / 2', 'hero-demo' still has data-state='paused', and the 'Majority needed' stat reads '144,813'"
   },
   {
    "type": "assertion",
    "description": "Inside 'hero-demo' a candidate row for Poliquin shows 134,184 and a row for Golden shows 132,013"
   },
   {
+   "type": "action",
+   "description": "Click 'demo-play' once"
+  },
+  {
    "type": "assertion",
-   "description": "After clicking 'demo-play' again, 'hero-demo' has data-state='playing'"
+   "description": "'hero-demo' has data-state='playing'"
   }
  ]
 }

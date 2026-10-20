@@ -24,8 +24,16 @@
    "description": "The element data-testid 'eliminated' (below the round bars, not the transfer list) reads 'Eliminated after round 1: Cy'"
   },
   {
+   "type": "action",
+   "description": "Scroll the table data-testid 'rounds-table' (near the bottom of the page) into view"
+  },
+  {
    "type": "assertion",
-   "description": "'table-inactive' shows 5 in R1 and 5 in R2; row Ann shows 4 then 7; row Ben shows 6 then 6"
+   "description": "In 'rounds-table', the row data-testid 'table-inactive' has cells R1 '5' and R2 '5'"
+  },
+  {
+   "type": "assertion",
+   "description": "In 'rounds-table', the row with data-candidate='Ann' has cell-r1 '4' and cell-r2 '7', and the row with data-candidate='Ben' has cell-r1 '6' and cell-r2 '6'"
   }
  ]
 }

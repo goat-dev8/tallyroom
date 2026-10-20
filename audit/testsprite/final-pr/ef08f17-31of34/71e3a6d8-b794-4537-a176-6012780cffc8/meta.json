@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "cli-v1",
+  "snapshotId": "snap_308aa3e1ddba474a",
+  "testId": "44dc520c-ca8f-4702-9a82-45479d732440",
+  "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+  "codeVersion": "v24.0",
+  "runIdIfAvailable": "71e3a6d8-b794-4537-a176-6012780cffc8",
+  "targetUrl": "https://tallyroom-git-s4-final-goats-projects-3f023cc9.vercel.app",
+  "failedStepIndex": 3,
+  "failureKind": "assertion",
+  "capturedAt": "2026-10-20T23:34:43.568Z",
+  "fetchedAt": "2026-10-20T23:50:30.662Z"
+}

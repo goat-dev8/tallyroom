@@ -32,7 +32,8 @@ export function HeroDemo() {
     return () => clearTimeout(id);
   }, [res, playing, visible, round, n]);
   const step = useCallback((d: number) => { setPlaying(false); setRound(x => (x + d + n) % n); }, [n]);
-  const restart = useCallback(() => { setRound(0); setPlaying(true); }, []);
+  // Restart rewinds to round 1 and keeps the play/pause state: a paused viewer stays paused (no race with the 2.8 s autoplay timer).
+  const restart = useCallback(() => { setRound(0); }, []);
   const onKey = (e: React.KeyboardEvent) => {
     if (!res) return;
     if (e.key === 'ArrowRight') { e.preventDefault(); step(1); } else if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }

@@ -1,0 +1,24 @@
+{
+  "testId": "73c10ab7-b7cc-4def-822c-03176752c32b",
+  "status": "failed",
+  "startedAt": "2026-10-20T23:32:46.024Z",
+  "finishedAt": "2026-10-20T23:35:22.320Z",
+  "videoUrl": "https://testsprite-videos.s3.us-east-1.amazonaws.com/20261020-233520-2849c839.webm",
+  "failureAnalysisUrl": null,
+  "snapshotId": "snap_f3dc13c82ac8ca93",
+  "runIdIfAvailable": "b218ee48-0445-4fb2-809e-12ddf8175894",
+  "codeVersion": null,
+  "targetUrl": "https://tallyroom-git-s4-final-goats-projects-3f023cc9.vercel.app",
+  "targetUrlSource": null,
+  "environment": {
+    "id": "16313ea2-7af4-4b71-9ee8-a035bda94a3a",
+    "name": "github-pr-26"
+  },
+  "failedStepIndex": 10,
+  "failureKind": "assertion",
+  "verdict": "failed",
+  "executionStatus": "completed",
+  "summary": "Failed (assertion) on step 10: The hosting build likely has a state-management bug in the demo’s restart/pause logic: after restart, a delayed timer or effect continues advancing the round, or the restart handler restores only part of the state. As a result, the app ends up paused on Round 2 / 2 with updated vote totals instead of remaining on Round 1 / 2 for verification. This is consistent with a race condition or stale interval cleanup problem in the production bundle rather than a hosting o…",
+  "apiOutput": null,
+  "trace": null
+}
