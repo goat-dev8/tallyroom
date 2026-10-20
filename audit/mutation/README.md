@@ -9,7 +9,7 @@
 | src/parse.ts | 66.78% | not re-run |
 | all four files | 74.65% | — |
 
-`full-before.*` is the full run (721 killed, 33 timeout, 205 survived, 51 no coverage). `engine-after.*` re-runs irv, stv and fraction only (338 killed, 34 timeout, 28 survived, 2 no coverage).
+Each new run writes `latest.html`/`latest.json` (gitignored); rename one to keep it. `full-before.*` is the full run (721 killed, 33 timeout, 205 survived, 51 no coverage). `engine-after.*` re-runs irv, stv and fraction only (338 killed, 34 timeout, 28 survived, 2 no coverage).
 
 The new tests cover real behaviour that had no test before:
 - Fraction: zero denominator, sign normalisation, cmp on equal values, negative toFixed.

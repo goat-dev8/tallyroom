@@ -11,3 +11,4 @@ AGENTS.md
 .testsprite/
 .stryker-tmp/
 reports/
+audit/mutation/latest.*

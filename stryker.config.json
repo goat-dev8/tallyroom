@@ -16,10 +16,10 @@
     "json"
   ],
   "htmlReporter": {
-    "fileName": "audit/mutation/report.html"
+    "fileName": "audit/mutation/latest.html"
   },
   "jsonReporter": {
-    "fileName": "audit/mutation/report.json"
+    "fileName": "audit/mutation/latest.json"
   },
   "coverageAnalysis": "perTest",
   "concurrency": 4,
