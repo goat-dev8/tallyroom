@@ -22,6 +22,8 @@ Rules
 | 2026-10-19 | 23:18 | #6 | 1b2d7d3 | Built, preview, dpl_ZZ455YntmrqssH18TbvFiL2k8w1Y | 7 | 0 | 0 | Options, write-ins, presets. |
 | 2026-10-19 | 23:18 | #7 | 833093d | Built: READY, preview, dpl_FcoRAcFNev7vXk32LoE6X5eNGBNM | 8 | 0 | 0 | First push. POST /api/elections/[id]/tabulate returned 500 (fixture path via webpack URL). |
 | 2026-10-19 | 23:35 | #7 | (this commit) | Built, preview | 9 | 0 | 0 | Second push: fixture path fix. |
+| 2026-10-20 | ~01:35 | fix/csv-single-choice (push 1, red) | BUG-001 test first (it.fails) + PR template + BUGS.md | Built: preview | ~20 | 1 (CLI) | 0.5 | Red TestSprite run on the buggy preview. |
+| 2026-10-20 | ~01:55 | fix/csv-single-choice (push 2, green) | BUG-001 fix in src/parse.ts | Built: preview | ~22 | 1 (CLI) + V3 app | 0.5 + V3 | Green TestSprite run on the fixed preview. |
 | 2026-10-19 | ~23:40 | #1 (ui/foundation) | this commit (landing redesign, worker dashboard, e2e) | Built: preview | 10 | 0 | 0 | One push for the whole redesign. Deployment id in the PR checks. |
 
 ## Daily totals
