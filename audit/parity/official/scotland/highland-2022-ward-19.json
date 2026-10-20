@@ -1,0 +1,199 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "Inverness South",
+ "source": "hl2022-ward-19-2022_Local_Government_Election_Results_Ward_19_Inverness_South_Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "cc5c4cb9188c5c7fb8114f85e8f710cad0d0ab219cd1de2460490922d87f899a",
+ "ballotSource": "hl2022-ward-19-2022_Local_Government_Election_Results_Ward_19_Inverness_South_Preference_Profile.blt",
+ "ballotSha256": "ce51476cb682c00490ecafb9314a5390f243e9495412373044f9c9dd91b2cec1",
+ "ballotsReceived": 5580,
+ "validVotes": 5543,
+ "seats": 4,
+ "quota": 1109,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Colin AITKEN": "478",
+    "Jimmy DUNCAN": "104",
+    "Claire FILER": "299",
+    "Ken GOWANS": "1949",
+    "David JARDINE": "402",
+    "Duncan MACPHERSON": "1375",
+    "Andrew SINCLAIR": "936",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Ken GOWANS",
+    "Duncan MACPHERSON"
+   ],
+   "total": "5543"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Ken GOWANS",
+    "amount": "840.00000"
+   },
+   "transferred": {
+    "Colin AITKEN": "71.97533",
+    "Jimmy DUNCAN": "112.48839",
+    "Claire FILER": "298.24508",
+    "Ken GOWANS": "-840.00000",
+    "David JARDINE": "99.98968",
+    "Duncan MACPHERSON": "0.00000",
+    "Andrew SINCLAIR": "13.79168",
+    "nonTransferable": "243.50935",
+    "rounding": "0.00049"
+   },
+   "votes": {
+    "Colin AITKEN": "549.97533",
+    "Jimmy DUNCAN": "216.48839",
+    "Claire FILER": "597.24508",
+    "Ken GOWANS": "1109.00000",
+    "David JARDINE": "501.98968",
+    "Duncan MACPHERSON": "1375.00000",
+    "Andrew SINCLAIR": "949.79168",
+    "nonTransferable": "243.50935",
+    "rounding": "0.00049"
+   },
+   "elected": [],
+   "total": "5543.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Duncan MACPHERSON",
+    "amount": "266.00000"
+   },
+   "transferred": {
+    "Colin AITKEN": "68.28785",
+    "Jimmy DUNCAN": "9.09215",
+    "Claire FILER": "31.14545",
+    "Ken GOWANS": "0.00000",
+    "David JARDINE": "34.43410",
+    "Duncan MACPHERSON": "-266.00000",
+    "Andrew SINCLAIR": "57.84155",
+    "nonTransferable": "65.19265",
+    "rounding": "0.00625"
+   },
+   "votes": {
+    "Colin AITKEN": "618.26318",
+    "Jimmy DUNCAN": "225.58054",
+    "Claire FILER": "628.39053",
+    "Ken GOWANS": "1109.00000",
+    "David JARDINE": "536.42378",
+    "Duncan MACPHERSON": "1109.00000",
+    "Andrew SINCLAIR": "1007.63323",
+    "nonTransferable": "308.70249",
+    "rounding": "0.00625"
+   },
+   "elected": [],
+   "total": "5543.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Jimmy DUNCAN",
+    "amount": "225.58054"
+   },
+   "transferred": {
+    "Colin AITKEN": "22.53273",
+    "Jimmy DUNCAN": "-225.58054",
+    "Claire FILER": "96.13413",
+    "Ken GOWANS": "0.00000",
+    "David JARDINE": "21.15606",
+    "Duncan MACPHERSON": "0.00000",
+    "Andrew SINCLAIR": "9.59728",
+    "nonTransferable": "76.16034",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Colin AITKEN": "640.79591",
+    "Jimmy DUNCAN": "0.00000",
+    "Claire FILER": "724.52466",
+    "Ken GOWANS": "1109.00000",
+    "David JARDINE": "557.57984",
+    "Duncan MACPHERSON": "1109.00000",
+    "Andrew SINCLAIR": "1017.23051",
+    "nonTransferable": "384.86908",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "5543.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "David JARDINE",
+    "amount": "557.57984"
+   },
+   "transferred": {
+    "Colin AITKEN": "227.42917",
+    "Jimmy DUNCAN": "0.00000",
+    "Claire FILER": "116.73510",
+    "Ken GOWANS": "0.00000",
+    "David JARDINE": "-557.57984",
+    "Duncan MACPHERSON": "0.00000",
+    "Andrew SINCLAIR": "56.63832",
+    "nonTransferable": "156.77725",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Colin AITKEN": "868.22508",
+    "Jimmy DUNCAN": "0.00000",
+    "Claire FILER": "841.25976",
+    "Ken GOWANS": "1109.00000",
+    "David JARDINE": "0.00000",
+    "Duncan MACPHERSON": "1109.00000",
+    "Andrew SINCLAIR": "1073.86883",
+    "nonTransferable": "541.64633",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "5543.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Claire FILER",
+    "amount": "841.25976"
+   },
+   "transferred": {
+    "Colin AITKEN": "360.36548",
+    "Jimmy DUNCAN": "0.00000",
+    "Claire FILER": "-841.25976",
+    "Ken GOWANS": "0.00000",
+    "David JARDINE": "0.00000",
+    "Duncan MACPHERSON": "0.00000",
+    "Andrew SINCLAIR": "22.19456",
+    "nonTransferable": "458.69972",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Colin AITKEN": "1228.59056",
+    "Jimmy DUNCAN": "0.00000",
+    "Claire FILER": "0.00000",
+    "Ken GOWANS": "1109.00000",
+    "David JARDINE": "0.00000",
+    "Duncan MACPHERSON": "1109.00000",
+    "Andrew SINCLAIR": "1096.06339",
+    "nonTransferable": "1000.34605",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Colin AITKEN",
+    "Andrew SINCLAIR"
+   ],
+   "total": "5543.00000"
+  }
+ ]
+}

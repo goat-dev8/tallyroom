@@ -1,0 +1,330 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "Cromarty Firth",
+ "source": "hl2022-ward-6-2022_Local_Government_Election_Results_Ward_6_Cromarty_Firth_Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "0088a67a19942599abe8dd68245210a1f0603407cf1fa6e712c646ab09d39398",
+ "ballotSource": "hl2022-ward-6-2022_Local_Government_Election_Results_Ward_6_Cromarty_Firth_Preference_Profile_Report.blt",
+ "ballotSha256": "587be92e88b59ae05e1f825442038680108584e087110fe152517f11b85f67de",
+ "ballotsReceived": 3928,
+ "validVotes": 3870,
+ "seats": 4,
+ "quota": 775,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Andrew Phillip BAXTER": "261",
+    "Tamala COLLIER": "1127",
+    "Eric FRASER": "45",
+    "Maxine MORLEY-SMITH": "283",
+    "Pauline MUNRO": "679",
+    "Molly NOLAN": "1079",
+    "Daniel REAT": "112",
+    "Kate STEVENSON": "122",
+    "Kirsty STEWART": "162",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Tamala COLLIER",
+    "Molly NOLAN"
+   ],
+   "total": "3870"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Tamala COLLIER",
+    "amount": "352.00000"
+   },
+   "transferred": {
+    "Andrew Phillip BAXTER": "4.99728",
+    "Tamala COLLIER": "-352.00000",
+    "Eric FRASER": "9.68223",
+    "Maxine MORLEY-SMITH": "39.97824",
+    "Pauline MUNRO": "70.27425",
+    "Molly NOLAN": "0.00000",
+    "Daniel REAT": "111.50181",
+    "Kate STEVENSON": "13.74252",
+    "Kirsty STEWART": "32.16999",
+    "nonTransferable": "69.64959",
+    "rounding": "0.00409"
+   },
+   "votes": {
+    "Andrew Phillip BAXTER": "265.99728",
+    "Tamala COLLIER": "775.00000",
+    "Eric FRASER": "54.68223",
+    "Maxine MORLEY-SMITH": "322.97824",
+    "Pauline MUNRO": "749.27425",
+    "Molly NOLAN": "1079.00000",
+    "Daniel REAT": "223.50181",
+    "Kate STEVENSON": "135.74252",
+    "Kirsty STEWART": "194.16999",
+    "nonTransferable": "69.64959",
+    "rounding": "0.00409"
+   },
+   "elected": [],
+   "total": "3870.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Molly NOLAN",
+    "amount": "304.00000"
+   },
+   "transferred": {
+    "Andrew Phillip BAXTER": "49.02276",
+    "Tamala COLLIER": "0.00000",
+    "Eric FRASER": "9.29742",
+    "Maxine MORLEY-SMITH": "32.96358",
+    "Pauline MUNRO": "55.22104",
+    "Molly NOLAN": "-304.00000",
+    "Daniel REAT": "19.72180",
+    "Kate STEVENSON": "38.59838",
+    "Kirsty STEWART": "43.95144",
+    "nonTransferable": "55.22104",
+    "rounding": "0.00254"
+   },
+   "votes": {
+    "Andrew Phillip BAXTER": "315.02004",
+    "Tamala COLLIER": "775.00000",
+    "Eric FRASER": "63.97965",
+    "Maxine MORLEY-SMITH": "355.94182",
+    "Pauline MUNRO": "804.49529",
+    "Molly NOLAN": "775.00000",
+    "Daniel REAT": "243.22361",
+    "Kate STEVENSON": "174.34090",
+    "Kirsty STEWART": "238.12143",
+    "nonTransferable": "124.87472",
+    "rounding": "0.00254"
+   },
+   "elected": [
+    "Pauline MUNRO"
+   ],
+   "total": "3870.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Pauline MUNRO",
+    "amount": "29.49529"
+   },
+   "transferred": {
+    "Andrew Phillip BAXTER": "0.76996",
+    "Tamala COLLIER": "0.00000",
+    "Eric FRASER": "1.75511",
+    "Maxine MORLEY-SMITH": "14.86794",
+    "Pauline MUNRO": "-29.49529",
+    "Molly NOLAN": "0.00000",
+    "Daniel REAT": "1.20049",
+    "Kate STEVENSON": "4.58850",
+    "Kirsty STEWART": "1.42296",
+    "nonTransferable": "4.88615",
+    "rounding": "0.00418"
+   },
+   "votes": {
+    "Andrew Phillip BAXTER": "315.79000",
+    "Tamala COLLIER": "775.00000",
+    "Eric FRASER": "65.73476",
+    "Maxine MORLEY-SMITH": "370.80976",
+    "Pauline MUNRO": "775.00000",
+    "Molly NOLAN": "775.00000",
+    "Daniel REAT": "244.42410",
+    "Kate STEVENSON": "178.92940",
+    "Kirsty STEWART": "239.54439",
+    "nonTransferable": "129.76341",
+    "rounding": "0.00418"
+   },
+   "elected": [],
+   "total": "3870.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Eric FRASER",
+    "amount": "65.73476"
+   },
+   "transferred": {
+    "Andrew Phillip BAXTER": "6.34017",
+    "Tamala COLLIER": "0.00000",
+    "Eric FRASER": "-65.73476",
+    "Maxine MORLEY-SMITH": "12.41040",
+    "Pauline MUNRO": "0.00000",
+    "Molly NOLAN": "0.00000",
+    "Daniel REAT": "2.90295",
+    "Kate STEVENSON": "13.08491",
+    "Kirsty STEWART": "9.77408",
+    "nonTransferable": "21.22225",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Andrew Phillip BAXTER": "322.13017",
+    "Tamala COLLIER": "775.00000",
+    "Eric FRASER": "0.00000",
+    "Maxine MORLEY-SMITH": "383.22016",
+    "Pauline MUNRO": "775.00000",
+    "Molly NOLAN": "775.00000",
+    "Daniel REAT": "247.32705",
+    "Kate STEVENSON": "192.01431",
+    "Kirsty STEWART": "249.31847",
+    "nonTransferable": "150.98984",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3870.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Kate STEVENSON",
+    "amount": "192.01431"
+   },
+   "transferred": {
+    "Andrew Phillip BAXTER": "24.12196",
+    "Tamala COLLIER": "0.00000",
+    "Eric FRASER": "0.00000",
+    "Maxine MORLEY-SMITH": "63.40671",
+    "Pauline MUNRO": "0.00000",
+    "Molly NOLAN": "0.00000",
+    "Daniel REAT": "13.38794",
+    "Kate STEVENSON": "-192.01431",
+    "Kirsty STEWART": "18.58723",
+    "nonTransferable": "72.51047",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Andrew Phillip BAXTER": "346.25213",
+    "Tamala COLLIER": "775.00000",
+    "Eric FRASER": "0.00000",
+    "Maxine MORLEY-SMITH": "446.62687",
+    "Pauline MUNRO": "775.00000",
+    "Molly NOLAN": "775.00000",
+    "Daniel REAT": "260.71499",
+    "Kate STEVENSON": "0.00000",
+    "Kirsty STEWART": "267.90570",
+    "nonTransferable": "223.50031",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3870.00000"
+  },
+  {
+   "stage": 7,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Daniel REAT",
+    "amount": "260.71499"
+   },
+   "transferred": {
+    "Andrew Phillip BAXTER": "4.14759",
+    "Tamala COLLIER": "0.00000",
+    "Eric FRASER": "0.00000",
+    "Maxine MORLEY-SMITH": "52.31654",
+    "Pauline MUNRO": "0.00000",
+    "Molly NOLAN": "0.00000",
+    "Daniel REAT": "-260.71499",
+    "Kate STEVENSON": "0.00000",
+    "Kirsty STEWART": "75.64715",
+    "nonTransferable": "128.60371",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Andrew Phillip BAXTER": "350.39972",
+    "Tamala COLLIER": "775.00000",
+    "Eric FRASER": "0.00000",
+    "Maxine MORLEY-SMITH": "498.94341",
+    "Pauline MUNRO": "775.00000",
+    "Molly NOLAN": "775.00000",
+    "Daniel REAT": "0.00000",
+    "Kate STEVENSON": "0.00000",
+    "Kirsty STEWART": "343.55285",
+    "nonTransferable": "352.10402",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3870.00000"
+  },
+  {
+   "stage": 8,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Kirsty STEWART",
+    "amount": "343.55285"
+   },
+   "transferred": {
+    "Andrew Phillip BAXTER": "47.01372",
+    "Tamala COLLIER": "0.00000",
+    "Eric FRASER": "0.00000",
+    "Maxine MORLEY-SMITH": "76.66935",
+    "Pauline MUNRO": "0.00000",
+    "Molly NOLAN": "0.00000",
+    "Daniel REAT": "0.00000",
+    "Kate STEVENSON": "0.00000",
+    "Kirsty STEWART": "-343.55285",
+    "nonTransferable": "219.86978",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Andrew Phillip BAXTER": "397.41344",
+    "Tamala COLLIER": "775.00000",
+    "Eric FRASER": "0.00000",
+    "Maxine MORLEY-SMITH": "575.61276",
+    "Pauline MUNRO": "775.00000",
+    "Molly NOLAN": "775.00000",
+    "Daniel REAT": "0.00000",
+    "Kate STEVENSON": "0.00000",
+    "Kirsty STEWART": "0.00000",
+    "nonTransferable": "571.97380",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3870.00000"
+  },
+  {
+   "stage": 9,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Andrew Phillip BAXTER",
+    "amount": "397.41344"
+   },
+   "transferred": {
+    "Andrew Phillip BAXTER": "-397.41344",
+    "Tamala COLLIER": "0.00000",
+    "Eric FRASER": "0.00000",
+    "Maxine MORLEY-SMITH": "129.36085",
+    "Pauline MUNRO": "0.00000",
+    "Molly NOLAN": "0.00000",
+    "Daniel REAT": "0.00000",
+    "Kate STEVENSON": "0.00000",
+    "Kirsty STEWART": "0.00000",
+    "nonTransferable": "268.05259",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Andrew Phillip BAXTER": "0.00000",
+    "Tamala COLLIER": "775.00000",
+    "Eric FRASER": "0.00000",
+    "Maxine MORLEY-SMITH": "704.97361",
+    "Pauline MUNRO": "775.00000",
+    "Molly NOLAN": "775.00000",
+    "Daniel REAT": "0.00000",
+    "Kate STEVENSON": "0.00000",
+    "Kirsty STEWART": "0.00000",
+    "nonTransferable": "840.02639",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Maxine MORLEY-SMITH"
+   ],
+   "total": "3870.00000"
+  }
+ ]
+}

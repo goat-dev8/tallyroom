@@ -8,6 +8,7 @@ import { MAINE_2018_CD2 } from '../src/elections/maine-2018-cd2.js';
 import { ALASKA_2022_SPECIAL } from '../src/elections/alaska-2022-special.js';
 import { NYC_2021_DEM_MAYOR } from '../src/elections/nyc-2021-dem-mayor.js';
 import { BURLINGTON_2009_MAYOR } from '../src/elections/burlington-2009-mayor.js';
+import { scotlandResults } from './parity-scotland.js';
 
 type Row = { round: number | string; field: string; official: number | string; computed: number | string; ok: boolean };
 const off = (slug: string) => JSON.parse(readFileSync(new URL(`../audit/parity/official/${slug}.json`, import.meta.url), 'utf8'));
@@ -84,6 +85,10 @@ const results = [
     const el = o.rounds.findIndex((x: any) => x.elected?.length); add(el + 1, 'elected', nameOf(r)(o.rounds[el].elected[0]), r.winner);
   }, ['round 4 (ChoicePlus prints a closing round that only marks Kurt Wright defeated after the seat is filled; no votes move)', 'round 3 "eliminated" (none; compared via the elected field)', 'invalid ballots (4) — not in the cast vote record']),
 ];
+// Scottish wards are counted under rule 48(3) (paper values cut to 5 decimal places), as the councils' eCount did.
+results.push(...(scotlandResults(5) as any));
+// The same wards counted with exact fractions instead, for comparison only (not in the totals).
+const exactMode = scotlandResults(undefined).map((x) => ({ slug: x.slug, matched: x.matched, compared: x.compared, maxAbsDiff: Math.max(0, ...x.rows.filter((w) => !w.ok && /^-?\d/.test(String(w.official)) && /^-?\d/.test(String(w.computed))).map((w) => Math.abs(Number(w.official) - Number(w.computed)))), nonNumericMismatches: x.rows.filter((w) => !w.ok && !(/^-?\d/.test(String(w.official)) && /^-?\d/.test(String(w.computed)))).length }));
 let tm = 0, tc = 0, em = 0;
 for (const x of results) {
   tm += x.matched; tc += x.compared; if (x.matched === x.compared) em++;
@@ -91,6 +96,8 @@ for (const x of results) {
   for (const w of x.rows) console.log(`| ${w.round} | ${w.field} | ${w.official} | ${w.computed} | ${w.ok ? 'match' : '**MISMATCH**'} |`);
   console.log(`Fields: ${x.matched}/${x.compared} match. Not compared: ${x.notCompared.join('; ')}.`);
 }
+const xm = exactMode.reduce((a, x) => a + x.matched, 0), xc = exactMode.reduce((a, x) => a + x.compared, 0);
+console.log(`\nScottish wards with exact fractions instead of rule 48(3) (not in the totals): ${xm}/${xc} fields match at 5 dp; largest numeric gap ${Math.max(...exactMode.map((x) => x.maxAbsDiff)).toFixed(5)}; non-numeric mismatches (stages, actions, elected): ${exactMode.reduce((a, x) => a + x.nonNumericMismatches, 0)}.`);
 console.log(`\nTOTAL: ${tm}/${tc} fields match; ${em}/${results.length} elections match on every compared field.`);
-const j = process.argv.indexOf('--json'); if (j > 0) writeFileSync(process.argv[j + 1], JSON.stringify({ fieldsMatched: tm, fieldsCompared: tc, electionsMatched: em, elections: results.length, results }, null, 1) + '\n');
-process.exit(tm === tc ? 0 : 1);
+const j = process.argv.indexOf('--json'); if (j > 0) writeFileSync(process.argv[j + 1], JSON.stringify({ fieldsMatched: tm, fieldsCompared: tc, electionsMatched: em, elections: results.length, scotlandExactFractions: { fieldsMatched: xm, fieldsCompared: xc, wards: exactMode }, results }, null, 1) + '\n');
+process.exitCode = tm === tc ? 0 : 1; // not process.exit(): it can cut off piped output

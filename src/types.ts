@@ -10,6 +10,9 @@ export interface Rules {
   skips: 'continue' | 'two-exhaust';
   /** ignore: a repeated candidate is passed over (resets the skip run). skip: a repeated candidate counts as a skipped rank (Dominion). */
   duplicates?: 'ignore' | 'skip';
+  /** STV only. When set, each paper's value after a surplus transfer is cut to this many decimal places, remainder
+   *  ignored (Scottish rule 48(3): 5). Unset (default): exact fractions. */
+  transferDecimals?: number;
   /** Eliminate every candidate who cannot mathematically win in one round (Maine 21-A §723). */
   batch: boolean;
   /** previous-round: break elimination ties by looking back at earlier rounds, then lot order. lot: lot order only. */

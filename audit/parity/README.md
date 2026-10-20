@@ -58,4 +58,48 @@ The full sums are in `sources/SHA256SUMS.txt`. They are the same as the sums rec
 - "-XXX" is read as "all of the candidate's votes leave".
 - Names are matched case-insensitively, with party prefixes removed and "Write-ins" read as "Write-in".
 
-**Not done:** a Scottish council STV stage-report comparison.
+## Scottish council STV wards (added 2026-10-21)
+
+The count covers 30 contested wards from the 5 May 2022 council elections:
+- Argyll and Bute: wards 1–11
+- Highland: wards 1, 2, 3, 5, 6, 7, 8, 9, 10 and 12–21
+
+For each ward, two files were downloaded from the council's own website:
+- **the "Candidate Votes Per Stage" PDF**, which is the oracle
+- **the preference profile (.blt)**, which holds the ballots
+
+Both are saved in `sources/scotland/`, with sums in `sources/scotland/SHA256SUMS.txt`. Highland wards 4 and 11 are missing because I found no published file for them on highland.gov.uk.
+
+None of these wards was in the earlier 119-figure parity set. That set had no Scottish ballots.
+
+**Method.**
+- `scripts/parity-extract-scotland.py` reads every number from the PDFs, using pdftotext. It matches rows by the candidate names in the council's .blt file and writes `official/scotland/*.json`.
+- `scripts/parity-scotland.ts` counts each .blt with `tabulateStv` and compares, stage by stage:
+  - each candidate's votes and transfer
+  - the non-transferable transfer
+  - the transfer lost to rounding
+  - the votes not held by any candidate (non-transferable plus rounding)
+  - which surplus or exclusion the stage handled, and its amount
+  - who was elected at the stage
+  - per ward: seats, valid votes, quota, number of stages and the elected set
+- Elected candidates whose surplus is gone are shown at the quota, and excluded candidates at 0, as the report shows them.
+
+**Counting rule.** Councils count under SSI 2007/42 Sch.1 r.48(3): each transferred paper's value is worked out to 5 decimal places, and the remainder is ignored. The report prints the dropped amount as "non-transferable votes due to rounding".
+
+I added that rule to the engine as an opt-in setting, `transferDecimals: 5`. The default is still exact fractions. Each weight class's value is cut to 5 places when a surplus is transferred. `test/stv-transfer-decimals.test.ts` covers it.
+
+**Result.**
+
+| Mode | Fields | Wards |
+|---|---|---|
+| r.48(3) | 4082/4082 (Argyll and Bute 1553, Highland 2529) | 30/30 exact |
+| Exact fractions (not in the totals) | 2247/4082 at 5 dp | — |
+
+In exact-fraction mode, every stage, action and elected candidate is still the same. Only the decimals differ, by at most 0.02076.
+
+**Not compared.**
+- Ballot papers received, which include rejected papers that are not in the .blt.
+- The Total line, which always equals the valid vote.
+- The non-transferable and rounding running columns on their own. The report adds one stage's rounding into the next stage's non-transferable figure, for example Argyll and Bute ward 4, stages 9→10. Their sum is compared instead.
+
+**New totals (4 US elections + 30 Scottish wards): 4344 of 4345 fields match; 33 of 34 elections match on every compared field.** The only mismatch is still the Burlington threshold explained above.

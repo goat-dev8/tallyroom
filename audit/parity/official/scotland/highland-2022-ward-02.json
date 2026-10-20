@@ -1,0 +1,159 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "Thurso and Northwest Caithness",
+ "source": "hl2022-ward-2-2022_Local_Government_Election_Results_Ward_2_Thurso_and_Northwest_Caithness_Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "8387617a6087a2f91ed7dc14cfdc0f3a2e45d8afd218f4ad19409eb5d55fe322",
+ "ballotSource": "hl2022-ward-2-2022_Local_Government_Election_Results_Ward_2_Thurso_and_Northwest_Caithness_Preference_Profile_Report.blt",
+ "ballotSha256": "2ba0f830d65d4b757f79281fec997b9f085914e1af6612226d72647c60b2fd67",
+ "ballotsReceived": 5173,
+ "validVotes": 5139,
+ "seats": 4,
+ "quota": 1028,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Alexander GLASGOW": "151",
+    "Iain GREGORY": "660",
+    "Ron GUNN": "1411",
+    "Struan MACKIE": "921",
+    "Matthew REISS": "1049",
+    "Karl ROSIE": "947",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Ron GUNN",
+    "Matthew REISS"
+   ],
+   "total": "5139"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Ron GUNN",
+    "amount": "383.00000"
+   },
+   "transferred": {
+    "Alexander GLASGOW": "23.07155",
+    "Iain GREGORY": "105.31484",
+    "Ron GUNN": "-383.00000",
+    "Struan MACKIE": "122.95779",
+    "Matthew REISS": "0.00000",
+    "Karl ROSIE": "57.00030",
+    "nonTransferable": "74.64325",
+    "rounding": "0.01227"
+   },
+   "votes": {
+    "Alexander GLASGOW": "174.07155",
+    "Iain GREGORY": "765.31484",
+    "Ron GUNN": "1028.00000",
+    "Struan MACKIE": "1043.95779",
+    "Matthew REISS": "1049.00000",
+    "Karl ROSIE": "1004.00030",
+    "nonTransferable": "74.64325",
+    "rounding": "0.01227"
+   },
+   "elected": [
+    "Struan MACKIE"
+   ],
+   "total": "5139.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Matthew REISS",
+    "amount": "21.00000"
+   },
+   "transferred": {
+    "Alexander GLASGOW": "1.50075",
+    "Iain GREGORY": "10.74537",
+    "Ron GUNN": "0.00000",
+    "Struan MACKIE": "0.00000",
+    "Matthew REISS": "-21.00000",
+    "Karl ROSIE": "3.72186",
+    "nonTransferable": "5.02251",
+    "rounding": "0.00951"
+   },
+   "votes": {
+    "Alexander GLASGOW": "175.57230",
+    "Iain GREGORY": "776.06021",
+    "Ron GUNN": "1028.00000",
+    "Struan MACKIE": "1043.95779",
+    "Matthew REISS": "1028.00000",
+    "Karl ROSIE": "1007.72216",
+    "nonTransferable": "79.67803",
+    "rounding": "0.00951"
+   },
+   "elected": [],
+   "total": "5139.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Struan MACKIE",
+    "amount": "15.95779"
+   },
+   "transferred": {
+    "Alexander GLASGOW": "1.45868",
+    "Iain GREGORY": "6.58148",
+    "Ron GUNN": "0.00000",
+    "Struan MACKIE": "-15.95779",
+    "Matthew REISS": "0.00000",
+    "Karl ROSIE": "1.09196",
+    "nonTransferable": "6.81618",
+    "rounding": "0.00949"
+   },
+   "votes": {
+    "Alexander GLASGOW": "177.03098",
+    "Iain GREGORY": "782.64169",
+    "Ron GUNN": "1028.00000",
+    "Struan MACKIE": "1028.00000",
+    "Matthew REISS": "1028.00000",
+    "Karl ROSIE": "1008.81412",
+    "nonTransferable": "86.50372",
+    "rounding": "0.00949"
+   },
+   "elected": [],
+   "total": "5139.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Alexander GLASGOW",
+    "amount": "177.03098"
+   },
+   "transferred": {
+    "Alexander GLASGOW": "-177.03098",
+    "Iain GREGORY": "86.91014",
+    "Ron GUNN": "0.00000",
+    "Struan MACKIE": "0.00000",
+    "Matthew REISS": "0.00000",
+    "Karl ROSIE": "47.62346",
+    "nonTransferable": "42.49738",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Alexander GLASGOW": "0.00000",
+    "Iain GREGORY": "869.55183",
+    "Ron GUNN": "1028.00000",
+    "Struan MACKIE": "1028.00000",
+    "Matthew REISS": "1028.00000",
+    "Karl ROSIE": "1056.43758",
+    "nonTransferable": "129.01059",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Karl ROSIE"
+   ],
+   "total": "5139.00000"
+  }
+ ]
+}

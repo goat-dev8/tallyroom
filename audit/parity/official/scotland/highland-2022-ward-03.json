@@ -1,0 +1,158 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "Wick and East Caithness",
+ "source": "hl2022-ward-3-2022_Local_Government_Election_Results_Ward_3_Wick_and_East_Caithness_Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "e6256855447dcece0cdfab9a03286b89d22f92617a29d2e98b4c61e90d12f944",
+ "ballotSource": "hl2022-ward-3-2022_Local_Government_Election_Results_Ward_3_Wick_and_East_Caithness_Preference_Profile_Report.blt",
+ "ballotSha256": "4f1c4cf0eefc50a1077bddff9d21c2f327d2feffdd17fc372d0f05ab891773a6",
+ "ballotsReceived": 4225,
+ "validVotes": 4180,
+ "seats": 4,
+ "quota": 837,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Raymond BREMNER": "1059",
+    "Bill FERNIE": "438",
+    "Andrew JARVIE": "632",
+    "Neil MACDONALD": "272",
+    "A.I. Willie MACKAY": "534",
+    "Jan MCEWAN": "1245",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Raymond BREMNER",
+    "Jan MCEWAN"
+   ],
+   "total": "4180"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Jan MCEWAN",
+    "amount": "408.00000"
+   },
+   "transferred": {
+    "Raymond BREMNER": "0.00000",
+    "Bill FERNIE": "80.94437",
+    "Andrew JARVIE": "68.16368",
+    "Neil MACDONALD": "75.70101",
+    "A.I. Willie MACKAY": "101.59010",
+    "Jan MCEWAN": "-408.00000",
+    "nonTransferable": "81.59979",
+    "rounding": "0.00105"
+   },
+   "votes": {
+    "Raymond BREMNER": "1059.00000",
+    "Bill FERNIE": "518.94437",
+    "Andrew JARVIE": "700.16368",
+    "Neil MACDONALD": "347.70101",
+    "A.I. Willie MACKAY": "635.59010",
+    "Jan MCEWAN": "837.00000",
+    "nonTransferable": "81.59979",
+    "rounding": "0.00105"
+   },
+   "elected": [],
+   "total": "4180.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Raymond BREMNER",
+    "amount": "222.00000"
+   },
+   "transferred": {
+    "Raymond BREMNER": "-222.00000",
+    "Bill FERNIE": "52.19787",
+    "Andrew JARVIE": "5.03112",
+    "Neil MACDONALD": "37.31414",
+    "A.I. Willie MACKAY": "64.35641",
+    "Jan MCEWAN": "0.00000",
+    "nonTransferable": "63.09863",
+    "rounding": "0.00183"
+   },
+   "votes": {
+    "Raymond BREMNER": "837.00000",
+    "Bill FERNIE": "571.14224",
+    "Andrew JARVIE": "705.19480",
+    "Neil MACDONALD": "385.01515",
+    "A.I. Willie MACKAY": "699.94651",
+    "Jan MCEWAN": "837.00000",
+    "nonTransferable": "144.69947",
+    "rounding": "0.00183"
+   },
+   "elected": [],
+   "total": "4180.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Neil MACDONALD",
+    "amount": "385.01515"
+   },
+   "transferred": {
+    "Raymond BREMNER": "0.00000",
+    "Bill FERNIE": "98.18750",
+    "Andrew JARVIE": "50.11315",
+    "Neil MACDONALD": "-385.01515",
+    "A.I. Willie MACKAY": "101.98033",
+    "Jan MCEWAN": "0.00000",
+    "nonTransferable": "134.73417",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Raymond BREMNER": "837.00000",
+    "Bill FERNIE": "669.32974",
+    "Andrew JARVIE": "755.30795",
+    "Neil MACDONALD": "0.00000",
+    "A.I. Willie MACKAY": "801.92684",
+    "Jan MCEWAN": "837.00000",
+    "nonTransferable": "279.43547",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "4180.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Bill FERNIE",
+    "amount": "669.32974"
+   },
+   "transferred": {
+    "Raymond BREMNER": "0.00000",
+    "Bill FERNIE": "-669.32974",
+    "Andrew JARVIE": "118.08645",
+    "Neil MACDONALD": "0.00000",
+    "A.I. Willie MACKAY": "323.52142",
+    "Jan MCEWAN": "0.00000",
+    "nonTransferable": "227.72187",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Raymond BREMNER": "837.00000",
+    "Bill FERNIE": "0.00000",
+    "Andrew JARVIE": "873.39440",
+    "Neil MACDONALD": "0.00000",
+    "A.I. Willie MACKAY": "1125.44826",
+    "Jan MCEWAN": "837.00000",
+    "nonTransferable": "507.15734",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Andrew JARVIE",
+    "A.I. Willie MACKAY"
+   ],
+   "total": "4180.00000"
+  }
+ ]
+}

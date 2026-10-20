@@ -55,10 +55,14 @@ export function tabulateStv(ballots: BallotGroup[], candidates: string[], seats:
   const valid = papers.reduce((s, p) => s + (p.at === null ? 0 : p.count), 0);
   if (valid === 0) throw new BallotSemanticError('No ballot counts for any candidate, so there is no quota', undefined, undefined, undefined, 'NO_VALID_BALLOTS');
   const quota = quotaKind === 'droop' ? Fraction.of(Math.floor(valid / (seats + 1)) + 1) : new Fraction(valid, seats);
+  // Scottish rule 48(3): the value of each transferred paper is worked out to `transferDecimals` places, remainder ignored.
+  const dp = rules.transferDecimals;
+  if (dp !== undefined && !(Number.isInteger(dp) && dp >= 0 && dp <= 12)) throw new RangeError('transferDecimals must be an integer from 0 to 12');
+  const cut = (f: Fraction) => { if (dp === undefined) return f; const s = 10n ** BigInt(dp); return new Fraction((f.n * s) / f.d, s); };
   const moveTo = (p: Paper, tv: Fraction | null, key: string, r: number) => {
     if (tv) {
       let to = p.cls.next.get(key);
-      if (!to) { p.cls.next.set(key, (to = { weight: p.cls.weight.mul(tv), next: new Map() })); commonDen = lcm(commonDen, to.weight.d); if (bitLength(commonDen) > MAX_EXACT_BITS) tooComplex(r); }
+      if (!to) { p.cls.next.set(key, (to = { weight: cut(p.cls.weight.mul(tv)), next: new Map() })); commonDen = lcm(commonDen, to.weight.d); if (bitLength(commonDen) > MAX_EXACT_BITS) tooComplex(r); }
       p.cls = to;
     }
     p.at = nextHolder(p);
