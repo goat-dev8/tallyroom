@@ -180,7 +180,7 @@ export default function Landing() {
           <div data-reveal className="mt-9 flex justify-center gap-3"><Link href="/app" className={buttonVariants({ variant: 'tally' })} data-testid="cta-closing">Open the dashboard <ArrowRight className="h-4 w-4" /></Link><a href="https://github.com/goat-dev8/tallyroom" className={buttonVariants({ variant: 'outline' })}>Read the source</a></div>
         </div>
       </section>
-      <footer className="border-t border-line"><div className="mx-auto flex max-w-[1200px] flex-wrap items-center gap-x-6 gap-y-3 px-5 py-8 font-mono text-[11px] text-mute md:px-6"><Logo className="font-sans text-sm text-fg" /><span>Open source</span><span>Background threads by React Bits</span><a className="ml-auto hover:text-fg" href="https://github.com/goat-dev8/tallyroom">GitHub</a><a className="hover:text-fg" href="/api/health">API status</a></div></footer>
+      <footer className="border-t border-line"><div className="mx-auto flex max-w-[1200px] flex-wrap items-center gap-x-6 gap-y-3 px-5 py-8 font-mono text-[11px] text-mute md:px-6"><Logo className="font-sans text-sm text-fg" /><span>Open source</span><span>Background threads by React Bits</span><a className="ml-auto hover:text-fg" href="https://github.com/goat-dev8/tallyroom">GitHub</a><a className="hover:text-fg" href="/proof">Proof</a><a className="hover:text-fg" href="/api/health">API status</a></div></footer>
     </main>
   );
 }
