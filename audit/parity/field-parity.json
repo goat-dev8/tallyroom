@@ -1,0 +1,1910 @@
+{
+ "fieldsMatched": 262,
+ "fieldsCompared": 263,
+ "electionsMatched": 3,
+ "elections": 4,
+ "results": [
+  {
+   "slug": "maine-2018-cd2",
+   "title": "Maine 2018, U.S. House District 2 (general)",
+   "source": "maine-updated-summary-report-CD2.xls",
+   "sha256": "0fa571606ca07669489749c7202ec7eac7509a8bd92fe00cdb9ad5feeb8960f0",
+   "publisher": "Maine Secretary of State (RCV summary report)",
+   "rows": [
+    {
+     "round": 1,
+     "field": "votes Bond, Tiffany L.",
+     "official": 16552,
+     "computed": 16552,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Golden, Jared F.",
+     "official": 132013,
+     "computed": 132013,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Hoar, William R.S.",
+     "official": 6875,
+     "computed": 6875,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Poliquin, Bruce",
+     "official": 134184,
+     "computed": 134184,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "eliminated",
+     "official": "Bond, Tiffany L.; Hoar, William R.S.",
+     "computed": "Bond, Tiffany L.; Hoar, William R.S.",
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Bond, Tiffany L.",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Golden, Jared F.",
+     "official": 142440,
+     "computed": 142440,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Hoar, William R.S.",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Poliquin, Bruce",
+     "official": 138931,
+     "computed": 138931,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "eliminated",
+     "official": "",
+     "computed": "",
+     "ok": true
+    },
+    {
+     "round": "-",
+     "field": "winner",
+     "official": "DEM Golden, Jared F.",
+     "computed": "DEM Golden, Jared F.",
+     "ok": true
+    },
+    {
+     "round": "-",
+     "field": "rounds",
+     "official": 2,
+     "computed": 2,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "overvotes",
+     "official": 435,
+     "computed": 435,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "undervotes",
+     "official": 6018,
+     "computed": 6018,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "exhausted choices",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "continuing",
+     "official": 289624,
+     "computed": 289624,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "total",
+     "official": 296077,
+     "computed": 296077,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "winning threshold",
+     "official": 144813,
+     "computed": 144813,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "overvotes",
+     "official": 533,
+     "computed": 533,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "undervotes",
+     "official": 13838,
+     "computed": 13838,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "exhausted choices",
+     "official": 335,
+     "computed": 335,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "continuing",
+     "official": 281371,
+     "computed": 281371,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "total",
+     "official": 296077,
+     "computed": 296077,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "winning threshold",
+     "official": 140686,
+     "computed": 140686,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Bond, Tiffany L.",
+     "official": -16552,
+     "computed": -16552,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Golden, Jared F.",
+     "official": 10427,
+     "computed": 10427,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Hoar, William R.S.",
+     "official": -6875,
+     "computed": -6875,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Poliquin, Bruce",
+     "official": 4747,
+     "computed": 4747,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer overvotes",
+     "official": 98,
+     "computed": 98,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer undervotes",
+     "official": 7820,
+     "computed": 7820,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer exhaustedChoices",
+     "official": 335,
+     "computed": 335,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer Bond, Tiffany L.",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer Golden, Jared F.",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer Hoar, William R.S.",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer Poliquin, Bruce",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer overvotes",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer undervotes",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer exhaustedChoices",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    }
+   ],
+   "notCompared": [
+    "percentages (derived from the compared counts)"
+   ],
+   "matched": 38,
+   "compared": 38
+  },
+  {
+   "slug": "alaska-2022-special",
+   "title": "Alaska 2022, U.S. Representative special general (Aug 16)",
+   "source": "alaska-RcvDetailedReport.pdf",
+   "sha256": "7bf3289ab8493819b552a13238083ae43e7e7c518811c260c1579d0cc886ecb7",
+   "publisher": "Alaska Division of Elections (Dominion RCV Detailed Report)",
+   "rows": [
+    {
+     "round": 1,
+     "field": "votes Begich, Nick",
+     "official": 53810,
+     "computed": 53810,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Palin, Sarah",
+     "official": 58973,
+     "computed": 58973,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Peltola, Mary S.",
+     "official": 75799,
+     "computed": 75799,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "eliminated",
+     "official": "Begich, Nick",
+     "computed": "Begich, Nick",
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Begich, Nick",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Palin, Sarah",
+     "official": 86026,
+     "computed": 86026,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Peltola, Mary S.",
+     "official": 91266,
+     "computed": 91266,
+     "ok": true
+    },
+    {
+     "round": "-",
+     "field": "winner",
+     "official": "Peltola, Mary S.",
+     "computed": "Peltola, Mary S.",
+     "ok": true
+    },
+    {
+     "round": "-",
+     "field": "rounds",
+     "official": 2,
+     "computed": 2,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "continuing",
+     "official": 188582,
+     "computed": 188582,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "blanks",
+     "official": 3412,
+     "computed": 3412,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "exhausted",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "overvotes",
+     "official": 295,
+     "computed": 295,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "non-transferable total",
+     "official": 3707,
+     "computed": 3707,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "continuing",
+     "official": 177292,
+     "computed": 177292,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "blanks",
+     "official": 3412,
+     "computed": 3412,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "exhausted",
+     "official": 11243,
+     "computed": 11243,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "overvotes",
+     "official": 342,
+     "computed": 342,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "non-transferable total",
+     "official": 14997,
+     "computed": 14997,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Palin, Sarah",
+     "official": 27053,
+     "computed": 27053,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Peltola, Mary S.",
+     "official": 15467,
+     "computed": 15467,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Exhausted",
+     "official": 11243,
+     "computed": 11243,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Overvotes",
+     "official": 47,
+     "computed": 47,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "elected",
+     "official": "Peltola, Mary S.",
+     "computed": "Peltola, Mary S.",
+     "ok": true
+    }
+   ],
+   "notCompared": [
+    "round 2 \"Palin is eliminated because not elected in the last round\" (a report formality after the winner is known; the winner is compared instead)",
+    "\"Remainder Points\" (fractional remainders; counts here are whole ballots)",
+    "percentages"
+   ],
+   "matched": 24,
+   "compared": 24
+  },
+  {
+   "slug": "nyc-2021-dem-mayor",
+   "title": "New York City 2021 Democratic primary, Mayor",
+   "source": "nyc-recap.html",
+   "sha256": "c9220813eb8f6a4790f2bef386c9fabe695ff252204714631fe7e9e66737eb7e",
+   "publisher": "NYC Board of Elections (certified ranked-choice rounds, 2021-07-20)",
+   "rows": [
+    {
+     "round": 1,
+     "field": "votes Eric L. Adams",
+     "official": 289403,
+     "computed": 289403,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Maya D. Wiley",
+     "official": 201127,
+     "computed": 201127,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Kathryn A. Garcia",
+     "official": 184463,
+     "computed": 184463,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Andrew Yang",
+     "official": 115130,
+     "computed": 115130,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Scott M. Stringer",
+     "official": 51778,
+     "computed": 51778,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Dianne Morales",
+     "official": 26495,
+     "computed": 26495,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Raymond J. McGuire",
+     "official": 25242,
+     "computed": 25242,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Shaun Donovan",
+     "official": 23167,
+     "computed": 23167,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Aaron S. Foldenauer",
+     "official": 7742,
+     "computed": 7742,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Art Chang",
+     "official": 7048,
+     "computed": 7048,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Paperboy Love Prince",
+     "official": 3964,
+     "computed": 3964,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Joycelyn Taylor",
+     "official": 2662,
+     "computed": 2662,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Isaac Wright Jr.",
+     "official": 2242,
+     "computed": 2242,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Write-ins",
+     "official": 1568,
+     "computed": 1568,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "eliminated",
+     "official": "Write-in",
+     "computed": "Write-in",
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Eric L. Adams",
+     "official": 289603,
+     "computed": 289603,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Maya D. Wiley",
+     "official": 201193,
+     "computed": 201193,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Kathryn A. Garcia",
+     "official": 184571,
+     "computed": 184571,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Andrew Yang",
+     "official": 115301,
+     "computed": 115301,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Scott M. Stringer",
+     "official": 51850,
+     "computed": 51850,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Dianne Morales",
+     "official": 26534,
+     "computed": 26534,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Raymond J. McGuire",
+     "official": 25272,
+     "computed": 25272,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Shaun Donovan",
+     "official": 23189,
+     "computed": 23189,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Aaron S. Foldenauer",
+     "official": 7758,
+     "computed": 7758,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Art Chang",
+     "official": 7064,
+     "computed": 7064,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Paperboy Love Prince",
+     "official": 4007,
+     "computed": 4007,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Joycelyn Taylor",
+     "official": 2683,
+     "computed": 2683,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Isaac Wright Jr.",
+     "official": 2254,
+     "computed": 2254,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "eliminated",
+     "official": "Isaac Wright Jr.",
+     "computed": "Isaac Wright Jr.",
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "votes Eric L. Adams",
+     "official": 290055,
+     "computed": 290055,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "votes Maya D. Wiley",
+     "official": 201518,
+     "computed": 201518,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "votes Kathryn A. Garcia",
+     "official": 184669,
+     "computed": 184669,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "votes Andrew Yang",
+     "official": 115502,
+     "computed": 115502,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "votes Scott M. Stringer",
+     "official": 51951,
+     "computed": 51951,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "votes Dianne Morales",
+     "official": 26645,
+     "computed": 26645,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "votes Raymond J. McGuire",
+     "official": 25418,
+     "computed": 25418,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "votes Shaun Donovan",
+     "official": 23314,
+     "computed": 23314,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "votes Aaron S. Foldenauer",
+     "official": 7819,
+     "computed": 7819,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "votes Art Chang",
+     "official": 7093,
+     "computed": 7093,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "votes Paperboy Love Prince",
+     "official": 4060,
+     "computed": 4060,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "votes Joycelyn Taylor",
+     "official": 2780,
+     "computed": 2780,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "eliminated",
+     "official": "Aaron S. Foldenauer; Art Chang; Joycelyn Taylor; Paperboy Love Prince",
+     "computed": "Aaron S. Foldenauer; Art Chang; Joycelyn Taylor; Paperboy Love Prince",
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "votes Eric L. Adams",
+     "official": 291806,
+     "computed": 291806,
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "votes Maya D. Wiley",
+     "official": 206013,
+     "computed": 206013,
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "votes Kathryn A. Garcia",
+     "official": 186731,
+     "computed": 186731,
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "votes Andrew Yang",
+     "official": 118008,
+     "computed": 118008,
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "votes Scott M. Stringer",
+     "official": 53599,
+     "computed": 53599,
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "votes Dianne Morales",
+     "official": 30157,
+     "computed": 30157,
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "votes Raymond J. McGuire",
+     "official": 26361,
+     "computed": 26361,
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "votes Shaun Donovan",
+     "official": 24042,
+     "computed": 24042,
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "eliminated",
+     "official": "Shaun Donovan",
+     "computed": "Shaun Donovan",
+     "ok": true
+    },
+    {
+     "round": 5,
+     "field": "votes Eric L. Adams",
+     "official": 295798,
+     "computed": 295798,
+     "ok": true
+    },
+    {
+     "round": 5,
+     "field": "votes Maya D. Wiley",
+     "official": 209108,
+     "computed": 209108,
+     "ok": true
+    },
+    {
+     "round": 5,
+     "field": "votes Kathryn A. Garcia",
+     "official": 191876,
+     "computed": 191876,
+     "ok": true
+    },
+    {
+     "round": 5,
+     "field": "votes Andrew Yang",
+     "official": 121597,
+     "computed": 121597,
+     "ok": true
+    },
+    {
+     "round": 5,
+     "field": "votes Scott M. Stringer",
+     "official": 56723,
+     "computed": 56723,
+     "ok": true
+    },
+    {
+     "round": 5,
+     "field": "votes Dianne Morales",
+     "official": 30933,
+     "computed": 30933,
+     "ok": true
+    },
+    {
+     "round": 5,
+     "field": "votes Raymond J. McGuire",
+     "official": 27934,
+     "computed": 27934,
+     "ok": true
+    },
+    {
+     "round": 5,
+     "field": "eliminated",
+     "official": "Dianne Morales; Raymond J. McGuire; Scott M. Stringer",
+     "computed": "Dianne Morales; Raymond J. McGuire; Scott M. Stringer",
+     "ok": true
+    },
+    {
+     "round": 6,
+     "field": "votes Eric L. Adams",
+     "official": 317092,
+     "computed": 317092,
+     "ok": true
+    },
+    {
+     "round": 6,
+     "field": "votes Maya D. Wiley",
+     "official": 239174,
+     "computed": 239174,
+     "ok": true
+    },
+    {
+     "round": 6,
+     "field": "votes Kathryn A. Garcia",
+     "official": 223634,
+     "computed": 223634,
+     "ok": true
+    },
+    {
+     "round": 6,
+     "field": "votes Andrew Yang",
+     "official": 135686,
+     "computed": 135686,
+     "ok": true
+    },
+    {
+     "round": 6,
+     "field": "eliminated",
+     "official": "Andrew Yang",
+     "computed": "Andrew Yang",
+     "ok": true
+    },
+    {
+     "round": 7,
+     "field": "votes Eric L. Adams",
+     "official": 354657,
+     "computed": 354657,
+     "ok": true
+    },
+    {
+     "round": 7,
+     "field": "votes Maya D. Wiley",
+     "official": 254728,
+     "computed": 254728,
+     "ok": true
+    },
+    {
+     "round": 7,
+     "field": "votes Kathryn A. Garcia",
+     "official": 266932,
+     "computed": 266932,
+     "ok": true
+    },
+    {
+     "round": 7,
+     "field": "eliminated",
+     "official": "Maya D. Wiley",
+     "computed": "Maya D. Wiley",
+     "ok": true
+    },
+    {
+     "round": 8,
+     "field": "votes Eric L. Adams",
+     "official": 404513,
+     "computed": 404513,
+     "ok": true
+    },
+    {
+     "round": 8,
+     "field": "votes Kathryn A. Garcia",
+     "official": 397316,
+     "computed": 397316,
+     "ok": true
+    },
+    {
+     "round": 8,
+     "field": "eliminated",
+     "official": "",
+     "computed": "",
+     "ok": true
+    },
+    {
+     "round": "-",
+     "field": "winner",
+     "official": "Eric L. Adams",
+     "computed": "Eric L. Adams",
+     "ok": true
+    },
+    {
+     "round": "-",
+     "field": "rounds",
+     "official": 8,
+     "computed": 8,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "inactive since round 1",
+     "official": 752,
+     "computed": 752,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "inactive since round 1",
+     "official": 1207,
+     "computed": 1207,
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "inactive since round 1",
+     "official": 5314,
+     "computed": 5314,
+     "ok": true
+    },
+    {
+     "round": 5,
+     "field": "inactive since round 1",
+     "official": 8062,
+     "computed": 8062,
+     "ok": true
+    },
+    {
+     "round": 6,
+     "field": "inactive since round 1",
+     "official": 26445,
+     "computed": 26445,
+     "ok": true
+    },
+    {
+     "round": 7,
+     "field": "inactive since round 1",
+     "official": 65714,
+     "computed": 65714,
+     "ok": true
+    },
+    {
+     "round": 8,
+     "field": "inactive since round 1",
+     "official": 140202,
+     "computed": 140202,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Eric L. Adams",
+     "official": 200,
+     "computed": 200,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Maya D. Wiley",
+     "official": 66,
+     "computed": 66,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Kathryn A. Garcia",
+     "official": 108,
+     "computed": 108,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Andrew Yang",
+     "official": 171,
+     "computed": 171,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Scott M. Stringer",
+     "official": 72,
+     "computed": 72,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Dianne Morales",
+     "official": 39,
+     "computed": 39,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Raymond J. McGuire",
+     "official": 30,
+     "computed": 30,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Shaun Donovan",
+     "official": 22,
+     "computed": 22,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Aaron S. Foldenauer",
+     "official": 16,
+     "computed": 16,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Art Chang",
+     "official": 16,
+     "computed": 16,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Paperboy Love Prince",
+     "official": 43,
+     "computed": 43,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Joycelyn Taylor",
+     "official": 21,
+     "computed": 21,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Isaac Wright Jr.",
+     "official": 12,
+     "computed": 12,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer Write-ins",
+     "official": -1568,
+     "computed": -1568,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "transfer inactive",
+     "official": 752,
+     "computed": 752,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer Eric L. Adams",
+     "official": 452,
+     "computed": 452,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer Maya D. Wiley",
+     "official": 325,
+     "computed": 325,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer Kathryn A. Garcia",
+     "official": 98,
+     "computed": 98,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer Andrew Yang",
+     "official": 201,
+     "computed": 201,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer Scott M. Stringer",
+     "official": 101,
+     "computed": 101,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer Dianne Morales",
+     "official": 111,
+     "computed": 111,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer Raymond J. McGuire",
+     "official": 146,
+     "computed": 146,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer Shaun Donovan",
+     "official": 125,
+     "computed": 125,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer Aaron S. Foldenauer",
+     "official": 61,
+     "computed": 61,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer Art Chang",
+     "official": 29,
+     "computed": 29,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer Paperboy Love Prince",
+     "official": 53,
+     "computed": 53,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer Joycelyn Taylor",
+     "official": 97,
+     "computed": 97,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer Isaac Wright Jr.",
+     "official": -2254,
+     "computed": -2254,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "transfer inactive",
+     "official": 455,
+     "computed": 455,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "transfer Eric L. Adams",
+     "official": 1751,
+     "computed": 1751,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "transfer Maya D. Wiley",
+     "official": 4495,
+     "computed": 4495,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "transfer Kathryn A. Garcia",
+     "official": 2062,
+     "computed": 2062,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "transfer Andrew Yang",
+     "official": 2506,
+     "computed": 2506,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "transfer Scott M. Stringer",
+     "official": 1648,
+     "computed": 1648,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "transfer Dianne Morales",
+     "official": 3512,
+     "computed": 3512,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "transfer Raymond J. McGuire",
+     "official": 943,
+     "computed": 943,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "transfer Shaun Donovan",
+     "official": 728,
+     "computed": 728,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "transfer Aaron S. Foldenauer",
+     "official": -7819,
+     "computed": -7819,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "transfer Art Chang",
+     "official": -7093,
+     "computed": -7093,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "transfer Paperboy Love Prince",
+     "official": -4060,
+     "computed": -4060,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "transfer Joycelyn Taylor",
+     "official": -2780,
+     "computed": -2780,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "transfer inactive",
+     "official": 4107,
+     "computed": 4107,
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "transfer Eric L. Adams",
+     "official": 3992,
+     "computed": 3992,
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "transfer Maya D. Wiley",
+     "official": 3095,
+     "computed": 3095,
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "transfer Kathryn A. Garcia",
+     "official": 5145,
+     "computed": 5145,
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "transfer Andrew Yang",
+     "official": 3589,
+     "computed": 3589,
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "transfer Scott M. Stringer",
+     "official": 3124,
+     "computed": 3124,
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "transfer Dianne Morales",
+     "official": 776,
+     "computed": 776,
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "transfer Raymond J. McGuire",
+     "official": 1573,
+     "computed": 1573,
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "transfer Shaun Donovan",
+     "official": -24042,
+     "computed": -24042,
+     "ok": true
+    },
+    {
+     "round": 4,
+     "field": "transfer inactive",
+     "official": 2748,
+     "computed": 2748,
+     "ok": true
+    },
+    {
+     "round": 5,
+     "field": "transfer Eric L. Adams",
+     "official": 21294,
+     "computed": 21294,
+     "ok": true
+    },
+    {
+     "round": 5,
+     "field": "transfer Maya D. Wiley",
+     "official": 30066,
+     "computed": 30066,
+     "ok": true
+    },
+    {
+     "round": 5,
+     "field": "transfer Kathryn A. Garcia",
+     "official": 31758,
+     "computed": 31758,
+     "ok": true
+    },
+    {
+     "round": 5,
+     "field": "transfer Andrew Yang",
+     "official": 14089,
+     "computed": 14089,
+     "ok": true
+    },
+    {
+     "round": 5,
+     "field": "transfer Scott M. Stringer",
+     "official": -56723,
+     "computed": -56723,
+     "ok": true
+    },
+    {
+     "round": 5,
+     "field": "transfer Dianne Morales",
+     "official": -30933,
+     "computed": -30933,
+     "ok": true
+    },
+    {
+     "round": 5,
+     "field": "transfer Raymond J. McGuire",
+     "official": -27934,
+     "computed": -27934,
+     "ok": true
+    },
+    {
+     "round": 5,
+     "field": "transfer inactive",
+     "official": 18383,
+     "computed": 18383,
+     "ok": true
+    },
+    {
+     "round": 6,
+     "field": "transfer Eric L. Adams",
+     "official": 37565,
+     "computed": 37565,
+     "ok": true
+    },
+    {
+     "round": 6,
+     "field": "transfer Maya D. Wiley",
+     "official": 15554,
+     "computed": 15554,
+     "ok": true
+    },
+    {
+     "round": 6,
+     "field": "transfer Kathryn A. Garcia",
+     "official": 43298,
+     "computed": 43298,
+     "ok": true
+    },
+    {
+     "round": 6,
+     "field": "transfer Andrew Yang",
+     "official": -135686,
+     "computed": -135686,
+     "ok": true
+    },
+    {
+     "round": 6,
+     "field": "transfer inactive",
+     "official": 39269,
+     "computed": 39269,
+     "ok": true
+    },
+    {
+     "round": 7,
+     "field": "transfer Eric L. Adams",
+     "official": 49856,
+     "computed": 49856,
+     "ok": true
+    },
+    {
+     "round": 7,
+     "field": "transfer Maya D. Wiley",
+     "official": -254728,
+     "computed": -254728,
+     "ok": true
+    },
+    {
+     "round": 7,
+     "field": "transfer Kathryn A. Garcia",
+     "official": 130384,
+     "computed": 130384,
+     "ok": true
+    },
+    {
+     "round": 7,
+     "field": "transfer inactive",
+     "official": 74488,
+     "computed": 74488,
+     "ok": true
+    },
+    {
+     "round": 8,
+     "field": "elected",
+     "official": "Eric L. Adams",
+     "computed": "Eric L. Adams",
+     "ok": true
+    }
+   ],
+   "notCompared": [
+    "round 1 inactive (the BOE table starts inactive counting after round 1)",
+    "percentages"
+   ],
+   "matched": 149,
+   "compared": 149
+  },
+  {
+   "slug": "burlington-2009-mayor",
+   "title": "Burlington VT 2009, Mayor (Mar 3)",
+   "source": "burlington-2009-mayor.official-rounds.html",
+   "sha256": "6cd18bc3fed073829cc57b0ae639ea34c12771e6ed4aed0169647bcba8799569",
+   "publisher": "City of Burlington, ChoicePlus Pro 2.3.2 round detail report (copy kept at rangevoting.org)",
+   "rows": [
+    {
+     "round": 1,
+     "field": "votes Kurt Wright",
+     "official": 2951,
+     "computed": 2951,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Bob Kiss",
+     "official": 2585,
+     "computed": 2585,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Andy Montroll",
+     "official": 2063,
+     "computed": 2063,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Dan Smith",
+     "official": 1306,
+     "computed": 1306,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes Write-in",
+     "official": 36,
+     "computed": 36,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "votes James Simpson",
+     "official": 35,
+     "computed": 35,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "eliminated",
+     "official": "Dan Smith; James Simpson; Write-In",
+     "computed": "Dan Smith; James Simpson; Write-In",
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Kurt Wright",
+     "official": 3294,
+     "computed": 3294,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Bob Kiss",
+     "official": 2981,
+     "computed": 2981,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Andy Montroll",
+     "official": 2554,
+     "computed": 2554,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Dan Smith",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes Write-in",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "votes James Simpson",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "eliminated",
+     "official": "Andy Montroll",
+     "computed": "Andy Montroll",
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "votes Bob Kiss",
+     "official": 4313,
+     "computed": 4313,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "votes Kurt Wright",
+     "official": 4061,
+     "computed": 4061,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "votes Andy Montroll",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "votes Dan Smith",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "votes Write-in",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "votes James Simpson",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": "-",
+     "field": "winner",
+     "official": "Bob Kiss",
+     "computed": "Bob Kiss",
+     "ok": true
+    },
+    {
+     "round": "-",
+     "field": "rounds",
+     "official": 3,
+     "computed": 3,
+     "ok": true
+    },
+    {
+     "round": "-",
+     "field": "winning threshold",
+     "official": 4491,
+     "computed": 4489,
+     "ok": false
+    },
+    {
+     "round": "-",
+     "field": "valid ballots",
+     "official": 8980,
+     "computed": 8980,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "exhausted pile",
+     "official": 4,
+     "computed": 4,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "totals",
+     "official": 8980,
+     "computed": 8980,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "exhausted pile",
+     "official": 151,
+     "computed": 151,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "totals",
+     "official": 8980,
+     "computed": 8980,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "exhausted pile",
+     "official": 606,
+     "computed": 606,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "totals",
+     "official": 8980,
+     "computed": 8980,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "this-round Kurt Wright",
+     "official": 2951,
+     "computed": 2951,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "this-round Bob Kiss",
+     "official": 2585,
+     "computed": 2585,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "this-round Andy Montroll",
+     "official": 2063,
+     "computed": 2063,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "this-round Dan Smith",
+     "official": 1306,
+     "computed": 1306,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "this-round Write-in",
+     "official": 36,
+     "computed": 36,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "this-round James Simpson",
+     "official": 35,
+     "computed": 35,
+     "ok": true
+    },
+    {
+     "round": 1,
+     "field": "this-round exhausted",
+     "official": 4,
+     "computed": 4,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "this-round Kurt Wright",
+     "official": 343,
+     "computed": 343,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "this-round Bob Kiss",
+     "official": 396,
+     "computed": 396,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "this-round Andy Montroll",
+     "official": 491,
+     "computed": 491,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "this-round Dan Smith",
+     "official": -1306,
+     "computed": -1306,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "this-round Write-in",
+     "official": -36,
+     "computed": -36,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "this-round James Simpson",
+     "official": -35,
+     "computed": -35,
+     "ok": true
+    },
+    {
+     "round": 2,
+     "field": "this-round exhausted",
+     "official": 147,
+     "computed": 147,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "this-round Bob Kiss",
+     "official": 1332,
+     "computed": 1332,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "this-round Kurt Wright",
+     "official": 767,
+     "computed": 767,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "this-round Andy Montroll",
+     "official": -2554,
+     "computed": -2554,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "this-round Dan Smith",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "this-round Write-in",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "this-round James Simpson",
+     "official": 0,
+     "computed": 0,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "this-round exhausted",
+     "official": 455,
+     "computed": 455,
+     "ok": true
+    },
+    {
+     "round": 3,
+     "field": "elected",
+     "official": "Bob Kiss",
+     "computed": "Bob Kiss",
+     "ok": true
+    }
+   ],
+   "notCompared": [
+    "round 4 (ChoicePlus prints a closing round that only marks Kurt Wright defeated after the seat is filled; no votes move)",
+    "round 3 \"eliminated\" (none; compared via the elected field)",
+    "invalid ballots (4) — not in the cast vote record"
+   ],
+   "matched": 51,
+   "compared": 52
+  }
+ ]
+}

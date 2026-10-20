@@ -1,0 +1,4 @@
+7bf3289ab8493819b552a13238083ae43e7e7c518811c260c1579d0cc886ecb7  alaska-RcvDetailedReport.pdf
+6cd18bc3fed073829cc57b0ae639ea34c12771e6ed4aed0169647bcba8799569  burlington-2009-mayor.official-rounds.html
+0fa571606ca07669489749c7202ec7eac7509a8bd92fe00cdb9ad5feeb8960f0  maine-updated-summary-report-CD2.xls
+c9220813eb8f6a4790f2bef386c9fabe695ff252204714631fe7e9e66737eb7e  nyc-recap.html

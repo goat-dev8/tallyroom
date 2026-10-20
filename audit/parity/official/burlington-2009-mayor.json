@@ -1,0 +1,146 @@
+{
+ "source": "burlington-2009-mayor.official-rounds.html",
+ "sha256": "6cd18bc3fed073829cc57b0ae639ea34c12771e6ed4aed0169647bcba8799569",
+ "publisher": "City of Burlington, ChoicePlus Pro 2.3.2 round detail report (copy kept at rangevoting.org)",
+ "threshold": 4491,
+ "validBallots": 8980,
+ "rounds": [
+  {
+   "tallies": {
+    "Kurt Wright": 2951,
+    "Bob Kiss": 2585,
+    "Andy Montroll": 2063,
+    "Dan Smith": 1306,
+    "Write-in": 36,
+    "James Simpson": 35
+   },
+   "transfers": {
+    "Kurt Wright": 2951,
+    "Bob Kiss": 2585,
+    "Andy Montroll": 2063,
+    "Dan Smith": 1306,
+    "Write-in": 36,
+    "James Simpson": 35,
+    "exhausted": 4
+   },
+   "status": {
+    "Kurt Wright": "CONTINUING",
+    "Bob Kiss": "CONTINUING",
+    "Andy Montroll": "CONTINUING",
+    "Dan Smith": "DEFEATED -- 1st round",
+    "Write-in": "DEFEATED -- 1st round",
+    "James Simpson": "DEFEATED -- 1st round"
+   },
+   "exhaustedPile": 4,
+   "totals": 8980,
+   "eliminated": [
+    "Dan Smith",
+    "James Simpson",
+    "Write-in"
+   ],
+   "elected": []
+  },
+  {
+   "tallies": {
+    "Kurt Wright": 3294,
+    "Bob Kiss": 2981,
+    "Andy Montroll": 2554,
+    "Dan Smith": 0,
+    "Write-in": 0,
+    "James Simpson": 0
+   },
+   "transfers": {
+    "Kurt Wright": 343,
+    "Bob Kiss": 396,
+    "Andy Montroll": 491,
+    "Dan Smith": -1306,
+    "Write-in": -36,
+    "James Simpson": -35,
+    "exhausted": 147
+   },
+   "status": {
+    "Kurt Wright": "CONTINUING",
+    "Bob Kiss": "CONTINUING",
+    "Andy Montroll": "DEFEATED -- 2nd round",
+    "Dan Smith": "DEFEATED -- 1st round",
+    "Write-in": "DEFEATED -- 1st round",
+    "James Simpson": "DEFEATED -- 1st round"
+   },
+   "exhaustedPile": 151,
+   "totals": 8980,
+   "eliminated": [
+    "Andy Montroll"
+   ],
+   "elected": []
+  },
+  {
+   "tallies": {
+    "Bob Kiss": 4313,
+    "Kurt Wright": 4061,
+    "Andy Montroll": 0,
+    "Dan Smith": 0,
+    "Write-in": 0,
+    "James Simpson": 0
+   },
+   "transfers": {
+    "Bob Kiss": 1332,
+    "Kurt Wright": 767,
+    "Andy Montroll": -2554,
+    "Dan Smith": 0,
+    "Write-in": 0,
+    "James Simpson": 0,
+    "exhausted": 455
+   },
+   "status": {
+    "Bob Kiss": "ELECTED -- 3rd round",
+    "Kurt Wright": "CONTINUING",
+    "Andy Montroll": "DEFEATED -- 2nd round",
+    "Dan Smith": "DEFEATED -- 1st round",
+    "Write-in": "DEFEATED -- 1st round",
+    "James Simpson": "DEFEATED -- 1st round"
+   },
+   "exhaustedPile": 606,
+   "totals": 8980,
+   "eliminated": [],
+   "elected": [
+    "Bob Kiss"
+   ],
+   "skipEliminated": true
+  },
+  {
+   "tallies": {
+    "Bob Kiss": 4313,
+    "Kurt Wright": 4061,
+    "Andy Montroll": 0,
+    "Dan Smith": 0,
+    "Write-in": 0,
+    "James Simpson": 0
+   },
+   "transfers": {
+    "Bob Kiss": 0,
+    "Kurt Wright": 0,
+    "Andy Montroll": 0,
+    "Dan Smith": 0,
+    "Write-in": 0,
+    "James Simpson": 0,
+    "exhausted": 0
+   },
+   "status": {
+    "Bob Kiss": "ELECTED -- 3rd round",
+    "Kurt Wright": "DEFEATED -- 4th round",
+    "Andy Montroll": "DEFEATED -- 2nd round",
+    "Dan Smith": "DEFEATED -- 1st round",
+    "Write-in": "DEFEATED -- 1st round",
+    "James Simpson": "DEFEATED -- 1st round"
+   },
+   "exhaustedPile": 606,
+   "totals": 8980,
+   "eliminated": [
+    "Kurt Wright"
+   ],
+   "elected": [],
+   "formal": true
+  }
+ ],
+ "winner": "Bob Kiss"
+}
