@@ -24,11 +24,26 @@ function remember(seen: string[], name: string, declared?: string[]) {
 }
 
 /** Parse `count,A>B>C` lines. `[A=B]` or `overvote` is an overvote, `_` or `undervote` a skipped rank. Quoted names may contain commas. */
+/** Optional header line of the ranking format, e.g. `count,ranking` (BUG-002: it used to be read as a ballot). */
+export const RANKING_FORMAT_HEADER = /^\s*"?(?:count|weight|ballots|votes|qty|quantity)"?\s*,\s*"?(?:ranking|rankings|ranks|order|preferences?|ballot)"?\s*$/i;
+
+/** Counts are added up across ballots, so each one (and the total) must stay an exact JS integer (BUG-004). */
+export function assertSafeCounts(ballots: BallotGroup[]): void {
+  let total = 0;
+  ballots.forEach((b, i) => {
+    total += b.count;
+    if (!Number.isSafeInteger(b.count) || !Number.isSafeInteger(total))
+      throw new BallotSemanticError(`Ballot ${i + 1}: count must be a positive integer of at most ${Number.MAX_SAFE_INTEGER} in total`, i + 1, undefined, undefined, 'INVALID_COUNT');
+  });
+}
+
 export function parseBallots(text: string, declared?: string[]): { ballots: BallotGroup[]; candidates: string[] } {
   const ballots: BallotGroup[] = []; const seen: string[] = [];
   const lines = text.replace(/^\uFEFF/, '').split(/\r?\n/);
+  let first = true;
   lines.forEach((raw, i) => {
     const line = raw.trim(); if (!line || line.startsWith('#')) return;
+    if (first) { first = false; if (RANKING_FORMAT_HEADER.test(line)) return; }
     const comma = line.indexOf(','); if (comma < 0) throw new ParseError(i + 1, 'expected "count,ranking"');
     const countStr = line.slice(0, comma).trim();
     if (!/^[1-9]\d*$/.test(countStr)) throw new ParseError(i + 1, 'count must be a positive integer', 1);
@@ -43,7 +58,8 @@ export function parseBallots(text: string, declared?: string[]): { ballots: Ball
     });
     ballots.push({ count: Number(countStr), marks });
   });
-  if (ballots.length === 0) throw new ParseError(0, 'No valid ballots to count');
+  if (ballots.length === 0) throw new BallotSemanticError('No valid ballots to count');
+  assertSafeCounts(ballots);
   return { ballots, candidates: declared ?? seen };
 }
 
@@ -119,6 +135,7 @@ export function parseRankCsv(text: string, declared?: string[]): { ballots: Ball
     return true;
   });
   if (useful.length === 0) throw new BallotSemanticError('No valid ballots to count');
+  if (RANKING_FORMAT_HEADER.test(useful[0].cells.join(','))) return parseBallots(text, declared);
   const header = looksLikeRankHeader(useful[0].cells) ? useful[0].cells.map(c => c.trim()) : null;
   const data = header ? useful.slice(1) : useful;
   if (data.length === 0) throw new BallotSemanticError('No valid ballots to count');
@@ -162,6 +179,7 @@ export function parseRankCsv(text: string, declared?: string[]): { ballots: Ball
     const marks = indexes.map(i => cellMark(cells[i] ?? '', declared, row, i + 1));
     return { count, marks };
   });
+  assertSafeCounts(ballots);
   return { ballots, candidates: collectCandidates(ballots, declared) };
 }
 
@@ -232,7 +250,7 @@ export function parseBallotJson(ballots: unknown, declared?: string[]): { ballot
     const o = item as { count?: unknown; ranks?: unknown; ranking?: unknown };
     let count = 1;
     if (o.count !== undefined) {
-      if (typeof o.count !== 'number' || !Number.isInteger(o.count) || o.count < 1) throw new BallotSemanticError(`${label}: count must be a positive integer`, row);
+      if (typeof o.count !== 'number' || !Number.isSafeInteger(o.count) || o.count < 1) throw new BallotSemanticError(`${label}: count must be a positive integer`, row);
       count = o.count;
     }
     if (typeof o.ranking === 'string') return { count, marks: marksFromRanking(o.ranking, declared, row) };
@@ -246,6 +264,7 @@ export function parseBallotJson(ballots: unknown, declared?: string[]): { ballot
     }
     throw new BallotSemanticError(`${label}: expected "ranks" or "ranking"`, row);
   });
+  assertSafeCounts(groups);
   return { ballots: groups, candidates: collectCandidates(groups, declared) };
 }
 

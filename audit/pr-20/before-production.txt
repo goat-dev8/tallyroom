@@ -1,0 +1,12 @@
+$ POST text/csv $'count,ranking\n3,A\n2,B\n'
+{"error":{"code":"CSV_FORMAT_AMBIGUOUS","message":"Row 2, column 1: candidate name \"3\" is purely numeric. With no header, a leading count belongs in count,rank1,rank2,...","details":{"row":2,"column":1,"candidate":"3"}}} [HTTP 422]
+
+$ POST text/csv $'count,ranking\n'
+{"engineVersion":"0.1.0","method":"irv","candidates":["count","ranking"],"rules":{"overvote":"exhaust","skips":"continue","batch":false,"tiebreak":"previous-round"},"rounds":[{"round":1,"tallies":{"count":1,"ranking":0},"continuing":1,"inactive":{"blank":0,"overvote":0,"skips":0,"undervote":0,"exhausted":0},"threshold":1,"eliminated":[]}],"winner":"count","totalBallots":1} [HTTP 200]
+
+$ POST text/csv $'3,__proto__\n2,B\n'
+{"engineVersion":"0.1.0","method":"irv","candidates":["__proto__","B"],"rules":{"overvote":"exhaust","skips":"continue","batch":false,"tiebreak":"previous-round"},"rounds":[{"round":1,"tallies":{"B":2},"continuing":2,"inactive":{"blank":0,"overvote":0,"skips":0,"undervote":0,"exhausted":0},"threshold":2,"eliminated":[]}],"winner":"B","totalBallots":5} [HTTP 200]
+
+$ POST text/csv $'99999999999999999999,A\n1,B\n'
+{"engineVersion":"0.1.0","method":"irv","candidates":["A","B"],"rules":{"overvote":"exhaust","skips":"continue","batch":false,"tiebreak":"previous-round"},"rounds":[{"round":1,"tallies":{"A":100000000000000000000,"B":1},"continuing":100000000000000000000,"inactive":{"blank":0,"overvote":0,"skips":0,"undervote":0,"exhausted":0},"threshold":50000000000000000000,"eliminated":[]}],"winner":"A","totalBallots":100000000000000000000} [HTTP 200]
+

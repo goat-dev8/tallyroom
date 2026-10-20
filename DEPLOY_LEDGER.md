@@ -74,6 +74,8 @@ Rules
 | 2026-10-20 | 08:12 | – (squash-merge of #1 to main) | 335e2da | Built: READY, production | ~58 | 0 | 0 | First merge to main (logged out of order). |
 | 2026-10-20 | ~10:00 | ci/workflows | CI-only (workflows, lint config, ignore rules) | Skipped by ignoreCommand | — | api: via CLI on production | ~10 | No deploy spent; proves the CLI Action + JUnit. |
 
+| 2026-10-20 | ~10:25 | fix/api-input (PR #20) | BUG-002..004 fix + tests (red run was on production, no deploy) | Built: preview | ~54 (Vercel count 53 at 10:05) | 22 (CLI api) + V3 app | ~11 + V3 | One push. |
+
 ## Daily totals
 | Date (Cairo) | Deploys built | Builds skipped | Peak 24 h count | Credits used |
 |---|---|---|---|---|

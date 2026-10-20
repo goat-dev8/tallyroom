@@ -9,5 +9,6 @@ Every artifact a pull request produced (TestSprite reports, JUnit, before/after 
 | [#15](https://github.com/goat-dev8/tallyroom/pull/15) | Sankey v2: vote-ordered (Peltola above Palin), pointer tooltip | [`pr-15/`](pr-15/) (before/after, hover tooltip) |
 | [#16](https://github.com/goat-dev8/tallyroom/pull/16) | Dashboard cards + round rail v2 | [`pr-16/`](pr-16/) (before/after at 1440 and 390 px) |
 | [#17](https://github.com/goat-dev8/tallyroom/pull/17) | Backend TestSprite tests bound to the PR preview, not a hard-coded deployment; 21/21 green | [`pr-17/`](pr-17/) (`testsprite-api.xml` JUnit, `testsprite-api.json` summary) |
+| [#20](https://github.com/goat-dev8/tallyroom/pull/20) | BUG-002..004: count,ranking header, `__proto__` candidate, unsafe counts; red TestSprite run on production, fix, green CLI gate | [`pr-20/`](pr-20/) (`before-production.txt`, `red-failure-bundle/`) |
 
 CI artifacts (JUnit from the TestSprite CLI gate, production API suite, Vitest, parity report) are attached to each GitHub Actions run; see the Actions tab.
