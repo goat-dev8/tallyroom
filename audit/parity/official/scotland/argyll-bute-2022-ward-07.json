@@ -1,0 +1,231 @@
+{
+ "council": "Argyll and Bute",
+ "year": 2022,
+ "ward": "Ward 7 - Dunoon",
+ "source": "ab2022-candidatevotesperstagereport_v0001_ward-7-dunoon_06052022_162257.pdf",
+ "sha256": "073ddbf24c189529eecd69919c6b675b6a36b532271f17d3bfdc644058fb11d9",
+ "ballotSource": "ab2022-preferenceprofile_v0008_ward-7-dunoon_06052022_163322.blt",
+ "ballotSha256": "6a1fd99917750526e5539428e468c4a01620205a921a34c533453b37b2ff09b2",
+ "ballotsReceived": 2792,
+ "validVotes": 2753,
+ "seats": 3,
+ "quota": 689,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "George DARROCH": "168",
+    "Audrey E FORREST": "1126",
+    "Daniel HAMPSEY": "493",
+    "Gordon Graham MCKINVEN": "279",
+    "Ross MORELAND": "464",
+    "Kaitlin WALLACE": "180",
+    "Susan WATLING": "43",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Audrey E FORREST"
+   ],
+   "total": "2753"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Audrey E FORREST",
+    "amount": "437.00000"
+   },
+   "transferred": {
+    "George DARROCH": "81.88699",
+    "Audrey E FORREST": "-437.00000",
+    "Daniel HAMPSEY": "8.14989",
+    "Gordon Graham MCKINVEN": "45.40653",
+    "Ross MORELAND": "75.67755",
+    "Kaitlin WALLACE": "67.91575",
+    "Susan WATLING": "19.40450",
+    "nonTransferable": "138.54813",
+    "rounding": "0.01066"
+   },
+   "votes": {
+    "George DARROCH": "249.88699",
+    "Audrey E FORREST": "689.00000",
+    "Daniel HAMPSEY": "501.14989",
+    "Gordon Graham MCKINVEN": "324.40653",
+    "Ross MORELAND": "539.67755",
+    "Kaitlin WALLACE": "247.91575",
+    "Susan WATLING": "62.40450",
+    "nonTransferable": "138.54813",
+    "rounding": "0.01066"
+   },
+   "elected": [],
+   "total": "2753.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Susan WATLING",
+    "amount": "62.40450"
+   },
+   "transferred": {
+    "George DARROCH": "16.76180",
+    "Audrey E FORREST": "0.00000",
+    "Daniel HAMPSEY": "11.77618",
+    "Gordon Graham MCKINVEN": "12.49281",
+    "Ross MORELAND": "4.38809",
+    "Kaitlin WALLACE": "6.10472",
+    "Susan WATLING": "-62.40450",
+    "nonTransferable": "10.88090",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "George DARROCH": "266.64879",
+    "Audrey E FORREST": "689.00000",
+    "Daniel HAMPSEY": "512.92607",
+    "Gordon Graham MCKINVEN": "336.89934",
+    "Ross MORELAND": "544.06564",
+    "Kaitlin WALLACE": "254.02047",
+    "Susan WATLING": "0.00000",
+    "nonTransferable": "149.43969",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "2753.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Kaitlin WALLACE",
+    "amount": "254.02047"
+   },
+   "transferred": {
+    "George DARROCH": "29.64270",
+    "Audrey E FORREST": "0.00000",
+    "Daniel HAMPSEY": "15.94045",
+    "Gordon Graham MCKINVEN": "28.59753",
+    "Ross MORELAND": "102.39012",
+    "Kaitlin WALLACE": "-254.02047",
+    "Susan WATLING": "0.00000",
+    "nonTransferable": "77.44967",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "George DARROCH": "296.29149",
+    "Audrey E FORREST": "689.00000",
+    "Daniel HAMPSEY": "528.86652",
+    "Gordon Graham MCKINVEN": "365.49687",
+    "Ross MORELAND": "646.45576",
+    "Kaitlin WALLACE": "0.00000",
+    "Susan WATLING": "0.00000",
+    "nonTransferable": "226.88936",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "2753.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "George DARROCH",
+    "amount": "296.29149"
+   },
+   "transferred": {
+    "George DARROCH": "-296.29149",
+    "Audrey E FORREST": "0.00000",
+    "Daniel HAMPSEY": "27.55236",
+    "Gordon Graham MCKINVEN": "119.91372",
+    "Ross MORELAND": "63.83776",
+    "Kaitlin WALLACE": "0.00000",
+    "Susan WATLING": "0.00000",
+    "nonTransferable": "84.98765",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "George DARROCH": "0.00000",
+    "Audrey E FORREST": "689.00000",
+    "Daniel HAMPSEY": "556.41888",
+    "Gordon Graham MCKINVEN": "485.41059",
+    "Ross MORELAND": "710.29352",
+    "Kaitlin WALLACE": "0.00000",
+    "Susan WATLING": "0.00000",
+    "nonTransferable": "311.87701",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Ross MORELAND"
+   ],
+   "total": "2753.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Ross MORELAND",
+    "amount": "21.29352"
+   },
+   "transferred": {
+    "George DARROCH": "0.00000",
+    "Audrey E FORREST": "0.00000",
+    "Daniel HAMPSEY": "4.29018",
+    "Gordon Graham MCKINVEN": "6.87027",
+    "Ross MORELAND": "-21.29352",
+    "Kaitlin WALLACE": "0.00000",
+    "Susan WATLING": "0.00000",
+    "nonTransferable": "10.12670",
+    "rounding": "0.00637"
+   },
+   "votes": {
+    "George DARROCH": "0.00000",
+    "Audrey E FORREST": "689.00000",
+    "Daniel HAMPSEY": "560.70906",
+    "Gordon Graham MCKINVEN": "492.28086",
+    "Ross MORELAND": "689.00000",
+    "Kaitlin WALLACE": "0.00000",
+    "Susan WATLING": "0.00000",
+    "nonTransferable": "322.00371",
+    "rounding": "0.00637"
+   },
+   "elected": [],
+   "total": "2753.00000"
+  },
+  {
+   "stage": 7,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Gordon Graham MCKINVEN",
+    "amount": "492.28086"
+   },
+   "transferred": {
+    "George DARROCH": "0.00000",
+    "Audrey E FORREST": "0.00000",
+    "Daniel HAMPSEY": "187.23512",
+    "Gordon Graham MCKINVEN": "-492.28086",
+    "Ross MORELAND": "0.00000",
+    "Kaitlin WALLACE": "0.00000",
+    "Susan WATLING": "0.00000",
+    "nonTransferable": "305.04574",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "George DARROCH": "0.00000",
+    "Audrey E FORREST": "689.00000",
+    "Daniel HAMPSEY": "747.94418",
+    "Gordon Graham MCKINVEN": "0.00000",
+    "Ross MORELAND": "689.00000",
+    "Kaitlin WALLACE": "0.00000",
+    "Susan WATLING": "0.00000",
+    "nonTransferable": "627.05582",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Daniel HAMPSEY"
+   ],
+   "total": "2753.00000"
+  }
+ ]
+}

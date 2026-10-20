@@ -1,0 +1,231 @@
+{
+ "council": "Argyll and Bute",
+ "year": 2022,
+ "ward": "Ward 9 - Lomond North",
+ "source": "ab2022-candidatevotesperstagereport_v0001_ward-9-lomond-north_06052022_172131.pdf",
+ "sha256": "324eca4d74d790f2128b183106ba27ce71cc7aa9aaac4a84986aaecbe6b94abb",
+ "ballotSource": "ab2022-preferenceprofile_v0010_ward-9-lomond-north_06052022_173349.blt",
+ "ballotSha256": "8fc7b083fbf9168b60f63fb95ab7505a792495423d525c8d40501c15d8a68975",
+ "ballotsReceived": 3236,
+ "validVotes": 3198,
+ "seats": 3,
+ "quota": 800,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Maurice CORRY": "843",
+    "George FREEMAN": "466",
+    "Mark IRVINE": "475",
+    "Robert Graham MACINTYRE": "149",
+    "Nigel Ford MILLAR": "91",
+    "Shonny Iain PATERSON": "777",
+    "Watson ROBINSON": "397",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Maurice CORRY"
+   ],
+   "total": "3198"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Maurice CORRY",
+    "amount": "43.00000"
+   },
+   "transferred": {
+    "Maurice CORRY": "-43.00000",
+    "George FREEMAN": "12.24000",
+    "Mark IRVINE": "6.37500",
+    "Robert Graham MACINTYRE": "2.49900",
+    "Nigel Ford MILLAR": "4.38600",
+    "Shonny Iain PATERSON": "0.15300",
+    "Watson ROBINSON": "7.65000",
+    "nonTransferable": "9.69000",
+    "rounding": "0.00700"
+   },
+   "votes": {
+    "Maurice CORRY": "800.00000",
+    "George FREEMAN": "478.24000",
+    "Mark IRVINE": "481.37500",
+    "Robert Graham MACINTYRE": "151.49900",
+    "Nigel Ford MILLAR": "95.38600",
+    "Shonny Iain PATERSON": "777.15300",
+    "Watson ROBINSON": "404.65000",
+    "nonTransferable": "9.69000",
+    "rounding": "0.00700"
+   },
+   "elected": [],
+   "total": "3198.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Nigel Ford MILLAR",
+    "amount": "95.38600"
+   },
+   "transferred": {
+    "Maurice CORRY": "0.00000",
+    "George FREEMAN": "10.81600",
+    "Mark IRVINE": "16.51000",
+    "Robert Graham MACINTYRE": "10.35700",
+    "Nigel Ford MILLAR": "-95.38600",
+    "Shonny Iain PATERSON": "9.10200",
+    "Watson ROBINSON": "37.68300",
+    "nonTransferable": "10.91800",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Maurice CORRY": "800.00000",
+    "George FREEMAN": "489.05600",
+    "Mark IRVINE": "497.88500",
+    "Robert Graham MACINTYRE": "161.85600",
+    "Nigel Ford MILLAR": "0.00000",
+    "Shonny Iain PATERSON": "786.25500",
+    "Watson ROBINSON": "442.33300",
+    "nonTransferable": "20.61500",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3198.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Robert Graham MACINTYRE",
+    "amount": "161.85600"
+   },
+   "transferred": {
+    "Maurice CORRY": "0.00000",
+    "George FREEMAN": "32.81600",
+    "Mark IRVINE": "52.96900",
+    "Robert Graham MACINTYRE": "-161.85600",
+    "Nigel Ford MILLAR": "0.00000",
+    "Shonny Iain PATERSON": "27.10200",
+    "Watson ROBINSON": "19.20400",
+    "nonTransferable": "29.76500",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Maurice CORRY": "800.00000",
+    "George FREEMAN": "521.87200",
+    "Mark IRVINE": "550.85400",
+    "Robert Graham MACINTYRE": "0.00000",
+    "Nigel Ford MILLAR": "0.00000",
+    "Shonny Iain PATERSON": "813.35700",
+    "Watson ROBINSON": "461.53700",
+    "nonTransferable": "50.38000",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Shonny Iain PATERSON"
+   ],
+   "total": "3198.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Shonny Iain PATERSON",
+    "amount": "13.35700"
+   },
+   "transferred": {
+    "Maurice CORRY": "0.00000",
+    "George FREEMAN": "2.62886",
+    "Mark IRVINE": "2.77581",
+    "Robert Graham MACINTYRE": "0.00000",
+    "Nigel Ford MILLAR": "0.00000",
+    "Shonny Iain PATERSON": "-13.35700",
+    "Watson ROBINSON": "2.94084",
+    "nonTransferable": "5.00976",
+    "rounding": "0.00173"
+   },
+   "votes": {
+    "Maurice CORRY": "800.00000",
+    "George FREEMAN": "524.50086",
+    "Mark IRVINE": "553.62981",
+    "Robert Graham MACINTYRE": "0.00000",
+    "Nigel Ford MILLAR": "0.00000",
+    "Shonny Iain PATERSON": "800.00000",
+    "Watson ROBINSON": "464.47784",
+    "nonTransferable": "55.38976",
+    "rounding": "0.00173"
+   },
+   "elected": [],
+   "total": "3198.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Watson ROBINSON",
+    "amount": "464.47784"
+   },
+   "transferred": {
+    "Maurice CORRY": "0.00000",
+    "George FREEMAN": "148.12480",
+    "Mark IRVINE": "126.66734",
+    "Robert Graham MACINTYRE": "0.00000",
+    "Nigel Ford MILLAR": "0.00000",
+    "Shonny Iain PATERSON": "0.00000",
+    "Watson ROBINSON": "-464.47784",
+    "nonTransferable": "189.68570",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Maurice CORRY": "800.00000",
+    "George FREEMAN": "672.62566",
+    "Mark IRVINE": "680.29715",
+    "Robert Graham MACINTYRE": "0.00000",
+    "Nigel Ford MILLAR": "0.00000",
+    "Shonny Iain PATERSON": "800.00000",
+    "Watson ROBINSON": "0.00000",
+    "nonTransferable": "245.07719",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3198.00000"
+  },
+  {
+   "stage": 7,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "George FREEMAN",
+    "amount": "672.62566"
+   },
+   "transferred": {
+    "Maurice CORRY": "0.00000",
+    "George FREEMAN": "-672.62566",
+    "Mark IRVINE": "341.48235",
+    "Robert Graham MACINTYRE": "0.00000",
+    "Nigel Ford MILLAR": "0.00000",
+    "Shonny Iain PATERSON": "0.00000",
+    "Watson ROBINSON": "0.00000",
+    "nonTransferable": "331.14331",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Maurice CORRY": "800.00000",
+    "George FREEMAN": "0.00000",
+    "Mark IRVINE": "1021.77950",
+    "Robert Graham MACINTYRE": "0.00000",
+    "Nigel Ford MILLAR": "0.00000",
+    "Shonny Iain PATERSON": "800.00000",
+    "Watson ROBINSON": "0.00000",
+    "nonTransferable": "576.22050",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Mark IRVINE"
+   ],
+   "total": "3198.00000"
+  }
+ ]
+}

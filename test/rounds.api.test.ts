@@ -23,7 +23,7 @@ describe('elimination transfers', () => {
   it('sends ballots with no next choice to exhausted', () => {
     const { ballots, candidates } = parseBallots('7,A\n6,B\n4,C>A\n3,D');
     const result = tabulateIrv(ballots, candidates);
-    expect(eliminationTransfers(ballots, candidates, {}, result.rounds, 1)).toEqual([{ from: 'D', to: 'exhausted', count: 3 }]);
+    expect(eliminationTransfers(ballots, candidates, {}, result.rounds, 1)).toEqual([{ from: 'D', to: 'exhausted', count: 3, exhausted: true }]);
   });
 });
 
@@ -63,7 +63,7 @@ describe('GET /api/elections/[id]/rounds', () => {
     expect(body.rounds[1].transfers).toEqual([
       { from: 'Begich, Nick', to: 'Palin, Sarah', count: 27053 },
       { from: 'Begich, Nick', to: 'Peltola, Mary S.', count: 15467 },
-      { from: 'Begich, Nick', to: 'exhausted', count: 11290 },
+      { from: 'Begich, Nick', to: 'exhausted', count: 11290, exhausted: true },
     ]);
     expect(27053 + 15467 + 11290).toBe(53810);
   });

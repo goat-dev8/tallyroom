@@ -1,0 +1,13 @@
+
+Running 8 tests using 4 workers
+
+  ✓  4 [desktop-1440] › tests/e2e/review3-ui.spec.ts:28:1 › BUG-040 (N14): a winner with no votes is not said to hold a majority (793ms)
+  ✓  2 [desktop-1440] › tests/e2e/review3-ui.spec.ts:6:1 › BUG-038 (N12): the "Tallies (exact)" column shows exact fractions (808ms)
+  ✓  1 [desktop-1440] › tests/e2e/review3-ui.spec.ts:19:3 › BUG-039 (N13): ?election=alaska-2022 (the API id) opens that election and keeps the round (978ms)
+  ✓  3 [desktop-1440] › tests/e2e/review3-ui.spec.ts:19:3 › BUG-039 (N13): ?election=nyc-2021 (the API id) opens that election and keeps the round (1.8s)
+  ✓  5 [mobile-390] › tests/e2e/review3-ui.spec.ts:19:3 › BUG-039 (N13): ?election=alaska-2022 (the API id) opens that election and keeps the round (750ms)
+  ✓  6 [mobile-390] › tests/e2e/review3-ui.spec.ts:6:1 › BUG-038 (N12): the "Tallies (exact)" column shows exact fractions (791ms)
+  ✓  7 [mobile-390] › tests/e2e/review3-ui.spec.ts:19:3 › BUG-039 (N13): ?election=nyc-2021 (the API id) opens that election and keeps the round (1.1s)
+  ✓  8 [mobile-390] › tests/e2e/review3-ui.spec.ts:28:1 › BUG-040 (N14): a winner with no votes is not said to hold a majority (591ms)
+
+  8 passed (4.0s)

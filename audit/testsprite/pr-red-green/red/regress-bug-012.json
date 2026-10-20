@@ -1,0 +1,30 @@
+{
+ "runId": "7b2f54b9-3260-49c2-aa4b-6be2a29980bb",
+ "testId": "9104fe07-c858-4e03-b179-14dd041dcc9e",
+ "testTitle": "regress:bug-012",
+ "projectId": "a7aa06b0-0721-49ff-a7aa-0181ad8586d6",
+ "userId": "04180438-a0a1-70ab-b51f-4dce971c378f",
+ "status": "failed",
+ "source": "cli",
+ "createdAt": "2026-10-20T21:06:09.913Z",
+ "startedAt": "2026-10-20T21:06:09.913Z",
+ "finishedAt": "2026-10-20T21:06:13.898Z",
+ "codeVersion": "v-66252eb97acd",
+ "targetUrl": null,
+ "environment": null,
+ "createdFrom": null,
+ "failedStepIndex": null,
+ "failureKind": "assertion",
+ "error": "(422, {'error': {'code': 'INVALID_OVERVOTE', 'message': 'rules.overvote must be one of: exhaust, skip', 'details': {'field': 'rules.overvote', 'value': 'continuing'}}})",
+ "videoUrl": null,
+ "stepSummary": {
+  "total": 0,
+  "completed": 0,
+  "passedCount": 0,
+  "failedCount": 0
+ },
+ "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/9104fe07-c858-4e03-b179-14dd041dcc9e",
+ "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/863cfddf-27f9-4f6a-9031-32bb3ad91ee7/test/7b2f54b9-3260-49c2-aa4b-6be2a29980bb",
+ "apiOutput": "",
+ "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 149, in test\nAssertionError: (422, {'error': {'code': 'INVALID_OVERVOTE', 'message': 'rules.overvote must be one of: exhaust, skip', 'details': {'field': 'rules.overvote', 'value': 'continuing'}}})\n"
+}

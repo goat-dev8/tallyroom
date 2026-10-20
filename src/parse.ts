@@ -7,6 +7,12 @@ export class ParseError extends Error {
 }
 const clean = (s: string) => s.trim().replace(/^"(.*)"$/s, '$1').normalize('NFC');
 
+/** `[A=B]` keeps the names it lists (needed by overvote rule "continuing", BUG-012); bare `overvote` has none. */
+function overvoteMark(t: string): Mark {
+  const names = /^\[(.*)\]$/.exec(t)?.[1].split('=').map(clean).filter(Boolean);
+  return names && names.length ? { kind: 'overvote', names } : { kind: 'overvote' };
+}
+
 /** Ballot token for an unresolved write-in. Counted only when listed in the declared candidates. */
 export const WRITE_IN = 'Write-in';
 
@@ -18,9 +24,19 @@ export function writeInContinues(name: string, declared?: string[]): boolean {
   return name === WRITE_IN && !!declared?.includes(WRITE_IN);
 }
 
+// BUG-034: a Set per list keeps inferring n candidates O(n) (seen.includes made 130,000 names take about a minute).
+const seenSets = new WeakMap<string[], Set<string>>();
 function remember(seen: string[], name: string, declared?: string[]) {
   if (name === WRITE_IN && !writeInContinues(name, declared)) return;
-  if (!seen.includes(name)) seen.push(name);
+  let set = seenSets.get(seen); if (!set) seenSets.set(seen, (set = new Set(seen)));
+  if (!set.has(name)) { set.add(name); seen.push(name); }
+}
+
+/** BUG-034: the most candidates one count accepts. More is refused with 422 TOO_MANY_CANDIDATES. */
+export const MAX_CANDIDATES = 1000;
+export function assertCandidateLimit(candidates: string[]): void {
+  if (candidates.length > MAX_CANDIDATES)
+    throw new BallotSemanticError(`${candidates.length} candidates; at most ${MAX_CANDIDATES} can be counted`, undefined, undefined, undefined, 'TOO_MANY_CANDIDATES');
 }
 
 /** Parse `count,A>B>C` lines. `[A=B]` or `overvote` is an overvote, `_` or `undervote` a skipped rank. Quoted names may contain commas. */
@@ -39,25 +55,46 @@ export function assertSafeCounts(ballots: BallotGroup[]): void {
 
 export function parseBallots(text: string, declared?: string[]): { ballots: BallotGroup[]; candidates: string[] } {
   const ballots: BallotGroup[] = []; const seen: string[] = [];
-  const lines = text.replace(/^\uFEFF/, '').split(/\r?\n/);
+  const lines = text.replace(/^\uFEFF/, '').split(/\r\n|\r|\n/); // BUG-016: a bare CR also ends a line
   let first = true;
-  lines.forEach((raw, i) => {
+  const bad: ParseError[] = [];
+  lines.forEach((raw, i) => { try { readLine(raw, i); } catch (e) { if (e instanceof ParseError) bad.push(e); else throw e; } });
+  // Report every bad line (first 5 spelled out) so one upload shows all problems, not only the first.
+  if (bad.length > 1) {
+    const e = bad[0]; const shown = bad.slice(0, 5).map(x => x.message).join('; ');
+    e.message = shown + (bad.length > 5 ? `; and ${bad.length - 5} more bad lines` : ''); (e as ParseError & { lines?: number[] }).lines = bad.map(x => x.line);
+    throw e;
+  }
+  if (bad.length === 1) throw bad[0];
+  function readLine(raw: string, i: number) {
     const line = raw.trim(); if (!line || line.startsWith('#')) return;
     if (first) { first = false; if (RANKING_FORMAT_HEADER.test(line)) return; }
     const comma = line.indexOf(','); if (comma < 0) throw new ParseError(i + 1, 'expected "count,ranking"');
     const countStr = line.slice(0, comma).trim();
     if (!/^[1-9]\d*$/.test(countStr)) throw new ParseError(i + 1, 'count must be a positive integer', 1);
-    const marks: Mark[] = line.slice(comma + 1).split('>').map((tok, idx) => {
+    // BUG-030: a ranking field quoted as one RFC 4180 field ("Ada>Bo", inner quotes doubled) is unquoted before it is
+    // split into ranks; per-name quotes ("A">"B") are not one quoted field and are left to clean().
+    let field = line.slice(comma + 1).trim();
+    if (/^"(?:[^"]|"")*"$/.test(field)) field = field.slice(1, -1).replace(/""/g, '"');
+    const marks: Mark[] = field.split('>').map((tok, idx) => {
       const t = tok.trim();
       if (t === '_' || t === '' || /^undervote$/i.test(t)) return { kind: 'skip' } as Mark;
-      if (/^\[.*\]$/.test(t) || /^overvote$/i.test(t)) return { kind: 'overvote' } as Mark;
+      if (/^\[.*\]$/.test(t) || /^overvote$/i.test(t)) {
+        // BUG-021: names inside brackets are candidates too: unknown ones are rejected and inferred ones are kept.
+        const m = overvoteMark(t);
+        for (const name of m.kind === 'overvote' ? m.names ?? [] : []) {
+          if (declared && !declared.includes(name) && name !== WRITE_IN) throw new ParseError(i + 1, `unknown candidate "${name}"`, idx + 1, name);
+          remember(seen, name, declared);
+        }
+        return m;
+      }
       const name = clean(t);
       if (declared && !declared.includes(name) && name !== WRITE_IN) throw new ParseError(i + 1, `unknown candidate "${name}"`, idx + 1, name);
       remember(seen, name, declared);
       return { kind: 'candidate', name } as Mark;
     });
     ballots.push({ count: Number(countStr), marks });
-  });
+  }
   if (ballots.length === 0) throw new BallotSemanticError('No valid ballots to count');
   assertSafeCounts(ballots);
   return { ballots, candidates: declared ?? seen };
@@ -89,7 +126,12 @@ function marksFromRanking(ranking: string, declared: string[] | undefined, row: 
 function cellMark(cell: string, declared: string[] | undefined, row: number, column: number): Mark {
   const t = clean(cell);
   if (t === '' || SKIP_CELL.test(t)) return { kind: 'skip' };
-  if (/^overvote$/i.test(t) || /^\[.*\]$/.test(t)) return { kind: 'overvote' };
+  if (/^overvote$/i.test(t) || /^\[.*\]$/.test(t)) {
+    const m = overvoteMark(t); // BUG-021
+    for (const name of m.kind === 'overvote' ? m.names ?? [] : []) if (declared && !declared.includes(name) && name !== WRITE_IN)
+      throw new BallotSemanticError(`Row ${row}, column ${column}: unknown candidate "${name}"`, row, column, name);
+    return m;
+  }
   if (declared && !declared.includes(t) && t !== WRITE_IN) {
     throw new BallotSemanticError(`Row ${row}, column ${column}: unknown candidate "${t}"`, row, column, t);
   }
@@ -99,7 +141,10 @@ function cellMark(cell: string, declared: string[] | undefined, row: number, col
 function collectCandidates(ballots: BallotGroup[], declared?: string[]): string[] {
   if (declared) return declared;
   const seen: string[] = [];
-  for (const b of ballots) for (const m of b.marks) if (m.kind === 'candidate') remember(seen, m.name, declared);
+  for (const b of ballots) for (const m of b.marks) {
+    if (m.kind === 'candidate') remember(seen, m.name, declared);
+    else if (m.kind === 'overvote') for (const n of m.names ?? []) remember(seen, n, declared); // BUG-021
+  }
   return seen;
 }
 
@@ -131,7 +176,9 @@ export function parseRankCsv(text: string, declared?: string[]): { ballots: Ball
   const useful = rows.map((cells, index) => ({ cells, row: index + 1 })).filter(({ cells }) => {
     const trimmed = cells.map(c => c.trim());
     if (trimmed.every(c => c === '')) return false;
-    if (trimmed[0].startsWith('#') && trimmed.slice(1).every(c => c === '')) return false;
+    // BUG-009: a "#" line is a comment even when it contains commas. A lone "#" cell followed by more cells is the
+    // ballot-number header column (IGNORE_HEADER), not a comment.
+    if (trimmed[0].startsWith('#') && (trimmed[0] !== '#' || trimmed.slice(1).every(c => c === ''))) return false;
     return true;
   });
   if (useful.length === 0) throw new BallotSemanticError('No valid ballots to count');
@@ -268,10 +315,10 @@ export function parseBallotJson(ballots: unknown, declared?: string[]): { ballot
   return { ballots: groups, candidates: collectCandidates(groups, declared) };
 }
 
-/** Pattern TSV: `count \t rank1 \t ... ` with tokens `overvote`, `undervote`, or a candidate name. */
+/** Pattern TSV: `count \t rank1 \t ... ` with tokens `overvote`, `overvote:A|B` (names kept), `undervote`, or a candidate name. */
 export function parsePatternTsv(text: string): BallotGroup[] {
-  return text.split('\n').filter(Boolean).map(l => {
+  return text.split(/\r\n|\r|\n/).filter(Boolean).map(l => { // BUG-017: CRLF and CR endings
     const [c, ...ranks] = l.split('\t');
-    return { count: Number(c), marks: ranks.map((r): Mark => r === 'undervote' ? { kind: 'skip' } : r === 'overvote' ? { kind: 'overvote' } : { kind: 'candidate', name: r }) };
+    return { count: Number(c), marks: ranks.map((r): Mark => r === 'undervote' ? { kind: 'skip' } : r === 'overvote' ? { kind: 'overvote' } : r.startsWith('overvote:') ? { kind: 'overvote', names: r.slice(9).split('|') } : { kind: 'candidate', name: r }) };
   });
 }

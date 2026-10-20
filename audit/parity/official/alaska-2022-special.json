@@ -1,0 +1,55 @@
+{
+ "source": "alaska-RcvDetailedReport.pdf",
+ "sha256": "7bf3289ab8493819b552a13238083ae43e7e7c518811c260c1579d0cc886ecb7",
+ "publisher": "Alaska Division of Elections (Dominion RCV Detailed Report)",
+ "rounds": [
+  {
+   "tallies": {
+    "Begich, Nick": 53810,
+    "Palin, Sarah": 58973,
+    "Peltola, Mary S.": 75799
+   },
+   "categories": {
+    "continuing": 188582,
+    "blanks": 3412,
+    "exhausted": 0,
+    "overvotes": 295,
+    "remainder": 0,
+    "nonTransferable": 3707
+   },
+   "transfers": {
+    "Palin, Sarah": 27053,
+    "Peltola, Mary S.": 15467,
+    "Exhausted": 11243,
+    "Overvotes": 47
+   },
+   "eliminated": [
+    "Begich, Nick"
+   ]
+  },
+  {
+   "tallies": {
+    "Begich, Nick": 0,
+    "Palin, Sarah": 86026,
+    "Peltola, Mary S.": 91266
+   },
+   "categories": {
+    "continuing": 177292,
+    "blanks": 3412,
+    "exhausted": 11243,
+    "overvotes": 342,
+    "remainder": 0,
+    "nonTransferable": 14997
+   },
+   "transfers": {},
+   "eliminated": [
+    "Palin, Sarah"
+   ],
+   "elected": [
+    "Peltola, Mary S."
+   ],
+   "skipEliminated": true
+  }
+ ],
+ "winner": "Peltola, Mary S."
+}

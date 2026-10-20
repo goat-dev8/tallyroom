@@ -1,0 +1,12 @@
+case 0: candidates 12, seats 6, ballot lines 2000, body 85809 B -> status 200  rounds 9, 43 ms, response 4724 B, largest denominator 56 digits
+case 1: candidates 30, seats 15, ballot lines 3000, body 344640 B -> status 422 STV_TOO_COMPLEX rounds -, 408 ms, response 224 B, largest denominator 0 digits
+case 2: candidates 51, seats 25, ballot lines 3000, body 596666 B -> status 200  rounds 37, 521 ms, response 109443 B, largest denominator 2311 digits
+case 3: candidates 51, seats 50, ballot lines 3000, body 596663 B -> status 200  rounds 6, 515 ms, response 26308 B, largest denominator 3023 digits
+case 4: candidates 51, seats 25, ballot lines 20000, body 3977540 B -> status 200  rounds 35, 1499 ms, response 74352 B, largest denominator 2599 digits
+case 5: candidates 51, seats 10, ballot lines 20000, body 3977538 B -> status 200  rounds 48, 1117 ms, response 59198 B, largest denominator 484 digits
+case 6: candidates 20, seats 10, ballot lines 50000, body 3743571 B -> status 200  rounds 15, 1099 ms, response 20652 B, largest denominator 392 digits
+case 7: candidates 30, seats 15, ballot lines 20000, body 2297355 B -> status 422 STV_TOO_COMPLEX rounds -, 839 ms, response 224 B, largest denominator 0 digits
+case 8: candidates 40, seats 20, ballot lines 20000, body 3097918 B -> status 200  rounds 30, 1169 ms, response 56666 B, largest denominator 2158 digits
+case 9: candidates 30, seats 14, ballot lines 3000, body 344636 B -> status 200  rounds 25, 433 ms, response 63948 B, largest denominator 2275 digits
+case 10: candidates 30, seats 12, ballot lines 3000, body 344638 B -> status 200  rounds 26, 151 ms, response 43530 B, largest denominator 1101 digits
+case 11: candidates 25, seats 12, ballot lines 30000, body 2846683 B -> status 200  rounds 19, 863 ms, response 32415 B, largest denominator 313 digits

@@ -1,0 +1,3 @@
+e229686d5c74152028974f0626172c95b08175fc3660dfd3bfccb096ebc2c1fb  data/raw/burlington-2009-mayor.preflib.toi
+6cd18bc3fed073829cc57b0ae639ea34c12771e6ed4aed0169647bcba8799569  data/raw/burlington-2009-mayor.official-rounds.html
+eba099ff014fcb53a5c250f4a2c74ae6b2486193540875e46903aadeeb187a51  data/fixtures/burlington-2009-mayor.patterns.tsv

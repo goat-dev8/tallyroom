@@ -42,3 +42,6 @@ export const PALETTE = ['#4CC9F0', '#C084FC', '#FF8A5B', '#2DD4BF', '#F472B6', '
 export const colorFor = (candidates: string[], name: string) => PALETTE[Math.max(0, candidates.indexOf(name)) % PALETTE.length];
 export const fmt = (n: number) => n.toLocaleString('en-US');
 export const pct = (n: number, d: number) => (d ? (100 * n / d).toFixed(1) : '0.0') + '%';
+
+/** BUG-039: election ids used by the API (GET /api/elections) and their catalog slugs, so either opens the dashboard. */
+export const API_ID_TO_SLUG: Record<string, string> = { 'maine-2018-cd2': 'maine-2018-cd2', 'alaska-2022': 'alaska-2022-special', 'nyc-2021': 'nyc-2021-dem-mayor' };

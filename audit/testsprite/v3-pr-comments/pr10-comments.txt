@@ -1,0 +1,347 @@
+# PR #10 issue comments, fetched 2026-10-21 with gh api (images and signed URL queries removed)
+2026-10-19T21:20:20Z [vc]: #U169vzTb6k4qLH59GGRFQa92m8IMUWtzoaP/xjdOR4Y=:eyJpc01vbm9yZXBvIjp0cnVlLCJ0eXBlIjoiZ2l0aHViIiwicHJvamVjdHMiOlt7Im5hbWUiOiJ0YWxseXJvb20iLCJwcm9qZWN0SWQiOiJwcmpfeXczMlNBUDlaR3ZTT0owYmdlZVV4ZGVUaXd4YyIsImluc3BlY3RvclVybCI6Imh0dHBzOi8vdmVyY2VsLmNvbS9nb2F0cy1wcm9qZWN0cy0zZjAyM2NjOS90YWxseXJvb20vM1VpRjNDN0s5azR2YXZUV2ZaUmdZMW90MmtoQiIsInByZXZpZXdVcmwiOiJ0YWxseXJvb20tZ2l0LXRlc3QtZnJvbnRlbmQtdGVzdGlkcy1nb2F0cy1wcm9qZWN0cy0zZjAyM2NjOS52ZXJjZWwuYXBwIiwibmV4dENvbW1pdFN0YXR1cyI6IkRFUExPWUVEIiwibGl2ZUZlZWRiYWNrIjp7InJlc29sdmVkIjowLCJ1bnJlc29sdmVkIjowLCJ0b3RhbCI6MCwibGluayI6InRhbGx5cm9vbS1naXQtdGVzdC1mcm9udGVuZC10ZXN0aWRzLWdvYXRzLXByb2plY3RzLTNmMDIzY2M5LnZlcmNlbC5hcHAifSwicm9vdERpcmVjdG9yeSI6bnVsbH1dfQ==
+The latest updates on your projects. Learn more about [Vercel for GitHub](https://vercel.link/github-learn-more).
+
+| Project | Deployment | Actions | Updated |
+| :--- | :----- | :------ | :------ |
+|      [tallyroom](https://vercel.com/goats-projects-3f023cc9/tallyroom) | ![Ready](https://vercel.com/static/status/ready.svg) [Ready](https://vercel.com/goats-projects-3f023cc9/tallyroom/3UiF3C7K9k4vavTWfZRgY1ot2khB) | [Preview](https://tallyroom-git-test-frontend-testids-goats-projects-3f023cc9.vercel.app) |  Oct 20, 2026 6:14am UTC  |
+
+
+2026-10-20T06:14:15Z  
+###  Test Run In Progress
+
+> TestSprite has queued **22 tests** for **tallyroom-api** and will run them against this PR's deployment: https://tallyroom-git-test-frontend-testids-goats-projects-3f023cc9.vercel.app.
+
+This comment will update automatically when the run completes.  [View Execution Live ↗](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/9706755c-beb0-47a9-9a7a-e3ec0cb0ddb8)
+
+---
+  Automated end-to-end testing powered by        
+2026-10-20T06:14:17Z  
+> [!WARNING]
+> ###  Ran into trouble — 4 failed
+>
+> The frontend suite is broadly healthy: 28 of 32 executable tests passed, giving an 87.5% success rate on the executable subset. The app’s core navigation, election switching, round tables, Sankey rendering, and most upload flows are working. The main stability issue is concentrated in the ballot-upload validation path and one hero playback control flow. Because there were no blocked tests, the score reflects the full executable set rather than a partially blocked run. Overall this looks close to production-ready, but the remaining failures are user-visible and should be fixed before calling the UI stable.
+>
+> **Results:**  **30** passed •  **4** failed • **34** total  ·  [View Full Report ↗](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/345b7ca3-6135-483c-b1db-af53e0c502e2)
+
+ 
+
+ 
+   4 failed tests  
+
+ 
+
+ **[ ui:upload-malformed ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/345b7ca3-6135-483c-b1db-af53e0c502e2/test/7de1607f-39e8-4836-b34c-791edc77b2e3)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE The ballot submission showed the expected error heading, but the error message was not the required validation text. Observations: - The page showed “These ballots could not be counted.” - The error message displayed “[object Object]” instead of “Line 2: count must be a positive integer.” - The ballots textarea remained visible and interactive, and no count result was shown.
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+Find the code path that renders validation errors after ballot submission and ensure it renders the actual string message, not the whole error object. Most likely the backend/hosting build is returning an error payload like { line: 2, message: 'count must be a positive integer' } or an Error instance, while the UI does something like {error} or String(error), producing [object Object]. Update the frontend to read the correct field (for example error.message or error.errors[0].message) and, if needed, normalize API responses on the server to return a plain text/JSON message in the expected shape. Redeploy after confirming the hosted environment is using the latest build and environment variables/API route version.
+````
+
+---
+
+ **[ ui:upload-no-ballots ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/345b7ca3-6135-483c-b1db-af53e0c502e2/test/d7d6be44-b841-439c-9efd-c155ae11b70c)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE The malformed ballot input did not show the expected validation message. The page displayed “[object Object]” instead. Observations: - The ballot text was “garbage line here”. - The page showed “These ballots could not be counted”. - The error detail displayed “[object Object]” instead of `Line 1: expected "count,ranking"`.
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+Render the validation error as a string, not as a raw object. Check the hosting-side frontend code where the ballot parser/error handler sets the message for malformed input: it is likely passing an Error object or a structured object directly into JSX (e.g. {error}) instead of using the actual text property (e.g. error.message, error.detail, or formatting the object into a human-readable string). Update the component/state mapping so the displayed detail for malformed ballots becomes exactly something like `Line 1: expected "count,ranking"`, and ensure the deployed build includes the fix.
+````
+
+---
+
+ **[ ui:upload-empty-and-seats ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/345b7ca3-6135-483c-b1db-af53e0c502e2/test/19f0d670-af77-4f39-94dd-13145f9b2a40)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE The Seats=5 validation did not show the expected message. The final Seats=1 count cleared the visible error and showed Bob as the winner. Observations: - Empty ballots showed the expected validation message: “Add at least one ballot line, for example 5,Alice>Bob>Cara”. - With Seats set to 5, the page showed a generic “[object Object]” error instead of “Seats must be between 1 and 4”. - After setting Seats to 1 and counting, no error was visible and the winner was Bob.
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+Fix the Seats validation path so it renders a human-readable string instead of a raw error object. Specifically, ensure the Seats input accepts only 1–4, and when validation fails, the UI should display the string message 'Seats must be between 1 and 4'. If the current code is passing an Error object or validation result object directly into JSX, map it to its message property before rendering. Also make sure the error state is cleared only when the Seats value becomes valid and a recount is performed, so that a prior invalid Seats=5 state cannot be silently replaced by a valid count without revalidating the form.
+````
+
+---
+
+ **[ ui:hero-step ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/345b7ca3-6135-483c-b1db-af53e0c502e2/test/553cd8f9-97e5-468d-84cb-5e11df252f01)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE The demo could not be verified paused at Round 1 after restart. Each pause attempt left it at Round 2, so the required Round 1 pause and subsequent single Next round action were not completed. Observations: - After restart, the demo displayed Round 1 / 2 with Hoar, Bond eliminated, but playback was active. - The pause attempts left the demo paused at Round 2 / 2. - The visible Round 2 state shows Golden, Jared F. and majority needed 140,686; the Next round control was not used.
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+Ensure the paused/playback state is reset correctly on restart and that the first post-restart pause action freezes the simulation on Round 1 instead of advancing or revealing Round 2. Review the frontend state machine/event handlers for restart, pause, and next-round controls, and verify that any autoplay/tick timer is fully cleared on restart. If the component uses asynchronous state updates or a cached round index, make sure restart reinitializes round progression to 1 and pause does not trigger a queued round-advance. Add an explicit test-id-stable control flow so the Next round button is only enabled after an intentional pause at Round 1.
+````
+
+ 
+
+ 
+   30 passed tests  
+
+ 
+
+ 
+ 
+ 
+ Test Case 
+ Status 
+ Screenshot 
+ 
+ 
+ 
+ 
+  ui:nav-anchors  
+  Passed 
+  
+ 
+ 
+  ui:dash-nyc  
+  Passed 
+  
+ 
+ 
+  ui:rounds-table-maine  
+  Passed 
+  
+ 
+ 
+  ui:upload-stv  
+  Passed 
+  
+ 
+ 
+  ui:landing-hero  
+  Passed 
+  
+ 
+ 
+  ui:upload-overvote-skip  
+  Passed 
+  
+ 
+ 
+  ui:not-found  
+  Passed 
+  
+ 
+ 
+  ui:unknown-election  
+  Passed 
+  
+ 
+ 
+  ui:sankey-render  
+  Passed 
+ — 
+ 
+ 
+  ui:parity-ledger  
+  Passed 
+ — 
+ 
+ 
+  ui:round-keyboard  
+  Passed 
+ — 
+ 
+ 
+  ui:round-deeplink  
+  Passed 
+ — 
+ 
+ 
+  ui:sample-download  
+  Passed 
+ — 
+ 
+ 
+  ui:nav-cta  
+  Passed 
+ — 
+ 
+ 
+  ui:dash-alaska  
+  Passed 
+ — 
+ 
+ 
+  ui:round-step  
+  Passed 
+ — 
+ 
+ 
+  ui:sankey-final-round  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-rail  
+  Passed 
+ — 
+ 
+ 
+  ui:dash-maine  
+  Passed 
+ — 
+ 
+ 
+  ui:sankey-transfers  
+  Passed 
+ — 
+ 
+ 
+  ui:rounds-table-nyc  
+  Passed 
+ — 
+ 
+ 
+  ui:election-switch  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-pause  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-autoplay  
+  Passed 
+ — 
+ 
+ 
+  ui:parity-open-nyc  
+  Passed 
+ — 
+ 
+ 
+  ui:upload-tie  
+  Passed 
+ — 
+ 
+ 
+  ui:rounds-table-alaska  
+  Passed 
+ — 
+ 
+ 
+  ui:upload-irv-sample  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-restart  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-keyboard  
+  Passed 
+ — 
+ 
+ 
+ 
+
+ 
+
+ 
+   Evaluation details  
+
+ 
+
+ **What could be better:** Four frontend checks failed, and three of them point to the same defect pattern: validation errors are being rendered as `[object Object]` instead of readable copy. That showed up in `ui:upload-malformed` (`“Line 2: count must be a positive integer.”` expected), `ui:upload-no-ballots` (`expected "count,ranking"` expected), and `ui:upload-empty-and-seats` (`“Seats must be between 1 and 4”` expected). The fourth failure, `ui:hero-step`, suggests the hero demo cannot be reliably paused at Round 1 after restart and advances to Round 2 instead. These are user-facing issues affecting input handling and interactive playback.
+
+ **Recommended next steps:** Fix the shared ballot-validation rendering first: inspect the upload/counting code path and ensure validation objects are converted to user-facing strings before render, especially for malformed lines, missing headers, and invalid seat counts. Then verify the empty-ballot + seats flow preserves the correct error state instead of clearing it when Seats changes. Finally, debug the hero playback state machine so restart reliably returns to Round 1 and the pause/Next controls work in sequence. After each change, re-run the specific failing tests (`ui:upload-malformed`, `ui:upload-no-ballots`, `ui:upload-empty-and-seats`, `ui:hero-step`) and then the full frontend suite.
+
+ 
+
+---
+  Automated end-to-end testing powered by        

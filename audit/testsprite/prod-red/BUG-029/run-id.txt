@@ -1,0 +1,5 @@
+test 2b7bbed5-2a37-4c8c-a8c5-e402af8529a1
+run 001e2b8d-968f-4d9b-ac01-a097fadf802f
+status failed
+failureKind assertion
+finishedAt 2026-10-20T20:50:54.372Z

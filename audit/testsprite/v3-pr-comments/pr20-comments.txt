@@ -1,0 +1,348 @@
+# PR #20 issue comments, fetched 2026-10-21 with gh api (images and signed URL queries removed)
+2026-10-20T07:19:08Z [vc]: #zDuvUIM83AEweQ742Zy9oYuchmnvfAUJEQpGpm6PWaU=:eyJpc01vbm9yZXBvIjp0cnVlLCJ0eXBlIjoiZ2l0aHViIiwicHJvamVjdHMiOlt7Im5hbWUiOiJ0YWxseXJvb20iLCJwcm9qZWN0SWQiOiJwcmpfeXczMlNBUDlaR3ZTT0owYmdlZVV4ZGVUaXd4YyIsImluc3BlY3RvclVybCI6Imh0dHBzOi8vdmVyY2VsLmNvbS9nb2F0cy1wcm9qZWN0cy0zZjAyM2NjOS90YWxseXJvb20vR3A5THBnanhCV2Q2UEwzaUt4VlFydjVwRGZ5cSIsInByZXZpZXdVcmwiOiJ0YWxseXJvb20tZ2l0LWZpeC1hcGktaW5wdXQtZ29hdHMtcHJvamVjdHMtM2YwMjNjYzkudmVyY2VsLmFwcCIsIm5leHRDb21taXRTdGF0dXMiOiJERVBMT1lFRCIsImxpdmVGZWVkYmFjayI6eyJyZXNvbHZlZCI6MCwidW5yZXNvbHZlZCI6MCwidG90YWwiOjAsImxpbmsiOiJ0YWxseXJvb20tZ2l0LWZpeC1hcGktaW5wdXQtZ29hdHMtcHJvamVjdHMtM2YwMjNjYzkudmVyY2VsLmFwcCJ9LCJyb290RGlyZWN0b3J5IjpudWxsfV19
+The latest updates on your projects. Learn more about [Vercel for GitHub](https://vercel.link/github-learn-more).
+
+| Project | Deployment | Actions | Updated |
+| :--- | :----- | :------ | :------ |
+|      [tallyroom](https://vercel.com/goats-projects-3f023cc9/tallyroom) | ![Ready](https://vercel.com/static/status/ready.svg) [Ready](https://vercel.com/goats-projects-3f023cc9/tallyroom/Gp9LpgjxBWd6PL3iKxVQrv5pDfyq) | [Preview](https://tallyroom-git-fix-api-input-goats-projects-3f023cc9.vercel.app) |  Oct 20, 2026 7:20am UTC  |
+
+
+2026-10-20T07:20:25Z  
+###  Test Run In Progress
+
+> TestSprite has queued **23 tests** for **tallyroom-api** and will run them against this PR's deployment: https://tallyroom-git-fix-api-input-goats-projects-3f023cc9.vercel.app.
+
+This comment will update automatically when the run completes.  [View Execution Live ↗](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/c4a5a1b0-fd20-46ce-b313-e1e296bcae2a)
+
+---
+  Automated end-to-end testing powered by        
+2026-10-20T07:20:28Z  
+> [!WARNING]
+> ###  Ran into trouble — 4 failed
+>
+> The frontend suite is largely healthy: 22 of 26 executable user-flow tests passed, with no backend coverage in this run. That yields an 84.6% success rate on the executable subset, so the score excludes the four failing UI checks rather than any blocked tests. Core navigation, hero interactions, election dashboards, Sankey rendering, and most upload paths are behaving correctly, which suggests the app is generally stable. The remaining failures are concentrated in validation/error presentation and one rounds-table display edge case, both of which directly affect user trust during ballot entry and result inspection.
+>
+> **Results:**  **30** passed •  **4** failed • **34** total  ·  [View Full Report ↗](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/333d888c-aacb-4030-a6c0-4173b2844e40)
+
+ 
+
+ 
+   4 failed tests  
+
+ 
+
+ **[ ui:rounds-table-maine ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/333d888c-aacb-4030-a6c0-4173b2844e40/test/51db69f2-31a1-46a9-aac5-720b8e0deac7)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE The candidate and inactive ballot values match the requested results. The Bond row’s second-round cell is marked “Eliminated” rather than showing the expected em dash. Observations: - Poliquin: R1 134,184; R2 138,931. Golden: R1 132,013; R2 142,440. - Inactive: R1 6,453; R2 14,706. - Bond: R1 16,552; R2 cell is marked “Eliminated.”
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+Update the election-result rendering logic for eliminated candidates so the second-round column shows an em dash (—) in the cell rather than the literal status text “Eliminated.” If the UI is driven by API data, normalize the display layer to map eliminated/withdrawn candidates to blank/emdash cells in round columns while still preserving their status elsewhere. Then redeploy the frontend/backend service so the Bond row matches the expected table format.
+````
+
+---
+
+ **[ ui:upload-no-ballots ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/333d888c-aacb-4030-a6c0-4173b2844e40/test/527348c2-525f-41c0-ad7b-7bbd2a4a49bd)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE The garbage-line ballot produced an unexpected error instead of the required line-specific message. Observations: - The ballot input contained “garbage line here” after submission. - The error panel displayed “These ballots could not be counted” and “[object Object]”. - The expected message, “Line 1: expected \"count,ranking\"”, was not displayed.
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+On the hosting/app side, the ballot validation is likely throwing or returning a generic error object instead of preserving the parser’s specific line error. Fix the API/UI flow so invalid ballot lines are validated individually and the first failing line is surfaced as a string message, e.g. `Line 1: expected "count,ranking"`. Also ensure the error rendering code does not directly interpolate raw objects into the UI (which is causing `[object Object]`), but instead extracts a proper `message`/formatted text from the error response. If the backend currently wraps parse failures in a generic "These ballots could not be counted" response, update it to include the detailed line-specific error field and make the frontend display that field.
+````
+
+---
+
+ **[ ui:upload-malformed ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/333d888c-aacb-4030-a6c0-4173b2844e40/test/544f1a34-7d02-4cd1-8034-eb9a276f28ba)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE The invalid ballots produced the expected error heading, but the displayed error message did not match the expected validation message. Observations: - The error heading reads “These ballots could not be counted.” - The error message reads “[object Object]” instead of “Line 2: count must be a positive integer.” - The submitted text remains in the editable textarea, and no result is shown.
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+The service is likely passing a non-string error object directly into the UI (or rendering it as text), so React ends up showing [object Object]. Update the API/client error-handling path to extract and display the actual validation message string (for example, error.message or a dedicated validationMessage field), and ensure the backend returns a consistent JSON shape for invalid ballots. If the frontend expects plain text, serialize the validation error before rendering. Also verify the invalid-ballot submit flow doesn’t short-circuit rendering of the error state and that the textarea state is preserved only while the error panel shows the extracted message.
+````
+
+---
+
+ **[ ui:upload-empty-and-seats ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/333d888c-aacb-4030-a6c0-4173b2844e40/test/cd7e9ab9-f4f2-4c47-b7c4-214ae6f6ebc8)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE The final one-seat count cleared the error state and showed Bob as the winner. However, the five-seat validation did not display the expected message; it showed a generic counting error instead. Observations: - Empty ballots displayed: “Add at least one ballot line, for example 5,Alice>Bob>Cara” - With five seats, the page showed a generic “[object Object]” counting error rather than “Seats must be between 1 and 4” - With one seat, no error was visible and the Winner card showed Bob
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+Inspect the server/API validation path for the seat-count input and make sure the specific validation error message ('Seats must be between 1 and 4') is returned as a plain string (or properly serialized JSON field) instead of an Error/object. If the frontend is displaying the raw thrown object, normalize the API response and update the client error handling to read the message property. Also ensure the one-seat path clears the error state after successful counting.
+````
+
+ 
+
+ 
+   30 passed tests  
+
+ 
+
+ 
+ 
+ 
+ Test Case 
+ Status 
+ Screenshot 
+ 
+ 
+ 
+ 
+  ui:sankey-final-round  
+  Passed 
+  
+ 
+ 
+  ui:hero-restart  
+  Passed 
+  
+ 
+ 
+  ui:sankey-render  
+  Passed 
+  
+ 
+ 
+  ui:sankey-transfers  
+  Passed 
+  
+ 
+ 
+  ui:nav-anchors  
+  Passed 
+  
+ 
+ 
+  ui:sample-download  
+  Passed 
+  
+ 
+ 
+  ui:upload-stv  
+  Passed 
+  
+ 
+ 
+  ui:not-found  
+  Passed 
+  
+ 
+ 
+  ui:nav-cta  
+  Passed 
+ — 
+ 
+ 
+  ui:landing-hero  
+  Passed 
+ — 
+ 
+ 
+  ui:dash-alaska  
+  Passed 
+ — 
+ 
+ 
+  ui:election-switch  
+  Passed 
+ — 
+ 
+ 
+  ui:unknown-election  
+  Passed 
+ — 
+ 
+ 
+  ui:round-keyboard  
+  Passed 
+ — 
+ 
+ 
+  ui:rounds-table-alaska  
+  Passed 
+ — 
+ 
+ 
+  ui:parity-ledger  
+  Passed 
+ — 
+ 
+ 
+  ui:upload-tie  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-rail  
+  Passed 
+ — 
+ 
+ 
+  ui:rounds-table-nyc  
+  Passed 
+ — 
+ 
+ 
+  ui:dash-maine  
+  Passed 
+ — 
+ 
+ 
+  ui:parity-open-nyc  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-autoplay  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-pause  
+  Passed 
+ — 
+ 
+ 
+  ui:upload-overvote-skip  
+  Passed 
+ — 
+ 
+ 
+  ui:upload-irv-sample  
+  Passed 
+ — 
+ 
+ 
+  ui:round-deeplink  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-keyboard  
+  Passed 
+ — 
+ 
+ 
+  ui:dash-nyc  
+  Passed 
+ — 
+ 
+ 
+  ui:round-step  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-step  
+  Passed 
+ — 
+ 
+ 
+ 
+
+ 
+
+ 
+   Evaluation details  
+
+ 
+
+ **What could be better:** The main weaknesses are in error serialization and a specific Maine rounds-table cell state. Three upload scenarios surfaced raw `"[object Object]"` instead of user-facing validation text, including `ui:upload-no-ballots`, `ui:upload-malformed`, and `ui:upload-empty-and-seats`. The app also showed a generic counting error where the test expected `Seats must be between 1 and 4`. Separately, `ui:rounds-table-maine` rendered Bond’s second-round cell as `Eliminated` instead of an em dash. These are not broad failures, but they indicate that validation messages and table-state formatting are not consistently mapped to the UI.
+
+ **Recommended next steps:** Prioritize the upload validation pipeline first: inspect the error normalization/rendering code so validation objects are converted into readable strings rather than `"[object Object]"`, and ensure the seat-count rule shows `Seats must be between 1 and 4` for five-seat input. Then fix the Maine rounds-table display logic so a candidate eliminated before a later round shows an em dash in the empty round cell instead of `Eliminated`. After each change, re-run the specific failing checks (`ui:upload-no-ballots`, `ui:upload-malformed`, `ui:upload-empty-and-seats`, `ui:rounds-table-maine`) to confirm the exact text and cell-state regressions are gone. The copy-ready fix prompt below groups the concrete issues to work through in order.
+
+ 
+
+---
+  Automated end-to-end testing powered by        
+2026-10-20T07:25:35Z GREEN: TestSprite CLI gate on this PR's head, api: suite 22/22 incl. `api:input-edges` against https://tallyroom-git-fix-api-input-goats-projects-3f023cc9.vercel.app — execution d3a263fb-f50a-4b35-b120-2d198b4a3add (https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/d3a263fb-f50a-4b35-b120-2d198b4a3add), JUnit on https://github.com/goat-dev8/tallyroom/actions/runs/39385721585. RED was c5846629 on production. V3 UI 30/34: the same UI plans have failed since the #14-#16 redesign (31/34 on #15/#16); this PR changes no UI code.

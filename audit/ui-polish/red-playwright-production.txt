@@ -1,0 +1,344 @@
+
+Running 14 tests using 4 workers
+
+  ✘   2 [desktop-1440] › tests/e2e/ui-polish.spec.ts:37:1 › e seats field: clearing and typing works, no zoom-triggering font on mobile (615ms)
+  -   5 [desktop-1440] › tests/e2e/ui-polish.spec.ts:46:1 › g mobile has a menu that reaches every section link
+  ✘   3 [desktop-1440] › tests/e2e/ui-polish.spec.ts:28:1 › d switching elections keeps the layout height while counting (2.5s)
+  ✓   7 [desktop-1440] › tests/e2e/ui-polish.spec.ts:63:1 › guard: /app at 400px has no horizontal scroll; footer links show a focus ring (873ms)
+  -   8 [mobile-390] › tests/e2e/ui-polish.spec.ts:5:1 › a copy-link toast overlays without layout shift and fades by itself
+  -   9 [mobile-390] › tests/e2e/ui-polish.spec.ts:17:1 › b eliminated names are not cut off by the marker, and carry the full name
+  ✘  10 [mobile-390] › tests/e2e/ui-polish.spec.ts:28:1 › d switching elections keeps the layout height while counting (2.3s)
+  ✘  11 [mobile-390] › tests/e2e/ui-polish.spec.ts:37:1 › e seats field: clearing and typing works, no zoom-triggering font on mobile (661ms)
+  ✘   1 [desktop-1440] › tests/e2e/ui-polish.spec.ts:17:1 › b eliminated names are not cut off by the marker, and carry the full name (21.1s)
+  ✘   6 [desktop-1440] › tests/e2e/ui-polish.spec.ts:56:1 › i upload errors list every bad line, not only the first (20.6s)
+  ✘   4 [desktop-1440] › tests/e2e/ui-polish.spec.ts:5:1 › a copy-link toast overlays without layout shift and fades by itself (22.3s)
+  ✓  14 [mobile-390] › tests/e2e/ui-polish.spec.ts:63:1 › guard: /app at 400px has no horizontal scroll; footer links show a focus ring (928ms)
+  ✘  12 [mobile-390] › tests/e2e/ui-polish.spec.ts:46:1 › g mobile has a menu that reaches every section link (20.5s)
+  ✘  13 [mobile-390] › tests/e2e/ui-polish.spec.ts:56:1 › i upload errors list every bad line, not only the first (20.6s)
+
+
+  1) [desktop-1440] › tests/e2e/ui-polish.spec.ts:5:1 › a copy-link toast overlays without layout shift and fades by itself 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('toast')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('toast') with timeout 20000ms
+      - waiting for getByTestId('toast')
+
+
+      10 |   const y0 = (await page.getByTestId('kpi-ballots').boundingBox())!.y;
+      11 |   await page.getByTestId('copy-link').click();
+    > 12 |   const toast = page.getByTestId('toast'); await expect(toast).toBeVisible(); await expect(toast).toHaveText(/Link copied/);
+         |                                                                ^
+      13 |   expect((await page.getByTestId('kpi-ballots').boundingBox())!.y).toBe(y0);
+      14 |   await expect(toast).toHaveCount(0, { timeout: 4000 });
+      15 | });
+        at /tmp/up/tests/e2e/ui-polish.spec.ts:12:64
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/ui-polish-a-copy-link-toas-0a188-t-shift-and-fades-by-itself-desktop-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/ui-polish-a-copy-link-toas-0a188-t-shift-and-fades-by-itself-desktop-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ui-polish-a-copy-link-toas-0a188-t-shift-and-fades-by-itself-desktop-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ui-polish-a-copy-link-toas-0a188-t-shift-and-fades-by-itself-desktop-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-1440] › tests/e2e/ui-polish.spec.ts:17:1 › b eliminated names are not cut off by the marker, and carry the full name 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('candidate-name').first()
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('candidate-name').first() with timeout 20000ms
+      - waiting for getByTestId('candidate-name').first()
+
+
+      19 |   await page.goto('/app?election=nyc-2021-dem-mayor&round=3'); await expect(page.getByTestId('round-bars')).toBeVisible({ timeout: 90_000 });
+      20 |   const names = page.getByTestId('candidate-name');
+    > 21 |   await expect(names.first()).toBeVisible();
+         |                               ^
+      22 |   const cut = await names.evaluateAll(es => es.filter(e => e.scrollWidth > e.clientWidth + 1).map(e => e.textContent));
+      23 |   expect(cut).toEqual([]);
+      24 |   const row = page.locator('[data-testid="candidate-row"][data-candidate="Paperboy Love Prince"]');
+        at /tmp/up/tests/e2e/ui-polish.spec.ts:21:31
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/ui-polish-b-eliminated-nam-787ae-ker-and-carry-the-full-name-desktop-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/ui-polish-b-eliminated-nam-787ae-ker-and-carry-the-full-name-desktop-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ui-polish-b-eliminated-nam-787ae-ker-and-carry-the-full-name-desktop-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ui-polish-b-eliminated-nam-787ae-ker-and-carry-the-full-name-desktop-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [desktop-1440] › tests/e2e/ui-polish.spec.ts:28:1 › d switching elections keeps the layout height while counting 
+
+    Error: [900,900,2664.359375,2664.359375,2664.359375,2664.359375,2664.359375,2664.359375,2664.359375,2664.359375,2664.359375,2664.359375]
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 1247.0679687499999
+    Received:    900
+
+      32 |   await page.getByText('NYC mayor').first().click();
+      33 |   const seen: number[] = []; for (let i = 0; i < 12; i++) { seen.push(await h()); await page.waitForTimeout(100); }
+    > 34 |   expect(Math.min(...seen), JSON.stringify(seen)).toBeGreaterThanOrEqual(before * 0.95);
+         |                                                   ^
+      35 | });
+      36 |
+      37 | test('e seats field: clearing and typing works, no zoom-triggering font on mobile', async ({ page }, info) => {
+        at /tmp/up/tests/e2e/ui-polish.spec.ts:34:51
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/ui-polish-d-switching-elec-65b88-ayout-height-while-counting-desktop-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/ui-polish-d-switching-elec-65b88-ayout-height-while-counting-desktop-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ui-polish-d-switching-elec-65b88-ayout-height-while-counting-desktop-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ui-polish-d-switching-elec-65b88-ayout-height-while-counting-desktop-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [desktop-1440] › tests/e2e/ui-polish.spec.ts:37:1 › e seats field: clearing and typing works, no zoom-triggering font on mobile 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: ""
+    Received: "1"
+
+      37 | test('e seats field: clearing and typing works, no zoom-triggering font on mobile', async ({ page }, info) => {
+      38 |   await page.goto('/app?election=upload'); const s = page.getByTestId('seats-input'); await expect(s).toBeVisible();
+    > 39 |   await s.click(); await s.press('Control+a'); await s.press('Backspace'); expect(await s.inputValue()).toBe('');
+         |                                                                                                         ^
+      40 |   await s.pressSequentially('3'); expect(await s.inputValue()).toBe('3');
+      41 |   await s.press('Backspace'); await s.pressSequentially('-'); expect(await s.inputValue()).not.toContain('-');
+      42 |   await s.blur(); expect(await s.inputValue()).toBe('1');
+        at /tmp/up/tests/e2e/ui-polish.spec.ts:39:105
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/ui-polish-e-seats-field-cl-c6171-m-triggering-font-on-mobile-desktop-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/ui-polish-e-seats-field-cl-c6171-m-triggering-font-on-mobile-desktop-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ui-polish-e-seats-field-cl-c6171-m-triggering-font-on-mobile-desktop-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ui-polish-e-seats-field-cl-c6171-m-triggering-font-on-mobile-desktop-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [desktop-1440] › tests/e2e/ui-polish.spec.ts:56:1 › i upload errors list every bad line, not only the first 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByTestId('error-message')
+    Expected substring: "Line 4"
+    Received string:    "Line 2: count must be a positive integer"
+    Timeout: 20000ms
+
+    Call log:
+      - Expect "toContainText" getByTestId('error-message') with timeout 20000ms
+      - waiting for getByTestId('error-message')
+        44 × locator resolved to <p data-testid="error-message" class="mt-1 text-red-200/90">Line 2: count must be a positive integer</p>
+           - unexpected value "Line 2: count must be a positive integer"
+
+
+      58 |   await page.getByTestId('run-count').click();
+      59 |   const m = page.getByTestId('error-message'); await expect(m).toBeVisible();
+    > 60 |   await expect(m).toContainText('Line 2'); await expect(m).toContainText('Line 4');
+         |                                                            ^
+      61 | });
+      62 |
+      63 | test('guard: /app at 400px has no horizontal scroll; footer links show a focus ring', async ({ page }) => {
+        at /tmp/up/tests/e2e/ui-polish.spec.ts:60:60
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/ui-polish-i-upload-errors--8726f-bad-line-not-only-the-first-desktop-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/ui-polish-i-upload-errors--8726f-bad-line-not-only-the-first-desktop-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ui-polish-i-upload-errors--8726f-bad-line-not-only-the-first-desktop-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ui-polish-i-upload-errors--8726f-bad-line-not-only-the-first-desktop-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [mobile-390] › tests/e2e/ui-polish.spec.ts:28:1 › d switching elections keeps the layout height while counting 
+
+    Error: [818,818,3282.53125,3282.53125,3282.53125,3282.53125,3282.53125,3282.53125,3282.53125,3282.53125,3282.53125,3282.53125]
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 1466.7109375
+    Received:    818
+
+      32 |   await page.getByText('NYC mayor').first().click();
+      33 |   const seen: number[] = []; for (let i = 0; i < 12; i++) { seen.push(await h()); await page.waitForTimeout(100); }
+    > 34 |   expect(Math.min(...seen), JSON.stringify(seen)).toBeGreaterThanOrEqual(before * 0.95);
+         |                                                   ^
+      35 | });
+      36 |
+      37 | test('e seats field: clearing and typing works, no zoom-triggering font on mobile', async ({ page }, info) => {
+        at /tmp/up/tests/e2e/ui-polish.spec.ts:34:51
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/ui-polish-d-switching-elec-65b88-ayout-height-while-counting-mobile-390/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/ui-polish-d-switching-elec-65b88-ayout-height-while-counting-mobile-390/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ui-polish-d-switching-elec-65b88-ayout-height-while-counting-mobile-390/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ui-polish-d-switching-elec-65b88-ayout-height-while-counting-mobile-390/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [mobile-390] › tests/e2e/ui-polish.spec.ts:37:1 › e seats field: clearing and typing works, no zoom-triggering font on mobile 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: ""
+    Received: "1"
+
+      37 | test('e seats field: clearing and typing works, no zoom-triggering font on mobile', async ({ page }, info) => {
+      38 |   await page.goto('/app?election=upload'); const s = page.getByTestId('seats-input'); await expect(s).toBeVisible();
+    > 39 |   await s.click(); await s.press('Control+a'); await s.press('Backspace'); expect(await s.inputValue()).toBe('');
+         |                                                                                                         ^
+      40 |   await s.pressSequentially('3'); expect(await s.inputValue()).toBe('3');
+      41 |   await s.press('Backspace'); await s.pressSequentially('-'); expect(await s.inputValue()).not.toContain('-');
+      42 |   await s.blur(); expect(await s.inputValue()).toBe('1');
+        at /tmp/up/tests/e2e/ui-polish.spec.ts:39:105
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/ui-polish-e-seats-field-cl-c6171-m-triggering-font-on-mobile-mobile-390/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/ui-polish-e-seats-field-cl-c6171-m-triggering-font-on-mobile-mobile-390/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ui-polish-e-seats-field-cl-c6171-m-triggering-font-on-mobile-mobile-390/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ui-polish-e-seats-field-cl-c6171-m-triggering-font-on-mobile-mobile-390/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [mobile-390] › tests/e2e/ui-polish.spec.ts:46:1 › g mobile has a menu that reaches every section link 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('nav-menu')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('nav-menu') with timeout 20000ms
+      - waiting for getByTestId('nav-menu')
+
+
+      47 |   test.skip(desktop(info.project.name), 'mobile');
+      48 |   await page.goto('/');
+    > 49 |   const btn = page.getByTestId('nav-menu'); await expect(btn).toBeVisible(); await expect(btn).toHaveAttribute('aria-expanded', 'false');
+         |                                                               ^
+      50 |   await btn.click(); await expect(btn).toHaveAttribute('aria-expanded', 'true');
+      51 |   for (const id of ['parity', 'how', 'rules', 'api']) await expect(page.getByTestId(`mnav-${id}`)).toBeVisible();
+      52 |   await page.getByTestId('mnav-rules').click(); await expect(page.getByTestId('nav-menu-panel')).toHaveCount(0);
+        at /tmp/up/tests/e2e/ui-polish.spec.ts:49:63
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/ui-polish-g-mobile-has-a-m-35ec6--reaches-every-section-link-mobile-390/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/ui-polish-g-mobile-has-a-m-35ec6--reaches-every-section-link-mobile-390/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ui-polish-g-mobile-has-a-m-35ec6--reaches-every-section-link-mobile-390/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ui-polish-g-mobile-has-a-m-35ec6--reaches-every-section-link-mobile-390/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9) [mobile-390] › tests/e2e/ui-polish.spec.ts:56:1 › i upload errors list every bad line, not only the first 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByTestId('error-message')
+    Expected substring: "Line 4"
+    Received string:    "Line 2: count must be a positive integer"
+    Timeout: 20000ms
+
+    Call log:
+      - Expect "toContainText" getByTestId('error-message') with timeout 20000ms
+      - waiting for getByTestId('error-message')
+        44 × locator resolved to <p data-testid="error-message" class="mt-1 text-red-200/90">Line 2: count must be a positive integer</p>
+           - unexpected value "Line 2: count must be a positive integer"
+
+
+      58 |   await page.getByTestId('run-count').click();
+      59 |   const m = page.getByTestId('error-message'); await expect(m).toBeVisible();
+    > 60 |   await expect(m).toContainText('Line 2'); await expect(m).toContainText('Line 4');
+         |                                                            ^
+      61 | });
+      62 |
+      63 | test('guard: /app at 400px has no horizontal scroll; footer links show a focus ring', async ({ page }) => {
+        at /tmp/up/tests/e2e/ui-polish.spec.ts:60:60
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/ui-polish-i-upload-errors--8726f-bad-line-not-only-the-first-mobile-390/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/ui-polish-i-upload-errors--8726f-bad-line-not-only-the-first-mobile-390/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ui-polish-i-upload-errors--8726f-bad-line-not-only-the-first-mobile-390/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ui-polish-i-upload-errors--8726f-bad-line-not-only-the-first-mobile-390/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9 failed
+    [desktop-1440] › tests/e2e/ui-polish.spec.ts:5:1 › a copy-link toast overlays without layout shift and fades by itself 
+    [desktop-1440] › tests/e2e/ui-polish.spec.ts:17:1 › b eliminated names are not cut off by the marker, and carry the full name 
+    [desktop-1440] › tests/e2e/ui-polish.spec.ts:28:1 › d switching elections keeps the layout height while counting 
+    [desktop-1440] › tests/e2e/ui-polish.spec.ts:37:1 › e seats field: clearing and typing works, no zoom-triggering font on mobile 
+    [desktop-1440] › tests/e2e/ui-polish.spec.ts:56:1 › i upload errors list every bad line, not only the first 
+    [mobile-390] › tests/e2e/ui-polish.spec.ts:28:1 › d switching elections keeps the layout height while counting 
+    [mobile-390] › tests/e2e/ui-polish.spec.ts:37:1 › e seats field: clearing and typing works, no zoom-triggering font on mobile 
+    [mobile-390] › tests/e2e/ui-polish.spec.ts:46:1 › g mobile has a menu that reaches every section link 
+    [mobile-390] › tests/e2e/ui-polish.spec.ts:56:1 › i upload errors list every bad line, not only the first 
+  3 skipped
+  2 passed (43.3s)

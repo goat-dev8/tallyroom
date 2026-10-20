@@ -1,0 +1,328 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "Inverness West",
+ "source": "hl2022-ward-13-2022_Local_Government_Election_Results_Ward_13_Inverness_West_Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "dc6ecff4cdc2a243aeb2395c785ef4ae369570d081346d9c166927dbf828d1c4",
+ "ballotSource": "hl2022-ward-13-2022_Local_Government_Election_Results_Ward_13_Inverness_West_Preference_Profile_Report.blt",
+ "ballotSha256": "6b95d8b5ada9ccbe63eb6f9878eabb91cf8fa701d8deae421e0f8784f54868b9",
+ "ballotsReceived": 3545,
+ "validVotes": 3503,
+ "seats": 3,
+ "quota": 876,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Bill BOYD": "1092",
+    "Ryan FORBES": "327",
+    "Iain FORSYTH": "46",
+    "Shaun Alexander FRASER": "295",
+    "Alex GRAHAM": "1198",
+    "Ryan MACKINTOSH": "262",
+    "Duncan MCDONALD": "173",
+    "David SANSUM": "10",
+    "Helen SMITH": "100",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Bill BOYD",
+    "Alex GRAHAM"
+   ],
+   "total": "3503"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Alex GRAHAM",
+    "amount": "322.00000"
+   },
+   "transferred": {
+    "Bill BOYD": "0.00000",
+    "Ryan FORBES": "51.33698",
+    "Iain FORSYTH": "9.67608",
+    "Shaun Alexander FRASER": "66.11988",
+    "Alex GRAHAM": "-322.00000",
+    "Ryan MACKINTOSH": "37.36042",
+    "Duncan MCDONALD": "53.75600",
+    "David SANSUM": "5.10682",
+    "Helen SMITH": "20.96484",
+    "nonTransferable": "77.67742",
+    "rounding": "0.00156"
+   },
+   "votes": {
+    "Bill BOYD": "1092.00000",
+    "Ryan FORBES": "378.33698",
+    "Iain FORSYTH": "55.67608",
+    "Shaun Alexander FRASER": "361.11988",
+    "Alex GRAHAM": "876.00000",
+    "Ryan MACKINTOSH": "299.36042",
+    "Duncan MCDONALD": "226.75600",
+    "David SANSUM": "15.10682",
+    "Helen SMITH": "120.96484",
+    "nonTransferable": "77.67742",
+    "rounding": "0.00156"
+   },
+   "elected": [],
+   "total": "3503.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Bill BOYD",
+    "amount": "216.00000"
+   },
+   "transferred": {
+    "Bill BOYD": "-216.00000",
+    "Ryan FORBES": "4.74720",
+    "Iain FORSYTH": "40.35120",
+    "Shaun Alexander FRASER": "28.08760",
+    "Alex GRAHAM": "0.00000",
+    "Ryan MACKINTOSH": "82.28480",
+    "Duncan MCDONALD": "8.90100",
+    "David SANSUM": "1.97800",
+    "Helen SMITH": "5.93400",
+    "nonTransferable": "43.71380",
+    "rounding": "0.00240"
+   },
+   "votes": {
+    "Bill BOYD": "876.00000",
+    "Ryan FORBES": "383.08418",
+    "Iain FORSYTH": "96.02728",
+    "Shaun Alexander FRASER": "389.20748",
+    "Alex GRAHAM": "876.00000",
+    "Ryan MACKINTOSH": "381.64522",
+    "Duncan MCDONALD": "235.65700",
+    "David SANSUM": "17.08482",
+    "Helen SMITH": "126.89884",
+    "nonTransferable": "121.39278",
+    "rounding": "0.00240"
+   },
+   "elected": [],
+   "total": "3503.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "David SANSUM",
+    "amount": "17.08482"
+   },
+   "transferred": {
+    "Bill BOYD": "0.00000",
+    "Ryan FORBES": "1.80634",
+    "Iain FORSYTH": "1.26878",
+    "Shaun Alexander FRASER": "0.19780",
+    "Alex GRAHAM": "0.00000",
+    "Ryan MACKINTOSH": "3.66438",
+    "Duncan MCDONALD": "1.26878",
+    "David SANSUM": "-17.08482",
+    "Helen SMITH": "3.61268",
+    "nonTransferable": "5.26606",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Bill BOYD": "876.00000",
+    "Ryan FORBES": "384.89052",
+    "Iain FORSYTH": "97.29606",
+    "Shaun Alexander FRASER": "389.40528",
+    "Alex GRAHAM": "876.00000",
+    "Ryan MACKINTOSH": "385.30960",
+    "Duncan MCDONALD": "236.92578",
+    "David SANSUM": "0.00000",
+    "Helen SMITH": "130.51152",
+    "nonTransferable": "126.66124",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3503.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Iain FORSYTH",
+    "amount": "97.29606"
+   },
+   "transferred": {
+    "Bill BOYD": "0.00000",
+    "Ryan FORBES": "5.45558",
+    "Iain FORSYTH": "-97.29606",
+    "Shaun Alexander FRASER": "12.52798",
+    "Alex GRAHAM": "0.00000",
+    "Ryan MACKINTOSH": "30.65732",
+    "Duncan MCDONALD": "10.91530",
+    "David SANSUM": "0.00000",
+    "Helen SMITH": "6.97800",
+    "nonTransferable": "30.76188",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Bill BOYD": "876.00000",
+    "Ryan FORBES": "390.34610",
+    "Iain FORSYTH": "0.00000",
+    "Shaun Alexander FRASER": "401.93326",
+    "Alex GRAHAM": "876.00000",
+    "Ryan MACKINTOSH": "415.96692",
+    "Duncan MCDONALD": "247.84108",
+    "David SANSUM": "0.00000",
+    "Helen SMITH": "137.48952",
+    "nonTransferable": "157.42312",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3503.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Helen SMITH",
+    "amount": "137.48952"
+   },
+   "transferred": {
+    "Bill BOYD": "0.00000",
+    "Ryan FORBES": "13.15024",
+    "Iain FORSYTH": "0.00000",
+    "Shaun Alexander FRASER": "7.69194",
+    "Alex GRAHAM": "0.00000",
+    "Ryan MACKINTOSH": "32.11724",
+    "Duncan MCDONALD": "38.43972",
+    "David SANSUM": "0.00000",
+    "Helen SMITH": "-137.48952",
+    "nonTransferable": "46.09038",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Bill BOYD": "876.00000",
+    "Ryan FORBES": "403.49634",
+    "Iain FORSYTH": "0.00000",
+    "Shaun Alexander FRASER": "409.62520",
+    "Alex GRAHAM": "876.00000",
+    "Ryan MACKINTOSH": "448.08416",
+    "Duncan MCDONALD": "286.28080",
+    "David SANSUM": "0.00000",
+    "Helen SMITH": "0.00000",
+    "nonTransferable": "203.51350",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3503.00000"
+  },
+  {
+   "stage": 7,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Duncan MCDONALD",
+    "amount": "286.28080"
+   },
+   "transferred": {
+    "Bill BOYD": "0.00000",
+    "Ryan FORBES": "50.60510",
+    "Iain FORSYTH": "0.00000",
+    "Shaun Alexander FRASER": "44.21506",
+    "Alex GRAHAM": "0.00000",
+    "Ryan MACKINTOSH": "35.20478",
+    "Duncan MCDONALD": "-286.28080",
+    "David SANSUM": "0.00000",
+    "Helen SMITH": "0.00000",
+    "nonTransferable": "156.25586",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Bill BOYD": "876.00000",
+    "Ryan FORBES": "454.10144",
+    "Iain FORSYTH": "0.00000",
+    "Shaun Alexander FRASER": "453.84026",
+    "Alex GRAHAM": "876.00000",
+    "Ryan MACKINTOSH": "483.28894",
+    "Duncan MCDONALD": "0.00000",
+    "David SANSUM": "0.00000",
+    "Helen SMITH": "0.00000",
+    "nonTransferable": "359.76936",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3503.00000"
+  },
+  {
+   "stage": 8,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Shaun Alexander FRASER",
+    "amount": "453.84026"
+   },
+   "transferred": {
+    "Bill BOYD": "0.00000",
+    "Ryan FORBES": "84.53352",
+    "Iain FORSYTH": "0.00000",
+    "Shaun Alexander FRASER": "-453.84026",
+    "Alex GRAHAM": "0.00000",
+    "Ryan MACKINTOSH": "113.97824",
+    "Duncan MCDONALD": "0.00000",
+    "David SANSUM": "0.00000",
+    "Helen SMITH": "0.00000",
+    "nonTransferable": "255.32850",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Bill BOYD": "876.00000",
+    "Ryan FORBES": "538.63496",
+    "Iain FORSYTH": "0.00000",
+    "Shaun Alexander FRASER": "0.00000",
+    "Alex GRAHAM": "876.00000",
+    "Ryan MACKINTOSH": "597.26718",
+    "Duncan MCDONALD": "0.00000",
+    "David SANSUM": "0.00000",
+    "Helen SMITH": "0.00000",
+    "nonTransferable": "615.09786",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3503.00000"
+  },
+  {
+   "stage": 9,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Ryan FORBES",
+    "amount": "538.63496"
+   },
+   "transferred": {
+    "Bill BOYD": "0.00000",
+    "Ryan FORBES": "-538.63496",
+    "Iain FORSYTH": "0.00000",
+    "Shaun Alexander FRASER": "0.00000",
+    "Alex GRAHAM": "0.00000",
+    "Ryan MACKINTOSH": "93.14692",
+    "Duncan MCDONALD": "0.00000",
+    "David SANSUM": "0.00000",
+    "Helen SMITH": "0.00000",
+    "nonTransferable": "445.48804",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Bill BOYD": "876.00000",
+    "Ryan FORBES": "0.00000",
+    "Iain FORSYTH": "0.00000",
+    "Shaun Alexander FRASER": "0.00000",
+    "Alex GRAHAM": "876.00000",
+    "Ryan MACKINTOSH": "690.41410",
+    "Duncan MCDONALD": "0.00000",
+    "David SANSUM": "0.00000",
+    "Helen SMITH": "0.00000",
+    "nonTransferable": "1060.58590",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Ryan MACKINTOSH"
+   ],
+   "total": "3503.00000"
+  }
+ ]
+}

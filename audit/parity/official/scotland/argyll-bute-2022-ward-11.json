@@ -1,0 +1,148 @@
+{
+ "council": "Argyll and Bute",
+ "year": 2022,
+ "ward": "Ward 11 - Helensburgh and Lomond South",
+ "source": "ab2022-candidatevotesperstagereport_v0001_ward-11-helensburgh-and-lomond-south_06052022_181245.pdf",
+ "sha256": "215d7ed5979a9e03596bd9f11a64e068178416e03c8333eaccfb11150e7a322d",
+ "ballotSource": "ab2022-preferenceprofile_v0012_ward-11-helensburgh-and-lomond-south_06052022_182005.blt",
+ "ballotSha256": "f77a39d17fe673fdd58d7369a1c64adca4feebc408408301d58c3865920d765e",
+ "ballotsReceived": 2925,
+ "validVotes": 2884,
+ "seats": 3,
+ "quota": 722,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Math CAMPBELL-STURGESS": "749",
+    "Howard GREEN": "247",
+    "Paul Donald KENNEDY": "512",
+    "David KINNIBURGH": "522",
+    "Gemma PENFOLD": "854",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Math CAMPBELL-STURGESS",
+    "Gemma PENFOLD"
+   ],
+   "total": "2884"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Gemma PENFOLD",
+    "amount": "132.00000"
+   },
+   "transferred": {
+    "Math CAMPBELL-STURGESS": "0.00000",
+    "Howard GREEN": "3.09120",
+    "Paul Donald KENNEDY": "10.20096",
+    "David KINNIBURGH": "110.97408",
+    "Gemma PENFOLD": "-132.00000",
+    "nonTransferable": "7.72800",
+    "rounding": "0.00576"
+   },
+   "votes": {
+    "Math CAMPBELL-STURGESS": "749.00000",
+    "Howard GREEN": "250.09120",
+    "Paul Donald KENNEDY": "522.20096",
+    "David KINNIBURGH": "632.97408",
+    "Gemma PENFOLD": "722.00000",
+    "nonTransferable": "7.72800",
+    "rounding": "0.00576"
+   },
+   "elected": [],
+   "total": "2884.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Math CAMPBELL-STURGESS",
+    "amount": "27.00000"
+   },
+   "transferred": {
+    "Math CAMPBELL-STURGESS": "-27.00000",
+    "Howard GREEN": "18.45248",
+    "Paul Donald KENNEDY": "3.64004",
+    "David KINNIBURGH": "0.64872",
+    "Gemma PENFOLD": "0.00000",
+    "nonTransferable": "4.25272",
+    "rounding": "0.00604"
+   },
+   "votes": {
+    "Math CAMPBELL-STURGESS": "722.00000",
+    "Howard GREEN": "268.54368",
+    "Paul Donald KENNEDY": "525.84100",
+    "David KINNIBURGH": "633.62280",
+    "Gemma PENFOLD": "722.00000",
+    "nonTransferable": "11.98648",
+    "rounding": "0.00604"
+   },
+   "elected": [],
+   "total": "2884.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Howard GREEN",
+    "amount": "268.54368"
+   },
+   "transferred": {
+    "Math CAMPBELL-STURGESS": "0.00000",
+    "Howard GREEN": "-268.54368",
+    "Paul Donald KENNEDY": "175.57384",
+    "David KINNIBURGH": "13.79844",
+    "Gemma PENFOLD": "0.00000",
+    "nonTransferable": "79.17140",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Math CAMPBELL-STURGESS": "722.00000",
+    "Howard GREEN": "0.00000",
+    "Paul Donald KENNEDY": "701.41484",
+    "David KINNIBURGH": "647.42124",
+    "Gemma PENFOLD": "722.00000",
+    "nonTransferable": "91.16392",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "2884.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "David KINNIBURGH",
+    "amount": "647.42124"
+   },
+   "transferred": {
+    "Math CAMPBELL-STURGESS": "0.00000",
+    "Howard GREEN": "0.00000",
+    "Paul Donald KENNEDY": "353.41104",
+    "David KINNIBURGH": "-647.42124",
+    "Gemma PENFOLD": "0.00000",
+    "nonTransferable": "294.01020",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Math CAMPBELL-STURGESS": "722.00000",
+    "Howard GREEN": "0.00000",
+    "Paul Donald KENNEDY": "1054.82588",
+    "David KINNIBURGH": "0.00000",
+    "Gemma PENFOLD": "722.00000",
+    "nonTransferable": "385.17412",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Paul Donald KENNEDY"
+   ],
+   "total": "2884.00000"
+  }
+ ]
+}

@@ -15,7 +15,7 @@ def conserved(j):
 def test():
     r = requests.get(BASE + "/api/elections", timeout=30); assert r.status_code == 200
     e = {x["id"]: x for x in r.json()["elections"]}
-    assert list(e) == ["maine-2018-cd2", "alaska-2022", "nyc-2021"]
+    assert list(e) == ["maine-2018-cd2", "alaska-2022", "nyc-2021", "burlington-2009"]
     assert (e["maine-2018-cd2"]["ballotCount"], e["maine-2018-cd2"]["certifiedWinner"]) == (296077, "DEM Golden, Jared F.")
     assert (e["alaska-2022"]["ballotCount"], e["alaska-2022"]["certifiedWinner"]) == (192289, "Peltola, Mary S.")
     assert e["nyc-2021"]["certifiedWinner"] == "Eric L. Adams"

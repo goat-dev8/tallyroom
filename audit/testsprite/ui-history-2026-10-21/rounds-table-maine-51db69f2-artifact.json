@@ -1,0 +1,16 @@
+{
+  "out": "bundles/51db69f2-31a1-46a9-aac5-720b8e0deac7",
+  "snapshotId": "snap_31332862cc099755",
+  "requestId": "cli_104f9dca-8f6f-4a35-8456-698c4feb6a62",
+  "meta": {
+    "runId": "51db69f2-31a1-46a9-aac5-720b8e0deac7",
+    "testId": "09f2ef75-dece-49f0-8b1d-4c122498dd74",
+    "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+    "codeVersion": "v30.0",
+    "targetUrl": "https://tallyroom-git-fix-api-input-goats-projects-3f023cc9.vercel.app",
+    "failedStepIndex": 3,
+    "failureKind": "assertion",
+    "capturedAt": "2026-10-20T07:21:37.156Z",
+    "fetchedAt": "2026-10-20T22:00:33.768Z"
+  }
+}

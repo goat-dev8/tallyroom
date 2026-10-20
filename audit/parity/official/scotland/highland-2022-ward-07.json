@@ -1,0 +1,92 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "Tain and Easter Ross",
+ "source": "hl2022-ward-7-2022_Local_Government_Election_Results_Ward_7_Tain_and_Easter_Ross_Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "78ded70872318ac965c4985f1e0a4841419b0c1dfd3acf3b6c2b8e3c2b859473",
+ "ballotSource": "hl2022-ward-7-2022_Local_Government_Election_Results_Ward_7_Tain_and_Easter_Ross_Preference_Profile.blt",
+ "ballotSha256": "f48eeb49d1aea9d30503ec912b076a8c974bd297ae633b1d54a1917c396d211c",
+ "ballotsReceived": 3471,
+ "validVotes": 3434,
+ "seats": 3,
+ "quota": 859,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Derek LOUDEN": "1051",
+    "Veronica MORRISON": "364",
+    "Sarah RAWLINGS": "739",
+    "Alasdair RHIND": "726",
+    "Fiona ROBERTSON": "554",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Derek LOUDEN"
+   ],
+   "total": "3434"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Derek LOUDEN",
+    "amount": "192.00000"
+   },
+   "transferred": {
+    "Derek LOUDEN": "-192.00000",
+    "Veronica MORRISON": "4.56700",
+    "Sarah RAWLINGS": "41.65104",
+    "Alasdair RHIND": "50.23700",
+    "Fiona ROBERTSON": "50.78504",
+    "nonTransferable": "44.75660",
+    "rounding": "0.00332"
+   },
+   "votes": {
+    "Derek LOUDEN": "859.00000",
+    "Veronica MORRISON": "368.56700",
+    "Sarah RAWLINGS": "780.65104",
+    "Alasdair RHIND": "776.23700",
+    "Fiona ROBERTSON": "604.78504",
+    "nonTransferable": "44.75660",
+    "rounding": "0.00332"
+   },
+   "elected": [],
+   "total": "3434.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Veronica MORRISON",
+    "amount": "368.56700"
+   },
+   "transferred": {
+    "Derek LOUDEN": "0.00000",
+    "Veronica MORRISON": "-368.56700",
+    "Sarah RAWLINGS": "141.37484",
+    "Alasdair RHIND": "100.09608",
+    "Fiona ROBERTSON": "63.73072",
+    "nonTransferable": "63.36536",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Derek LOUDEN": "859.00000",
+    "Veronica MORRISON": "0.00000",
+    "Sarah RAWLINGS": "922.02588",
+    "Alasdair RHIND": "876.33308",
+    "Fiona ROBERTSON": "668.51576",
+    "nonTransferable": "108.12528",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Sarah RAWLINGS",
+    "Alasdair RHIND"
+   ],
+   "total": "3434.00000"
+  }
+ ]
+}

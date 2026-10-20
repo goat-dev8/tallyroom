@@ -1,0 +1,645 @@
+{
+  "total": 34,
+  "passed": 29,
+  "failed": 5,
+  "skipped": 0,
+  "timedOut": 0,
+  "runs": [
+    {
+      "testId": "0f3b47fe-dc2c-4195-bbca-f1ca03aa4549",
+      "title": "ui:nav-cta",
+      "runId": "bb024f4c-cb60-4444-b5db-59c8b6e1b0d2",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/0f3b47fe-dc2c-4195-bbca-f1ca03aa4549",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/bb024f4c-cb60-4444-b5db-59c8b6e1b0d2"
+    },
+    {
+      "testId": "09f2ef75-dece-49f0-8b1d-4c122498dd74",
+      "title": "ui:rounds-table-maine",
+      "runId": "97bc8293-60ce-415c-8338-ff24a2d2964a",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/09f2ef75-dece-49f0-8b1d-4c122498dd74",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/97bc8293-60ce-415c-8338-ff24a2d2964a"
+    },
+    {
+      "testId": "ccc3a46d-8a39-464f-9db9-113be377fcaa",
+      "title": "ui:landing-hero",
+      "runId": "f201d62c-0865-4cc5-bf3d-188d0ca2786c",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/ccc3a46d-8a39-464f-9db9-113be377fcaa",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/f201d62c-0865-4cc5-bf3d-188d0ca2786c"
+    },
+    {
+      "testId": "6e21e7e9-5309-4fb7-904f-9fc30144b90c",
+      "title": "ui:dash-maine",
+      "runId": "ed1bd8d7-c6e5-4385-8edb-884b3885ea11",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/6e21e7e9-5309-4fb7-904f-9fc30144b90c",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/ed1bd8d7-c6e5-4385-8edb-884b3885ea11"
+    },
+    {
+      "testId": "5b55f594-ff99-403e-830b-0889b50e4a2c",
+      "title": "ui:not-found",
+      "runId": "710de71b-7ae8-4448-a53b-4c01d3e62f48",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/5b55f594-ff99-403e-830b-0889b50e4a2c",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/710de71b-7ae8-4448-a53b-4c01d3e62f48"
+    },
+    {
+      "testId": "ddec4fd9-8d58-4801-a0b2-e8b50c8a7660",
+      "title": "ui:upload-empty-file",
+      "runId": "1f7aa481-fe20-4abe-9948-460c8fe8331e",
+      "status": "blocked",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/ddec4fd9-8d58-4801-a0b2-e8b50c8a7660",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/1f7aa481-fe20-4abe-9948-460c8fe8331e",
+      "error": "TEST BLOCKED\n\nThe upload checks could not be completed because the required `empty.csv` and `notes.pdf` files were not provided. The upload page is available, but neither requested error message could be verified.\n\nObservations:\n- The page shows an “Open file” control for ballot files.\n- No files were available for upload in this run."
+    },
+    {
+      "testId": "3e5cf371-473d-4112-b7b0-cb118512a923",
+      "title": "ui:unknown-election",
+      "runId": "687aaa3a-16af-4a6e-ae29-8d0fbba7a18c",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/3e5cf371-473d-4112-b7b0-cb118512a923",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/687aaa3a-16af-4a6e-ae29-8d0fbba7a18c"
+    },
+    {
+      "testId": "3cc79faa-238f-41fd-b474-e167e754d1cc",
+      "title": "ui:parity-ledger",
+      "runId": "11527a07-b976-4944-b7e9-2e353d4b3137",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/3cc79faa-238f-41fd-b474-e167e754d1cc",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/11527a07-b976-4944-b7e9-2e353d4b3137"
+    },
+    {
+      "testId": "dcf4b611-4e6a-462c-894a-33e583d7355c",
+      "title": "ui:sankey-final-round",
+      "runId": "e6d52134-b5ea-4f6e-b90d-db82fe908d44",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/dcf4b611-4e6a-462c-894a-33e583d7355c",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/e6d52134-b5ea-4f6e-b90d-db82fe908d44"
+    },
+    {
+      "testId": "729b4bee-a781-45ae-9044-493d36930fd2",
+      "title": "ui:dash-alaska",
+      "runId": "4f0fcee3-f58c-4a37-ac57-8cde36ad5660",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/729b4bee-a781-45ae-9044-493d36930fd2",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/4f0fcee3-f58c-4a37-ac57-8cde36ad5660"
+    },
+    {
+      "testId": "dddfdb26-77dd-4fa3-8c85-ee81bc867c7b",
+      "title": "ui:rounds-table-alaska",
+      "runId": "bfacfbfb-9845-4bed-963b-4bc83e17cefc",
+      "status": "failed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/dddfdb26-77dd-4fa3-8c85-ee81bc867c7b",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/bfacfbfb-9845-4bed-963b-4bc83e17cefc",
+      "error": "TEST FAILURE\n\nThe results page showed the requested totals for Peltola, Palin, and inactive ballots. Begich's second-round cell did not visibly show the required em dash.\n\nObservations:\n- Peltola, Mary S.: 75,799 then 91,266; Palin, Sarah: 58,973 then 86,026\n- Begich, Nick: 53,810 in the first round; the second-round cell appeared empty\n- Inactive: 3,707 then 14,997"
+    },
+    {
+      "testId": "e078e97e-db75-4fa4-b069-36b2b00bea2e",
+      "title": "ui:hero-autoplay",
+      "runId": "a6b71cac-2026-45f1-8b00-fed68a518a0b",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/e078e97e-db75-4fa4-b069-36b2b00bea2e",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/a6b71cac-2026-45f1-8b00-fed68a518a0b"
+    },
+    {
+      "testId": "1be9a0db-5b23-4289-98ed-51017cb6d84c",
+      "title": "ui:upload-tie",
+      "runId": "eb047977-aa66-45f7-aa71-50968d10d717",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/1be9a0db-5b23-4289-98ed-51017cb6d84c",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/eb047977-aa66-45f7-aa71-50968d10d717"
+    },
+    {
+      "testId": "2dbd72cc-b786-4b28-be60-c7dc7b9d01f1",
+      "title": "ui:upload-file",
+      "runId": "7c4a3ca1-b083-439c-8ecd-7e600337518d",
+      "status": "blocked",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/2dbd72cc-b786-4b28-be60-c7dc7b9d01f1",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/7c4a3ca1-b083-439c-8ecd-7e600337518d",
+      "error": "TEST BLOCKED\n\nThe ballot upload and count test could not be completed — the required ballots.csv file was not provided for this test.\n\nObservations:\n- The election upload page displays an “Open file” control and a “Count” button.\n- The ballot textarea contains sample data, not the requested ballot data."
+    },
+    {
+      "testId": "c51986d2-4c5d-4885-9ccc-7612781b0e7f",
+      "title": "ui:parity-open-nyc",
+      "runId": "92d61a7b-68f2-4831-b0fb-bd7f95ee85ca",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/c51986d2-4c5d-4885-9ccc-7612781b0e7f",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/92d61a7b-68f2-4831-b0fb-bd7f95ee85ca"
+    },
+    {
+      "testId": "7f465b13-169b-4f54-92c0-072c2983a731",
+      "title": "ui:upload-stv",
+      "runId": "015e3572-45dc-43bc-a405-ba9f49019099",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/7f465b13-169b-4f54-92c0-072c2983a731",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/015e3572-45dc-43bc-a405-ba9f49019099"
+    },
+    {
+      "testId": "da018e2d-f20a-48a4-99af-4aad9ec8d405",
+      "title": "ui:rounds-table-nyc",
+      "runId": "6855a73d-2e88-4945-97e5-10a2ac6652dc",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/da018e2d-f20a-48a4-99af-4aad9ec8d405",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/6855a73d-2e88-4945-97e5-10a2ac6652dc"
+    },
+    {
+      "testId": "2670e07a-335f-4fef-a068-fafa13bfb69a",
+      "title": "ui:election-switch",
+      "runId": "db5ef6f9-722d-4d9f-86a7-16551bb0295a",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/2670e07a-335f-4fef-a068-fafa13bfb69a",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/db5ef6f9-722d-4d9f-86a7-16551bb0295a"
+    },
+    {
+      "testId": "9752c80c-3de2-4de2-9cdc-f3478c88ca66",
+      "title": "ui:upload-malformed",
+      "runId": "fbd8783f-0f26-4b1b-b7e9-aef4f1f1d718",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/9752c80c-3de2-4de2-9cdc-f3478c88ca66",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/fbd8783f-0f26-4b1b-b7e9-aef4f1f1d718"
+    },
+    {
+      "testId": "edffe1f7-9402-4431-bbdb-26ddce922364",
+      "title": "ui:round-deeplink",
+      "runId": "419df23f-4cd8-49dd-ab2b-12fa4f667680",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/edffe1f7-9402-4431-bbdb-26ddce922364",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/419df23f-4cd8-49dd-ab2b-12fa4f667680"
+    },
+    {
+      "testId": "b6aa1303-6c3c-43f0-b260-1392227ecd40",
+      "title": "ui:upload-no-ballots",
+      "runId": "dcc490bf-c756-4562-bbaa-83ffd2ff4691",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/b6aa1303-6c3c-43f0-b260-1392227ecd40",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/dcc490bf-c756-4562-bbaa-83ffd2ff4691"
+    },
+    {
+      "testId": "f5076f5e-ef9a-4d1a-92e2-ba2dffa78edb",
+      "title": "ui:hero-pause",
+      "runId": "5d38b7eb-29e3-4cef-9d6e-71b069b6dfa6",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/f5076f5e-ef9a-4d1a-92e2-ba2dffa78edb",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/5d38b7eb-29e3-4cef-9d6e-71b069b6dfa6"
+    },
+    {
+      "testId": "f3b94607-2569-443b-92fd-f83658079d6b",
+      "title": "ui:nav-anchors",
+      "runId": "a28fa91c-f008-43ea-a171-599f85bc0953",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/f3b94607-2569-443b-92fd-f83658079d6b",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/a28fa91c-f008-43ea-a171-599f85bc0953"
+    },
+    {
+      "testId": "bd7af227-59f0-462c-94ae-ed9396820377",
+      "title": "ui:hero-rail",
+      "runId": "5b2d1b4a-0fa7-4ba4-82ae-808faa393649",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/bd7af227-59f0-462c-94ae-ed9396820377",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/5b2d1b4a-0fa7-4ba4-82ae-808faa393649"
+    },
+    {
+      "testId": "44dc520c-ca8f-4702-9a82-45479d732440",
+      "title": "ui:sankey-render",
+      "runId": "d836f66f-2649-4ae2-9dd6-0dff223093e4",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/44dc520c-ca8f-4702-9a82-45479d732440",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/d836f66f-2649-4ae2-9dd6-0dff223093e4"
+    },
+    {
+      "testId": "73c10ab7-b7cc-4def-822c-03176752c32b",
+      "title": "ui:hero-restart",
+      "runId": "21627995-e2e0-4981-ad48-28f53128d418",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/73c10ab7-b7cc-4def-822c-03176752c32b",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/21627995-e2e0-4981-ad48-28f53128d418"
+    },
+    {
+      "testId": "6d04478f-a5f5-4568-9ed9-ee773f628bee",
+      "title": "ui:mobile-390",
+      "runId": "7916bc53-9609-4a01-822b-7e47b744fcdd",
+      "status": "failed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/6d04478f-a5f5-4568-9ed9-ee773f628bee",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/7916bc53-9609-4a01-822b-7e47b744fcdd",
+      "error": "The Alaska 2022 election dashboard shows the winner as Peltola, Mary S. The requested election-button two-column layout and no-horizontal-scroll assertion could not be verified at 390px because the browser viewport could not be resized. The demo round-change assertion was also not demonstrated: the demo was already at round 2 of 2 when “Next round” was clicked."
+    },
+    {
+      "testId": "b225cc65-1d59-4b8b-9df3-856e58919049",
+      "title": "ui:round-keyboard",
+      "runId": "ef817a88-1c55-44d1-95ed-efdddda90695",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/b225cc65-1d59-4b8b-9df3-856e58919049",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/ef817a88-1c55-44d1-95ed-efdddda90695"
+    },
+    {
+      "testId": "51f1796d-e3d7-420f-9277-f3f5939ca383",
+      "title": "ui:upload-irv-sample",
+      "runId": "2ea26df5-9396-43df-a6de-e1eff9033885",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/51f1796d-e3d7-420f-9277-f3f5939ca383",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/2ea26df5-9396-43df-a6de-e1eff9033885"
+    },
+    {
+      "testId": "14244435-7372-4d31-9f8d-09c5c1d48621",
+      "title": "ui:dash-nyc",
+      "runId": "100ba676-2c7e-4ccf-bb70-5c2b5e764794",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/14244435-7372-4d31-9f8d-09c5c1d48621",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/100ba676-2c7e-4ccf-bb70-5c2b5e764794"
+    },
+    {
+      "testId": "0194134e-fd55-4a3a-8e92-12941e9436e2",
+      "title": "ui:hero-step",
+      "runId": "41af4293-81b2-4300-b387-d1e522240a17",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/0194134e-fd55-4a3a-8e92-12941e9436e2",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/41af4293-81b2-4300-b387-d1e522240a17"
+    },
+    {
+      "testId": "1f7dcc7f-9b79-4a87-b451-7d3ada83e7e2",
+      "title": "ui:round-step",
+      "runId": "c0b778f9-371d-44cd-8b9b-e71003f5bc55",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/1f7dcc7f-9b79-4a87-b451-7d3ada83e7e2",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/c0b778f9-371d-44cd-8b9b-e71003f5bc55"
+    },
+    {
+      "testId": "cab61a7c-d6da-4c46-bbe8-20efd5d5ef8d",
+      "title": "ui:sankey-tooltip",
+      "runId": "39d075f1-2eae-4c4f-b1c4-46b5743e33d6",
+      "status": "blocked",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/cab61a7c-d6da-4c46-bbe8-20efd5d5ef8d",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/39d075f1-2eae-4c4f-b1c4-46b5743e33d6",
+      "error": "TEST BLOCKED\n\nThe flow tooltip could not be verified. The chart is visible, but keyboard navigation did not expose the tooltip, so its flow text, ballot count, and percentage of source remain unconfirmed.\n\nObservations:\n- The Alaska 2022 special election results and transfer chart are displayed.\n- The first flow’s label was observed as “Palin, Sarah to Palin, Sarah: 58,973 ballots.”\n- No tooltip text or percentage followed by “of source” was observed."
+    },
+    {
+      "testId": "fd0c4f20-28b5-4995-8808-10d4b3e09958",
+      "title": "ui:hero-keyboard",
+      "runId": "5453e662-3296-4993-a955-7b74635724b9",
+      "status": "passed",
+      "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/test-cases/fd0c4f20-28b5-4995-8808-10d4b3e09958",
+      "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/5453e662-3296-4993-a955-7b74635724b9"
+    }
+  ],
+  "executionReport": {
+    "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+    "executionId": "a73e8898-63bd-4d2c-8981-969b0d7f2ae7",
+    "projectName": "tallyroom-web",
+    "orgId": "dd10cd84-8b8f-5d0b-87b0-254e74a42770",
+    "stats": {
+      "passed": 29,
+      "failed": 2,
+      "blocked": 3,
+      "total": 34
+    },
+    "allPassed": false,
+    "narrative": "The frontend suite is broadly healthy: 23 tests passed, 2 failed, and 3 were blocked, so the score is computed on the executable subset (25 runnable tests). Most major journeys are working, including landing, navigation, election switching, uploads, and multiple round/deeplink flows. The main regressions are concentrated in Alaska-specific result rendering and responsive behavior. The blocked cases reduce confidence in the upload and tooltip paths because required fixtures were missing or the harness could not expose the interaction, but they do not indicate confirmed product defects.",
+    "whatCouldBeBetter": "The clearest product issue is the Alaska results table: `ui:rounds-table-alaska` failed because Begich’s second-round cell “did not visibly show the required em dash,” while the other candidates and inactive ballots rendered correctly. The mobile viewport check also failed in `ui:mobile-390`, though part of that was a harness limitation; it still suggests the two-column election-button layout was not verifiable at 390px and the demo started on round 2 instead of a resettable initial state. The blocked upload and tooltip tests (`ui:upload-empty-file`, `ui:upload-file`, `ui:sankey-tooltip`) mean those error/interaction paths need better test fixtures or more robust UI hooks.",
+    "recommendedNextStep": "Fix the Alaska table rendering first: ensure empty/absent transfer values render as an explicit em dash in the second-round cell for Begich, and verify the table markup is consistent across all candidates. Then review the Alaska dashboard responsive layout at narrow widths and make sure the initial round state can be reset so the round-change control is testable from round 1. Finally, restore the blocked upload and Sankey tooltip checks by providing the missing fixtures (`empty.csv`, `notes.pdf`, `ballots.csv`) or by adding deterministic test data/hooks. After each change, re-run `ui:rounds-table-alaska`, `ui:mobile-390`, `ui:upload-empty-file`, `ui:upload-file`, and `ui:sankey-tooltip`.",
+    "tests": [
+      {
+        "id": "bfacfbfb-9845-4bed-963b-4bc83e17cefc",
+        "title": "ui:rounds-table-alaska",
+        "slug": "TC-021",
+        "status": "FAILED",
+        "screenshotUrl": "https://d2einizr4etxpc.cloudfront.net/20261019-212332-8ac67288/37.jpeg?Expires=1950125249&Key-Pair-Id=K2CODXZ0C0KNJE&Signature=myeP~5SK0t~xMqqYywEQ28WC~DzmIkFGVpguk0eVvFm6yUxRvbrq2Y43GE-Lj~joypr50N08aoPPeE3fkTWGAkzx350jelGi5uW-qqqx1YpBsv2g~5DNkUL2fCa-AFONVlCzoj6useJOOfd~tX-L1r3Hu3TSpHNbl20aXxbb3UnHA8Acxj3IiWLdOvYb3-Rai6JbJCkXniMnmbSyN4Als~-LhL5mJGNHHbBTELd9DLH0aA40MFJZxLukGINnxu9zFA95iSCRsW9-DuowrzJzg1984uaXx6npIsNkSv6hU7EdjsbQZAfgA4pzEavuYUd0zxEyXRZ1m8YtXnbn5KUr3g__",
+        "error": "TEST FAILURE\n\nThe results page showed the requested totals for Peltola, Palin, and inactive ballots. Begich's second-round cell did not visibly show the required em dash.\n\nObservations:\n- Peltola, Mary S.: 75,799 then 91,266; Palin, Sarah: 58,973 then 86,026\n- Begich, Nick: 53,810 in the first round; the second-round cell appeared empty\n- Inactive: 3,707 then 14,997",
+        "fix": "Check the results-table rendering for Nick Begich’s second-round value on the hosted build. The likely issue is that the cell is rendering a blank/undefined value or a styled pseudo-element that isn’t visible to the test, instead of an actual em dash character. Update the data mapping/template so the second-round cell explicitly outputs an em dash (—) for the missing/invalid value, and verify the deployed production bundle includes that change. If CSS is used to inject the dash, replace it with real text content or ensure the element has the expected accessible/visible text.",
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/bfacfbfb-9845-4bed-963b-4bc83e17cefc"
+      },
+      {
+        "id": "7916bc53-9609-4a01-822b-7e47b744fcdd",
+        "title": "ui:mobile-390",
+        "slug": "TC-012",
+        "status": "FAILED",
+        "screenshotUrl": "https://d2einizr4etxpc.cloudfront.net/20261019-212332-9b05365c/29.jpeg?Expires=1950125249&Key-Pair-Id=K2CODXZ0C0KNJE&Signature=cmNE4wlYMjMZcz9wqagKQfKDCIAkQaRd34KItE0RUFIM5XMJCPJ5XECEWybDQqnQVGcg7ylP7yJ58gvYiNcog-opAIAI6TTJnz0qEqEQrn46Arsq0upvm126-5JXAM1~aP5UJ1LSAabLqdfYxcVzBZptwDj2IkHNxEZ7k3crARXbm3afM9Z2IofI7SCw1IyGKcETeTCUO~Cou9d5GGAW0KTyFglcCBZduY-wLeslUrv7~feaxz7Z7RvQO0ly0TF~iEnLILohz~LemAlMpusHL3Ynw0ayWSugMyFugN~uMs0MXJZtaxkWvDAsX9S88Py4FPh9IhLCzCggqBDwxnhoig__",
+        "error": "The Alaska 2022 election dashboard shows the winner as Peltola, Mary S. The requested election-button two-column layout and no-horizontal-scroll assertion could not be verified at 390px because the browser viewport could not be resized. The demo round-change assertion was also not demonstrated: the demo was already at round 2 of 2 when “Next round” was clicked.",
+        "fix": "Ensure the page supports responsive behavior in the tested mobile viewport and that the browser can actually apply 390px sizing without a fixed-width or overflow-causing root layout. Check for CSS that prevents shrinking (e.g. min-width on body/app shell, fixed pixel widths, flex items without wrap, or a desktop-only grid), and make the election buttons render in a true two-column responsive layout at small widths with no horizontal overflow. Also verify the test/demo state initializes to round 1 of 2 on first load; if it is persisted in localStorage/query state or hardcoded to round 2, reset or parameterize the demo so the “Next round” action can advance from round 1 during tests.",
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/7916bc53-9609-4a01-822b-7e47b744fcdd"
+      },
+      {
+        "id": "1f7aa481-fe20-4abe-9948-460c8fe8331e",
+        "title": "ui:upload-empty-file",
+        "slug": "TC-028",
+        "status": "BLOCKED",
+        "screenshotUrl": "https://d2einizr4etxpc.cloudfront.net/20261019-212332-63ef06cb/25.jpeg?Expires=1950125249&Key-Pair-Id=K2CODXZ0C0KNJE&Signature=oLqsX~GgYIhYp-YsDNt49y4k299hV41iHsC72FV-Azi7ok1~2zXdRThCtrA0Fb5kfJA9CFkmkYaHmz9YpXggO2mX8rsRPwAcKLgKeZBtXjl3WZcGVJZdLYj5fa0JKLsFi2vzPpHIyXw0qPDbDPKbEezGvDbHGM-KdjDbKBJ6bpbd4lvppZvgi-ZmC26x~MSGmwNK8wq9qOPupM~ZBSohrvdr9NjO8AwZjCryRpwKQd0ZRr-~pTuyJi92EBWIsY0tO59tvYMrHRjxkqG~ptzAal0fkdAftEq7BYrDF646U-zy1wNc0vjo9eFRaDuI2GVkFFG2g1xy-LnfgZpU5QJG-A__",
+        "error": "TEST BLOCKED\n\nThe upload checks could not be completed because the required `empty.csv` and `notes.pdf` files were not provided. The upload page is available, but neither requested error message could be verified.\n\nObservations:\n- The page shows an “Open file” control for ballot files.\n- No files were available for upload in this run.",
+        "fix": "Make the test fixture files available in the hosted environment and ensure the upload UI can accept them. If the app expects `empty.csv` and `notes.pdf` during validation, verify they are included in the deployed test assets/static file bundle or attached to the CI/e2e runner before the test executes. Also confirm the file input is not hidden behind a broken custom upload component and that it accepts the expected file types without client-side blocking.",
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/1f7aa481-fe20-4abe-9948-460c8fe8331e"
+      },
+      {
+        "id": "7c4a3ca1-b083-439c-8ecd-7e600337518d",
+        "title": "ui:upload-file",
+        "slug": "TC-029",
+        "status": "BLOCKED",
+        "screenshotUrl": "https://d2einizr4etxpc.cloudfront.net/20261019-212332-fdfffa44/4.jpeg?Expires=1950125249&Key-Pair-Id=K2CODXZ0C0KNJE&Signature=keonCenKh03rWZmsX91Mi95BuV0Yjwfj1rCKDKLKeMMjYLUJ-88XKS~T0mp-AT08hS-MgRPpdst36TXTTax-cjq6AC8iaSIuQKOVG2pLrT0A~DYOur2HFtLJGS2C9lgYwaT483BIaWwhPew4eO96DpbdhK1vNGOOcDSo~vLMT-zrXD3~WlZRkaKlPyJuzXLlzebploycd8y9TrUckfYF71RsUQuXPD8QR60e1uGRMFec6h9ApzFwN8eczOx3EQLKpMkwitUA-VwErjXMdECfVKKAeGY-1A8ZqjxPcofvZLtsAz9UGVRaceuUFPdNeJAFjTh0EOw123GT~NQV8zE2yg__",
+        "error": "TEST BLOCKED\n\nThe ballot upload and count test could not be completed — the required ballots.csv file was not provided for this test.\n\nObservations:\n- The election upload page displays an “Open file” control and a “Count” button.\n- The ballot textarea contains sample data, not the requested ballot data.",
+        "fix": "Ensure the deployed upload workflow can accept the required ballots.csv input for the test: provide the correct ballots.csv file in the test fixture/storage path, wire the file picker to load that exact CSV into the textarea or upload handler, and remove any fallback/sample ballot prefill on the election upload page. If the app is reading from a mocked/demo dataset in production, switch it to the real test data source or make the page honor the uploaded CSV contents before enabling Count.",
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/7c4a3ca1-b083-439c-8ecd-7e600337518d"
+      },
+      {
+        "id": "39d075f1-2eae-4c4f-b1c4-46b5743e33d6",
+        "title": "ui:sankey-tooltip",
+        "slug": "TC-026",
+        "status": "BLOCKED",
+        "screenshotUrl": "https://d2einizr4etxpc.cloudfront.net/20261019-212332-bda161eb/25.jpeg?Expires=1950125249&Key-Pair-Id=K2CODXZ0C0KNJE&Signature=XYsjcyxYeWuaHNypybC1o4C7-hpzZqUQPjJ0NWb-YoidNR75NVefVzZQzd6NZ2LTHT~KKwp0jkxnOKmFNJtptcfFXjW1PPLxIJX5pGDtBT33LAY38d598R4UrXaF-3arlHqgNL78qsjx3YytgYF9ZDSAHgDW1JmxW9J9gmtf-XLbs2j8fjwb1iKAfHNWcKCb0MACbqMFYaN9KLh-AHof77lZ0c-GnmRGmVzpUMuh-Z~M7iyFfmBmCD~U4Obj93I0103VPr5Syw69vNiVQyHU6gKpjtBNxwl64eqfw-5fCq7YIYBev56fc5XgMrWcVPV568rkw1RUZn-66gc5ln0sQw__",
+        "error": "TEST BLOCKED\n\nThe flow tooltip could not be verified. The chart is visible, but keyboard navigation did not expose the tooltip, so its flow text, ballot count, and percentage of source remain unconfirmed.\n\nObservations:\n- The Alaska 2022 special election results and transfer chart are displayed.\n- The first flow’s label was observed as “Palin, Sarah to Palin, Sarah: 58,973 ballots.”\n- No tooltip text or percentage followed by “of source” was observed.",
+        "fix": "Make the flow chart’s tooltip reachable and populated for keyboard users on the hosted page. Add explicit focusable elements or keyboard handlers for each flow segment, and ensure focus/hover events trigger the same tooltip content used by mouse interactions. Verify the tooltip is rendered in the DOM with accessible text that includes the flow name, ballot count, and percentage in the expected format (including “of source”). If the chart library uses SVG paths or canvas, provide an accessible overlay or aria-described-by text tied to each flow so automated keyboard navigation can expose the tooltip consistently.",
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/39d075f1-2eae-4c4f-b1c4-46b5743e33d6"
+      },
+      {
+        "id": "687aaa3a-16af-4a6e-ae29-8d0fbba7a18c",
+        "title": "ui:unknown-election",
+        "slug": "TC-027",
+        "status": "PASSED",
+        "screenshotUrl": "https://d2einizr4etxpc.cloudfront.net/20261019-212332-d691be93/3.jpeg?Expires=1950125249&Key-Pair-Id=K2CODXZ0C0KNJE&Signature=RAEPW51rM6yLIJzKDG0KGlCufhwOeZKX-PsWCiKGcK4ZcBCIHlsqXqHXWO8utOcMQfPtHmJ7Aa1hnVQI4FIH-YGAqkUX3XG7F5wrFiKlIBlOjJBDBMKh6qKPZvq0XzoI~-kSEWhyzFyFHRUkBmtLwFSuh46sMFLUAakW-i2lrVleqiMegdtNi6qbFWRixrAp6pLae2ngwgqah3JG81LdG2ZIOkQ4Jv2h0Jzu4U2y8zokxZ6qdByofujkLv4oVvPQiLLmPAQW4SfnCM3Y-J8j0mWpf4AZlyb1IDHXAiN1tuOSH-oDT1N9ZakN4Xx45Hi6jb22Bwtcd3FT8lS47mt~qQ__",
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/687aaa3a-16af-4a6e-ae29-8d0fbba7a18c"
+      },
+      {
+        "id": "100ba676-2c7e-4ccf-bb70-5c2b5e764794",
+        "title": "ui:dash-nyc",
+        "slug": "TC-003",
+        "status": "PASSED",
+        "screenshotUrl": "https://d2einizr4etxpc.cloudfront.net/20261019-212332-9a9c0da3/37.jpeg?Expires=1950125249&Key-Pair-Id=K2CODXZ0C0KNJE&Signature=MQ3gAQZIoiXm-ZJjAibH~B9wwzCDfX6RmUTDUQZKw-s4dDsFOZaWk7LrfJUUAz9HSxWHNaM-BlniB-6CJcWymDFFzOLa24sEqOQzrOtyKJmyu~fm6SWj94zsp74ZjQlS5cIdXPws5hYM3hhBNyXKekWB6Edb99VOcPMBL8uu2n6f08Qa6-eLQh7fbWb-pb4QLEKHdcpeg6abEeU7mN-U42dqKxMV2OCMzFC87diInD78bwIOtYhBtiPeOq8GsW~61ViuOn2M97sm-Rf~UpHkSVnvERR9no3TLc81qAYt8RHwAVl343VERqDvErtdumVmIi7zpC32YJ69wdXw4SxCrw__",
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/100ba676-2c7e-4ccf-bb70-5c2b5e764794"
+      },
+      {
+        "id": "eb047977-aa66-45f7-aa71-50968d10d717",
+        "title": "ui:upload-tie",
+        "slug": "TC-034",
+        "status": "PASSED",
+        "screenshotUrl": "https://d2einizr4etxpc.cloudfront.net/20261019-212332-9ed3d658/51.jpeg?Expires=1950125249&Key-Pair-Id=K2CODXZ0C0KNJE&Signature=iET8NxqhX4XP7YP-GfGWeSlj2sRsq~k~u7pDdW~d36RZee70B-~uEfmiSs-kIM~Etvqz-Z8jhFuERL6mw7-tgLnBPPqm5Bt0GE00Wd0I8fTpItupqR4eFj3yJfZGBlW3EEdNcJj4qgFJsk2ANLyeqLzDkALN2QpA8bPVXk12OKw1bz9V5wCILs2VX6yN3H5ear9EGk5-1PnPZ00fUk2QJwtO071Bgc3BNNDT2OSZXhQNVjCpo8lW9Q~XuQ61CT8VJ1~xhl-ndw2c8foUAt0mJ~0g3G6tDnQjIfDeclBWiKIK3NFKgQ6Bju9GVhE2aQ42OCUWyCz6nnWjvdAHn8gQCA__",
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/eb047977-aa66-45f7-aa71-50968d10d717"
+      },
+      {
+        "id": "e6d52134-b5ea-4f6e-b90d-db82fe908d44",
+        "title": "ui:sankey-final-round",
+        "slug": "TC-024",
+        "status": "PASSED",
+        "screenshotUrl": "https://d2einizr4etxpc.cloudfront.net/20261019-212332-fa52bddc/51.jpeg?Expires=1950125249&Key-Pair-Id=K2CODXZ0C0KNJE&Signature=fLiGhjYz5qAIVVgG6lm4ziV38nPoz3LB2hmKlIoXGK-ABF9NKXI70Y9dHgBYzh8lwtYsdheQ~pZ-F-XaJd-ny2CUf2NHNk60Ye2UQPyZPIMwVzrkP191nHN0w9CF~p6ROQfE~Ph7N0zzQcPpyWjCmO7fYMS5K4GoB3rLE2G-cqRIMVXLvZZtSxzHzDpW1xd62CBtpKxf4VJryUmaUhpHA0Tf3yW39~zupqba2-Pg7wmgpjONeEzg624VWgiXZMEGHTzbku3z-xbJ3zf1z5X4xG1tLDBv~SPW4MAQxBqnynU2w3FPZltpSTvTNsQTUGRENPgw7-PwHVaM5YtsxHUf2w__",
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/e6d52134-b5ea-4f6e-b90d-db82fe908d44"
+      },
+      {
+        "id": "710de71b-7ae8-4448-a53b-4c01d3e62f48",
+        "title": "ui:not-found",
+        "slug": "TC-015",
+        "status": "PASSED",
+        "screenshotUrl": "https://d2einizr4etxpc.cloudfront.net/20261019-212332-387aa5bb/3.jpeg?Expires=1950125249&Key-Pair-Id=K2CODXZ0C0KNJE&Signature=mAocI20nJZPjDb~9ghN3KORi8kebUVxvbSe8n~d7qeMNSxLXdl2QAX44EKrlcsMEMkuiBbGk0pb8FYA3qcjoVIrYU-yqMeLzBONp2I12EV1gWwTbH-YnbMS~YwC6GZIxSMJ9jM3XxBBVPnRo~7X0iXjDWAwRACgglPF~NQAV9e3kEtN8M2SZaBnccNukXhUC0TIoQL-mTmFoa~ao4vXnsiDBg98ptuEAL-PttE9TdwZggZuCOiHxFnSnkAqJFJ9W3VynrOH0C7ko2DrMlW6T~W24WtaSzdtssdESRYaYmTRg~m65kZHa6mVHJpkmNatXDFHjs5sBLWzpl211pmZ6JQ__",
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/710de71b-7ae8-4448-a53b-4c01d3e62f48"
+      },
+      {
+        "id": "a28fa91c-f008-43ea-a171-599f85bc0953",
+        "title": "ui:nav-anchors",
+        "slug": "TC-013",
+        "status": "PASSED",
+        "screenshotUrl": "https://d2einizr4etxpc.cloudfront.net/20261019-212332-e72b33b2/47.jpeg?Expires=1950125249&Key-Pair-Id=K2CODXZ0C0KNJE&Signature=RPgVrKiqawKZpReffEohVAHTvKUfF938prm2-8vjzId4SnwYpsfyvUEIA6r6vFmoXUzdHFdrG9nk47V5cdzRyNaDHl21xNmXr20RgPpRKK6fgYqaFXlQIFD3Wg5aHV1rhAcvoJ6YdQZM7~FDG-zU9zKZj~hM7uAI59CzenELbqoL~wnVN3ls0IG2teCLpNgKcJnTa47mRD95B8JRHhOCl~Z1wdntFrBDqt5JZUVdjUR9i3-cVDOskCKjXsNLXa69c1mufdfSNlYt5-PK1LahZVQkNcXT0fhXs9yUjgyERKPfxAdKwZY9B1kv-QdfYKOgr64wjn9~LF8nuQzErAckFA__",
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/a28fa91c-f008-43ea-a171-599f85bc0953"
+      },
+      {
+        "id": "92d61a7b-68f2-4831-b0fb-bd7f95ee85ca",
+        "title": "ui:parity-open-nyc",
+        "slug": "TC-017",
+        "status": "PASSED",
+        "screenshotUrl": "https://d2einizr4etxpc.cloudfront.net/20261019-212332-6b822738/4.jpeg?Expires=1950125249&Key-Pair-Id=K2CODXZ0C0KNJE&Signature=f4sGDJKEtu1nV3uCDzYrGhbOT8qzdfzDvDFF20EJfd9ARQuyGZ-cOUlYX597tuS1RKgFOjRXcWvfPU-bAfbs1t54qu~KYrZCzky3mYXT0i-5xpZ3sRmImmAdpm~yZI-4uZpAkBRQSXI6zVIGihaM2XJ4OvLK0GVjAiEpYyPhIeOGfQJcplaI~QnEmyR1jP7kwrIbEajIjB8S3mlE0jCOV-hivy-0QnajCWfhtweYnUgeIBQXa6cH0zRQ5FuN1zSqPu5BfO7cP8rT29N6-aiociILftf8NkDUxLnKdbH1~ND8tcYD8NTDDAt~Iadog5RGBXHle0YORoMt1H-~5UNwcA__",
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/92d61a7b-68f2-4831-b0fb-bd7f95ee85ca"
+      },
+      {
+        "id": "4f0fcee3-f58c-4a37-ac57-8cde36ad5660",
+        "title": "ui:dash-alaska",
+        "slug": "TC-001",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/4f0fcee3-f58c-4a37-ac57-8cde36ad5660"
+      },
+      {
+        "id": "ef817a88-1c55-44d1-95ed-efdddda90695",
+        "title": "ui:round-keyboard",
+        "slug": "TC-019",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/ef817a88-1c55-44d1-95ed-efdddda90695"
+      },
+      {
+        "id": "dcc490bf-c756-4562-bbaa-83ffd2ff4691",
+        "title": "ui:upload-no-ballots",
+        "slug": "TC-032",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/dcc490bf-c756-4562-bbaa-83ffd2ff4691"
+      },
+      {
+        "id": "5d38b7eb-29e3-4cef-9d6e-71b069b6dfa6",
+        "title": "ui:hero-pause",
+        "slug": "TC-007",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/5d38b7eb-29e3-4cef-9d6e-71b069b6dfa6"
+      },
+      {
+        "id": "015e3572-45dc-43bc-a405-ba9f49019099",
+        "title": "ui:upload-stv",
+        "slug": "TC-033",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/015e3572-45dc-43bc-a405-ba9f49019099"
+      },
+      {
+        "id": "fbd8783f-0f26-4b1b-b7e9-aef4f1f1d718",
+        "title": "ui:upload-malformed",
+        "slug": "TC-031",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/fbd8783f-0f26-4b1b-b7e9-aef4f1f1d718"
+      },
+      {
+        "id": "db5ef6f9-722d-4d9f-86a7-16551bb0295a",
+        "title": "ui:election-switch",
+        "slug": "TC-004",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/db5ef6f9-722d-4d9f-86a7-16551bb0295a"
+      },
+      {
+        "id": "5b2d1b4a-0fa7-4ba4-82ae-808faa393649",
+        "title": "ui:hero-rail",
+        "slug": "TC-008",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/5b2d1b4a-0fa7-4ba4-82ae-808faa393649"
+      },
+      {
+        "id": "d836f66f-2649-4ae2-9dd6-0dff223093e4",
+        "title": "ui:sankey-render",
+        "slug": "TC-025",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/d836f66f-2649-4ae2-9dd6-0dff223093e4"
+      },
+      {
+        "id": "6855a73d-2e88-4945-97e5-10a2ac6652dc",
+        "title": "ui:rounds-table-nyc",
+        "slug": "TC-023",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/6855a73d-2e88-4945-97e5-10a2ac6652dc"
+      },
+      {
+        "id": "bb024f4c-cb60-4444-b5db-59c8b6e1b0d2",
+        "title": "ui:nav-cta",
+        "slug": "TC-014",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/bb024f4c-cb60-4444-b5db-59c8b6e1b0d2"
+      },
+      {
+        "id": "97bc8293-60ce-415c-8338-ff24a2d2964a",
+        "title": "ui:rounds-table-maine",
+        "slug": "TC-022",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/97bc8293-60ce-415c-8338-ff24a2d2964a"
+      },
+      {
+        "id": "f201d62c-0865-4cc5-bf3d-188d0ca2786c",
+        "title": "ui:landing-hero",
+        "slug": "TC-011",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/f201d62c-0865-4cc5-bf3d-188d0ca2786c"
+      },
+      {
+        "id": "ed1bd8d7-c6e5-4385-8edb-884b3885ea11",
+        "title": "ui:dash-maine",
+        "slug": "TC-002",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/ed1bd8d7-c6e5-4385-8edb-884b3885ea11"
+      },
+      {
+        "id": "11527a07-b976-4944-b7e9-2e353d4b3137",
+        "title": "ui:parity-ledger",
+        "slug": "TC-016",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/11527a07-b976-4944-b7e9-2e353d4b3137"
+      },
+      {
+        "id": "a6b71cac-2026-45f1-8b00-fed68a518a0b",
+        "title": "ui:hero-autoplay",
+        "slug": "TC-005",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/a6b71cac-2026-45f1-8b00-fed68a518a0b"
+      },
+      {
+        "id": "419df23f-4cd8-49dd-ab2b-12fa4f667680",
+        "title": "ui:round-deeplink",
+        "slug": "TC-018",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/419df23f-4cd8-49dd-ab2b-12fa4f667680"
+      },
+      {
+        "id": "21627995-e2e0-4981-ad48-28f53128d418",
+        "title": "ui:hero-restart",
+        "slug": "TC-009",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/21627995-e2e0-4981-ad48-28f53128d418"
+      },
+      {
+        "id": "2ea26df5-9396-43df-a6de-e1eff9033885",
+        "title": "ui:upload-irv-sample",
+        "slug": "TC-030",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/2ea26df5-9396-43df-a6de-e1eff9033885"
+      },
+      {
+        "id": "41af4293-81b2-4300-b387-d1e522240a17",
+        "title": "ui:hero-step",
+        "slug": "TC-010",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/41af4293-81b2-4300-b387-d1e522240a17"
+      },
+      {
+        "id": "c0b778f9-371d-44cd-8b9b-e71003f5bc55",
+        "title": "ui:round-step",
+        "slug": "TC-020",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/c0b778f9-371d-44cd-8b9b-e71003f5bc55"
+      },
+      {
+        "id": "5453e662-3296-4993-a955-7b74635724b9",
+        "title": "ui:hero-keyboard",
+        "slug": "TC-006",
+        "status": "PASSED",
+        "screenshotUrl": null,
+        "error": "",
+        "fix": null,
+        "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7/test/5453e662-3296-4993-a955-7b74635724b9"
+      }
+    ],
+    "resultUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/a73e8898-63bd-4d2c-8981-969b0d7f2ae7"
+  }
+}

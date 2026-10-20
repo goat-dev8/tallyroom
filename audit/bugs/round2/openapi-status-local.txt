@@ -1,0 +1,13 @@
+# Round 2 OpenAPI status audit, local next start of fix/review-bugs 8c1feb7, 2026-10-20 22:18 Cairo (UTC+3). documented = response codes in this build's GET /api/openapi
+POST /api/report (4.4MB text)                                  documented=200,400,422      got=413  {"error":{"code":"PAYLOAD_TOO_LARGE","message":"Ballot file too large (max 4 MB)","details":{"maxBytes":4194304}}}
+PUT /api/report                                                documented=(not an op)      got=405  {"error":{"code":"METHOD_NOT_ALLOWED","message":"Method not allowed","details":null}}
+POST /api/elections                                            documented=(not an op)      got=405  {"error":{"code":"METHOD_NOT_ALLOWED","message":"Method not allowed","details":null}}
+POST /api/options                                              documented=(not an op)      got=405  {"error":{"code":"METHOD_NOT_ALLOWED","message":"Method not allowed","details":null}}
+POST /api/openapi                                              documented=(not an op)      got=405  {"error":{"code":"METHOD_NOT_ALLOWED","message":"Method not allowed","details":null}}
+GET /api/mcp                                                   documented=(not an op)      got=405  {"jsonrpc":"2.0","id":null,"error":{"code":-32000,"message":"Use POST"}}
+DELETE /api/mcp                                                documented=(not an op)      got=405  {"jsonrpc":"2.0","id":null,"error":{"code":-32000,"message":"Use POST"}}
+POST /api/mcp (invalid JSON)                                   documented=200,202          got=400  {"jsonrpc":"2.0","id":null,"error":{"code":-32700,"message":"Parse error"}}
+POST /api/elections/nope/tabulate                              documented=200,404          got=404  {"error":{"code":"UNKNOWN_ELECTION","message":"Unknown election \"nope\"","details":{"id":"nope"}}}
+POST /api/elections/maine-2018-cd2/tabulate (bad rules)        documented=200,404          got=200  {"engineVersion":"0.1.0","method":"irv","id":"maine-2018-cd2","certifiedWinner":"DEM Golden, Jared F.","candidates":["REP Poliquin, Bruce","
+POST /api/elections/maine-2018-cd2/tabulate (invalid JSON)     documented=200,404          got=200  {"engineVersion":"0.1.0","method":"irv","id":"maine-2018-cd2","certifiedWinner":"DEM Golden, Jared F.","candidates":["REP Poliquin, Bruce","
+GET /api/elections/maine-2018-cd2/tabulate                     documented=(not an op)      got=405  {"error":{"code":"METHOD_NOT_ALLOWED","message":"Method not allowed","details":null}}

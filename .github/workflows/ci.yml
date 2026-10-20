@@ -42,3 +42,31 @@ jobs:
           name: vitest-junit
           path: vitest-junit.xml
           if-no-files-found: ignore
+
+  e2e:
+    name: playwright e2e
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Build and start (local, no Vercel deploy)
+        run: |
+          npm run build
+          npx next start -p 3100 > next.log 2>&1 &
+          for i in $(seq 60); do curl -sf http://localhost:3100/api/health >/dev/null && break; sleep 2; done
+      - name: Playwright (desktop-1440 + mobile-390)
+        run: npx playwright test
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright
+          path: |
+            test-results/
+            next.log
+          if-no-files-found: ignore

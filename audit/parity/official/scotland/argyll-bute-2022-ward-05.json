@@ -1,0 +1,245 @@
+{
+ "council": "Argyll and Bute",
+ "year": 2022,
+ "ward": "Ward 5 - Oban North and Lorn",
+ "source": "ab2022-candidatevotesperstagereport_v0001_ward-5-oban-north-and-lorn_06052022_150341.pdf",
+ "sha256": "c86e589d1926ca1b005b9229023910c10b8a1a01f0faa1f4003c19bbb406dca7",
+ "ballotSource": "ab2022-preferenceprofile_v0005_ward-5-oban-north-and-lorn_06052022_151453.blt",
+ "ballotSha256": "bb2520775c9871b0a88b3c2609e30cc09122593391fe94baf0551b0c7e54d200",
+ "ballotsReceived": 4130,
+ "validVotes": 4097,
+ "seats": 4,
+ "quota": 820,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Linda BATTISON": "466",
+    "Kyle CAMPBELL-RENTON": "198",
+    "Veronica DAVIS": "267",
+    "Angus FILES": "117",
+    "Kieron GREEN": "632",
+    "Luna MARTIN": "396",
+    "Julie MCKENZIE": "1254",
+    "Andrew VENNARD": "767",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Julie MCKENZIE"
+   ],
+   "total": "4097"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Julie MCKENZIE",
+    "amount": "434.00000"
+   },
+   "transferred": {
+    "Linda BATTISON": "24.22630",
+    "Kyle CAMPBELL-RENTON": "25.26457",
+    "Veronica DAVIS": "23.88021",
+    "Angus FILES": "41.87689",
+    "Kieron GREEN": "47.06824",
+    "Luna MARTIN": "186.54251",
+    "Julie MCKENZIE": "-434.00000",
+    "Andrew VENNARD": "5.53744",
+    "nonTransferable": "79.60070",
+    "rounding": "0.00314"
+   },
+   "votes": {
+    "Linda BATTISON": "490.22630",
+    "Kyle CAMPBELL-RENTON": "223.26457",
+    "Veronica DAVIS": "290.88021",
+    "Angus FILES": "158.87689",
+    "Kieron GREEN": "679.06824",
+    "Luna MARTIN": "582.54251",
+    "Julie MCKENZIE": "820.00000",
+    "Andrew VENNARD": "772.53744",
+    "nonTransferable": "79.60070",
+    "rounding": "0.00314"
+   },
+   "elected": [],
+   "total": "4097.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Angus FILES",
+    "amount": "158.87689"
+   },
+   "transferred": {
+    "Linda BATTISON": "29.15308",
+    "Kyle CAMPBELL-RENTON": "22.46090",
+    "Veronica DAVIS": "14.46090",
+    "Angus FILES": "-158.87689",
+    "Kieron GREEN": "23.88353",
+    "Luna MARTIN": "41.53578",
+    "Julie MCKENZIE": "0.00000",
+    "Andrew VENNARD": "7.03827",
+    "nonTransferable": "20.34443",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Linda BATTISON": "519.37938",
+    "Kyle CAMPBELL-RENTON": "245.72547",
+    "Veronica DAVIS": "305.34111",
+    "Angus FILES": "0.00000",
+    "Kieron GREEN": "702.95177",
+    "Luna MARTIN": "624.07829",
+    "Julie MCKENZIE": "820.00000",
+    "Andrew VENNARD": "779.57571",
+    "nonTransferable": "99.94827",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "4097.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Kyle CAMPBELL-RENTON",
+    "amount": "245.72547"
+   },
+   "transferred": {
+    "Linda BATTISON": "52.46090",
+    "Kyle CAMPBELL-RENTON": "-245.72547",
+    "Veronica DAVIS": "13.38436",
+    "Angus FILES": "0.00000",
+    "Kieron GREEN": "45.15308",
+    "Luna MARTIN": "92.80533",
+    "Julie MCKENZIE": "0.00000",
+    "Andrew VENNARD": "8.69218",
+    "nonTransferable": "33.22962",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Linda BATTISON": "571.84028",
+    "Kyle CAMPBELL-RENTON": "0.00000",
+    "Veronica DAVIS": "318.72547",
+    "Angus FILES": "0.00000",
+    "Kieron GREEN": "748.10485",
+    "Luna MARTIN": "716.88362",
+    "Julie MCKENZIE": "820.00000",
+    "Andrew VENNARD": "788.26789",
+    "nonTransferable": "133.17789",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "4097.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Veronica DAVIS",
+    "amount": "318.72547"
+   },
+   "transferred": {
+    "Linda BATTISON": "59.80699",
+    "Kyle CAMPBELL-RENTON": "0.00000",
+    "Veronica DAVIS": "-318.72547",
+    "Angus FILES": "0.00000",
+    "Kieron GREEN": "63.80699",
+    "Luna MARTIN": "67.34443",
+    "Julie MCKENZIE": "0.00000",
+    "Andrew VENNARD": "54.38436",
+    "nonTransferable": "73.38270",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Linda BATTISON": "631.64727",
+    "Kyle CAMPBELL-RENTON": "0.00000",
+    "Veronica DAVIS": "0.00000",
+    "Angus FILES": "0.00000",
+    "Kieron GREEN": "811.91184",
+    "Luna MARTIN": "784.22805",
+    "Julie MCKENZIE": "820.00000",
+    "Andrew VENNARD": "842.65225",
+    "nonTransferable": "206.56059",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Andrew VENNARD"
+   ],
+   "total": "4097.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Andrew VENNARD",
+    "amount": "22.65225"
+   },
+   "transferred": {
+    "Linda BATTISON": "5.35944",
+    "Kyle CAMPBELL-RENTON": "0.00000",
+    "Veronica DAVIS": "0.00000",
+    "Angus FILES": "0.00000",
+    "Kieron GREEN": "7.15212",
+    "Luna MARTIN": "1.13928",
+    "Julie MCKENZIE": "0.00000",
+    "Andrew VENNARD": "-22.65225",
+    "nonTransferable": "8.99958",
+    "rounding": "0.00183"
+   },
+   "votes": {
+    "Linda BATTISON": "637.00671",
+    "Kyle CAMPBELL-RENTON": "0.00000",
+    "Veronica DAVIS": "0.00000",
+    "Angus FILES": "0.00000",
+    "Kieron GREEN": "819.06396",
+    "Luna MARTIN": "785.36733",
+    "Julie MCKENZIE": "820.00000",
+    "Andrew VENNARD": "820.00000",
+    "nonTransferable": "215.56017",
+    "rounding": "0.00183"
+   },
+   "elected": [],
+   "total": "4097.00000"
+  },
+  {
+   "stage": 7,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Linda BATTISON",
+    "amount": "637.00671"
+   },
+   "transferred": {
+    "Linda BATTISON": "-637.00671",
+    "Kyle CAMPBELL-RENTON": "0.00000",
+    "Veronica DAVIS": "0.00000",
+    "Angus FILES": "0.00000",
+    "Kieron GREEN": "288.46436",
+    "Luna MARTIN": "112.18650",
+    "Julie MCKENZIE": "0.00000",
+    "Andrew VENNARD": "0.00000",
+    "nonTransferable": "236.35585",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Linda BATTISON": "0.00000",
+    "Kyle CAMPBELL-RENTON": "0.00000",
+    "Veronica DAVIS": "0.00000",
+    "Angus FILES": "0.00000",
+    "Kieron GREEN": "1107.52832",
+    "Luna MARTIN": "897.55383",
+    "Julie MCKENZIE": "820.00000",
+    "Andrew VENNARD": "820.00000",
+    "nonTransferable": "451.91785",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Kieron GREEN",
+    "Luna MARTIN"
+   ],
+   "total": "4097.00000"
+  }
+ ]
+}

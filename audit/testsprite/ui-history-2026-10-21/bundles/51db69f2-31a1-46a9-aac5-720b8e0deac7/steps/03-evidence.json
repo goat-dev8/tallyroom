@@ -1,0 +1,8 @@
+[
+  {
+    "kind": "snapshot",
+    "stepIndex": 3,
+    "summary": "Step 3 'The Golden row shows 132,013 in R1 and 142,440 in R2.' failed. Error: TEST FAILURE\n\nThe candidate and inactive ballot values match the requested results. The Bond row’s second-round cell is marked “Eliminated” rather than showing the expected em dash.\n\nObservations:\n- Poliquin: R1 134,184; R2 138,931. Golden: R1 132,013; R2 142,440.\n- Inactive: R1 6,453; R2 14,706.\n- Bond: R1 16,552; R2 cell is marked “Eliminated.”",
+    "path": "steps/03-snapshot.html"
+  }
+]

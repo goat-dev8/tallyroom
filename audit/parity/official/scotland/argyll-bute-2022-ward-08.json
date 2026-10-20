@@ -1,0 +1,329 @@
+{
+ "council": "Argyll and Bute",
+ "year": 2022,
+ "ward": "Ward 8 - Isle of Bute",
+ "source": "ab2022-candidatevotesperstagereport_v0001_ward-8-isle-of-bute_06052022_164637.pdf",
+ "sha256": "92336142cb3958343ac61391ada63ec51eff1e7011d01951f2f07f71b47a6972",
+ "ballotSource": "ab2022-preferenceprofile_v0009_ward-8-isle-of-bute_06052022_165355.blt",
+ "ballotSha256": "0ca060061e1548489a6919101a08e837323593305e0dd30f80871bba070573b6",
+ "ballotsReceived": 2363,
+ "validVotes": 2331,
+ "seats": 3,
+ "quota": 583,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Fraser GILLIES": "202",
+    "Reeni KENNEDY-BOYLE": "591",
+    "Dawn MALCOLM": "101",
+    "Liz MCCABE": "553",
+    "Derek John MCFARLANE": "25",
+    "Robert MCGOWAN": "55",
+    "Jean Murray MOFFAT": "320",
+    "Ewan STUART": "70",
+    "Peter WALLACE": "414",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Reeni KENNEDY-BOYLE"
+   ],
+   "total": "2331"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Reeni KENNEDY-BOYLE",
+    "amount": "8.00000"
+   },
+   "transferred": {
+    "Fraser GILLIES": "0.48708",
+    "Reeni KENNEDY-BOYLE": "-8.00000",
+    "Dawn MALCOLM": "0.50061",
+    "Liz MCCABE": "1.44771",
+    "Derek John MCFARLANE": "0.10824",
+    "Robert MCGOWAN": "0.62238",
+    "Jean Murray MOFFAT": "1.09593",
+    "Ewan STUART": "1.88067",
+    "Peter WALLACE": "0.08118",
+    "nonTransferable": "1.77243",
+    "rounding": "0.00377"
+   },
+   "votes": {
+    "Fraser GILLIES": "202.48708",
+    "Reeni KENNEDY-BOYLE": "583.00000",
+    "Dawn MALCOLM": "101.50061",
+    "Liz MCCABE": "554.44771",
+    "Derek John MCFARLANE": "25.10824",
+    "Robert MCGOWAN": "55.62238",
+    "Jean Murray MOFFAT": "321.09593",
+    "Ewan STUART": "71.88067",
+    "Peter WALLACE": "414.08118",
+    "nonTransferable": "1.77243",
+    "rounding": "0.00377"
+   },
+   "elected": [],
+   "total": "2331.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Derek John MCFARLANE",
+    "amount": "25.10824"
+   },
+   "transferred": {
+    "Fraser GILLIES": "3.00000",
+    "Reeni KENNEDY-BOYLE": "0.00000",
+    "Dawn MALCOLM": "5.02706",
+    "Liz MCCABE": "3.00000",
+    "Derek John MCFARLANE": "-25.10824",
+    "Robert MCGOWAN": "0.00000",
+    "Jean Murray MOFFAT": "5.01353",
+    "Ewan STUART": "2.04059",
+    "Peter WALLACE": "4.01353",
+    "nonTransferable": "3.01353",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Fraser GILLIES": "205.48708",
+    "Reeni KENNEDY-BOYLE": "583.00000",
+    "Dawn MALCOLM": "106.52767",
+    "Liz MCCABE": "557.44771",
+    "Derek John MCFARLANE": "0.00000",
+    "Robert MCGOWAN": "55.62238",
+    "Jean Murray MOFFAT": "326.10946",
+    "Ewan STUART": "73.92126",
+    "Peter WALLACE": "418.09471",
+    "nonTransferable": "4.78973",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "2331.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Robert MCGOWAN",
+    "amount": "55.62238"
+   },
+   "transferred": {
+    "Fraser GILLIES": "4.02706",
+    "Reeni KENNEDY-BOYLE": "0.00000",
+    "Dawn MALCOLM": "2.05412",
+    "Liz MCCABE": "16.09471",
+    "Derek John MCFARLANE": "0.00000",
+    "Robert MCGOWAN": "-55.62238",
+    "Jean Murray MOFFAT": "18.13530",
+    "Ewan STUART": "5.27060",
+    "Peter WALLACE": "0.00000",
+    "nonTransferable": "10.04059",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Fraser GILLIES": "209.51414",
+    "Reeni KENNEDY-BOYLE": "583.00000",
+    "Dawn MALCOLM": "108.58179",
+    "Liz MCCABE": "573.54242",
+    "Derek John MCFARLANE": "0.00000",
+    "Robert MCGOWAN": "0.00000",
+    "Jean Murray MOFFAT": "344.24476",
+    "Ewan STUART": "79.19186",
+    "Peter WALLACE": "418.09471",
+    "nonTransferable": "14.83032",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "2331.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Ewan STUART",
+    "amount": "79.19186"
+   },
+   "transferred": {
+    "Fraser GILLIES": "4.20295",
+    "Reeni KENNEDY-BOYLE": "0.00000",
+    "Dawn MALCOLM": "20.35178",
+    "Liz MCCABE": "16.41943",
+    "Derek John MCFARLANE": "0.00000",
+    "Robert MCGOWAN": "0.00000",
+    "Jean Murray MOFFAT": "14.31119",
+    "Ewan STUART": "-79.19186",
+    "Peter WALLACE": "4.00000",
+    "nonTransferable": "19.90651",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Fraser GILLIES": "213.71709",
+    "Reeni KENNEDY-BOYLE": "583.00000",
+    "Dawn MALCOLM": "128.93357",
+    "Liz MCCABE": "589.96185",
+    "Derek John MCFARLANE": "0.00000",
+    "Robert MCGOWAN": "0.00000",
+    "Jean Murray MOFFAT": "358.55595",
+    "Ewan STUART": "0.00000",
+    "Peter WALLACE": "422.09471",
+    "nonTransferable": "34.73683",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Liz MCCABE"
+   ],
+   "total": "2331.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Liz MCCABE",
+    "amount": "6.96185"
+   },
+   "transferred": {
+    "Fraser GILLIES": "1.43065",
+    "Reeni KENNEDY-BOYLE": "0.00000",
+    "Dawn MALCOLM": "0.46200",
+    "Liz MCCABE": "-6.96185",
+    "Derek John MCFARLANE": "0.00000",
+    "Robert MCGOWAN": "0.00000",
+    "Jean Murray MOFFAT": "2.46280",
+    "Ewan STUART": "0.00000",
+    "Peter WALLACE": "0.77910",
+    "nonTransferable": "1.82560",
+    "rounding": "0.00170"
+   },
+   "votes": {
+    "Fraser GILLIES": "215.14774",
+    "Reeni KENNEDY-BOYLE": "583.00000",
+    "Dawn MALCOLM": "129.39557",
+    "Liz MCCABE": "583.00000",
+    "Derek John MCFARLANE": "0.00000",
+    "Robert MCGOWAN": "0.00000",
+    "Jean Murray MOFFAT": "361.01875",
+    "Ewan STUART": "0.00000",
+    "Peter WALLACE": "422.87381",
+    "nonTransferable": "36.56243",
+    "rounding": "0.00170"
+   },
+   "elected": [],
+   "total": "2331.00000"
+  },
+  {
+   "stage": 7,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Dawn MALCOLM",
+    "amount": "129.39557"
+   },
+   "transferred": {
+    "Fraser GILLIES": "26.14063",
+    "Reeni KENNEDY-BOYLE": "0.00000",
+    "Dawn MALCOLM": "-129.39557",
+    "Liz MCCABE": "0.00000",
+    "Derek John MCFARLANE": "0.00000",
+    "Robert MCGOWAN": "0.00000",
+    "Jean Murray MOFFAT": "23.27202",
+    "Ewan STUART": "0.00000",
+    "Peter WALLACE": "16.04735",
+    "nonTransferable": "63.93557",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Fraser GILLIES": "241.28837",
+    "Reeni KENNEDY-BOYLE": "583.00000",
+    "Dawn MALCOLM": "0.00000",
+    "Liz MCCABE": "583.00000",
+    "Derek John MCFARLANE": "0.00000",
+    "Robert MCGOWAN": "0.00000",
+    "Jean Murray MOFFAT": "384.29077",
+    "Ewan STUART": "0.00000",
+    "Peter WALLACE": "438.92116",
+    "nonTransferable": "100.49970",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "2331.00000"
+  },
+  {
+   "stage": 8,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Fraser GILLIES",
+    "amount": "241.28837"
+   },
+   "transferred": {
+    "Fraser GILLIES": "-241.28837",
+    "Reeni KENNEDY-BOYLE": "0.00000",
+    "Dawn MALCOLM": "0.00000",
+    "Liz MCCABE": "0.00000",
+    "Derek John MCFARLANE": "0.00000",
+    "Robert MCGOWAN": "0.00000",
+    "Jean Murray MOFFAT": "99.11270",
+    "Ewan STUART": "0.00000",
+    "Peter WALLACE": "46.27486",
+    "nonTransferable": "95.90081",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Fraser GILLIES": "0.00000",
+    "Reeni KENNEDY-BOYLE": "583.00000",
+    "Dawn MALCOLM": "0.00000",
+    "Liz MCCABE": "583.00000",
+    "Derek John MCFARLANE": "0.00000",
+    "Robert MCGOWAN": "0.00000",
+    "Jean Murray MOFFAT": "483.40347",
+    "Ewan STUART": "0.00000",
+    "Peter WALLACE": "485.19602",
+    "nonTransferable": "196.40051",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "2331.00000"
+  },
+  {
+   "stage": 9,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Jean Murray MOFFAT",
+    "amount": "483.40347"
+   },
+   "transferred": {
+    "Fraser GILLIES": "0.00000",
+    "Reeni KENNEDY-BOYLE": "0.00000",
+    "Dawn MALCOLM": "0.00000",
+    "Liz MCCABE": "0.00000",
+    "Derek John MCFARLANE": "0.00000",
+    "Robert MCGOWAN": "0.00000",
+    "Jean Murray MOFFAT": "-483.40347",
+    "Ewan STUART": "0.00000",
+    "Peter WALLACE": "148.60642",
+    "nonTransferable": "334.79705",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Fraser GILLIES": "0.00000",
+    "Reeni KENNEDY-BOYLE": "583.00000",
+    "Dawn MALCOLM": "0.00000",
+    "Liz MCCABE": "583.00000",
+    "Derek John MCFARLANE": "0.00000",
+    "Robert MCGOWAN": "0.00000",
+    "Jean Murray MOFFAT": "0.00000",
+    "Ewan STUART": "0.00000",
+    "Peter WALLACE": "633.80244",
+    "nonTransferable": "531.19756",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Peter WALLACE"
+   ],
+   "total": "2331.00000"
+  }
+ ]
+}

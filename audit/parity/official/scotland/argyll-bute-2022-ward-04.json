@@ -1,0 +1,404 @@
+{
+ "council": "Argyll and Bute",
+ "year": 2022,
+ "ward": "Ward 4 - Oban South and the Isles",
+ "source": "ab2022-candidatevotesperstagereport_v0001_ward-4-oban-south-and-the-isles_06052022_141919-ac.pdf",
+ "sha256": "e5582df313259be88085c01fd087e662dc961c0c806393769b3398436cdf41b3",
+ "ballotSource": "ab2022-preferenceprofile_v0004_ward-4-oban-south-and-the-isles_06052022_143143.blt",
+ "ballotSha256": "ff8ff93026fefc1696ad6be43c2f1164ae896440ae833831d491d58d8050d894",
+ "ballotsReceived": 3695,
+ "validVotes": 3633,
+ "seats": 4,
+ "quota": 727,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Gopi AGEER": "169",
+    "Henry Drummond BOSWELL": "188",
+    "Donnie CAMPBELL": "235",
+    "Amanda HAMPSEY": "452",
+    "Willie HUME": "615",
+    "Andrew KAIN": "295",
+    "Colin KENNEDY": "256",
+    "Jim LYNCH": "773",
+    "Jamie MCGRIGOR": "179",
+    "Phyl Stuart MEYER": "353",
+    "John WATSON": "118",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Jim LYNCH"
+   ],
+   "total": "3633"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Jim LYNCH",
+    "amount": "46.00000"
+   },
+   "transferred": {
+    "Gopi AGEER": "0.71400",
+    "Henry Drummond BOSWELL": "0.77350",
+    "Donnie CAMPBELL": "0.65450",
+    "Amanda HAMPSEY": "0.29750",
+    "Willie HUME": "29.98800",
+    "Andrew KAIN": "0.29750",
+    "Colin KENNEDY": "1.01150",
+    "Jim LYNCH": "-46.00000",
+    "Jamie MCGRIGOR": "1.48750",
+    "Phyl Stuart MEYER": "4.76000",
+    "John WATSON": "2.02300",
+    "nonTransferable": "3.98650",
+    "rounding": "0.00650"
+   },
+   "votes": {
+    "Gopi AGEER": "169.71400",
+    "Henry Drummond BOSWELL": "188.77350",
+    "Donnie CAMPBELL": "235.65450",
+    "Amanda HAMPSEY": "452.29750",
+    "Willie HUME": "644.98800",
+    "Andrew KAIN": "295.29750",
+    "Colin KENNEDY": "257.01150",
+    "Jim LYNCH": "727.00000",
+    "Jamie MCGRIGOR": "180.48750",
+    "Phyl Stuart MEYER": "357.76000",
+    "John WATSON": "120.02300",
+    "nonTransferable": "3.98650",
+    "rounding": "0.00650"
+   },
+   "elected": [],
+   "total": "3633.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "John WATSON",
+    "amount": "120.02300"
+   },
+   "transferred": {
+    "Gopi AGEER": "7.05950",
+    "Henry Drummond BOSWELL": "9.05950",
+    "Donnie CAMPBELL": "12.17850",
+    "Amanda HAMPSEY": "8.00000",
+    "Willie HUME": "3.59500",
+    "Andrew KAIN": "9.17850",
+    "Colin KENNEDY": "12.11900",
+    "Jim LYNCH": "0.00000",
+    "Jamie MCGRIGOR": "34.29750",
+    "Phyl Stuart MEYER": "11.17850",
+    "John WATSON": "-120.02300",
+    "nonTransferable": "13.35700",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Gopi AGEER": "176.77350",
+    "Henry Drummond BOSWELL": "197.83300",
+    "Donnie CAMPBELL": "247.83300",
+    "Amanda HAMPSEY": "460.29750",
+    "Willie HUME": "648.58300",
+    "Andrew KAIN": "304.47600",
+    "Colin KENNEDY": "269.13050",
+    "Jim LYNCH": "727.00000",
+    "Jamie MCGRIGOR": "214.78500",
+    "Phyl Stuart MEYER": "368.93850",
+    "John WATSON": "0.00000",
+    "nonTransferable": "17.35000",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3633.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Gopi AGEER",
+    "amount": "176.77350"
+   },
+   "transferred": {
+    "Gopi AGEER": "-176.77350",
+    "Henry Drummond BOSWELL": "57.23800",
+    "Donnie CAMPBELL": "10.00000",
+    "Amanda HAMPSEY": "19.00000",
+    "Willie HUME": "9.29750",
+    "Andrew KAIN": "10.00000",
+    "Colin KENNEDY": "7.00000",
+    "Jim LYNCH": "0.00000",
+    "Jamie MCGRIGOR": "12.05950",
+    "Phyl Stuart MEYER": "23.05950",
+    "John WATSON": "0.00000",
+    "nonTransferable": "29.11900",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Gopi AGEER": "0.00000",
+    "Henry Drummond BOSWELL": "255.07100",
+    "Donnie CAMPBELL": "257.83300",
+    "Amanda HAMPSEY": "479.29750",
+    "Willie HUME": "657.88050",
+    "Andrew KAIN": "314.47600",
+    "Colin KENNEDY": "276.13050",
+    "Jim LYNCH": "727.00000",
+    "Jamie MCGRIGOR": "226.84450",
+    "Phyl Stuart MEYER": "391.99800",
+    "John WATSON": "0.00000",
+    "nonTransferable": "46.46900",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3633.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Jamie MCGRIGOR",
+    "amount": "226.84450"
+   },
+   "transferred": {
+    "Gopi AGEER": "0.00000",
+    "Henry Drummond BOSWELL": "27.11900",
+    "Donnie CAMPBELL": "22.17850",
+    "Amanda HAMPSEY": "43.11900",
+    "Willie HUME": "9.11900",
+    "Andrew KAIN": "40.00000",
+    "Colin KENNEDY": "33.17850",
+    "Jim LYNCH": "0.00000",
+    "Jamie MCGRIGOR": "-226.84450",
+    "Phyl Stuart MEYER": "9.35700",
+    "John WATSON": "0.00000",
+    "nonTransferable": "42.77350",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Gopi AGEER": "0.00000",
+    "Henry Drummond BOSWELL": "282.19000",
+    "Donnie CAMPBELL": "280.01150",
+    "Amanda HAMPSEY": "522.41650",
+    "Willie HUME": "666.99950",
+    "Andrew KAIN": "354.47600",
+    "Colin KENNEDY": "309.30900",
+    "Jim LYNCH": "727.00000",
+    "Jamie MCGRIGOR": "0.00000",
+    "Phyl Stuart MEYER": "401.35500",
+    "John WATSON": "0.00000",
+    "nonTransferable": "89.24250",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3633.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Donnie CAMPBELL",
+    "amount": "280.01150"
+   },
+   "transferred": {
+    "Gopi AGEER": "0.00000",
+    "Henry Drummond BOSWELL": "20.05950",
+    "Donnie CAMPBELL": "-280.01150",
+    "Amanda HAMPSEY": "16.00000",
+    "Willie HUME": "38.29750",
+    "Andrew KAIN": "39.11900",
+    "Colin KENNEDY": "69.05950",
+    "Jim LYNCH": "0.00000",
+    "Jamie MCGRIGOR": "0.00000",
+    "Phyl Stuart MEYER": "35.17850",
+    "John WATSON": "0.00000",
+    "nonTransferable": "62.29750",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Gopi AGEER": "0.00000",
+    "Henry Drummond BOSWELL": "302.24950",
+    "Donnie CAMPBELL": "0.00000",
+    "Amanda HAMPSEY": "538.41650",
+    "Willie HUME": "705.29700",
+    "Andrew KAIN": "393.59500",
+    "Colin KENNEDY": "378.36850",
+    "Jim LYNCH": "727.00000",
+    "Jamie MCGRIGOR": "0.00000",
+    "Phyl Stuart MEYER": "436.53350",
+    "John WATSON": "0.00000",
+    "nonTransferable": "151.54000",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3633.00000"
+  },
+  {
+   "stage": 7,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Henry Drummond BOSWELL",
+    "amount": "302.24950"
+   },
+   "transferred": {
+    "Gopi AGEER": "0.00000",
+    "Henry Drummond BOSWELL": "-302.24950",
+    "Donnie CAMPBELL": "0.00000",
+    "Amanda HAMPSEY": "63.11900",
+    "Willie HUME": "19.35700",
+    "Andrew KAIN": "46.00000",
+    "Colin KENNEDY": "27.00000",
+    "Jim LYNCH": "0.00000",
+    "Jamie MCGRIGOR": "0.00000",
+    "Phyl Stuart MEYER": "55.23800",
+    "John WATSON": "0.00000",
+    "nonTransferable": "91.53550",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Gopi AGEER": "0.00000",
+    "Henry Drummond BOSWELL": "0.00000",
+    "Donnie CAMPBELL": "0.00000",
+    "Amanda HAMPSEY": "601.53550",
+    "Willie HUME": "724.65400",
+    "Andrew KAIN": "439.59500",
+    "Colin KENNEDY": "405.36850",
+    "Jim LYNCH": "727.00000",
+    "Jamie MCGRIGOR": "0.00000",
+    "Phyl Stuart MEYER": "491.77150",
+    "John WATSON": "0.00000",
+    "nonTransferable": "243.07550",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3633.00000"
+  },
+  {
+   "stage": 8,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Colin KENNEDY",
+    "amount": "405.36850"
+   },
+   "transferred": {
+    "Gopi AGEER": "0.00000",
+    "Henry Drummond BOSWELL": "0.00000",
+    "Donnie CAMPBELL": "0.00000",
+    "Amanda HAMPSEY": "44.05950",
+    "Willie HUME": "52.41650",
+    "Andrew KAIN": "90.11900",
+    "Colin KENNEDY": "-405.36850",
+    "Jim LYNCH": "0.00000",
+    "Jamie MCGRIGOR": "0.00000",
+    "Phyl Stuart MEYER": "28.17850",
+    "John WATSON": "0.00000",
+    "nonTransferable": "190.59500",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Gopi AGEER": "0.00000",
+    "Henry Drummond BOSWELL": "0.00000",
+    "Donnie CAMPBELL": "0.00000",
+    "Amanda HAMPSEY": "645.59500",
+    "Willie HUME": "777.07050",
+    "Andrew KAIN": "529.71400",
+    "Colin KENNEDY": "0.00000",
+    "Jim LYNCH": "727.00000",
+    "Jamie MCGRIGOR": "0.00000",
+    "Phyl Stuart MEYER": "519.95000",
+    "John WATSON": "0.00000",
+    "nonTransferable": "433.67050",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Willie HUME"
+   ],
+   "total": "3633.00000"
+  },
+  {
+   "stage": 9,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Willie HUME",
+    "amount": "50.07050"
+   },
+   "transferred": {
+    "Gopi AGEER": "0.00000",
+    "Henry Drummond BOSWELL": "0.00000",
+    "Donnie CAMPBELL": "0.00000",
+    "Amanda HAMPSEY": "0.72022",
+    "Willie HUME": "-50.07050",
+    "Andrew KAIN": "10.31399",
+    "Colin KENNEDY": "0.00000",
+    "Jim LYNCH": "0.00000",
+    "Jamie MCGRIGOR": "0.00000",
+    "Phyl Stuart MEYER": "19.76408",
+    "John WATSON": "0.00000",
+    "nonTransferable": "19.26643",
+    "rounding": "0.00578"
+   },
+   "votes": {
+    "Gopi AGEER": "0.00000",
+    "Henry Drummond BOSWELL": "0.00000",
+    "Donnie CAMPBELL": "0.00000",
+    "Amanda HAMPSEY": "646.31522",
+    "Willie HUME": "727.00000",
+    "Andrew KAIN": "540.02799",
+    "Colin KENNEDY": "0.00000",
+    "Jim LYNCH": "727.00000",
+    "Jamie MCGRIGOR": "0.00000",
+    "Phyl Stuart MEYER": "539.71408",
+    "John WATSON": "0.00000",
+    "nonTransferable": "452.93693",
+    "rounding": "0.00578"
+   },
+   "elected": [],
+   "total": "3633.00000"
+  },
+  {
+   "stage": 10,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Phyl Stuart MEYER",
+    "amount": "539.71408"
+   },
+   "transferred": {
+    "Gopi AGEER": "0.00000",
+    "Henry Drummond BOSWELL": "0.00000",
+    "Donnie CAMPBELL": "0.00000",
+    "Amanda HAMPSEY": "21.38218",
+    "Willie HUME": "0.00000",
+    "Andrew KAIN": "158.14742",
+    "Colin KENNEDY": "0.00000",
+    "Jim LYNCH": "0.00000",
+    "Jamie MCGRIGOR": "0.00000",
+    "Phyl Stuart MEYER": "-539.71408",
+    "John WATSON": "0.00000",
+    "nonTransferable": "360.18448",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Gopi AGEER": "0.00000",
+    "Henry Drummond BOSWELL": "0.00000",
+    "Donnie CAMPBELL": "0.00000",
+    "Amanda HAMPSEY": "667.69740",
+    "Willie HUME": "727.00000",
+    "Andrew KAIN": "698.17541",
+    "Colin KENNEDY": "0.00000",
+    "Jim LYNCH": "727.00000",
+    "Jamie MCGRIGOR": "0.00000",
+    "Phyl Stuart MEYER": "0.00000",
+    "John WATSON": "0.00000",
+    "nonTransferable": "813.12719",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Amanda HAMPSEY",
+    "Andrew KAIN"
+   ],
+   "total": "3633.00000"
+  }
+ ]
+}

@@ -1,0 +1,230 @@
+{
+ "source": "nyc-recap.html",
+ "sha256": "c9220813eb8f6a4790f2bef386c9fabe695ff252204714631fe7e9e66737eb7e",
+ "publisher": "NYC Board of Elections (certified ranked-choice rounds, 2021-07-20)",
+ "rounds": [
+  {
+   "tallies": {
+    "Eric L. Adams": 289403,
+    "Maya D. Wiley": 201127,
+    "Kathryn A. Garcia": 184463,
+    "Andrew Yang": 115130,
+    "Scott M. Stringer": 51778,
+    "Dianne Morales": 26495,
+    "Raymond J. McGuire": 25242,
+    "Shaun Donovan": 23167,
+    "Aaron S. Foldenauer": 7742,
+    "Art Chang": 7048,
+    "Paperboy Love Prince": 3964,
+    "Joycelyn Taylor": 2662,
+    "Isaac Wright Jr.": 2242,
+    "Write-ins": 1568
+   },
+   "transfers": {
+    "Eric L. Adams": 200,
+    "Maya D. Wiley": 66,
+    "Kathryn A. Garcia": 108,
+    "Andrew Yang": 171,
+    "Scott M. Stringer": 72,
+    "Dianne Morales": 39,
+    "Raymond J. McGuire": 30,
+    "Shaun Donovan": 22,
+    "Aaron S. Foldenauer": 16,
+    "Art Chang": 16,
+    "Paperboy Love Prince": 43,
+    "Joycelyn Taylor": 21,
+    "Isaac Wright Jr.": 12,
+    "Write-ins": -1568,
+    "inactive": 752
+   },
+   "eliminated": [
+    "Write-ins"
+   ],
+   "elected": []
+  },
+  {
+   "tallies": {
+    "Eric L. Adams": 289603,
+    "Maya D. Wiley": 201193,
+    "Kathryn A. Garcia": 184571,
+    "Andrew Yang": 115301,
+    "Scott M. Stringer": 51850,
+    "Dianne Morales": 26534,
+    "Raymond J. McGuire": 25272,
+    "Shaun Donovan": 23189,
+    "Aaron S. Foldenauer": 7758,
+    "Art Chang": 7064,
+    "Paperboy Love Prince": 4007,
+    "Joycelyn Taylor": 2683,
+    "Isaac Wright Jr.": 2254
+   },
+   "transfers": {
+    "Eric L. Adams": 452,
+    "Maya D. Wiley": 325,
+    "Kathryn A. Garcia": 98,
+    "Andrew Yang": 201,
+    "Scott M. Stringer": 101,
+    "Dianne Morales": 111,
+    "Raymond J. McGuire": 146,
+    "Shaun Donovan": 125,
+    "Aaron S. Foldenauer": 61,
+    "Art Chang": 29,
+    "Paperboy Love Prince": 53,
+    "Joycelyn Taylor": 97,
+    "Isaac Wright Jr.": -2254,
+    "inactive": 455
+   },
+   "eliminated": [
+    "Isaac Wright Jr."
+   ],
+   "elected": [],
+   "inactiveSinceR1": 752
+  },
+  {
+   "tallies": {
+    "Eric L. Adams": 290055,
+    "Maya D. Wiley": 201518,
+    "Kathryn A. Garcia": 184669,
+    "Andrew Yang": 115502,
+    "Scott M. Stringer": 51951,
+    "Dianne Morales": 26645,
+    "Raymond J. McGuire": 25418,
+    "Shaun Donovan": 23314,
+    "Aaron S. Foldenauer": 7819,
+    "Art Chang": 7093,
+    "Paperboy Love Prince": 4060,
+    "Joycelyn Taylor": 2780
+   },
+   "transfers": {
+    "Eric L. Adams": 1751,
+    "Maya D. Wiley": 4495,
+    "Kathryn A. Garcia": 2062,
+    "Andrew Yang": 2506,
+    "Scott M. Stringer": 1648,
+    "Dianne Morales": 3512,
+    "Raymond J. McGuire": 943,
+    "Shaun Donovan": 728,
+    "Aaron S. Foldenauer": -7819,
+    "Art Chang": -7093,
+    "Paperboy Love Prince": -4060,
+    "Joycelyn Taylor": -2780,
+    "inactive": 4107
+   },
+   "eliminated": [
+    "Aaron S. Foldenauer",
+    "Art Chang",
+    "Joycelyn Taylor",
+    "Paperboy Love Prince"
+   ],
+   "elected": [],
+   "inactiveSinceR1": 1207
+  },
+  {
+   "tallies": {
+    "Eric L. Adams": 291806,
+    "Maya D. Wiley": 206013,
+    "Kathryn A. Garcia": 186731,
+    "Andrew Yang": 118008,
+    "Scott M. Stringer": 53599,
+    "Dianne Morales": 30157,
+    "Raymond J. McGuire": 26361,
+    "Shaun Donovan": 24042
+   },
+   "transfers": {
+    "Eric L. Adams": 3992,
+    "Maya D. Wiley": 3095,
+    "Kathryn A. Garcia": 5145,
+    "Andrew Yang": 3589,
+    "Scott M. Stringer": 3124,
+    "Dianne Morales": 776,
+    "Raymond J. McGuire": 1573,
+    "Shaun Donovan": -24042,
+    "inactive": 2748
+   },
+   "eliminated": [
+    "Shaun Donovan"
+   ],
+   "elected": [],
+   "inactiveSinceR1": 5314
+  },
+  {
+   "tallies": {
+    "Eric L. Adams": 295798,
+    "Maya D. Wiley": 209108,
+    "Kathryn A. Garcia": 191876,
+    "Andrew Yang": 121597,
+    "Scott M. Stringer": 56723,
+    "Dianne Morales": 30933,
+    "Raymond J. McGuire": 27934
+   },
+   "transfers": {
+    "Eric L. Adams": 21294,
+    "Maya D. Wiley": 30066,
+    "Kathryn A. Garcia": 31758,
+    "Andrew Yang": 14089,
+    "Scott M. Stringer": -56723,
+    "Dianne Morales": -30933,
+    "Raymond J. McGuire": -27934,
+    "inactive": 18383
+   },
+   "eliminated": [
+    "Dianne Morales",
+    "Raymond J. McGuire",
+    "Scott M. Stringer"
+   ],
+   "elected": [],
+   "inactiveSinceR1": 8062
+  },
+  {
+   "tallies": {
+    "Eric L. Adams": 317092,
+    "Maya D. Wiley": 239174,
+    "Kathryn A. Garcia": 223634,
+    "Andrew Yang": 135686
+   },
+   "transfers": {
+    "Eric L. Adams": 37565,
+    "Maya D. Wiley": 15554,
+    "Kathryn A. Garcia": 43298,
+    "Andrew Yang": -135686,
+    "inactive": 39269
+   },
+   "eliminated": [
+    "Andrew Yang"
+   ],
+   "elected": [],
+   "inactiveSinceR1": 26445
+  },
+  {
+   "tallies": {
+    "Eric L. Adams": 354657,
+    "Maya D. Wiley": 254728,
+    "Kathryn A. Garcia": 266932
+   },
+   "transfers": {
+    "Eric L. Adams": 49856,
+    "Maya D. Wiley": -254728,
+    "Kathryn A. Garcia": 130384,
+    "inactive": 74488
+   },
+   "eliminated": [
+    "Maya D. Wiley"
+   ],
+   "elected": [],
+   "inactiveSinceR1": 65714
+  },
+  {
+   "tallies": {
+    "Eric L. Adams": 404513,
+    "Kathryn A. Garcia": 397316
+   },
+   "transfers": {},
+   "eliminated": [],
+   "elected": [
+    "Eric L. Adams"
+   ],
+   "inactiveSinceR1": 140202
+  }
+ ],
+ "winner": "Eric L. Adams"
+}

@@ -1,0 +1,21 @@
+{
+  "testId": "baf3ae70-4438-4666-822a-b90b46a06d34",
+  "status": "failed",
+  "startedAt": "2026-10-20T20:50:04.617Z",
+  "finishedAt": "2026-10-20T20:50:07.961Z",
+  "videoUrl": null,
+  "failureAnalysisUrl": null,
+  "snapshotId": "snap_96a7c0c53f59df7e",
+  "runIdIfAvailable": "5ee0bdbc-be91-4565-aeb7-0e79d213b013",
+  "codeVersion": "v-7ef4bc278397",
+  "targetUrl": null,
+  "targetUrlSource": null,
+  "environment": null,
+  "failedStepIndex": null,
+  "failureKind": "assertion",
+  "verdict": "failed",
+  "executionStatus": "completed",
+  "summary": "Failed (assertion): POST https://tallyroom-rosy.vercel.app/api/tabulate → 200\nResponse: {\"engineVersion\":\"0.1.0\",\"method\":\"stv\",\"quota\":\"6.0000\",\"quotaExact\":\"6/1\",\"winners\":[\"A\",\"C\"],\"rounds\":[{\"round\":1,\"tallies\":{\"A\":\"8.0000\",\"C\":\"3.0000\",\"B\":\"5.0000\"},\"exhausted\":\"0.0000\",\"elected\":[\"A\"],\"eliminated\":[],\"exact\":{\"tallies\":{\"A\":\"8/1\",\"C\":\"3/1\",\"B\":\"5/1\"},\"exhausted\":\"0/1\"}},{\"round\":2,\"tallies\":{\"C\":\"5…\n{'engineVersion': '0.1.0', 'method': 'stv', 'quota': '6.0000', 'quotaExact': '6/1', 'winn…",
+  "apiOutput": "",
+  "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 150, in test\nAssertionError: {'engineVersion': '0.1.0', 'method': 'stv', 'quota': '6.0000', 'quotaExact': '6/1', 'winners': ['A', 'C'], 'rounds': [{'round': 1, 'tallies': {'A': '8.0000', 'C': '3.0000', 'B': '5.0000'}, 'exhausted': '0.0000', 'elected': ['A'], 'eliminated': [], 'exact': {'tallies': {'A': '8/1', 'C': '3/1', 'B': '5/1'}, 'exhausted': '0/1'}}, {'round': 2, 'tallies': {'C': '5.0000', 'B': '5.0000'}, 'exhausted': '0.0000', 'elected': [], 'eliminated': ['B'], 'exact': {'tallies': {'C': '5/1', 'B': '5/1'}, 'exhausted': '0/1'}}, {'round': 3, 'tallies': {'C': '5.0000'}, 'exhausted': '5.0000', 'elected': ['C'], 'eliminated': [], 'exact': {'tallies': {'C': '5/1'}, 'exhausted': '5/1'}}]}\n"
+}

@@ -1,0 +1,91 @@
+
+ RUN  v4.1.12 /tmp/stack
+
+ ❯ test/stv-rules.test.ts (5 tests | 4 failed) 21ms
+     × skips two-exhaust: _>_>A is inactive, so A gets nothing 12ms
+     × overvote skip: [A=B]>C counts for C 2ms
+     × duplicates skip + two-exhaust: A>A>_>B goes inactive when A is out 1ms
+     × batch elimination is IRV-only and is refused for STV instead of being ignored 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/stv-rules.test.ts > BUG-019: STV applies the ballot-reading rules > skips two-exhaust: _>_>A is inactive, so A gets nothing
+AssertionError: expected { A: '3.0000', B: '2.0000', …(1) } to deeply equal { A: '0.0000', B: '2.0000', …(1) }
+
+- Expected
++ Received
+
+  {
+-   "A": "0.0000",
++   "A": "3.0000",
+    "B": "2.0000",
+    "C": "2.0000",
+  }
+
+ ❯ test/stv-rules.test.ts:11:38
+      9|     const r = post({ seats: 2, ballots: '3,_>_>A\n2,B\n2,C', rules: { …
+     10|     expect(r.status).toBe(200);
+     11|     expect(r.body.rounds[0].tallies).toEqual({ A: '0.0000', B: '2.0000…
+       |                                      ^
+     12|     expect(r.body.rounds[0].exhausted).toBe('3.0000');
+     13|     expect(r.body.winners).toEqual(['B', 'C']);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  test/stv-rules.test.ts > BUG-019: STV applies the ballot-reading rules > overvote skip: [A=B]>C counts for C
+AssertionError: expected '0.0000' to be '3.0000' // Object.is equality
+
+Expected: "3.0000"
+Received: "0.0000"
+
+ ❯ test/stv-rules.test.ts:17:40
+     15|   it('overvote skip: [A=B]>C counts for C', () => {
+     16|     const r = post({ seats: 2, ballots: '3,[A=B]>C\n2,A\n2,B', rules: …
+     17|     expect(r.body.rounds[0].tallies.C).toBe('3.0000');
+       |                                        ^
+     18|     expect(r.body.rounds[0].elected).toEqual(['C']);
+     19|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  test/stv-rules.test.ts > BUG-019: STV applies the ballot-reading rules > duplicates skip + two-exhaust: A>A>_>B goes inactive when A is out
+AssertionError: expected '4.0000' to be '3.0000' // Object.is equality
+
+Expected: "3.0000"
+Received: "4.0000"
+
+ ❯ test/stv-rules.test.ts:22:40
+     20|   it('duplicates skip + two-exhaust: A>A>_>B goes inactive when A is o…
+     21|     const r = post({ seats: 2, ballots: '1,A>A>_>B\n3,B\n3,C\n2,D', ru…
+     22|     expect(r.body.rounds[1].tallies.B).toBe('3.0000');
+       |                                        ^
+     23|     expect(r.body.rounds[1].exhausted).toBe('1.0000');
+     24|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  test/stv-rules.test.ts > BUG-019: STV applies the ballot-reading rules > batch elimination is IRV-only and is refused for STV instead of being ignored
+AssertionError: expected 200 to be 422 // Object.is equality
+
+- Expected
++ Received
+
+- 422
++ 200
+
+ ❯ test/stv-rules.test.ts:32:22
+     30|   it('batch elimination is IRV-only and is refused for STV instead of …
+     31|     const r = post({ seats: 2, ballots: '3,A\n2,B\n1,C', rules: { batc…
+     32|     expect(r.status).toBe(422); expect(r.body.error.code).toBe('INVALI…
+       |                      ^
+     33|   });
+     34| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 1 passed (5)
+   Start at  22:15:56
+   Duration  377ms (transform 124ms, setup 0ms, import 154ms, tests 21ms, environment 0ms)
+

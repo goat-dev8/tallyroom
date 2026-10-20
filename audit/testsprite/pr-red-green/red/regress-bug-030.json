@@ -1,0 +1,30 @@
+{
+ "runId": "62ff1c0e-7862-4635-8d62-03aa0afe4067",
+ "testId": "abef2d38-2f4d-402e-bf1c-44ed448dc370",
+ "testTitle": "regress:bug-030",
+ "projectId": "a7aa06b0-0721-49ff-a7aa-0181ad8586d6",
+ "userId": "04180438-a0a1-70ab-b51f-4dce971c378f",
+ "status": "failed",
+ "source": "cli",
+ "createdAt": "2026-10-20T21:07:16.764Z",
+ "startedAt": "2026-10-20T21:07:16.764Z",
+ "finishedAt": "2026-10-20T21:07:21.261Z",
+ "codeVersion": "v-74c9d4420490",
+ "targetUrl": null,
+ "environment": null,
+ "createdFrom": null,
+ "failedStepIndex": null,
+ "failureKind": "assertion",
+ "error": "{'engineVersion': '0.1.0', 'method': 'irv', 'candidates': ['\"Ada', 'Bo\"', '\"Bo', 'Ada\"', '\"Cy'], 'rules': {'overvote': 'exhaust', 'skips': 'continue', 'batch': False, 'tiebreak': 'previous-round'}, 'rounds': [{'round': 1, 'tallies': {'\"Ada': 5, 'Bo\"': 0, '\"Bo': 4, 'Ada\"': 0, '\"Cy': 2}, 'continuing': 11, 'inactive': {'blank': 0, 'overvote': 0, 'skips': 0, 'undervote': 0, 'exhausted': 0}, 'threshold': 6, 'eliminated': ['Ada\"'], 'tieNote': 'lot'}, {'round': 2, 'tallies': {'\"Ada': 5, 'Bo\"': 0, '\"Bo': 4, '\"Cy': 2}, 'continuing': 11, 'inactive': {'blank': 0, 'overvote': 0, 'skips': 0, 'undervote': 0, 'exhausted': 0}, 'threshold': 6, 'eliminated': ['Bo\"'], 'transfers': {'\"Ada': 0, 'Bo\"': 0, '\"Bo': 0, '\"Cy': 0}}, {'round': 3, 'tallies': {'\"Ada': 5, '\"Bo': 4, '\"Cy': 2}, 'continuing': 11, 'inactive': {'blank': 0, 'overvote': 0, 'skips': 0, 'undervote': 0, 'exhausted': 0}, 'threshold': 6, 'eliminated': ['\"Cy'], 'transfers': {'\"Ada': 0, '\"Bo': 0, '\"Cy': 0}}, {'round': 4, 'tallies': {'\"Ada': 5, '\"Bo': 4}, 'continuing': 9, 'inactive': {'blank': 0, 'overvote': 0, 'skips': 0, 'undervote': 0, 'exhausted': 2}, 'threshold': 5, 'eliminated': [], 'transfers': {'\"Ada': 0, '\"Bo': 0}}], 'winner': '\"Ada', 'totalBallots': 11}",
+ "videoUrl": null,
+ "stepSummary": {
+  "total": 0,
+  "completed": 0,
+  "passedCount": 0,
+  "failedCount": 0
+ },
+ "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/abef2d38-2f4d-402e-bf1c-44ed448dc370",
+ "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/f5281f9c-7365-40dc-b69d-979f8835969f/test/62ff1c0e-7862-4635-8d62-03aa0afe4067",
+ "apiOutput": "",
+ "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 150, in test\nAssertionError: {'engineVersion': '0.1.0', 'method': 'irv', 'candidates': ['\"Ada', 'Bo\"', '\"Bo', 'Ada\"', '\"Cy'], 'rules': {'overvote': 'exhaust', 'skips': 'continue', 'batch': False, 'tiebreak': 'previous-round'}, 'rounds': [{'round': 1, 'tallies': {'\"Ada': 5, 'Bo\"': 0, '\"Bo': 4, 'Ada\"': 0, '\"Cy': 2}, 'continuing': 11, 'inactive': {'blank': 0, 'overvote': 0, 'skips': 0, 'undervote': 0, 'exhausted': 0}, 'threshold': 6, 'eliminated': ['Ada\"'], 'tieNote': 'lot'}, {'round': 2, 'tallies': {'\"Ada': 5, 'Bo\"': 0, '\"Bo': 4, '\"Cy': 2}, 'continuing': 11, 'inactive': {'blank': 0, 'overvote': 0, 'skips': 0, 'undervote': 0, 'exhausted': 0}, 'threshold': 6, 'eliminated': ['Bo\"'], 'transfers': {'\"Ada': 0, 'Bo\"': 0, '\"Bo': 0, '\"Cy': 0}}, {'round': 3, 'tallies': {'\"Ada': 5, '\"Bo': 4, '\"Cy': 2}, 'continuing': 11, 'inactive': {'blank': 0, 'overvote': 0, 'skips': 0, 'undervote': 0, 'exhausted': 0}, 'threshold': 6, 'eliminated': ['\"Cy'], 'transfers': {'\"Ada': 0, '\"Bo': 0, '\"Cy': 0}}, {'round': 4, 'tallies': {'\"Ada': 5, '\"Bo': 4}, 'continuing': 9, 'inactive': {'blank': 0, 'overvote': 0, 'skips': 0, 'undervote': 0, 'exhausted': 2}, 'threshold': 5, 'eliminated': [], 'transfers': {'\"Ada': 0, '\"Bo': 0}}], 'winner': '\"Ada', 'totalBallots': 11}\n"
+}

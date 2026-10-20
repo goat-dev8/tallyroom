@@ -1,0 +1,21 @@
+{
+  "testId": "2b7bbed5-2a37-4c8c-a8c5-e402af8529a1",
+  "status": "failed",
+  "startedAt": "2026-10-20T21:07:09.897Z",
+  "finishedAt": "2026-10-20T21:07:15.028Z",
+  "videoUrl": null,
+  "failureAnalysisUrl": null,
+  "snapshotId": "snap_1dba53453732732f",
+  "runIdIfAvailable": "b50d72fa-c97f-4842-9400-7663d9cbaebc",
+  "codeVersion": "v-126a4fa3c0bb",
+  "targetUrl": null,
+  "targetUrlSource": null,
+  "environment": null,
+  "failedStepIndex": null,
+  "failureKind": "assertion",
+  "verdict": "failed",
+  "executionStatus": "completed",
+  "summary": "Failed (assertion): POST https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app/api/tabulate → 200\nResponse: {\"engineVersion\":\"0.1.0\",\"method\":\"stv\",\"quota\":\"49.0000\",\"quotaExact\":\"49/1\",\"winners\":[\"A\",\"B\",\"C\",\"F\"],\"rounds\":[{\"round\":1,\"tallies\":{\"A\":\"91.0000\",\"B\":\"55.0000\",\"C\":\"10.0000\",\"D\":\"40.0000\",\"F\":\"44.0000\"},\"exhausted\":\"0.0000\",\"elected\":[\"A\",\"B\"],\"eliminated\":[],\"exact\":{\"tallies\":{\"A\":\"91/1\",\"B\":\"55/1\",\"C\":\"10/1\",\"…\n{'engineVersion': '0.1.0', 'method': 'stv', 'quota': …",
+  "apiOutput": "",
+  "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 150, in test\nAssertionError: {'engineVersion': '0.1.0', 'method': 'stv', 'quota': '49.0000', 'quotaExact': '49/1', 'winners': ['A', 'B', 'C', 'F'], 'rounds': [{'round': 1, 'tallies': {'A': '91.0000', 'B': '55.0000', 'C': '10.0000', 'D': '40.0000', 'F': '44.0000'}, 'exhausted': '0.0000', 'elected': ['A', 'B'], 'eliminated': [], 'exact': {'tallies': {'A': '91/1', 'B': '55/1', 'C': '10/1', 'D': '40/1', 'F': '44/1'}, 'exhausted': '0/1'}}, {'round': 2, 'tallies': {'C': '58.0000', 'D': '40.0000', 'F': '44.0000'}, 'exhausted': '0.0000', 'elected': ['C'], 'eliminated': [], 'exact': {'tallies': {'C': '58/1', 'D': '40/1', 'F': '44/1'}, 'exhausted': '0/1'}}, {'round': 3, 'tallies': {'D': '40.9310', 'F': '44.0000'}, 'exhausted': '8.0690', 'elected': [], 'eliminated': ['D'], 'exact': {'tallies': {'D': '1187/29', 'F': '44/1'}, 'exhausted': '234/29'}}, {'round': 4, 'tallies': {'F': '44.0000'}, 'exhausted': '49.0000', 'elected': ['F'], 'eliminated': [], 'exact': {'tallies': {'F': '44/1'}, 'exhausted': '49/1'}}]}\n"
+}

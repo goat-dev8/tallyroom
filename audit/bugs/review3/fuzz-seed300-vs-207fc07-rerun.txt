@@ -1,0 +1,5 @@
+# Re-run 2026-10-21 (Cairo): fuzz seed 300, 1000 cases, oracle and generator from c8d92e4 (fuzz/gen.py, fuzz/oracle.py, fuzz/run.ts) against src/ at 207fc07
+# commands: git worktree add /tmp/w207 207fc07; cp fuzz/{gen.py,oracle.py,run.ts} /tmp/w207/fuzz/; python3 fuzz/gen.py 300 1000 > c300.jsonl; npx tsx fuzz/run.ts c300.jsonl r300.json
+{"cases":1000,"irv":739,"stv":261,"rounds":2721,"irvCasesWithTieBreak":106,"irvCasesWithBatch":64,"divergences":259}   <- run.ts summary
+raw divergences 259 | after ignoring the surplusTransferred key (absent at 207fc07): 223 | STV: 223 | IRV: 0 | different winners (ordered list): 34 | different winner set: 20
+# 36 of the 259 raw divergences differ only because run.ts at c8d92e4 records rounds[].surplusTransferred, which 207fc07 does not emit; the counter ignores that key. Divergence list: fuzz-seed300-vs-207fc07.json.gz

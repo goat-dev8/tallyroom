@@ -1,0 +1,11 @@
+server: {"name":"tallyroom","title":"Tallyroom ranked-choice counter","version":"0.1.0"} protocol negotiated OK
+tools: count_ballots, list_elections, election_rounds, counting_rules
+count_ballots winner: Bo rounds: [{"Ada":5,"Bo":4,"Cy":2},{"Ada":5,"Bo":6}] isError: false
+list_elections: maine-2018-cd2=DEM Golden, Jared F.; alaska-2022=Peltola, Mary S.; nyc-2021=Eric L. Adams
+http server: tallyroom
+STV winners: Ada, Cy quota 5/1
+nyc rounds isError: false bytes 8869
+$ curl -s -X POST localhost:3917/api/mcp -H "content-type: application/json" -d {initialize}
+{"jsonrpc":"2.0","id":1,"result":{"protocolVersion":"2025-06-18","capabilities":{"tools":{"listChanged":false}},"serverInfo":{"name":"tallyroom","title":"Tallyroom ranked-choice counter","version":"0.1.0"},"instructions":"Use count_ballots for any ranked-choice count; list_elections and election_rounds for certified real elections."}}
+$ GET /api/openapi (paths)
+['/api/elections', '/api/elections/{id}/rounds', '/api/elections/{id}/tabulate', '/api/health', '/api/mcp', '/api/openapi', '/api/options', '/api/report', '/api/tabulate']

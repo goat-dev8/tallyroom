@@ -1,0 +1,8 @@
+[
+  {
+    "kind": "snapshot",
+    "stepIndex": 3,
+    "summary": "Step 3 'The Golden row shows 132,013 in R1 and 142,440 in R2.' failed. Error: TEST FAILURE\n\nThe requested candidate totals and inactive totals match, but the Bond row’s second-round value could not be confirmed as an em dash. The observed R2 cell had no readable text.\n\nObservations:\n- Golden: R1 132,013; R2 142,440. Poliquin: R1 134,184; R2 138,931.\n- Inactive: R1 6,453; R2 14,706.\n- Bond: R1 16,552; the R2 cell appeared empty in the observed page content.",
+    "path": "steps/03-snapshot.html"
+  }
+]

@@ -1,0 +1,316 @@
+
+Running 10 tests using 4 workers
+
+  ✘   3 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:46:1 › 3 one Tab leaves the diagram; the list toggle and the table follow; Shift+Tab comes back (3.8s)
+  ✘   2 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:25:1 › 1 focus ring follows the curve, not a bounding box (3.9s)
+  ✘   1 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:33:1 › 2 arrow keys move between flows and each focused flow is scrolled into view (4.7s)
+  ✓   6 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:68:1 › 6 one pointer move onto a flow shows its tooltip (3.5s)
+  ✘   7 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:75:1 › 7 keyboard tooltip sits at the flow, next to its destination (3.5s)
+  ✘   8 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:84:1 › 8 node labels do not overlap and have a halo over flows (3.0s)
+  ✘   9 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:94:1 › 9 thin flows have a wide invisible hit path (3.0s)
+  ✘  10 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:103:1 › 10 round tabs R2-R8 meet 7:1 contrast at 10-11px (3.0s)
+  ✘   4 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:55:1 › 4 round bars show a tooltip on hover (23.3s)
+  ✘   5 [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:62:1 › 5 sankey nodes show a tooltip on hover (23.2s)
+
+
+  1) [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:25:1 › 1 focus ring follows the curve, not a bounding box 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "none"
+    Received: "solid"
+
+      26 |   await open(page); await tabToFirstLink(page);
+      27 |   const outline = await page.evaluate(() => getComputedStyle(document.activeElement!).outlineStyle);
+    > 28 |   expect(outline).toBe('none');
+         |                   ^
+      29 |   const ring = page.getByTestId('sankey-focus'); await expect(ring).toHaveCount(1);
+      30 |   expect(await ring.getAttribute('d')).toBe(await page.evaluate(() => document.activeElement!.getAttribute('d')));
+      31 | });
+        at /tmp/sk/tests/e2e/sankey-a11y.spec.ts:28:19
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sankey-a11y-1-focus-ring-f-69c68-he-curve-not-a-bounding-box-desktop-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sankey-a11y-1-focus-ring-f-69c68-he-curve-not-a-bounding-box-desktop-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sankey-a11y-1-focus-ring-f-69c68-he-curve-not-a-bounding-box-desktop-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sankey-a11y-1-focus-ring-f-69c68-he-curve-not-a-bounding-box-desktop-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:33:1 › 2 arrow keys move between flows and each focused flow is scrolled into view 
+
+    Error: Eric L. Adams to Eric L. Adams: 289,403 ballots
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 0
+    Received:    -12.575684618382226
+
+      38 |     const label = await page.evaluate(() => document.activeElement!.getAttribute('aria-label')!); seen.add(label);
+      39 |     const el = page.locator('[data-testid="sankey-link"]:focus');
+    > 40 |     for (const t of [0.15, 0.85]) { const p = await pointAt(el, t); expect(p.y, label).toBeGreaterThanOrEqual(0); expect(p.y, label).toBeLessThanOrEqual(520); }
+         |                                                                                        ^
+      41 |     await page.keyboard.press('ArrowDown');
+      42 |   }
+      43 |   expect(seen.size).toBe(n);
+        at /tmp/sk/tests/e2e/sankey-a11y.spec.ts:40:88
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sankey-a11y-2-arrow-keys-m-ef747--flow-is-scrolled-into-view-desktop-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sankey-a11y-2-arrow-keys-m-ef747--flow-is-scrolled-into-view-desktop-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sankey-a11y-2-arrow-keys-m-ef747--flow-is-scrolled-into-view-desktop-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sankey-a11y-2-arrow-keys-m-ef747--flow-is-scrolled-into-view-desktop-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:46:1 › 3 one Tab leaves the diagram; the list toggle and the table follow; Shift+Tab comes back 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "transfer-toggle"
+    Received: "sankey-link"
+
+      46 | test('3 one Tab leaves the diagram; the list toggle and the table follow; Shift+Tab comes back', async ({ page }) => {
+      47 |   await open(page); await tabToFirstLink(page);
+    > 48 |   await page.keyboard.press('Tab'); expect(await active(page)).toBe('transfer-toggle');
+         |                                                                ^
+      49 |   await page.keyboard.press('Tab'); expect(await active(page)).toBe('rounds-table-region');
+      50 |   await page.keyboard.press('Shift+Tab'); expect(await active(page)).toBe('transfer-toggle');
+      51 |   await page.keyboard.press('Shift+Tab'); expect(await active(page)).toBe('sankey-link');
+        at /tmp/sk/tests/e2e/sankey-a11y.spec.ts:48:64
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sankey-a11y-3-one-Tab-leav-b11f9-follow-Shift-Tab-comes-back-desktop-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sankey-a11y-3-one-Tab-leav-b11f9-follow-Shift-Tab-comes-back-desktop-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sankey-a11y-3-one-Tab-leav-b11f9-follow-Shift-Tab-comes-back-desktop-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sankey-a11y-3-one-Tab-leav-b11f9-follow-Shift-Tab-comes-back-desktop-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:55:1 › 4 round bars show a tooltip on hover ────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('[data-testid="candidate-row"][data-candidate="Eric L. Adams"]').getByTestId('bar-tooltip')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('[data-testid="candidate-row"][data-candidate="Eric L. Adams"]').getByTestId('bar-tooltip') with timeout 20000ms
+      - waiting for locator('[data-testid="candidate-row"][data-candidate="Eric L. Adams"]').getByTestId('bar-tooltip')
+
+
+      57 |   const row = page.locator('[data-testid="candidate-row"][data-candidate="Eric L. Adams"]');
+      58 |   await row.getByTestId('bar-track').hover();
+    > 59 |   const tip = row.getByTestId('bar-tooltip'); await expect(tip).toBeVisible(); await expect(tip).toContainText('289,403');
+         |                                                                 ^
+      60 | });
+      61 |
+      62 | test('5 sankey nodes show a tooltip on hover', async ({ page }) => {
+        at /tmp/sk/tests/e2e/sankey-a11y.spec.ts:59:65
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sankey-a11y-4-round-bars-show-a-tooltip-on-hover-desktop-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sankey-a11y-4-round-bars-show-a-tooltip-on-hover-desktop-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sankey-a11y-4-round-bars-show-a-tooltip-on-hover-desktop-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sankey-a11y-4-round-bars-show-a-tooltip-on-hover-desktop-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:62:1 › 5 sankey nodes show a tooltip on hover ──
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('sankey-tooltip')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('sankey-tooltip') with timeout 20000ms
+      - waiting for getByTestId('sankey-tooltip')
+
+
+      63 |   await open(page);
+      64 |   await page.locator('[data-testid="sankey-node"][data-node="b:Eric L. Adams"] rect').first().hover({ force: true });
+    > 65 |   const tip = page.getByTestId('sankey-tooltip'); await expect(tip).toBeVisible(); await expect(tip).toContainText('Eric L. Adams'); await expect(tip).toContainText('289,603');
+         |                                                                     ^
+      66 | });
+      67 |
+      68 | test('6 one pointer move onto a flow shows its tooltip', async ({ page }) => {
+        at /tmp/sk/tests/e2e/sankey-a11y.spec.ts:65:69
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sankey-a11y-5-sankey-nodes-show-a-tooltip-on-hover-desktop-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sankey-a11y-5-sankey-nodes-show-a-tooltip-on-hover-desktop-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sankey-a11y-5-sankey-nodes-show-a-tooltip-on-hover-desktop-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sankey-a11y-5-sankey-nodes-show-a-tooltip-on-hover-desktop-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:75:1 › 7 keyboard tooltip sits at the flow, next to its destination 
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 60
+    Received:   445.3159584317889
+
+      78 |   const el = page.locator('[data-testid="sankey-link"]:focus'); const end = await pointAt(el, 0.92);
+      79 |   const tip = (await page.getByTestId('sankey-tooltip').boundingBox())!;
+    > 80 |   expect(Math.abs(tip.x + tip.width / 2 - end.x)).toBeLessThan(60);
+         |                                                   ^
+      81 |   expect(end.y - (tip.y + tip.height)).toBeGreaterThan(0); expect(end.y - (tip.y + tip.height)).toBeLessThan(40);
+      82 | });
+      83 |
+        at /tmp/sk/tests/e2e/sankey-a11y.spec.ts:80:51
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sankey-a11y-7-keyboard-too-6665a-low-next-to-its-destination-desktop-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sankey-a11y-7-keyboard-too-6665a-low-next-to-its-destination-desktop-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sankey-a11y-7-keyboard-too-6665a-low-next-to-its-destination-desktop-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sankey-a11y-7-keyboard-too-6665a-low-next-to-its-destination-desktop-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:84:1 › 8 node labels do not overlap and have a halo over flows 
+
+    Error: Aaron S. Foldenauer7,742 / Art Chang7,048
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 1734.83935546875
+    Received:    1734.6619873046875
+
+      87 |   for (const side of [true, false]) {
+      88 |     const col = boxes.filter(b => b.l === side).sort((a, b) => a.y0 - b.y0);
+    > 89 |     for (let i = 1; i < col.length; i++) expect(col[i].y0, `${col[i - 1].name} / ${col[i].name}`).toBeGreaterThanOrEqual(col[i - 1].y1 - 1);
+         |                                                                                                   ^
+      90 |   }
+      91 |   expect(boxes.every(b => b.halo)).toBe(true);
+      92 | });
+        at /tmp/sk/tests/e2e/sankey-a11y.spec.ts:89:99
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sankey-a11y-8-node-labels--98cc1--and-have-a-halo-over-flows-desktop-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sankey-a11y-8-node-labels--98cc1--and-have-a-halo-over-flows-desktop-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sankey-a11y-8-node-labels--98cc1--and-have-a-halo-over-flows-desktop-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sankey-a11y-8-node-labels--98cc1--and-have-a-halo-over-flows-desktop-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:94:1 › 9 thin flows have a wide invisible hit path 
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 10
+    Received:    1.5
+
+       95 |   await open(page);
+       96 |   const widths = await links(page).evaluateAll(ls => ls.map(l => Number(getComputedStyle(l).strokeWidth.replace('px', '')) / 1));
+    >  97 |   expect(Math.min(...widths)).toBeGreaterThanOrEqual(10);
+          |                               ^
+       98 |   const thin = links(page).last(); await page.getByTestId('sankey').evaluate(e => e.scrollIntoView({ block: 'end' })); const p = await pointAt(thin, 0.5);
+       99 |   await page.mouse.move(p.x, p.y + 4);
+      100 |   await expect(page.getByTestId('sankey-tooltip')).toBeVisible({ timeout: 1000 });
+        at /tmp/sk/tests/e2e/sankey-a11y.spec.ts:97:31
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sankey-a11y-9-thin-flows-have-a-wide-invisible-hit-path-desktop-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sankey-a11y-9-thin-flows-have-a-wide-invisible-hit-path-desktop-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sankey-a11y-9-thin-flows-have-a-wide-invisible-hit-path-desktop-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sankey-a11y-9-thin-flows-have-a-wide-invisible-hit-path-desktop-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9) [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:103:1 › 10 round tabs R2-R8 meet 7:1 contrast at 10-11px 
+
+    Error: R2 rgb(138, 143, 152)
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 7
+    Received:    5.863803225269344
+
+      106 |     const c = await page.getByTestId(`dash-rail-r${r}`).evaluate(e => getComputedStyle(e).color);
+      107 |     const ratio = (lum(c) + 0.05) / (lum('rgb(14,16,19)') + 0.05);
+    > 108 |     expect(ratio, `R${r} ${c}`).toBeGreaterThanOrEqual(7);
+          |                                 ^
+      109 |   }
+      110 | });
+      111 |
+        at /tmp/sk/tests/e2e/sankey-a11y.spec.ts:108:33
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/sankey-a11y-10-round-tabs-R2-R8-meet-7-1-contrast-at-10-11px-desktop-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/sankey-a11y-10-round-tabs-R2-R8-meet-7-1-contrast-at-10-11px-desktop-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sankey-a11y-10-round-tabs-R2-R8-meet-7-1-contrast-at-10-11px-desktop-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/sankey-a11y-10-round-tabs-R2-R8-meet-7-1-contrast-at-10-11px-desktop-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9 failed
+    [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:25:1 › 1 focus ring follows the curve, not a bounding box 
+    [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:33:1 › 2 arrow keys move between flows and each focused flow is scrolled into view 
+    [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:46:1 › 3 one Tab leaves the diagram; the list toggle and the table follow; Shift+Tab comes back 
+    [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:55:1 › 4 round bars show a tooltip on hover ─────
+    [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:62:1 › 5 sankey nodes show a tooltip on hover ───
+    [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:75:1 › 7 keyboard tooltip sits at the flow, next to its destination 
+    [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:84:1 › 8 node labels do not overlap and have a halo over flows 
+    [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:94:1 › 9 thin flows have a wide invisible hit path 
+    [desktop-1440] › tests/e2e/sankey-a11y.spec.ts:103:1 › 10 round tabs R2-R8 meet 7:1 contrast at 10-11px 
+  1 passed (29.1s)

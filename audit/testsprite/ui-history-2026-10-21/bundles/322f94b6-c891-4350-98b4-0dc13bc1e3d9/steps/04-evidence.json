@@ -1,0 +1,8 @@
+[
+  {
+    "kind": "snapshot",
+    "stepIndex": 4,
+    "summary": "Step 4 'Navigate to https://tallyroom-git-fix-csv-single-choice-goats-projects-3f023cc9.vercel.app/samples/ballots.csv' passed (captured at 2026-10-20T05:54:58.917Z).",
+    "path": "steps/04-snapshot.html"
+  }
+]

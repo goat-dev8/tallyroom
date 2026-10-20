@@ -1,0 +1,279 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "Nairn and Cawdor",
+ "source": "hl2022-ward-18-2022_Local_Government_Election_Results_Ward_18_Nairn_and_Cawdor_Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "83a350e15ab0dd608cf80bd61209a90d9e8a3db92321af444c1b333d367f73fb",
+ "ballotSource": "hl2022-ward-18-2022_Local_Government_Election_Results_Ward_18_Nairn_and_Cawdor_Preference_Profile.blt",
+ "ballotSha256": "ee3a56d04a0ebeff696c1bc96211e97e5decdf2233259361e36a71065d69047d",
+ "ballotsReceived": 5218,
+ "validVotes": 5156,
+ "seats": 4,
+ "quota": 1032,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Kevin BROOKS": "192",
+    "Laurie FRASER": "1215",
+    "Michael GREEN": "857",
+    "Barbara Babs JARVIE": "836",
+    "Cal MACLEOD": "38",
+    "Paul OLDHAM": "1401",
+    "Kevin James REID": "540",
+    "Marjory SMITH": "77",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Laurie FRASER",
+    "Paul OLDHAM"
+   ],
+   "total": "5156"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Paul OLDHAM",
+    "amount": "369.00000"
+   },
+   "transferred": {
+    "Kevin BROOKS": "37.92672",
+    "Laurie FRASER": "0.00000",
+    "Michael GREEN": "72.16612",
+    "Barbara Babs JARVIE": "4.21408",
+    "Cal MACLEOD": "10.53520",
+    "Paul OLDHAM": "-369.00000",
+    "Kevin James REID": "69.26894",
+    "Marjory SMITH": "65.84500",
+    "nonTransferable": "109.03932",
+    "rounding": "0.00462"
+   },
+   "votes": {
+    "Kevin BROOKS": "229.92672",
+    "Laurie FRASER": "1215.00000",
+    "Michael GREEN": "929.16612",
+    "Barbara Babs JARVIE": "840.21408",
+    "Cal MACLEOD": "48.53520",
+    "Paul OLDHAM": "1032.00000",
+    "Kevin James REID": "609.26894",
+    "Marjory SMITH": "142.84500",
+    "nonTransferable": "109.03932",
+    "rounding": "0.00462"
+   },
+   "elected": [],
+   "total": "5156.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Laurie FRASER",
+    "amount": "183.00000"
+   },
+   "transferred": {
+    "Kevin BROOKS": "24.09760",
+    "Laurie FRASER": "-183.00000",
+    "Michael GREEN": "86.60075",
+    "Barbara Babs JARVIE": "21.08540",
+    "Cal MACLEOD": "1.80732",
+    "Paul OLDHAM": "0.00000",
+    "Kevin James REID": "22.29028",
+    "Marjory SMITH": "3.01220",
+    "nonTransferable": "24.09760",
+    "rounding": "0.00885"
+   },
+   "votes": {
+    "Kevin BROOKS": "254.02432",
+    "Laurie FRASER": "1032.00000",
+    "Michael GREEN": "1015.76687",
+    "Barbara Babs JARVIE": "861.29948",
+    "Cal MACLEOD": "50.34252",
+    "Paul OLDHAM": "1032.00000",
+    "Kevin James REID": "631.55922",
+    "Marjory SMITH": "145.85720",
+    "nonTransferable": "133.14154",
+    "rounding": "0.00885"
+   },
+   "elected": [],
+   "total": "5156.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Cal MACLEOD",
+    "amount": "50.34252"
+   },
+   "transferred": {
+    "Kevin BROOKS": "8.97859",
+    "Laurie FRASER": "0.00000",
+    "Michael GREEN": "8.73089",
+    "Barbara Babs JARVIE": "4.82798",
+    "Cal MACLEOD": "-50.34252",
+    "Paul OLDHAM": "0.00000",
+    "Kevin James REID": "8.72516",
+    "Marjory SMITH": "6.05352",
+    "nonTransferable": "13.02638",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Kevin BROOKS": "263.00291",
+    "Laurie FRASER": "1032.00000",
+    "Michael GREEN": "1024.49776",
+    "Barbara Babs JARVIE": "866.12746",
+    "Cal MACLEOD": "0.00000",
+    "Paul OLDHAM": "1032.00000",
+    "Kevin James REID": "640.28438",
+    "Marjory SMITH": "151.91072",
+    "nonTransferable": "146.17677",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "5156.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Marjory SMITH",
+    "amount": "151.91072"
+   },
+   "transferred": {
+    "Kevin BROOKS": "31.91210",
+    "Laurie FRASER": "0.00000",
+    "Michael GREEN": "29.63651",
+    "Barbara Babs JARVIE": "6.05352",
+    "Cal MACLEOD": "0.00000",
+    "Paul OLDHAM": "0.00000",
+    "Kevin James REID": "25.98130",
+    "Marjory SMITH": "-151.91072",
+    "nonTransferable": "58.32729",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Kevin BROOKS": "294.91501",
+    "Laurie FRASER": "1032.00000",
+    "Michael GREEN": "1054.13427",
+    "Barbara Babs JARVIE": "872.18098",
+    "Cal MACLEOD": "0.00000",
+    "Paul OLDHAM": "1032.00000",
+    "Kevin James REID": "666.26568",
+    "Marjory SMITH": "0.00000",
+    "nonTransferable": "204.50406",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Michael GREEN"
+   ],
+   "total": "5156.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Michael GREEN",
+    "amount": "22.13427"
+   },
+   "transferred": {
+    "Kevin BROOKS": "6.86100",
+    "Laurie FRASER": "0.00000",
+    "Michael GREEN": "-22.13427",
+    "Barbara Babs JARVIE": "3.32795",
+    "Cal MACLEOD": "0.00000",
+    "Paul OLDHAM": "0.00000",
+    "Kevin James REID": "5.68371",
+    "Marjory SMITH": "0.00000",
+    "nonTransferable": "6.25342",
+    "rounding": "0.00819"
+   },
+   "votes": {
+    "Kevin BROOKS": "301.77601",
+    "Laurie FRASER": "1032.00000",
+    "Michael GREEN": "1032.00000",
+    "Barbara Babs JARVIE": "875.50893",
+    "Cal MACLEOD": "0.00000",
+    "Paul OLDHAM": "1032.00000",
+    "Kevin James REID": "671.94939",
+    "Marjory SMITH": "0.00000",
+    "nonTransferable": "210.75748",
+    "rounding": "0.00819"
+   },
+   "elected": [],
+   "total": "5156.00000"
+  },
+  {
+   "stage": 7,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Kevin BROOKS",
+    "amount": "301.77601"
+   },
+   "transferred": {
+    "Kevin BROOKS": "-301.77601",
+    "Laurie FRASER": "0.00000",
+    "Michael GREEN": "0.00000",
+    "Barbara Babs JARVIE": "38.52494",
+    "Cal MACLEOD": "0.00000",
+    "Paul OLDHAM": "0.00000",
+    "Kevin James REID": "111.88832",
+    "Marjory SMITH": "0.00000",
+    "nonTransferable": "151.36275",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Kevin BROOKS": "0.00000",
+    "Laurie FRASER": "1032.00000",
+    "Michael GREEN": "1032.00000",
+    "Barbara Babs JARVIE": "914.03387",
+    "Cal MACLEOD": "0.00000",
+    "Paul OLDHAM": "1032.00000",
+    "Kevin James REID": "783.83771",
+    "Marjory SMITH": "0.00000",
+    "nonTransferable": "362.12842",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "5156.00000"
+  },
+  {
+   "stage": 8,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Kevin James REID",
+    "amount": "783.83771"
+   },
+   "transferred": {
+    "Kevin BROOKS": "0.00000",
+    "Laurie FRASER": "0.00000",
+    "Michael GREEN": "0.00000",
+    "Barbara Babs JARVIE": "247.53568",
+    "Cal MACLEOD": "0.00000",
+    "Paul OLDHAM": "0.00000",
+    "Kevin James REID": "-783.83771",
+    "Marjory SMITH": "0.00000",
+    "nonTransferable": "536.30203",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Kevin BROOKS": "0.00000",
+    "Laurie FRASER": "1032.00000",
+    "Michael GREEN": "1032.00000",
+    "Barbara Babs JARVIE": "1161.56955",
+    "Cal MACLEOD": "0.00000",
+    "Paul OLDHAM": "1032.00000",
+    "Kevin James REID": "0.00000",
+    "Marjory SMITH": "0.00000",
+    "nonTransferable": "898.43045",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Barbara Babs JARVIE"
+   ],
+   "total": "5156.00000"
+  }
+ ]
+}

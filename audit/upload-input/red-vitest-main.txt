@@ -1,0 +1,103 @@
+
+ RUN  v4.1.12 /tmp/csvfix
+
+ ❯ test/csv-comment.test.ts (3 tests | 3 failed) 15ms
+     × a ranking file with "# exported ..., Ward 3" on top still counts 6ms
+     × a comment above a rank-column header is not a ballot and the header is still a header 6ms
+     × a comment between data rows is skipped 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/csv-comment.test.ts > BUG-009 CSV comment lines with commas > a ranking file with "# exported ..., Ward 3" on top still counts
+BallotSemanticError: Row 2, column 2: ">" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as "5,A>B", or one candidate per column: count,rank1,rank2,...
+ ❯ ambiguousCsv src/parse.ts:116:9
+    114|
+    115| function ambiguousCsv(row: number, column: number | undefined, why: st…
+    116|   throw new BallotSemanticError(
+       |         ^
+    117|     `Row ${row}${column ? `, column ${column}` : ''}: ${why} Use ranki…
+    118|     row,
+ ❯ parseRankCsv src/parse.ts:151:31
+ ❯ test/csv-comment.test.ts:6:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  test/csv-comment.test.ts > BUG-009 CSV comment lines with commas > a comment above a rank-column header is not a ballot and the header is still a header
+AssertionError: expected [ { count: 1, marks: [ …(2) ] }, …(2) ] to deeply equal [ { count: 1, marks: [ …(2) ] } ]
+
+- Expected
++ Received
+
+@@ -2,10 +2,36 @@
+    {
+      "count": 1,
+      "marks": [
+        {
+          "kind": "candidate",
++         "name": "# source: county",
++       },
++       {
++         "kind": "candidate",
++         "name": "state",
++       },
++     ],
++   },
++   {
++     "count": 1,
++     "marks": [
++       {
++         "kind": "candidate",
++         "name": "rank1",
++       },
++       {
++         "kind": "candidate",
++         "name": "rank2",
++       },
++     ],
++   },
++   {
++     "count": 1,
++     "marks": [
++       {
++         "kind": "candidate",
+          "name": "A",
+        },
+        {
+          "kind": "candidate",
+          "name": "B",
+
+ ❯ test/csv-comment.test.ts:11:23
+      9|   it('a comment above a rank-column header is not a ballot and the hea…
+     10|     const r = parseRankCsv('# source: county, state\nrank1,rank2\nA,B'…
+     11|     expect(r.ballots).toEqual([{ count: 1, marks: [{ kind: 'candidate'…
+       |                       ^
+     12|   });
+     13|   it('a comment between data rows is skipped', () => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  test/csv-comment.test.ts > BUG-009 CSV comment lines with commas > a comment between data rows is skipped
+AssertionError: expected 3 to be 2 // Object.is equality
+
+- Expected
++ Received
+
+- 2
++ 3
+
+ ❯ test/csv-comment.test.ts:14:86
+     12|   });
+     13|   it('a comment between data rows is skipped', () => {
+     14|     expect(parseRankCsv('rank1,rank2\nA,B\n# recount, batch 2\nB,A').b…
+       |                                                                                      ^
+     15|   });
+     16| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed (3)
+   Start at  12:11:42
+   Duration  321ms (transform 65ms, setup 0ms, import 84ms, tests 15ms, environment 0ms)
+

@@ -4,7 +4,7 @@ import { DEFAULT_RULES } from './types.js';
 
 export const TIEBREAK_OPTIONS = ['previous-round', 'lot'] as const;
 export const QUOTA_OPTIONS = ['droop', 'hare'] as const;
-export const OVERVOTE_OPTIONS = ['exhaust', 'skip'] as const;
+export const OVERVOTE_OPTIONS = ['exhaust', 'skip', 'continuing'] as const;
 export const SKIP_OPTIONS = ['continue', 'two-exhaust'] as const;
 export const DUPLICATE_OPTIONS = ['ignore', 'skip'] as const;
 
@@ -38,6 +38,10 @@ export function validateTabulateOptions(value: { seats?: unknown; quota?: unknow
   if (duplicates) return duplicates;
   if (rules.batch !== undefined && typeof rules.batch !== 'boolean') {
     return { status: 422, code: 'INVALID_BATCH', message: 'rules.batch must be a boolean', details: { field: 'rules.batch' } };
+  }
+  if (rules.batch === true && value.seats !== undefined && value.seats !== 1) {
+    // BUG-019: batch elimination is defined for single-winner IRV only; refuse it rather than silently ignore it.
+    return { status: 422, code: 'INVALID_BATCH', message: 'rules.batch is only supported for single-winner IRV (seats: 1)', details: { field: 'rules.batch' } };
   }
   if (rules.lotOrder !== undefined) {
     const lot = rules.lotOrder;
@@ -100,8 +104,8 @@ export function countingOptions() {
         field: 'quota',
         default: 'droop',
         options: [
-          { id: 'droop', description: 'floor(ballots / (seats + 1)) + 1' },
-          { id: 'hare', description: 'ballots / seats, kept as an exact rational' },
+          { id: 'droop', description: 'floor(valid ballots / (seats + 1)) + 1. Valid ballots count for a candidate at the first stage (blank and void first preferences are not counted), as in SSI 2007/42 Sch. 1 r. 46. One surplus is transferred per stage, largest first (r. 49).' },
+          { id: 'hare', description: 'valid ballots / seats, kept as an exact rational' },
         ],
       },
     },

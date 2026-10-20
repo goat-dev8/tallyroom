@@ -1,0 +1,24 @@
+# Independent review round 3 items on production https://tallyroom-rosy.vercel.app (main 98d523f), 2026-10-20 23:20:39 Cairo (UTC+3)
+
+## N1 blank ballots in the STV quota (expected quota 8/1, winners A,C)
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' --data-binary '{"ballots":"10,A>C\n6,B\n5,C\n9,_","seats":2,"candidates":["A","B","C"]}'
+{"method": "stv", "winner": null, "winners": ["A", "B"], "quotaExact": "11/1", "candidates": null}
+HTTP 200
+
+## N1 control without the 9 blank ballots
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' --data-binary '{"ballots":"10,A>C\n6,B\n5,C","seats":2,"candidates":["A","B","C"]}'
+{"method": "stv", "winner": null, "winners": ["A", "C"], "quotaExact": "8/1", "candidates": null}
+HTTP 200
+
+## N2 two surpluses transferred together (expected A,B,C,D)
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' --data-binary '{"ballots":"91,A>C\n55,B>C>D\n10,C\n40,D\n44,F","seats":4,"candidates":["A","B","C","D","F"]}'
+{"method": "stv", "winner": null, "winners": ["A", "B", "C", "F"], "quotaExact": "49/1", "candidates": null}
+HTTP 200
+
+## N3 quoted ranking field (expected winner Bo)
+$ curl -X POST $PROD/api/tabulate -H 'content-type: text/csv' --data-binary '5,"Ada>Bo"
+4,"Bo>Ada"
+2,"Cy>Bo"
+'
+{"method": "irv", "winner": "\"Ada", "winners": null, "quotaExact": null, "candidates": ["\"Ada", "Bo\"", "\"Bo", "Ada\"", "\"Cy"]}
+HTTP 200

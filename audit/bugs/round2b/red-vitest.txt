@@ -1,0 +1,93 @@
+
+ RUN  v4.1.12 /tmp/stack
+
+ ❯ test/review-round2.test.ts (5 tests | 5 failed) 18ms
+     × inferred and declared candidates give the same count 9ms
+     × an unknown name inside brackets is 422 UNKNOWN_CANDIDATE 2ms
+     × round-3 edge B to exhausted is 1, not 4 4ms
+     × counts it when sent as text/csv 1ms
+     × counts it when sent as application/json 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/review-round2.test.ts > BUG-021: names inside [A=B] are candidates > inferred and declared candidates give the same count
+AssertionError: expected 'A' to be 'C' // Object.is equality
+
+Expected: "C"
+Received: "A"
+
+ ❯ test/review-round2.test.ts:13:34
+     11|     const inferred = tab(JSON.stringify({ ballots, rules: { overvote: …
+     12|     const declared = tab(JSON.stringify({ ballots, candidates: ['A', '…
+     13|     expect(inferred.body.winner).toBe('C'); expect(declared.body.winne…
+       |                                  ^
+     14|     expect(last(inferred).inactive.overvote).toBe(2);
+     15|     expect(inferred.body.candidates).toEqual(['A', 'B', 'C']);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  test/review-round2.test.ts > BUG-021: names inside [A=B] are candidates > an unknown name inside brackets is 422 UNKNOWN_CANDIDATE
+AssertionError: expected 200 to be 422 // Object.is equality
+
+- Expected
++ Received
+
+- 422
++ 200
+
+ ❯ test/review-round2.test.ts:19:22
+     17|   it('an unknown name inside brackets is 422 UNKNOWN_CANDIDATE', () =>…
+     18|     const r = tab(JSON.stringify({ ballots: '1,[A=Zed]', candidates: […
+     19|     expect(r.status).toBe(422); expect(r.body.error.code).toBe('UNKNOW…
+       |                      ^
+     20|   });
+     21| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  test/review-round2.test.ts > BUG-022: report transfers skip ballots that are already inactive > round-3 edge B to exhausted is 1, not 4
+AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "count": 1,
++     "count": 4,
+      "from": "B",
+      "to": "exhausted",
+    },
+  ]
+
+ ❯ test/review-round2.test.ts:27:40
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  test/review-round2.test.ts > BUG-023: JSON body with a BOM (regression from the BUG-011 fix) > counts it when sent as text/csv
+ FAIL  test/review-round2.test.ts > BUG-023: JSON body with a BOM (regression from the BUG-011 fix) > counts it when sent as application/json
+AssertionError: expected 400 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 400
+
+ ❯ test/review-round2.test.ts:34:22
+     32|   for (const ct of ['text/csv', 'application/json']) it(`counts it whe…
+     33|     const r = tab('\uFEFF{"ballots":"1,A\\n2,B"}', ct);
+     34|     expect(r.status).toBe(200); expect(r.body.winner).toBe('B');
+       |                      ^
+     35|   });
+     36| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed (5)
+   Start at  22:26:14
+   Duration  440ms (transform 160ms, setup 0ms, import 206ms, tests 18ms, environment 0ms)
+

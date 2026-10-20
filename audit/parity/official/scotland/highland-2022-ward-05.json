@@ -1,0 +1,150 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "Wester Ross Strathpeffer and Lochalsh",
+ "source": "hl2022-ward-5-2022_Local_Government_Election_Results_Ward_5_Wester_Ross__Strathpeffer_and_Lochalsh_Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "5de2bef84de6aa4565ae607d12be7844b3aa4c25654fb4f7bbaa85bd0d22f0b0",
+ "ballotSource": "hl2022-ward-5-2022_Local_Government_Election_Results_Ward_5_Wester_Ross__Strathpeffer_and_Lochalsh_Preference_Profile_Report.blt",
+ "ballotSha256": "5e91a92c52eec981c407cf1045016e99f5aad78743cbe3ec5b0af74a1aadc72b",
+ "ballotsReceived": 5485,
+ "validVotes": 5411,
+ "seats": 4,
+ "quota": 1083,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Chris BIRT": "988",
+    "Biz CAMPBELL": "1552",
+    "Margot KERR": "700",
+    "Liz KRAFT": "1234",
+    "Patrick LOGUE": "937",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Biz CAMPBELL",
+    "Liz KRAFT"
+   ],
+   "total": "5411"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Biz CAMPBELL",
+    "amount": "469.00000"
+   },
+   "transferred": {
+    "Chris BIRT": "104.55774",
+    "Biz CAMPBELL": "-469.00000",
+    "Margot KERR": "182.52276",
+    "Liz KRAFT": "0.00000",
+    "Patrick LOGUE": "92.16795",
+    "nonTransferable": "89.75043",
+    "rounding": "0.00112"
+   },
+   "votes": {
+    "Chris BIRT": "1092.55774",
+    "Biz CAMPBELL": "1083.00000",
+    "Margot KERR": "882.52276",
+    "Liz KRAFT": "1234.00000",
+    "Patrick LOGUE": "1029.16795",
+    "nonTransferable": "89.75043",
+    "rounding": "0.00112"
+   },
+   "elected": [
+    "Chris BIRT"
+   ],
+   "total": "5411.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Liz KRAFT",
+    "amount": "151.00000"
+   },
+   "transferred": {
+    "Chris BIRT": "0.00000",
+    "Biz CAMPBELL": "0.00000",
+    "Margot KERR": "74.02780",
+    "Liz KRAFT": "-151.00000",
+    "Patrick LOGUE": "2.93664",
+    "nonTransferable": "74.02780",
+    "rounding": "0.00776"
+   },
+   "votes": {
+    "Chris BIRT": "1092.55774",
+    "Biz CAMPBELL": "1083.00000",
+    "Margot KERR": "956.55056",
+    "Liz KRAFT": "1083.00000",
+    "Patrick LOGUE": "1032.10459",
+    "nonTransferable": "163.77935",
+    "rounding": "0.00776"
+   },
+   "elected": [],
+   "total": "5411.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Chris BIRT",
+    "amount": "9.55774"
+   },
+   "transferred": {
+    "Chris BIRT": "-9.55774",
+    "Biz CAMPBELL": "0.00000",
+    "Margot KERR": "4.27346",
+    "Liz KRAFT": "0.00000",
+    "Patrick LOGUE": "0.27722",
+    "nonTransferable": "4.99788",
+    "rounding": "0.00918"
+   },
+   "votes": {
+    "Chris BIRT": "1083.00000",
+    "Biz CAMPBELL": "1083.00000",
+    "Margot KERR": "960.82402",
+    "Liz KRAFT": "1083.00000",
+    "Patrick LOGUE": "1032.38181",
+    "nonTransferable": "168.78499",
+    "rounding": "0.00918"
+   },
+   "elected": [],
+   "total": "5411.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Margot KERR",
+    "amount": "960.82402"
+   },
+   "transferred": {
+    "Chris BIRT": "0.00000",
+    "Biz CAMPBELL": "0.00000",
+    "Margot KERR": "-960.82402",
+    "Liz KRAFT": "0.00000",
+    "Patrick LOGUE": "446.85725",
+    "nonTransferable": "513.96677",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Chris BIRT": "1083.00000",
+    "Biz CAMPBELL": "1083.00000",
+    "Margot KERR": "0.00000",
+    "Liz KRAFT": "1083.00000",
+    "Patrick LOGUE": "1479.23906",
+    "nonTransferable": "682.76094",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Patrick LOGUE"
+   ],
+   "total": "5411.00000"
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+  "rootCauseHypothesis": "POST https://tallyroom-rosy.vercel.app/api/tabulate → 200\nResponse: {\"engineVersion\": \"0.1.0\", \"method\": \"irv\", \"candidates\": [\"\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u…\n(200, \"{'engineVersion': '0.1.0', 'method': 'irv', 'candidates': ['éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé\")\nAnalysis: The test called https://tallyroom-rosy.vercel.app/api/tabulate and the target API returned 200 OK, but it produced an IRV result instead of rejecting the oversized UTF-8 request. That means the size check is not enforcing the expected 4 MB byte limit. Underlying error: (200, \"{'engineVersion': '0.1.0', 'method': 'irv', 'candidates': ['éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé\")",
+  "recommendedFixTarget": {
+    "kind": "data",
+    "reference": "{",
+    "rationale": "I changed the test to send a payload that is over 4 MB in UTF-8 bytes while staying under 4 MB in character count, then assert the endpoint rejects it with 413 Payload Too Large."
+  },
+  "evidence": [],
+  "apiOutput": "",
+  "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 154, in <module>\n  File \"<string>\", line 151, in test\nAssertionError: (200, \"{'engineVersion': '0.1.0', 'method': 'irv', 'candidates': ['éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé\")\n"
+}

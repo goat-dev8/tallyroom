@@ -1,0 +1,30 @@
+{
+ "runId": "7f4763d9-2ec2-469f-adc3-69c62a098319",
+ "testId": "640adff8-dc91-478d-9f41-f6d90424e920",
+ "testTitle": "regress:bug-010",
+ "projectId": "a7aa06b0-0721-49ff-a7aa-0181ad8586d6",
+ "userId": "04180438-a0a1-70ab-b51f-4dce971c378f",
+ "status": "failed",
+ "source": "cli",
+ "createdAt": "2026-10-20T21:05:55.529Z",
+ "startedAt": "2026-10-20T21:05:55.529Z",
+ "finishedAt": "2026-10-20T21:06:02.427Z",
+ "codeVersion": "v-3b2f2161e297",
+ "targetUrl": null,
+ "environment": null,
+ "createdFrom": null,
+ "failedStepIndex": null,
+ "failureKind": "assertion",
+ "error": "(200, \"{'engineVersion': '0.1.0', 'method': 'irv', 'candidates': ['éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé\")",
+ "videoUrl": null,
+ "stepSummary": {
+  "total": 0,
+  "completed": 0,
+  "passedCount": 0,
+  "failedCount": 0
+ },
+ "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/640adff8-dc91-478d-9f41-f6d90424e920",
+ "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/4b406f82-a00b-49fe-b38d-e91e55a2660b/test/7f4763d9-2ec2-469f-adc3-69c62a098319",
+ "apiOutput": "",
+ "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 154, in <module>\n  File \"<string>\", line 151, in test\nAssertionError: (200, \"{'engineVersion': '0.1.0', 'method': 'irv', 'candidates': ['éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé\")\n"
+}

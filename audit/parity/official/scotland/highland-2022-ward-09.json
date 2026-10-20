@@ -1,0 +1,278 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "Black Isle",
+ "source": "hl2022-ward-9-2022_Local_Government_Election_Results_Ward_9_Black_Isle_Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "d272dafb1342035ec35d769d4191848e0d2265fa1abee29c9f2c4ce85fe6e3f6",
+ "ballotSource": "hl2022-ward-9-2022_Local_Government_Election_Results_Ward_9_Black_Isle_Preference_Profile_Report.blt",
+ "ballotSha256": "1679120ce9ff9930e540c0f59bf8d235309b9e604b15e85b7672bcb9ffa529df",
+ "ballotsReceived": 4752,
+ "validVotes": 4709,
+ "seats": 3,
+ "quota": 1178,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Sarah ATKIN": "634",
+    "Margaret BRYANT": "243",
+    "Lyndsey JOHNSTON": "1171",
+    "Morven-May MACCALLUM": "739",
+    "Okain John MCLENNAN": "317",
+    "Bev SMITH": "286",
+    "Theo STRATTON": "695",
+    "Anne THOMAS": "624",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [],
+   "total": "4709"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Margaret BRYANT",
+    "amount": "243.00000"
+   },
+   "transferred": {
+    "Sarah ATKIN": "26.00000",
+    "Margaret BRYANT": "-243.00000",
+    "Lyndsey JOHNSTON": "28.00000",
+    "Morven-May MACCALLUM": "87.00000",
+    "Okain John MCLENNAN": "21.00000",
+    "Bev SMITH": "12.00000",
+    "Theo STRATTON": "8.00000",
+    "Anne THOMAS": "22.00000",
+    "nonTransferable": "39.00000",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Sarah ATKIN": "660.00000",
+    "Margaret BRYANT": "0.00000",
+    "Lyndsey JOHNSTON": "1199.00000",
+    "Morven-May MACCALLUM": "826.00000",
+    "Okain John MCLENNAN": "338.00000",
+    "Bev SMITH": "298.00000",
+    "Theo STRATTON": "703.00000",
+    "Anne THOMAS": "646.00000",
+    "nonTransferable": "39.00000",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Lyndsey JOHNSTON"
+   ],
+   "total": "4709.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Lyndsey JOHNSTON",
+    "amount": "21.00000"
+   },
+   "transferred": {
+    "Sarah ATKIN": "1.76851",
+    "Margaret BRYANT": "0.00000",
+    "Lyndsey JOHNSTON": "-21.00000",
+    "Morven-May MACCALLUM": "3.37943",
+    "Okain John MCLENNAN": "1.31325",
+    "Bev SMITH": "0.82297",
+    "Theo STRATTON": "0.21012",
+    "Anne THOMAS": "9.70054",
+    "nonTransferable": "3.79967",
+    "rounding": "0.00551"
+   },
+   "votes": {
+    "Sarah ATKIN": "661.76851",
+    "Margaret BRYANT": "0.00000",
+    "Lyndsey JOHNSTON": "1178.00000",
+    "Morven-May MACCALLUM": "829.37943",
+    "Okain John MCLENNAN": "339.31325",
+    "Bev SMITH": "298.82297",
+    "Theo STRATTON": "703.21012",
+    "Anne THOMAS": "655.70054",
+    "nonTransferable": "42.79967",
+    "rounding": "0.00551"
+   },
+   "elected": [],
+   "total": "4709.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Bev SMITH",
+    "amount": "298.82297"
+   },
+   "transferred": {
+    "Sarah ATKIN": "108.12257",
+    "Margaret BRYANT": "0.00000",
+    "Lyndsey JOHNSTON": "0.00000",
+    "Morven-May MACCALLUM": "40.12257",
+    "Okain John MCLENNAN": "63.17510",
+    "Bev SMITH": "-298.82297",
+    "Theo STRATTON": "24.00000",
+    "Anne THOMAS": "27.24514",
+    "nonTransferable": "36.15759",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Sarah ATKIN": "769.89108",
+    "Margaret BRYANT": "0.00000",
+    "Lyndsey JOHNSTON": "1178.00000",
+    "Morven-May MACCALLUM": "869.50200",
+    "Okain John MCLENNAN": "402.48835",
+    "Bev SMITH": "0.00000",
+    "Theo STRATTON": "727.21012",
+    "Anne THOMAS": "682.94568",
+    "nonTransferable": "78.96277",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "4709.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Okain John MCLENNAN",
+    "amount": "402.48835"
+   },
+   "transferred": {
+    "Sarah ATKIN": "177.42024",
+    "Margaret BRYANT": "0.00000",
+    "Lyndsey JOHNSTON": "0.00000",
+    "Morven-May MACCALLUM": "58.17510",
+    "Okain John MCLENNAN": "-402.48835",
+    "Bev SMITH": "0.00000",
+    "Theo STRATTON": "47.03502",
+    "Anne THOMAS": "30.29767",
+    "nonTransferable": "89.56032",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Sarah ATKIN": "947.31132",
+    "Margaret BRYANT": "0.00000",
+    "Lyndsey JOHNSTON": "1178.00000",
+    "Morven-May MACCALLUM": "927.67710",
+    "Okain John MCLENNAN": "0.00000",
+    "Bev SMITH": "0.00000",
+    "Theo STRATTON": "774.24514",
+    "Anne THOMAS": "713.24335",
+    "nonTransferable": "168.52309",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "4709.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Anne THOMAS",
+    "amount": "713.24335"
+   },
+   "transferred": {
+    "Sarah ATKIN": "248.50393",
+    "Margaret BRYANT": "0.00000",
+    "Lyndsey JOHNSTON": "0.00000",
+    "Morven-May MACCALLUM": "219.04867",
+    "Okain John MCLENNAN": "0.00000",
+    "Bev SMITH": "0.00000",
+    "Theo STRATTON": "15.07004",
+    "Anne THOMAS": "-713.24335",
+    "nonTransferable": "230.62071",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Sarah ATKIN": "1195.81525",
+    "Margaret BRYANT": "0.00000",
+    "Lyndsey JOHNSTON": "1178.00000",
+    "Morven-May MACCALLUM": "1146.72577",
+    "Okain John MCLENNAN": "0.00000",
+    "Bev SMITH": "0.00000",
+    "Theo STRATTON": "789.31518",
+    "Anne THOMAS": "0.00000",
+    "nonTransferable": "399.14380",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Sarah ATKIN"
+   ],
+   "total": "4709.00000"
+  },
+  {
+   "stage": 7,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Sarah ATKIN",
+    "amount": "17.81525"
+   },
+   "transferred": {
+    "Sarah ATKIN": "-17.81525",
+    "Margaret BRYANT": "0.00000",
+    "Lyndsey JOHNSTON": "0.00000",
+    "Morven-May MACCALLUM": "6.83879",
+    "Okain John MCLENNAN": "0.00000",
+    "Bev SMITH": "0.00000",
+    "Theo STRATTON": "2.23480",
+    "Anne THOMAS": "0.00000",
+    "nonTransferable": "8.73190",
+    "rounding": "0.00976"
+   },
+   "votes": {
+    "Sarah ATKIN": "1178.00000",
+    "Margaret BRYANT": "0.00000",
+    "Lyndsey JOHNSTON": "1178.00000",
+    "Morven-May MACCALLUM": "1153.56456",
+    "Okain John MCLENNAN": "0.00000",
+    "Bev SMITH": "0.00000",
+    "Theo STRATTON": "791.54998",
+    "Anne THOMAS": "0.00000",
+    "nonTransferable": "407.87570",
+    "rounding": "0.00976"
+   },
+   "elected": [],
+   "total": "4709.00000"
+  },
+  {
+   "stage": 8,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Theo STRATTON",
+    "amount": "791.54998"
+   },
+   "transferred": {
+    "Sarah ATKIN": "0.00000",
+    "Margaret BRYANT": "0.00000",
+    "Lyndsey JOHNSTON": "0.00000",
+    "Morven-May MACCALLUM": "340.98933",
+    "Okain John MCLENNAN": "0.00000",
+    "Bev SMITH": "0.00000",
+    "Theo STRATTON": "-791.54998",
+    "Anne THOMAS": "0.00000",
+    "nonTransferable": "450.56065",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Sarah ATKIN": "1178.00000",
+    "Margaret BRYANT": "0.00000",
+    "Lyndsey JOHNSTON": "1178.00000",
+    "Morven-May MACCALLUM": "1494.55389",
+    "Okain John MCLENNAN": "0.00000",
+    "Bev SMITH": "0.00000",
+    "Theo STRATTON": "0.00000",
+    "Anne THOMAS": "0.00000",
+    "nonTransferable": "858.44611",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Morven-May MACCALLUM"
+   ],
+   "total": "4709.00000"
+  }
+ ]
+}

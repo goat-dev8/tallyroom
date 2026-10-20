@@ -1,0 +1,125 @@
+
+ RUN  v4.1.12 /tmp/stack
+
+ ❯ test/request-fields.test.ts (19 tests | 11 failed) 61ms
+     × unknown top-level key ("seat" for "seats") is 400 UNKNOWN_FIELD, not a silent single-winner count 9ms
+     × candidates that is not an array is 422 INVALID_CANDIDATES 1ms
+     × ballots and csv together is 400 AMBIGUOUS_BALLOTS 1ms
+     × the same checks apply to POST /api/report 2ms
+     × count_ballots {"ballots":"3,A\n2,B","extra":1} 1ms
+     × count_ballots {"ballots":"3,A\n2,B","candidates":"A"} 1ms
+     × count_ballots {"csv":"count,rank1,rank2\n3,A,B\n2,B,"} 1ms
+     × count_ballots {"ballots":[{"count":3,"ranks":["A"]}]} 1ms
+     × list_elections {"foo":1} 1ms
+     × counting_rules {"foo":1} 1ms
+     × election_rounds {"id":"maine-2018-cd2","extra":true} 1ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/request-fields.test.ts > BUG-024: tabulate rejects request fields it would otherwise ignore > unknown top-level key ("seat" for "seats") is 400 UNKNOWN_FIELD, not a silent single-winner count
+AssertionError: expected 200 to be 400 // Object.is equality
+
+- Expected
++ Received
+
+- 400
++ 200
+
+ ❯ test/request-fields.test.ts:13:22
+     11|   it('unknown top-level key ("seat" for "seats") is 400 UNKNOWN_FIELD,…
+     12|     const r = tab({ ballots: '3,A\n2,B\n2,C', seat: 2 });
+     13|     expect(r.status).toBe(400); expect(r.body.error.code).toBe('UNKNOW…
+       |                      ^
+     14|   });
+     15|   it('candidates that is not an array is 422 INVALID_CANDIDATES', () =…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯
+
+ FAIL  test/request-fields.test.ts > BUG-024: tabulate rejects request fields it would otherwise ignore > candidates that is not an array is 422 INVALID_CANDIDATES
+AssertionError: expected 200 to be 422 // Object.is equality
+
+- Expected
++ Received
+
+- 422
++ 200
+
+ ❯ test/request-fields.test.ts:18:24
+     16|     for (const candidates of ['A,B,C', 5, { A: 1 }]) {
+     17|       const r = tab({ ballots: '3,A\n2,B', candidates });
+     18|       expect(r.status).toBe(422); expect(r.body.error.code).toBe('INVA…
+       |                        ^
+     19|     }
+     20|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/11]⎯
+
+ FAIL  test/request-fields.test.ts > BUG-024: tabulate rejects request fields it would otherwise ignore > ballots and csv together is 400 AMBIGUOUS_BALLOTS
+AssertionError: expected 200 to be 400 // Object.is equality
+
+- Expected
++ Received
+
+- 400
++ 200
+
+ ❯ test/request-fields.test.ts:23:22
+     21|   it('ballots and csv together is 400 AMBIGUOUS_BALLOTS', () => {
+     22|     const r = tab({ ballots: '3,A\n2,B', csv: '1,B\n9,C' });
+     23|     expect(r.status).toBe(400); expect(r.body.error.code).toBe('AMBIGU…
+       |                      ^
+     24|   });
+     25|   it('the same checks apply to POST /api/report', () => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/11]⎯
+
+ FAIL  test/request-fields.test.ts > BUG-024: tabulate rejects request fields it would otherwise ignore > the same checks apply to POST /api/report
+AssertionError: expected 200 to be 400 // Object.is equality
+
+- Expected
++ Received
+
+- 400
++ 200
+
+ ❯ test/request-fields.test.ts:27:22
+     25|   it('the same checks apply to POST /api/report', () => {
+     26|     const r: any = handleReport('POST', { rawBody: JSON.stringify({ ba…
+     27|     expect(r.status).toBe(400); expect(r.body.error.code).toBe('UNKNOW…
+       |                      ^
+     28|   });
+     29|   it('every documented field still works, and null candidates means "a…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/11]⎯
+
+ FAIL  test/request-fields.test.ts > BUG-025: MCP tools/call agrees with each tool inputSchema > count_ballots {"ballots":"3,A\n2,B","extra":1}
+ FAIL  test/request-fields.test.ts > BUG-025: MCP tools/call agrees with each tool inputSchema > count_ballots {"ballots":"3,A\n2,B","candidates":"A"}
+ FAIL  test/request-fields.test.ts > BUG-025: MCP tools/call agrees with each tool inputSchema > count_ballots {"csv":"count,rank1,rank2\n3,A,B\n2,B,"}
+ FAIL  test/request-fields.test.ts > BUG-025: MCP tools/call agrees with each tool inputSchema > count_ballots {"ballots":[{"count":3,"ranks":["A"]}]}
+ FAIL  test/request-fields.test.ts > BUG-025: MCP tools/call agrees with each tool inputSchema > list_elections {"foo":1}
+ FAIL  test/request-fields.test.ts > BUG-025: MCP tools/call agrees with each tool inputSchema > counting_rules {"foo":1}
+ FAIL  test/request-fields.test.ts > BUG-025: MCP tools/call agrees with each tool inputSchema > election_rounds {"id":"maine-2018-cd2","extra":true}
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ test/request-fields.test.ts:51:30
+     49|     const valid = ajv.validate(tool.inputSchema, args);
+     50|     const r: any = handleMcpMessage({ jsonrpc: '2.0', id: 1, method: '…
+     51|     expect(r.result.isError).toBe(!valid);
+       |                              ^
+     52|   });
+     53| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/11]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  11 failed | 8 passed (19)
+   Start at  22:43:49
+   Duration  565ms (transform 195ms, setup 0ms, import 283ms, tests 61ms, environment 0ms)
+

@@ -1,0 +1,15 @@
+testsprite-cli	Run TestSprite API tests on this PR's preview	2026-10-20T21:09:10.0991485Z bound  api:err-unknown-election -> https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app
+testsprite-cli	Run TestSprite API tests on this PR's preview	2026-10-20T21:09:10.5138877Z bound  api:exhausted -> https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app
+testsprite-cli	Run TestSprite API tests on this PR's preview	2026-10-20T21:09:10.9655737Z bound  api:tabulate-csv-and-presets -> https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app
+testsprite-cli	Run TestSprite API tests on this PR's preview	2026-10-20T21:09:11.4261842Z bound  api:health -> https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app
+testsprite-cli	Run TestSprite API tests on this PR's preview	2026-10-20T21:09:11.8420869Z bound  api:input-edges -> https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app
+testsprite-cli	Run TestSprite API tests on this PR's preview	2026-10-20T21:09:12.2451459Z bound  api:tabulate-maine -> https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app
+testsprite-cli	Run TestSprite API tests on this PR's preview	2026-10-20T21:09:12.8305832Z bound  api:tabulate-nyc -> https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app
+testsprite-cli	Run TestSprite API tests on this PR's preview	2026-10-20T21:09:13.2515839Z bound  api:options -> https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app
+testsprite-cli	Run TestSprite API tests on this PR's preview	2026-10-20T21:09:13.6533835Z bound  api:report-hash-stable -> https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app
+testsprite-cli	Run TestSprite API tests on this PR's preview	2026-10-20T21:09:14.1089054Z bound  api:rounds-maine -> https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app
+testsprite-cli	Run TestSprite API tests on this PR's preview	2026-10-20T21:09:14.5091814Z bound  api:stv-multiseat -> https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app
+testsprite-cli	Run TestSprite API tests on this PR's preview	2026-10-20T21:09:14.9222963Z bound  api:tie-break -> https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app
+testsprite-cli	Run TestSprite API tests on this PR's preview	2026-10-20T21:09:15.2869527Z --filter: skipped 15 tests whose name does not contain "api:".
+testsprite-cli	Run TestSprite API tests on this PR's preview	2026-10-20T21:09:20.2796732Z Batch run complete: 22/22 passed, 0 failed/blocked, 0 timed out
+testsprite-cli	Run TestSprite API tests on this PR's preview	2026-10-20T21:09:25.3516840Z CI run: 22/22 passed, 0 failed, 0 skipped, 0 timed out

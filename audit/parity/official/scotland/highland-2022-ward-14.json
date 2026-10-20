@@ -1,0 +1,384 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "Inverness Central",
+ "source": "hl2022-ward-14-2022_Local_Government_Election_Results_Ward_14_Inverness_Central_Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "882b3ab1cfce7fd09775c7a5b4338f23b86cbc82575a37a98175b3f53a8edf7d",
+ "ballotSource": "hl2022-ward-14-2022_Local_Government_Election_Results_Ward_14_Inverness_Central_Preference_Profile_Report.blt",
+ "ballotSha256": "be7b30c94f1675cafa3790bb1d0ebf5ac429a4c68a4d0feefdd4987ad938183d",
+ "ballotsReceived": 3362,
+ "validVotes": 3286,
+ "seats": 3,
+ "quota": 822,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Andrew BARNETT": "141",
+    "Michael CAMERON": "769",
+    "Donald MACKENZIE": "420",
+    "Luigi Andrew MACKINNON": "26",
+    "Kate MACLEAN": "589",
+    "Bet MCALLISTER": "793",
+    "John William MCCOLL": "45",
+    "Martin RATTRAY": "211",
+    "Sean ROBERTSON": "47",
+    "Arun SHARMA": "245",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [],
+   "total": "3286"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Luigi Andrew MACKINNON",
+    "amount": "26.00000"
+   },
+   "transferred": {
+    "Andrew BARNETT": "11.00000",
+    "Michael CAMERON": "1.00000",
+    "Donald MACKENZIE": "1.00000",
+    "Luigi Andrew MACKINNON": "-26.00000",
+    "Kate MACLEAN": "0.00000",
+    "Bet MCALLISTER": "0.00000",
+    "John William MCCOLL": "5.00000",
+    "Martin RATTRAY": "0.00000",
+    "Sean ROBERTSON": "0.00000",
+    "Arun SHARMA": "5.00000",
+    "nonTransferable": "3.00000",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Andrew BARNETT": "152.00000",
+    "Michael CAMERON": "770.00000",
+    "Donald MACKENZIE": "421.00000",
+    "Luigi Andrew MACKINNON": "0.00000",
+    "Kate MACLEAN": "589.00000",
+    "Bet MCALLISTER": "793.00000",
+    "John William MCCOLL": "50.00000",
+    "Martin RATTRAY": "211.00000",
+    "Sean ROBERTSON": "47.00000",
+    "Arun SHARMA": "250.00000",
+    "nonTransferable": "3.00000",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3286.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Sean ROBERTSON",
+    "amount": "47.00000"
+   },
+   "transferred": {
+    "Andrew BARNETT": "10.00000",
+    "Michael CAMERON": "2.00000",
+    "Donald MACKENZIE": "3.00000",
+    "Luigi Andrew MACKINNON": "0.00000",
+    "Kate MACLEAN": "2.00000",
+    "Bet MCALLISTER": "12.00000",
+    "John William MCCOLL": "4.00000",
+    "Martin RATTRAY": "1.00000",
+    "Sean ROBERTSON": "-47.00000",
+    "Arun SHARMA": "8.00000",
+    "nonTransferable": "5.00000",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Andrew BARNETT": "162.00000",
+    "Michael CAMERON": "772.00000",
+    "Donald MACKENZIE": "424.00000",
+    "Luigi Andrew MACKINNON": "0.00000",
+    "Kate MACLEAN": "591.00000",
+    "Bet MCALLISTER": "805.00000",
+    "John William MCCOLL": "54.00000",
+    "Martin RATTRAY": "212.00000",
+    "Sean ROBERTSON": "0.00000",
+    "Arun SHARMA": "258.00000",
+    "nonTransferable": "8.00000",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3286.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "John William MCCOLL",
+    "amount": "54.00000"
+   },
+   "transferred": {
+    "Andrew BARNETT": "11.00000",
+    "Michael CAMERON": "1.00000",
+    "Donald MACKENZIE": "13.00000",
+    "Luigi Andrew MACKINNON": "0.00000",
+    "Kate MACLEAN": "2.00000",
+    "Bet MCALLISTER": "6.00000",
+    "John William MCCOLL": "-54.00000",
+    "Martin RATTRAY": "6.00000",
+    "Sean ROBERTSON": "0.00000",
+    "Arun SHARMA": "4.00000",
+    "nonTransferable": "11.00000",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Andrew BARNETT": "173.00000",
+    "Michael CAMERON": "773.00000",
+    "Donald MACKENZIE": "437.00000",
+    "Luigi Andrew MACKINNON": "0.00000",
+    "Kate MACLEAN": "593.00000",
+    "Bet MCALLISTER": "811.00000",
+    "John William MCCOLL": "0.00000",
+    "Martin RATTRAY": "218.00000",
+    "Sean ROBERTSON": "0.00000",
+    "Arun SHARMA": "262.00000",
+    "nonTransferable": "19.00000",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3286.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Andrew BARNETT",
+    "amount": "173.00000"
+   },
+   "transferred": {
+    "Andrew BARNETT": "-173.00000",
+    "Michael CAMERON": "23.00000",
+    "Donald MACKENZIE": "18.00000",
+    "Luigi Andrew MACKINNON": "0.00000",
+    "Kate MACLEAN": "19.00000",
+    "Bet MCALLISTER": "29.00000",
+    "John William MCCOLL": "0.00000",
+    "Martin RATTRAY": "11.00000",
+    "Sean ROBERTSON": "0.00000",
+    "Arun SHARMA": "30.00000",
+    "nonTransferable": "43.00000",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Andrew BARNETT": "0.00000",
+    "Michael CAMERON": "796.00000",
+    "Donald MACKENZIE": "455.00000",
+    "Luigi Andrew MACKINNON": "0.00000",
+    "Kate MACLEAN": "612.00000",
+    "Bet MCALLISTER": "840.00000",
+    "John William MCCOLL": "0.00000",
+    "Martin RATTRAY": "229.00000",
+    "Sean ROBERTSON": "0.00000",
+    "Arun SHARMA": "292.00000",
+    "nonTransferable": "62.00000",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Bet MCALLISTER"
+   ],
+   "total": "3286.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Bet MCALLISTER",
+    "amount": "18.00000"
+   },
+   "transferred": {
+    "Andrew BARNETT": "0.00000",
+    "Michael CAMERON": "1.37088",
+    "Donald MACKENZIE": "2.05632",
+    "Luigi Andrew MACKINNON": "0.00000",
+    "Kate MACLEAN": "1.97064",
+    "Bet MCALLISTER": "-18.00000",
+    "John William MCCOLL": "0.00000",
+    "Martin RATTRAY": "5.50494",
+    "Sean ROBERTSON": "0.00000",
+    "Arun SHARMA": "1.77786",
+    "nonTransferable": "5.31216",
+    "rounding": "0.00720"
+   },
+   "votes": {
+    "Andrew BARNETT": "0.00000",
+    "Michael CAMERON": "797.37088",
+    "Donald MACKENZIE": "457.05632",
+    "Luigi Andrew MACKINNON": "0.00000",
+    "Kate MACLEAN": "613.97064",
+    "Bet MCALLISTER": "822.00000",
+    "John William MCCOLL": "0.00000",
+    "Martin RATTRAY": "234.50494",
+    "Sean ROBERTSON": "0.00000",
+    "Arun SHARMA": "293.77786",
+    "nonTransferable": "67.31216",
+    "rounding": "0.00720"
+   },
+   "elected": [],
+   "total": "3286.00000"
+  },
+  {
+   "stage": 7,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Martin RATTRAY",
+    "amount": "234.50494"
+   },
+   "transferred": {
+    "Andrew BARNETT": "0.00000",
+    "Michael CAMERON": "12.21420",
+    "Donald MACKENZIE": "53.26378",
+    "Luigi Andrew MACKINNON": "0.00000",
+    "Kate MACLEAN": "14.19278",
+    "Bet MCALLISTER": "0.00000",
+    "John William MCCOLL": "0.00000",
+    "Martin RATTRAY": "-234.50494",
+    "Sean ROBERTSON": "0.00000",
+    "Arun SHARMA": "53.89964",
+    "nonTransferable": "100.93454",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Andrew BARNETT": "0.00000",
+    "Michael CAMERON": "809.58508",
+    "Donald MACKENZIE": "510.32010",
+    "Luigi Andrew MACKINNON": "0.00000",
+    "Kate MACLEAN": "628.16342",
+    "Bet MCALLISTER": "822.00000",
+    "John William MCCOLL": "0.00000",
+    "Martin RATTRAY": "0.00000",
+    "Sean ROBERTSON": "0.00000",
+    "Arun SHARMA": "347.67750",
+    "nonTransferable": "168.25390",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3286.00000"
+  },
+  {
+   "stage": 8,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Arun SHARMA",
+    "amount": "347.67750"
+   },
+   "transferred": {
+    "Andrew BARNETT": "0.00000",
+    "Michael CAMERON": "58.27846",
+    "Donald MACKENZIE": "16.23562",
+    "Luigi Andrew MACKINNON": "0.00000",
+    "Kate MACLEAN": "138.55692",
+    "Bet MCALLISTER": "0.00000",
+    "John William MCCOLL": "0.00000",
+    "Martin RATTRAY": "0.00000",
+    "Sean ROBERTSON": "0.00000",
+    "Arun SHARMA": "-347.67750",
+    "nonTransferable": "134.60650",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Andrew BARNETT": "0.00000",
+    "Michael CAMERON": "867.86354",
+    "Donald MACKENZIE": "526.55572",
+    "Luigi Andrew MACKINNON": "0.00000",
+    "Kate MACLEAN": "766.72034",
+    "Bet MCALLISTER": "822.00000",
+    "John William MCCOLL": "0.00000",
+    "Martin RATTRAY": "0.00000",
+    "Sean ROBERTSON": "0.00000",
+    "Arun SHARMA": "0.00000",
+    "nonTransferable": "302.86040",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Michael CAMERON"
+   ],
+   "total": "3286.00000"
+  },
+  {
+   "stage": 9,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Michael CAMERON",
+    "amount": "45.86354"
+   },
+   "transferred": {
+    "Andrew BARNETT": "0.00000",
+    "Michael CAMERON": "-45.86354",
+    "Donald MACKENZIE": "0.90167",
+    "Luigi Andrew MACKINNON": "0.00000",
+    "Kate MACLEAN": "40.63875",
+    "Bet MCALLISTER": "0.00000",
+    "John William MCCOLL": "0.00000",
+    "Martin RATTRAY": "0.00000",
+    "Sean ROBERTSON": "0.00000",
+    "Arun SHARMA": "0.00000",
+    "nonTransferable": "4.31733",
+    "rounding": "0.00579"
+   },
+   "votes": {
+    "Andrew BARNETT": "0.00000",
+    "Michael CAMERON": "822.00000",
+    "Donald MACKENZIE": "527.45739",
+    "Luigi Andrew MACKINNON": "0.00000",
+    "Kate MACLEAN": "807.35909",
+    "Bet MCALLISTER": "822.00000",
+    "John William MCCOLL": "0.00000",
+    "Martin RATTRAY": "0.00000",
+    "Sean ROBERTSON": "0.00000",
+    "Arun SHARMA": "0.00000",
+    "nonTransferable": "307.17773",
+    "rounding": "0.00579"
+   },
+   "elected": [],
+   "total": "3286.00000"
+  },
+  {
+   "stage": 10,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Donald MACKENZIE",
+    "amount": "527.45739"
+   },
+   "transferred": {
+    "Andrew BARNETT": "0.00000",
+    "Michael CAMERON": "0.00000",
+    "Donald MACKENZIE": "-527.45739",
+    "Luigi Andrew MACKINNON": "0.00000",
+    "Kate MACLEAN": "60.34207",
+    "Bet MCALLISTER": "0.00000",
+    "John William MCCOLL": "0.00000",
+    "Martin RATTRAY": "0.00000",
+    "Sean ROBERTSON": "0.00000",
+    "Arun SHARMA": "0.00000",
+    "nonTransferable": "467.11532",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Andrew BARNETT": "0.00000",
+    "Michael CAMERON": "822.00000",
+    "Donald MACKENZIE": "0.00000",
+    "Luigi Andrew MACKINNON": "0.00000",
+    "Kate MACLEAN": "867.70116",
+    "Bet MCALLISTER": "822.00000",
+    "John William MCCOLL": "0.00000",
+    "Martin RATTRAY": "0.00000",
+    "Sean ROBERTSON": "0.00000",
+    "Arun SHARMA": "0.00000",
+    "nonTransferable": "774.29884",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Kate MACLEAN"
+   ],
+   "total": "3286.00000"
+  }
+ ]
+}

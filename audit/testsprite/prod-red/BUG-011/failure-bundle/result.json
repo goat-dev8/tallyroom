@@ -1,0 +1,21 @@
+{
+  "testId": "8b235a50-546d-406a-8867-08ab87ee56e2",
+  "status": "failed",
+  "startedAt": "2026-10-20T20:49:44.925Z",
+  "finishedAt": "2026-10-20T20:49:48.484Z",
+  "videoUrl": null,
+  "failureAnalysisUrl": null,
+  "snapshotId": "snap_872d87c01ec15595",
+  "runIdIfAvailable": "975792b2-3d88-4c3a-9b42-47fdc3aa0446",
+  "codeVersion": "v-68c8132f371e",
+  "targetUrl": null,
+  "targetUrlSource": null,
+  "environment": null,
+  "failedStepIndex": null,
+  "failureKind": "assertion",
+  "verdict": "failed",
+  "executionStatus": "completed",
+  "summary": "Failed (assertion): POST https://tallyroom-rosy.vercel.app/api/tabulate → 422\nResponse: {\"error\":{\"code\":\"CSV_FORMAT_AMBIGUOUS\",\"message\":\"Row 1, column 1: \\\">\\\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \\\"5,A>B\\\", or one candidate per column: count,rank1,rank2,...\",\"details\":{\"row\":1,\"column\":1}}}\n(422, {'error': {'code': 'CSV_FORMAT_AMBIGUOUS', 'message': 'Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per c…",
+  "apiOutput": "",
+  "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 149, in test\nAssertionError: (422, {'error': {'code': 'CSV_FORMAT_AMBIGUOUS', 'message': 'Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...', 'details': {'row': 1, 'column': 1}}})\n"
+}

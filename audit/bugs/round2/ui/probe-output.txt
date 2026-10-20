@@ -1,0 +1,36 @@
+desktop 01-landing: horizontal overflow 0px; errors so far 0
+desktop 02-stv-sample: horizontal overflow 0px; errors so far 0
+desktop stv winners: 1 Alice 2 Bob
+desktop CR-only upload winner: Alice ballots 6
+desktop 03-cr-upload: horizontal overflow 0px; errors so far 0
+desktop NFD/NFC names: Zoé | Bob
+desktop 04-nfc: horizontal overflow 0px; errors so far 0
+desktop /app?election=nyc-2021-dem-mayor&round=3: url-after=?election=nyc-2021-dem-mayor&round=3 title="Round 3" error=""
+desktop 05-nyc-r3: horizontal overflow 0px; errors so far 0
+desktop /app?election=nyc-2021-dem-mayor&round=99: url-after=?election=nyc-2021-dem-mayor&round=8 title="Round 8" error=""
+desktop 06-nyc-r99: horizontal overflow 0px; errors so far 0
+desktop /app?election=maine-2018-cd2: url-after=?election=maine-2018-cd2&round=1 title="Round 1" error=""
+desktop 07-maine: horizontal overflow 0px; errors so far 0
+desktop /app?election=nope: url-after=?election=maine-2018-cd2&round=1 title="Round 1" error=""
+desktop 08-bad-election: horizontal overflow 0px; errors so far 0
+desktop /app?election=alaska-2022-special&round=0: url-after=?election=alaska-2022-special&round=1 title="Round 1" error=""
+desktop 09-round-0: horizontal overflow 0px; errors so far 0
+desktop errors: []
+mobile 01-landing: horizontal overflow 0px; errors so far 0
+mobile 02-stv-sample: horizontal overflow 0px; errors so far 0
+mobile stv winners: 1 Alice 2 Bob
+mobile CR-only upload winner: Alice ballots 6
+mobile 03-cr-upload: horizontal overflow 0px; errors so far 0
+mobile NFD/NFC names: Zoé | Bob
+mobile 04-nfc: horizontal overflow 0px; errors so far 0
+mobile /app?election=nyc-2021-dem-mayor&round=3: url-after=?election=nyc-2021-dem-mayor&round=3 title="Round 3" error=""
+mobile 05-nyc-r3: horizontal overflow 0px; errors so far 0
+mobile /app?election=nyc-2021-dem-mayor&round=99: url-after=?election=nyc-2021-dem-mayor&round=8 title="Round 8" error=""
+mobile 06-nyc-r99: horizontal overflow 0px; errors so far 0
+mobile /app?election=maine-2018-cd2: url-after=?election=maine-2018-cd2&round=1 title="Round 1" error=""
+mobile 07-maine: horizontal overflow 0px; errors so far 0
+mobile /app?election=nope: url-after=?election=maine-2018-cd2&round=1 title="Round 1" error=""
+mobile 08-bad-election: horizontal overflow 0px; errors so far 0
+mobile /app?election=alaska-2022-special&round=0: url-after=?election=alaska-2022-special&round=1 title="Round 1" error=""
+mobile 09-round-0: horizontal overflow 0px; errors so far 0
+mobile errors: []

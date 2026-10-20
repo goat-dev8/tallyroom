@@ -1,0 +1,280 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "Badenoch and Strathspey",
+ "source": "hl2022-ward-20-2022_Local_Government_Election_Results_Ward_20_Badenoch_and_Strathspey_Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "5b68639d6f30bbefe2b5960e85ed202640ba1b342e813f5942837875884bffaa",
+ "ballotSource": "hl2022-ward-20-2022_Local_Government_Election_Results_Ward_20_Badenoch_and_Strathspey_Preference_Profile.blt",
+ "ballotSha256": "120d9c1f96af83ea2ec30e7f5b51d5655c4ed07826717c243bf4707fb1e1ac7e",
+ "ballotsReceived": 5621,
+ "validVotes": 5529,
+ "seats": 4,
+ "quota": 1106,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "John BRUCE": "861",
+    "Muriel COCKBURN": "886",
+    "Dave FALLOWS": "371",
+    "Declan GALLACHER": "489",
+    "Pippa HADLEY": "568",
+    "Russell JONES": "1280",
+    "Bill LOBBAN": "842",
+    "Charlie WHELAN": "232",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Russell JONES"
+   ],
+   "total": "5529"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Russell JONES",
+    "amount": "174.00000"
+   },
+   "transferred": {
+    "John BRUCE": "17.94276",
+    "Muriel COCKBURN": "14.13672",
+    "Dave FALLOWS": "10.73847",
+    "Declan GALLACHER": "14.13672",
+    "Pippa HADLEY": "25.28298",
+    "Russell JONES": "-174.00000",
+    "Bill LOBBAN": "53.14863",
+    "Charlie WHELAN": "9.65103",
+    "nonTransferable": "28.95309",
+    "rounding": "0.00960"
+   },
+   "votes": {
+    "John BRUCE": "878.94276",
+    "Muriel COCKBURN": "900.13672",
+    "Dave FALLOWS": "381.73847",
+    "Declan GALLACHER": "503.13672",
+    "Pippa HADLEY": "593.28298",
+    "Russell JONES": "1106.00000",
+    "Bill LOBBAN": "895.14863",
+    "Charlie WHELAN": "241.65103",
+    "nonTransferable": "28.95309",
+    "rounding": "0.00960"
+   },
+   "elected": [],
+   "total": "5529.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Charlie WHELAN",
+    "amount": "241.65103"
+   },
+   "transferred": {
+    "John BRUCE": "20.49523",
+    "Muriel COCKBURN": "14.13593",
+    "Dave FALLOWS": "16.13593",
+    "Declan GALLACHER": "72.44674",
+    "Pippa HADLEY": "31.49523",
+    "Russell JONES": "0.00000",
+    "Bill LOBBAN": "51.76709",
+    "Charlie WHELAN": "-241.65103",
+    "nonTransferable": "35.17488",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "John BRUCE": "899.43799",
+    "Muriel COCKBURN": "914.27265",
+    "Dave FALLOWS": "397.87440",
+    "Declan GALLACHER": "575.58346",
+    "Pippa HADLEY": "624.77821",
+    "Russell JONES": "1106.00000",
+    "Bill LOBBAN": "946.91572",
+    "Charlie WHELAN": "0.00000",
+    "nonTransferable": "64.13757",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "5529.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Dave FALLOWS",
+    "amount": "397.87440"
+   },
+   "transferred": {
+    "John BRUCE": "7.00000",
+    "Muriel COCKBURN": "295.75755",
+    "Dave FALLOWS": "-397.87440",
+    "Declan GALLACHER": "20.67965",
+    "Pippa HADLEY": "30.35930",
+    "Russell JONES": "0.00000",
+    "Bill LOBBAN": "15.35930",
+    "Charlie WHELAN": "0.00000",
+    "nonTransferable": "28.71860",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "John BRUCE": "906.43799",
+    "Muriel COCKBURN": "1210.03020",
+    "Dave FALLOWS": "0.00000",
+    "Declan GALLACHER": "596.26311",
+    "Pippa HADLEY": "655.13751",
+    "Russell JONES": "1106.00000",
+    "Bill LOBBAN": "962.27502",
+    "Charlie WHELAN": "0.00000",
+    "nonTransferable": "92.85617",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Muriel COCKBURN"
+   ],
+   "total": "5529.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Muriel COCKBURN",
+    "amount": "104.03020"
+   },
+   "transferred": {
+    "John BRUCE": "1.49653",
+    "Muriel COCKBURN": "-104.03020",
+    "Dave FALLOWS": "0.00000",
+    "Declan GALLACHER": "9.12029",
+    "Pippa HADLEY": "47.56708",
+    "Russell JONES": "0.00000",
+    "Bill LOBBAN": "16.12963",
+    "Charlie WHELAN": "0.00000",
+    "nonTransferable": "29.71194",
+    "rounding": "0.00473"
+   },
+   "votes": {
+    "John BRUCE": "907.93452",
+    "Muriel COCKBURN": "1106.00000",
+    "Dave FALLOWS": "0.00000",
+    "Declan GALLACHER": "605.38340",
+    "Pippa HADLEY": "702.70459",
+    "Russell JONES": "1106.00000",
+    "Bill LOBBAN": "978.40465",
+    "Charlie WHELAN": "0.00000",
+    "nonTransferable": "122.56811",
+    "rounding": "0.00473"
+   },
+   "elected": [],
+   "total": "5529.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Declan GALLACHER",
+    "amount": "605.38340"
+   },
+   "transferred": {
+    "John BRUCE": "135.91260",
+    "Muriel COCKBURN": "0.00000",
+    "Dave FALLOWS": "0.00000",
+    "Declan GALLACHER": "-605.38340",
+    "Pippa HADLEY": "147.75952",
+    "Russell JONES": "0.00000",
+    "Bill LOBBAN": "154.89852",
+    "Charlie WHELAN": "0.00000",
+    "nonTransferable": "166.81276",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "John BRUCE": "1043.84712",
+    "Muriel COCKBURN": "1106.00000",
+    "Dave FALLOWS": "0.00000",
+    "Declan GALLACHER": "0.00000",
+    "Pippa HADLEY": "850.46411",
+    "Russell JONES": "1106.00000",
+    "Bill LOBBAN": "1133.30317",
+    "Charlie WHELAN": "0.00000",
+    "nonTransferable": "289.38560",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Bill LOBBAN"
+   ],
+   "total": "5529.00000"
+  },
+  {
+   "stage": 7,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Bill LOBBAN",
+    "amount": "27.30317"
+   },
+   "transferred": {
+    "John BRUCE": "7.21217",
+    "Muriel COCKBURN": "0.00000",
+    "Dave FALLOWS": "0.00000",
+    "Declan GALLACHER": "0.00000",
+    "Pippa HADLEY": "7.87133",
+    "Russell JONES": "0.00000",
+    "Bill LOBBAN": "-27.30317",
+    "Charlie WHELAN": "0.00000",
+    "nonTransferable": "12.21548",
+    "rounding": "0.00419"
+   },
+   "votes": {
+    "John BRUCE": "1051.05929",
+    "Muriel COCKBURN": "1106.00000",
+    "Dave FALLOWS": "0.00000",
+    "Declan GALLACHER": "0.00000",
+    "Pippa HADLEY": "858.33544",
+    "Russell JONES": "1106.00000",
+    "Bill LOBBAN": "1106.00000",
+    "Charlie WHELAN": "0.00000",
+    "nonTransferable": "301.60108",
+    "rounding": "0.00419"
+   },
+   "elected": [],
+   "total": "5529.00000"
+  },
+  {
+   "stage": 8,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Pippa HADLEY",
+    "amount": "858.33544"
+   },
+   "transferred": {
+    "John BRUCE": "166.56395",
+    "Muriel COCKBURN": "0.00000",
+    "Dave FALLOWS": "0.00000",
+    "Declan GALLACHER": "0.00000",
+    "Pippa HADLEY": "-858.33544",
+    "Russell JONES": "0.00000",
+    "Bill LOBBAN": "0.00000",
+    "Charlie WHELAN": "0.00000",
+    "nonTransferable": "691.77149",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "John BRUCE": "1217.62324",
+    "Muriel COCKBURN": "1106.00000",
+    "Dave FALLOWS": "0.00000",
+    "Declan GALLACHER": "0.00000",
+    "Pippa HADLEY": "0.00000",
+    "Russell JONES": "1106.00000",
+    "Bill LOBBAN": "1106.00000",
+    "Charlie WHELAN": "0.00000",
+    "nonTransferable": "993.37676",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "John BRUCE"
+   ],
+   "total": "5529.00000"
+  }
+ ]
+}

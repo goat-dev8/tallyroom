@@ -1,0 +1,515 @@
+# PR #13 issue comments, fetched 2026-10-21 with gh api (images and signed URL queries removed)
+2026-10-19T22:26:01Z [vc]: #F3tpBTk+ceQmN6hlqErSVYi8/UVCJsfeIUjhCFg3MOc=:eyJpc01vbm9yZXBvIjp0cnVlLCJ0eXBlIjoiZ2l0aHViIiwicHJvamVjdHMiOlt7Im5hbWUiOiJ0YWxseXJvb20iLCJwcm9qZWN0SWQiOiJwcmpfeXczMlNBUDlaR3ZTT0owYmdlZVV4ZGVUaXd4YyIsInJvb3REaXJlY3RvcnkiOm51bGwsImluc3BlY3RvclVybCI6Imh0dHBzOi8vdmVyY2VsLmNvbS9nb2F0cy1wcm9qZWN0cy0zZjAyM2NjOS90YWxseXJvb20vNFRIWDQ4VGhOdnlXSkNzQTQycEprYkJHeGhyYyIsInByZXZpZXdVcmwiOiJ0YWxseXJvb20tZ2l0LWZpeC1jc3Ytc2luZ2xlLWNob2ljZS1nb2F0cy1wcm9qZWN0cy0zZjAyM2NjOS52ZXJjZWwuYXBwIiwibmV4dENvbW1pdFN0YXR1cyI6IkRFUExPWUVEIiwibGl2ZUZlZWRiYWNrIjp7InJlc29sdmVkIjowLCJ1bnJlc29sdmVkIjowLCJ0b3RhbCI6MCwibGluayI6InRhbGx5cm9vbS1naXQtZml4LWNzdi1zaW5nbGUtY2hvaWNlLWdvYXRzLXByb2plY3RzLTNmMDIzY2M5LnZlcmNlbC5hcHAifX1dfQ==
+The latest updates on your projects. Learn more about [Vercel for GitHub](https://vercel.link/github-learn-more).
+
+| Project | Deployment | Actions | Updated |
+| :--- | :----- | :------ | :------ |
+|      [tallyroom](https://vercel.com/goats-projects-3f023cc9/tallyroom) | ![Ready](https://vercel.com/static/status/ready.svg) [Ready](https://vercel.com/goats-projects-3f023cc9/tallyroom/4THX48ThNvyWJCsA42pJkbBGxhrc) | [Preview](https://tallyroom-git-fix-csv-single-choice-goats-projects-3f023cc9.vercel.app) |  Oct 20, 2026 5:53am UTC  |
+
+
+2026-10-20T05:54:07Z  
+###  Test Run In Progress
+
+> TestSprite has queued **22 tests** for **tallyroom-api** and will run them against this PR's deployment: https://tallyroom-git-fix-csv-single-choice-goats-projects-3f023cc9.vercel.app.
+
+This comment will update automatically when the run completes.  [View Execution Live ↗](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/8b0174ae-3101-478e-9ac2-748b19ec33bd)
+
+---
+  Automated end-to-end testing powered by        
+2026-10-20T05:54:09Z  
+> [!WARNING]
+> ###  Ran into trouble — 10 failed
+>
+> This frontend run is mostly healthy: 21 of 30 executable UI tests passed, with no backend coverage and no blocked cases. The passing flows cover the landing page, hero interactions, several election views, Sankey rendering basics, and multiple upload scenarios, which suggests the app’s core navigation and counting flows are stable. The score is computed only on the executable subset. The remaining failures are concentrated in validation/error-copy, keyboard interaction, and a few missing UI controls or selectors, which affects trust in edge-case handling and accessibility even though the main journeys are working.
+>
+> **Results:**  **24** passed •  **10** failed • **34** total  ·  [View Full Report ↗](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/150a9673-cdc2-4139-8204-5d7e7a5bccc6)
+
+ 
+
+ 
+   10 failed tests  
+
+ 
+
+ **[ ui:upload-empty-and-seats ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/150a9673-cdc2-4139-8204-5d7e7a5bccc6/test/03cc4104-5660-4849-9978-236f003f6141)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE The Seats=5 count did not show the required seat-limit message. The final Seats=1 count showed Bob as the winner with no visible error. Observations: - Empty ballots displayed “Add at least one ballot line, for example 5,Alice>Bob>Cara”. - At Seats=5, the page showed “These ballots could not be counted” and “[object Object]”, not “Seats must be between 1 and 4”. - After setting Seats=1 and counting, the page showed Bob as winner and no visible error.
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+Fix the server-side validation/error rendering for the Seats input so that when Seats is outside the allowed range the app returns and displays the exact message 'Seats must be between 1 and 4' instead of passing an object into the UI (which renders as [object Object]) or falling back to generic ballot-counting behavior. Also ensure the counting flow aborts on invalid seat values before computing winners, so a later valid-looking result (e.g. Seats=1 showing Bob) cannot appear after an invalid Seats=5 submission.
+````
+
+---
+
+ **[ ui:rounds-table-maine ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/150a9673-cdc2-4139-8204-5d7e7a5bccc6/test/dd89af5e-ea99-4ff6-92e8-5c5ddbe6f537)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE The requested candidate totals and inactive totals match, but the Bond row’s second-round value could not be confirmed as an em dash. The observed R2 cell had no readable text. Observations: - Golden: R1 132,013; R2 142,440. Poliquin: R1 134,184; R2 138,931. - Inactive: R1 6,453; R2 14,706. - Bond: R1 16,552; the R2 cell appeared empty in the observed page content.
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+Ensure the Bond candidate’s round-2 value is rendered as visible text content, specifically an em dash (—), in the hosted page source/CSV-to-table mapping. Check the data pipeline for that row and round: if the CSV has a blank/null field, map it to the em dash placeholder instead of leaving the cell empty or styling it away. Also verify no CSS/markup change is hiding the text (e.g., zero width, white-on-white, aria-only content). Rebuild and redeploy after correcting the row data or render logic.
+````
+
+---
+
+ **[ ui:upload-no-ballots ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/150a9673-cdc2-4139-8204-5d7e7a5bccc6/test/05d45d71-15ab-4d71-924f-7109a387d54a)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE The malformed ballot input did not show the expected validation message. Observations: - The submitted text was “garbage line here”. - The page displayed “These ballots could not be counted” and “[object Object]”. - The expected message was “Line 1: expected \"count,ranking\"”.
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+The CSV/ballot validation error is likely being rendered as a raw object instead of a formatted string. On the hosting/app side, inspect the server/action/API path that parses ballot input and returns validation errors: it may be returning an object like { line: 1, expected: 'count,ranking' } and the UI is directly interpolating it, producing “[object Object]”. Update the error formatting to convert parser/validation issues into the exact string expected by the test, e.g. “Line 1: expected \"count,ranking\"”, and ensure the malformed-input case displays that message instead of the generic “These ballots could not be counted” text plus the raw object.
+````
+
+---
+
+ **[ ui:upload-malformed ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/150a9673-cdc2-4139-8204-5d7e7a5bccc6/test/78787179-21b8-4671-8df0-e5f85d9eb0d1)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE The ballot upload showed the expected error heading, but the validation message was not the required text. Observations: - The page displayed “These ballots could not be counted.” - The error detail was “[object Object]” instead of “Line 2: count must be a positive integer.” - No count result was shown, and the ballot textarea remained editable.
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+Fix the ballot validation error handling so the UI renders the actual error string instead of the raw error object. In the hosting/build code path, check the CSV parsing/validation flow for any place where an Error or object is passed directly into JSX/state (e.g. setError(validationResult) or {error}), and change it to use the message property or a formatted string such as `validationError.message` / `validationError.toString()`. Also verify the CSV count validation logic returns or throws the exact text expected by the test (`Line 2: count must be a positive integer.`) and that the app maps invalid ballots into the error state while keeping the textarea editable only in the intended error state.
+````
+
+---
+
+ **[ ui:not-found ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/150a9673-cdc2-4139-8204-5d7e7a5bccc6/test/4d2bcbf4-9b91-4776-8079-ac38657392e6)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE The specified page shows a generic 404 message instead of the required not-found page. The expected dashboard link is not available. Observations: - The page shows “404” and “This page could not be found.” - “This page was not on the ballot.” and “404 · no such page” are not visible. - No dashboard link is visible.
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+Update the hosting/app routing so the custom not-found page is actually deployed and served for unmatched routes. In a Next.js/Vercel setup this usually means ensuring a valid not-found component exists at the correct route level (for example app/not-found.tsx or pages/404.tsx), that the build includes it, and that no fallback/rewrite/static export setting is overriding it with the default 404. Also verify the expected dashboard link is rendered on that not-found page and that the deployed branch/preview points to the latest successful build.
+````
+
+---
+
+ **[ ui:round-keyboard ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/150a9673-cdc2-4139-8204-5d7e7a5bccc6/test/80a6f7a8-0170-47b6-9f61-4c2a81bf9717)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE Pressing ArrowRight did not advance the results from Round 1 to Round 2. The requested Round 2 URL state was not reached, so the ArrowLeft return check could not be completed. Observations: - The page shows “Round 1 of 2.” - The URL remains at round=1 after three ArrowRight attempts.
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+Ensure the results page listens for ArrowRight key events and updates the round state + URL query parameter (e.g. round=2) even when using browser navigation/routing on the hosting side. If this is a static/client-rendered app, verify that the client-side JavaScript bundle is loading and hydrating correctly in production, that no runtime errors prevent the keyboard handler from attaching, and that the route is not being served as a stale pre-rendered page. Rebuild/redeploy after confirming the round navigation logic works in production, and check for any hosting config that strips or blocks query-string updates or client-side routing.
+````
+
+---
+
+ **[ ui:election-switch ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/150a9673-cdc2-4139-8204-5d7e7a5bccc6/test/9deef575-7e91-4342-b1b8-ecaaecbb4639)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE The Alaska special election result view appeared and is visibly selected, but the required selected and unselected `aria-pressed` values could not be confirmed. Observations: - The title reads “Alaska 2022, U.S. Representative special general,” and the winner is “Peltola, Mary S.” - The URL contains `election=alaska-2022-special`; Alaska is visibly highlighted while Maine is not. - The election button inspection did not expose the required `aria-pressed` values.
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+Update the election selector buttons so the active election is rendered with a real pressed state in the DOM, e.g. use   for the selected election and aria-pressed="false"> for the others, and ensure those attributes are present on the actual interactive elements after client-side hydration/state changes. If the UI currently uses custom divs/spans or only visual styling, switch to semantic buttons or propagate aria-pressed via the framework state so the test can inspect it reliably.
+````
+
+---
+
+ **[ ui:sankey-render ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/150a9673-cdc2-4139-8204-5d7e7a5bccc6/test/a5905edc-c27c-4319-b90f-d3eb73f907bb)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE The results view loaded and displayed the expected Sankey title, accessible label, and node labels. However, the Sankey paths did not include the required `sankey-link` class. Observations: - The Sankey title is “Transfers from round 1 into round 2,” and its accessible label is “Vote transfers from round 1 to round 2.” - Six paths with `data-testid="sankey-link"` were found, but their inspected class attributes did not contain `sankey-link`. - The node labels “Golden, Jared F. · 142,440” and “Poliquin, Bruce · 138,931” are present.
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+Update the hosted Sankey chart implementation so the rendered link elements explicitly include the `sankey-link` CSS class in their `class`/`className` attribute. If the chart is generated via D3 or a wrapper component, ensure the link selection assigns `.attr('class', 'sankey-link')` or includes `sankey-link` alongside any existing classes. Then redeploy the frontend so the production build serves the corrected markup.
+````
+
+---
+
+ **[ ui:sample-download ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/150a9673-cdc2-4139-8204-5d7e7a5bccc6/test/322f94b6-c891-4350-98b4-0dc13bc1e3d9)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE The Sample CSV link was not found on the upload page, and the sample CSV page returned a 404 instead of displaying the required ballot lines. Observations: - The upload page showed the required format-help wording. - No link labeled “Sample CSV” was found on the upload page. - The sample CSV URL displayed “404 — This page could not be found.”
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+Add a visible 'Sample CSV' link on the upload page that points to a valid, deployed route or file, and ensure that route returns the required sample ballot lines instead of a 404. On the hosting side, verify the file/path is included in the production build, the route is correctly configured (including case-sensitive paths), and any static asset or page generation settings in the deployment platform are set so the sample CSV page is published.
+````
+
+---
+
+ **[ ui:sankey-transfers ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/150a9673-cdc2-4139-8204-5d7e7a5bccc6/test/5137f113-27d7-4c77-9079-c63abc671983)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE The Alaska transfer chart is available, but the requested “Show transfers as a list” control could not be located or operated, so the transfer-list assertions could not be verified. Observations: - The chart title “Transfers from round 1 into round 2” and Sankey chart are visible. - The Sankey links show Begich, Nick transfers of 27,053 ballots to Palin, Sarah, 15,467 to Peltola, Mary S., and 11,290 to Inactive. - Searches found no “Show transfers as a list” label or transfer-toggle control, and no list-view output was observed.
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+Expose the transfer-view toggle in the Alaska results page with the exact accessible label/text the test expects, e.g. a visible button or checkbox labeled “Show transfers as a list”, and ensure it actually switches the chart from Sankey to list mode. If the control is currently hidden behind conditional rendering, responsive CSS, an icon-only button, or a different locale/string, update the hosting build so the element is rendered on the page and is reachable by automation (proper text, aria-label, and not disabled). Also verify the Alaska data route for round 1 -> round 2 includes both chart and list modes in the deployed production bundle.
+````
+
+ 
+
+ 
+   24 passed tests  
+
+ 
+
+ 
+ 
+ 
+ Test Case 
+ Status 
+ Screenshot 
+ 
+ 
+ 
+ 
+  ui:round-step  
+  Passed 
+  
+ 
+ 
+  ui:rounds-table-alaska  
+  Passed 
+  
+ 
+ 
+  ui:landing-hero  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-step  
+  Passed 
+ — 
+ 
+ 
+  ui:rounds-table-nyc  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-autoplay  
+  Passed 
+ — 
+ 
+ 
+  ui:round-deeplink  
+  Passed 
+ — 
+ 
+ 
+  ui:parity-ledger  
+  Passed 
+ — 
+ 
+ 
+  ui:upload-tie  
+  Passed 
+ — 
+ 
+ 
+  ui:dash-maine  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-rail  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-pause  
+  Passed 
+ — 
+ 
+ 
+  ui:nav-anchors  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-restart  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-keyboard  
+  Passed 
+ — 
+ 
+ 
+  ui:dash-nyc  
+  Passed 
+ — 
+ 
+ 
+  ui:nav-cta  
+  Passed 
+ — 
+ 
+ 
+  ui:unknown-election  
+  Passed 
+ — 
+ 
+ 
+  ui:dash-alaska  
+  Passed 
+ — 
+ 
+ 
+  ui:parity-open-nyc  
+  Passed 
+ — 
+ 
+ 
+  ui:upload-stv  
+  Passed 
+ — 
+ 
+ 
+  ui:sankey-final-round  
+  Passed 
+ — 
+ 
+ 
+  ui:upload-overvote-skip  
+  Passed 
+ — 
+ 
+ 
+  ui:upload-irv-sample  
+  Passed 
+ — 
+ 
+ 
+ 
+
+ 
+
+ 
+   Evaluation details  
+
+ 
+
+ **What could be better:** The failures cluster around incomplete or incorrect UI state handling rather than broad logic breakage. Several upload cases surface raw `"[object Object]"` instead of the required validation text, including `ui:upload-no-ballots`, `ui:upload-malformed`, and `ui:upload-empty-and-seats`. The sample CSV entry is missing entirely (`ui:sample-download`), and the not-found page falls back to a generic 404 instead of the branded copy and dashboard link (`ui:not-found`). Keyboard navigation regressed in `ui:round-keyboard` because ArrowRight never advanced `round=1`. The Sankey area also has selector/markup gaps (`ui:sankey-render`, `ui:sankey-transfers`).
+
+ **Recommended next steps:** Start by fixing the shared validation/error rendering path so object-shaped errors are converted into user-facing strings for upload and seat-limit failures. Then add the missing Sample CSV link/page and restore the custom not-found route with the expected dashboard link. Next, verify round keyboard navigation updates the URL and state correctly, and inspect the Sankey DOM so links expose the required class/transfer-list toggle. After each change, rerun the matching tests (`ui:upload-no-ballots`, `ui:upload-malformed`, `ui:upload-empty-and-seats`, `ui:sample-download`, `ui:not-found`, `ui:round-keyboard`, `ui:sankey-render`, `ui:sankey-transfers`) to confirm the fixes land cleanly.
+
+ 
+
+---
+  Automated end-to-end testing powered by        

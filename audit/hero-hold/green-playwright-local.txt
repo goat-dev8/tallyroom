@@ -1,0 +1,1 @@
+Green: full e2e on this branch (next start :3418) 53 passed, 1 skipped, incl. BUG-008 on 1440 and 390.

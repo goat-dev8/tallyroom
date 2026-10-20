@@ -1,0 +1,8 @@
+[
+  {
+    "kind": "snapshot",
+    "stepIndex": 2,
+    "summary": "Step 2 'Navigate to https://tallyroom-git-fix-csv-single-choice-goats-projects-3f023cc9.vercel.app/app?election=maine-2018-cd2' passed (captured at 2026-10-20T05:54:14.096Z).",
+    "path": "steps/02-snapshot.html"
+  }
+]
