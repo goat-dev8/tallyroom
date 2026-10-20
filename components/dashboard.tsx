@@ -63,7 +63,7 @@ export function Dashboard() {
     setBusy(true);
     try {
       const r = await fetch('/api/tabulate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ballots: text, ...(seats > 1 ? { seats } : {}) }) });
-      const j = await r.json().catch(() => ({ error: `The server answered HTTP ${r.status}` })); if (!r.ok) throw new Error(j.error ?? `HTTP ${r.status}`);
+      const j = await r.json().catch(() => ({ error: `The server answered HTTP ${r.status}` })); if (!r.ok) throw new Error(typeof j.error === 'string' ? j.error : j.error?.message ?? `HTTP ${r.status}`); // BUG-005: errors are { code, message }
       if (j.method === 'stv') setStv(j); else { setRes(j); setRound(0); }
     } catch (e: any) { setErr(e.message ?? String(e)); } finally { setBusy(false); }
   }
@@ -140,9 +140,9 @@ export function Dashboard() {
                 <input type="file" accept=".csv,.txt,.tsv,text/plain,text/csv" className="sr-only" data-testid="file-input" onChange={e => { loadFile(e.target.files?.[0]); e.target.value = ''; }} /><FileUp className="h-3.5 w-3.5" /> {fileName || 'Open file'}
               </label>
               <span className="hidden text-xs text-mute sm:inline">or drop it here</span>
-              <button type="button" className="text-xs text-mute underline-offset-2 hover:text-fg hover:underline" data-testid="sample-irv" onClick={() => { setText(SAMPLE); setSeats(1); setFileName(''); }}>IRV sample</button>
-              <button type="button" className="text-xs text-mute underline-offset-2 hover:text-fg hover:underline" data-testid="sample-stv" onClick={() => { setText(STV_SAMPLE); setSeats(2); setFileName(''); }}>STV sample</button>
-              <a href="/samples/ballots.csv" download className="text-xs text-mute underline-offset-2 hover:text-fg hover:underline" data-testid="sample-download">Sample CSV</a>
+              <button type="button" className="text-xs text-mute underline-offset-2 hover:text-fg hover:underline" data-testid="sample-irv" onClick={() => { setText(SAMPLE); setSeats(1); setFileName(''); setRes(null); setStv(null); setErr(''); }}>IRV sample</button>
+              <button type="button" className="text-xs text-mute underline-offset-2 hover:text-fg hover:underline" data-testid="sample-stv" onClick={() => { setText(STV_SAMPLE); setSeats(2); setFileName(''); setRes(null); setStv(null); setErr(''); }}>STV sample</button>
+              <a href="/samples/ballots.csv" download="ballots.csv" className="text-xs text-mute underline-offset-2 hover:text-fg hover:underline" data-testid="sample-download">Sample CSV</a>
               <label className="ml-auto flex items-center gap-2 text-mute">Seats <input type="number" min={1} max={50} value={seats} data-testid="seats-input" onChange={e => setSeats(Math.min(50, Math.max(1, Number(e.target.value) || 1)))} className="w-16 rounded-md border border-line bg-ink px-2 py-1 text-fg" /></label>
               <Button variant="tally" onClick={runUpload} disabled={busy} data-testid="run-count">{busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Vote className="h-4 w-4" />} Count</Button>
             </div>

@@ -1,0 +1,10 @@
+Playwright, full e2e suite against `next start` of this branch (port 3417), 2026-10-20 ~10:45 Cairo
+51 passed, 0 failed, 1 skipped
+('passed', 'desktop-1440', 'BUG-007: the 404 page has its own tab title')
+('passed', 'mobile-390', 'BUG-007: the 404 page has its own tab title')
+('passed', 'desktop-1440', 'BUG-005: API errors show their message, not [object Object]')
+('passed', 'desktop-1440', 'BUG-006: loading a sample clears the previous result and error')
+('passed', 'desktop-1440', 'guard: the sample CSV downloads as ballots.csv (manual-QA report, not reproduced in Chromium)')
+('passed', 'mobile-390', 'BUG-005: API errors show their message, not [object Object]')
+('passed', 'mobile-390', 'BUG-006: loading a sample clears the previous result and error')
+('passed', 'mobile-390', 'guard: the sample CSV downloads as ballots.csv (manual-QA report, not reproduced in Chromium)')

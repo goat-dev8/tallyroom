@@ -79,6 +79,8 @@ Rules
 | 2026-10-20 | 10:25 | – (squash-merge of #20 to main) | 7a1c46e | Built: READY, production | ~55 | 22 (prod API suite) | ~11 | |
 | 2026-10-20 | ~10:30 | ci/prod-paths | CI/docs/plan-only (prod suite paths filter, defects links, ui:rounds-table-maine plan) | Skipped by ignoreCommand | — | 0 | 0 | No deploy. |
 
+| 2026-10-20 | ~10:50 | fix/ui-errors (PR #22) | BUG-005..007 UI fixes + e2e (red runs were Playwright on production, no deploy) | Built: preview | ~56 | 34 (V3 app) | ~17 | One push. Note: the V3 app also runs (and bills) on deploy-free PRs (#21 cost ~17-26). |
+
 ## Daily totals
 | Date (Cairo) | Deploys built | Builds skipped | Peak 24 h count | Credits used |
 |---|---|---|---|---|

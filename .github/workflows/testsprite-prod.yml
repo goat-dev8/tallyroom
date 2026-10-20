@@ -4,13 +4,14 @@ name: TestSprite API (production)
 on:
   push:
     branches: [main]
-    # Only when the deployed app or the API tests can change: CI/docs-only merges cost no credits.
+    # Only when the API (engine, routes, fixtures) or the API tests can change: UI/CI/docs merges cost no credits.
+    # The UI is covered on every PR by the TestSprite V3 check.
     paths:
       - 'src/**'
-      - 'app/**'
-      - 'components/**'
-      - 'lib/**'
+      - 'app/api/**'
       - 'data/**'
+      - 'next.config.ts'
+      - 'package-lock.json'
       - 'testsprite/backend/**'
       - 'ts-tests/api/**'
   schedule:
