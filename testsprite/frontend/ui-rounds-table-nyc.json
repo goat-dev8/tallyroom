@@ -1,0 +1,27 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:rounds-table-nyc",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=nyc-2021-dem-mayor"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 90 seconds for 'rounds-table'"
+  },
+  {
+   "type": "assertion",
+   "description": "The table header has columns R1 through R8"
+  },
+  {
+   "type": "assertion",
+   "description": "Row 'Eric L. Adams' starts at 289,403 and ends at 404,513 in R8; row 'Kathryn A. Garcia' starts at 184,463 and ends at 397,316"
+  },
+  {
+   "type": "assertion",
+   "description": "Row 'Maya D. Wiley' shows 254,728 in R7 and '\u2014' in R8; 'table-inactive' R8 is 146,103"
+  }
+ ]
+}

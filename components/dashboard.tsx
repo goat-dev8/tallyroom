@@ -79,10 +79,19 @@ export function Dashboard() {
   async function copyLink() { try { await navigator.clipboard.writeText(window.location.href); setNote('Link copied.'); } catch { setNote(window.location.href); } }
   const r = res?.rounds[round]; const n = res?.rounds.length ?? 0;
   const matches = !!(entry && res && res.winner === entry.certifiedWinner && n === CERTIFIED[entry.slug].rounds);
-  const onKey = (e: React.KeyboardEvent) => { if (!res || (e.target as HTMLElement).matches('textarea,input')) return; if (e.key === 'ArrowRight' && round < n - 1) setRound(round + 1); if (e.key === 'ArrowLeft' && round > 0) setRound(round - 1); };
+  // Arrow keys step rounds from anywhere on the page (window listener, so focus on <body> works too).
+  useEffect(() => {
+    if (!res) return;
+    const h = (e: KeyboardEvent) => {
+      const t = e.target as HTMLElement | null; if (t?.closest('textarea,input,select,[contenteditable="true"]') || e.altKey || e.ctrlKey || e.metaKey) return;
+      if (e.key === 'ArrowRight') setRound(x => Math.min(x + 1, res.rounds.length - 1));
+      else if (e.key === 'ArrowLeft') setRound(x => Math.max(x - 1, 0));
+    };
+    window.addEventListener('keydown', h); return () => window.removeEventListener('keydown', h);
+  }, [res]);
 
   return (
-    <div className="grid min-h-dvh md:grid-cols-[15.5rem_1fr]" onKeyDown={onKey}>
+    <div className="grid min-h-dvh md:grid-cols-[15.5rem_1fr]">
       <aside className="border-b border-line bg-panel/60 p-4 md:sticky md:top-0 md:h-dvh md:border-r md:border-b-0">
         <div className="flex items-center justify-between"><Link href="/" aria-label="Tallyroom home" data-testid="dash-home"><Logo /></Link></div>
         <p className="mt-6 mb-2 hidden px-2 font-mono text-[10px] uppercase tracking-[.14em] text-mute md:block">Certified elections</p>
@@ -90,14 +99,14 @@ export function Dashboard() {
           {CATALOG.map(c => {
             const on = src.kind === 'bundled' && src.slug === c.slug;
             return (
-              <button key={c.slug} data-testid={`election-${c.slug}`} aria-current={on ? 'page' : undefined} onClick={() => pick({ kind: 'bundled', slug: c.slug })}
+              <button key={c.slug} data-testid={`election-${c.slug}`} aria-pressed={on} data-active={on} onClick={() => pick({ kind: 'bundled', slug: c.slug })}
                 className={cn('flex min-w-0 items-center gap-2.5 rounded-lg border border-line px-2.5 py-2 text-left text-sm transition-colors hover:bg-white/5 md:border-transparent', on && 'border-tally/30 bg-white/[.07] text-fg')}>
                 <Database className={cn('h-3.5 w-3.5', on ? 'text-tally' : 'text-mute')} /><span className="truncate">{c.short} <span className="text-mute">{c.year}</span></span>
               </button>
             );
           })}
           <p className="mt-5 mb-2 hidden px-2 font-mono text-[10px] uppercase tracking-[.14em] text-mute md:block">Your data</p>
-          <button data-testid="source-upload" aria-current={src.kind === 'upload' ? 'page' : undefined} onClick={() => pick({ kind: 'upload' })}
+          <button data-testid="source-upload" aria-pressed={src.kind === 'upload'} data-active={src.kind === 'upload'} onClick={() => pick({ kind: 'upload' })}
             className={cn('flex min-w-0 items-center gap-2.5 rounded-lg border border-line px-2.5 py-2 text-left text-sm transition-colors hover:bg-white/5 md:border-transparent', src.kind === 'upload' && 'border-tally/30 bg-white/[.07]')}>
             <Upload className={cn('h-3.5 w-3.5', src.kind === 'upload' ? 'text-tally' : 'text-mute')} /> <span className="whitespace-nowrap">Upload ballots</span>
           </button>
@@ -131,6 +140,7 @@ export function Dashboard() {
               <span className="hidden text-xs text-mute sm:inline">or drop it here</span>
               <button type="button" className="text-xs text-mute underline-offset-2 hover:text-fg hover:underline" data-testid="sample-irv" onClick={() => { setText(SAMPLE); setSeats(1); setFileName(''); }}>IRV sample</button>
               <button type="button" className="text-xs text-mute underline-offset-2 hover:text-fg hover:underline" data-testid="sample-stv" onClick={() => { setText(STV_SAMPLE); setSeats(2); setFileName(''); }}>STV sample</button>
+              <a href="/samples/ballots.csv" download className="text-xs text-mute underline-offset-2 hover:text-fg hover:underline" data-testid="sample-download">Sample CSV</a>
               <label className="ml-auto flex items-center gap-2 text-mute">Seats <input type="number" min={1} max={50} value={seats} data-testid="seats-input" onChange={e => setSeats(Math.min(50, Math.max(1, Number(e.target.value) || 1)))} className="w-16 rounded-md border border-line bg-ink px-2 py-1 text-fg" /></label>
               <Button variant="tally" onClick={runUpload} disabled={busy} data-testid="run-count">{busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Vote className="h-4 w-4" />} Count</Button>
             </div>
@@ -147,7 +157,7 @@ export function Dashboard() {
         {busy && !res && !err && src.kind === 'bundled' && <LoadingState progress={progress} />}
         {src.kind === 'upload' && !res && !stv && !busy && !err && (
           <div className="mt-6 grid place-items-center rounded-xl border border-dashed border-line px-6 py-14 text-center" data-testid="empty-state">
-            <Inbox className="h-6 w-6 text-mute" /><p className="mt-3 font-medium">No count yet</p><p className="mt-1 max-w-sm text-sm text-mute">Edit the sample above or open your own file, then press Count. Each line is a ballot count and a ranking, like <code className="font-mono text-fg">5,Alice&gt;Bob</code>.</p>
+            <Inbox className="h-6 w-6 text-mute" /><p className="mt-3 font-medium">No count yet</p><p className="mt-1 max-w-sm text-sm text-mute" data-testid="format-help">Edit the sample above or open your own file, then press Count. Each line is a ballot count and a ranking, like <code className="font-mono text-fg">5,Alice&gt;Bob</code>.</p>
           </div>
         )}
 
@@ -172,18 +182,18 @@ export function Dashboard() {
             <section className="card p-5" aria-label="Transfers"><h2 className="mb-1 font-medium" data-testid="sankey-title">{n > 1 ? `Transfers from round ${Math.min(round, n - 2) + 1} into round ${Math.min(round, n - 2) + 2}` : 'Transfers'}</h2><p className="mb-4 text-xs text-mute">Hover or focus a flow for the exact ballot count.</p><Sankey result={res} round={n > 1 ? Math.min(round, n - 2) : 0} /></section>
             <section className="card overflow-x-auto p-0" aria-label="All rounds">
               <table className="w-full text-sm tnum" data-testid="rounds-table"><thead className="text-left font-mono text-[11px] text-mute"><tr className="border-b border-line"><th className="p-3 font-normal">Candidate</th>{res.rounds.map(x => <th key={x.round} className={cn('p-3 text-right font-normal', x.round === round + 1 && 'text-tally')}>R{x.round}</th>)}</tr></thead>
-                <tbody>{res.candidates.map(c => <tr key={c} className="border-b border-line/60 last:border-0"><td className="p-3 whitespace-nowrap"><span className="mr-2 inline-block h-2 w-2 rounded-[2px]" style={{ background: colorFor(res.candidates, c) }} />{c}</td>{res.rounds.map(x => <td key={x.round} className={cn('p-3 text-right', x.round === round + 1 && 'bg-white/[.02]')}>{x.tallies[c] !== undefined ? fmt(x.tallies[c]) : <span className="text-mute">—</span>}</td>)}</tr>)}
-                  <tr className="text-mute"><td className="p-3">Inactive</td>{res.rounds.map(x => <td key={x.round} className="p-3 text-right">{fmt(Object.values(x.inactive).reduce((s, v) => s + v, 0))}</td>)}</tr></tbody></table>
+                <tbody>{res.candidates.map(c => <tr key={c} className="border-b border-line/60 last:border-0" data-testid="table-row" data-candidate={c}><td className="p-3 whitespace-nowrap"><span className="mr-2 inline-block h-2 w-2 rounded-[2px]" style={{ background: colorFor(res.candidates, c) }} />{c}</td>{res.rounds.map(x => <td key={x.round} data-testid={`cell-r${x.round}`} className={cn('p-3 text-right', x.round === round + 1 && 'bg-white/[.02]')}>{x.tallies[c] !== undefined ? fmt(x.tallies[c]) : <span className="text-mute" title="Eliminated" data-testid="cell-out">—</span>}</td>)}</tr>)}
+                  <tr className="text-mute" data-testid="table-inactive"><td className="p-3">Inactive</td>{res.rounds.map(x => <td key={x.round} className="p-3 text-right">{fmt(Object.values(x.inactive).reduce((s, v) => s + v, 0))}</td>)}</tr></tbody></table>
             </section>
           </motion.div>
         )}
 
         {stv && (
           <motion.section initial={reduce ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mt-6 space-y-5" data-testid="stv-result">
-            <div className="grid grid-cols-2 gap-3 lg:grid-cols-4"><Kpi k="Method" v="STV (Gregory)" /><Kpi k="Seats" v={String(stv.winners.length)} testid="stv-seats" /><Kpi k="Quota" v={stv.quota} /><Kpi k="Rounds" v={String(stv.rounds.length)} /></div>
+            <div className="grid grid-cols-2 gap-3 lg:grid-cols-4"><Kpi k="Method" v="STV (Gregory)" testid="stv-method" /><Kpi k="Seats" v={String(stv.winners.length)} testid="stv-seats" /><Kpi k="Quota" v={stv.quota} testid="stv-quota" /><Kpi k="Rounds" v={String(stv.rounds.length)} testid="stv-rounds" /></div>
             <div className="card p-5"><h2 className="font-medium">Elected</h2><div className="mt-3 flex flex-wrap gap-2" data-testid="stv-winners">{stv.winners.map((w, i) => <Badge key={w} className="border-win/30 py-1 text-sm text-win"><span className="font-mono text-[11px] text-mute">{i + 1}</span> {w}</Badge>)}</div></div>
             <div className="card overflow-x-auto p-0"><table className="w-full text-sm tnum"><thead className="text-left font-mono text-[11px] text-mute"><tr className="border-b border-line"><th className="p-3 font-normal">Round</th><th className="p-3 font-normal">Tallies (exact)</th><th className="p-3 font-normal">Exhausted</th><th className="p-3 font-normal">Outcome</th></tr></thead>
-              <tbody>{stv.rounds.map(x => <tr key={x.round} className="border-b border-line/60 last:border-0 align-top"><td className="p-3 font-mono">R{x.round}</td><td className="p-3 font-mono text-xs">{Object.entries(x.tallies).map(([k, v]) => <div key={k}>{k}: {v}</div>)}</td><td className="p-3 font-mono text-xs">{x.exhausted}</td>
+              <tbody>{stv.rounds.map(x => <tr key={x.round} className="border-b border-line/60 last:border-0 align-top" data-testid="stv-round" data-round={x.round}><td className="p-3 font-mono">R{x.round}</td><td className="p-3 font-mono text-xs">{Object.entries(x.tallies).map(([k, v]) => <div key={k}>{k}: {v}</div>)}</td><td className="p-3 font-mono text-xs">{x.exhausted}</td>
                 <td className="p-3 text-xs">{x.elected.length > 0 && <div className="text-win">Elected {x.elected.join(', ')}</div>}{x.eliminated.length > 0 && <div className="text-mute">Eliminated {x.eliminated.join(', ')}</div>}</td></tr>)}</tbody></table></div>
           </motion.section>
         )}

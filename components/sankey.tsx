@@ -52,15 +52,23 @@ export function Sankey({ result, round }: { result: IrvResult; round: number }) 
         <g fill="none">{g.links.map((l: any, i: number) => (
           <motion.path key={`${round}-${i}`} d={path(l) ?? ''} stroke={l.color} strokeWidth={Math.max(1, l.width)} tabIndex={0} role="button" data-testid="sankey-link"
             aria-label={`${clean(l.source.label)} to ${clean(l.target.label)}: ${fmt(l.value)} ballots`}
-            className="cursor-pointer outline-none transition-[stroke-opacity] duration-150" strokeOpacity={tip && tip.from === clean(l.source.label) && tip.to === clean(l.target.label) ? 0.7 : 0.32}
+            className="sankey-link cursor-pointer outline-none transition-[stroke-opacity] duration-150" strokeOpacity={tip && tip.from === clean(l.source.label) && tip.to === clean(l.target.label) ? 0.7 : 0.32}
             initial={reduce ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1, delay: i * 0.03, ease: [0.22, 1, 0.36, 1] }}
-            onMouseEnter={e => show(l, e.currentTarget)} onFocus={e => show(l, e.currentTarget)} onBlur={() => setTip(null)} />))}</g>
+            onMouseEnter={e => show(l, e.currentTarget)} onClick={e => show(l, e.currentTarget)} onFocus={e => show(l, e.currentTarget)} onBlur={() => setTip(null)} />))}</g>
         {g.nodes.map((n: any) => {
           const left = n.x0 < W / 2;
           return <g key={n.id}><rect x={n.x0} y={n.y0} width={n.x1 - n.x0} height={Math.max(1, n.y1 - n.y0)} rx={2} fill={n.color} />
             <text x={left ? n.x1 + 6 : n.x0 - 6} y={(n.y0 + n.y1) / 2} dy="0.35em" textAnchor={left ? 'start' : 'end'} className="pointer-events-none fill-[#c9ccd2] text-[11px]">{clean(n.label)} · {fmt(n.value)}</text></g>;
         })}
       </svg>
+      <details className="mt-3 text-xs text-mute" data-testid="transfer-details">
+        <summary className="cursor-pointer select-none hover:text-fg" data-testid="transfer-toggle">Show transfers as a list</summary>
+        <ul className="mt-2 space-y-1 font-mono tnum" data-testid="transfer-list" aria-label="Ballot transfers">
+          {g.links.filter((l: any) => l.source.id === 'a:out').map((l: any) => (
+            <li key={l.target.id} data-testid="transfer-item" className="text-fg">{clean(l.source.label)} → {clean(l.target.label)}: {fmt(l.value)} ballots{l.source.value ? <span className="text-mute"> ({(100 * l.value / l.source.value).toFixed(1)}% of source)</span> : null}</li>
+          ))}
+        </ul>
+      </details>
       {tip && (
         <div role="tooltip" data-testid="sankey-tooltip" className="pointer-events-none absolute z-10 -translate-x-1/2 -translate-y-[calc(100%+10px)] rounded-lg border border-line bg-panel/95 px-3 py-2 text-xs shadow-xl backdrop-blur" style={{ left: tip.x, top: tip.y }}>
           <div className="text-mute">{tip.from} <span className="text-fg">→</span> {tip.to}</div>

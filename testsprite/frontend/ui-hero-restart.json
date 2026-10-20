@@ -1,0 +1,31 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:hero-restart",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /, scroll 'hero-demo' into view, wait until 'demo-play' is enabled, click 'demo-play' to pause"
+  },
+  {
+   "type": "action",
+   "description": "Click 'demo-step' until 'demo-round' reads 'Round 2 / 2'"
+  },
+  {
+   "type": "action",
+   "description": "Click data-testid 'demo-restart', then immediately click 'demo-play' to pause so the demo cannot auto-advance"
+  },
+  {
+   "type": "assertion",
+   "description": "'demo-round' reads 'Round 1 / 2' and the 'Majority needed' stat reads '144,813'"
+  },
+  {
+   "type": "assertion",
+   "description": "Inside 'hero-demo' a candidate row for Poliquin shows 134,184 and a row for Golden shows 132,013"
+  },
+  {
+   "type": "assertion",
+   "description": "After clicking 'demo-play' again, 'hero-demo' has data-state='playing'"
+  }
+ ]
+}

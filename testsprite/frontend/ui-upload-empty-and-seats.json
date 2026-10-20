@@ -1,0 +1,35 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:upload-empty-and-seats",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=upload"
+  },
+  {
+   "type": "action",
+   "description": "Clear the 'ballots-input' textarea completely so it is empty and click 'run-count'"
+  },
+  {
+   "type": "assertion",
+   "description": "'error-message' reads 'Add at least one ballot line, for example 5,Alice>Bob>Cara'"
+  },
+  {
+   "type": "action",
+   "description": "Click 'sample-irv', set 'seats-input' to 5, and click 'run-count'"
+  },
+  {
+   "type": "assertion",
+   "description": "'error-message' reads 'Seats must be between 1 and 4'"
+  },
+  {
+   "type": "action",
+   "description": "Set 'seats-input' to 1 and click 'run-count'"
+  },
+  {
+   "type": "assertion",
+   "description": "'error-state' is gone and 'kpi-winner' reads 'Bob'"
+  }
+ ]
+}

@@ -1,0 +1,31 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:upload-overvote-skip",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=upload"
+  },
+  {
+   "type": "action",
+   "description": "Replace the 'ballots-input' text with these 4 lines exactly: '4,Ann>_>Cy' then '5,[Ann=Ben]>Cy' then '6,Ben>Ann' then '3,Cy>Ann' (one per line) and click 'run-count'"
+  },
+  {
+   "type": "assertion",
+   "description": "'kpi-ballots' reads '18', 'kpi-rounds' reads '2' and 'kpi-winner' reads 'Ann'"
+  },
+  {
+   "type": "action",
+   "description": "Click the round tab 'dash-rail-r1' so round 1 is shown"
+  },
+  {
+   "type": "assertion",
+   "description": "The element data-testid 'eliminated' (below the round bars, not the transfer list) reads 'Eliminated after round 1: Cy'"
+  },
+  {
+   "type": "assertion",
+   "description": "'table-inactive' shows 5 in R1 and 5 in R2; row Ann shows 4 then 7; row Ben shows 6 then 6"
+  }
+ ]
+}

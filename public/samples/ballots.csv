@@ -1,0 +1,5 @@
+# Tallyroom ballot file: one line per ballot pattern, count,first>second>third
+# _ marks a skipped rank, [A=B] marks an overvote
+7,Ann>Ben>Cy
+6,Ben>Ann
+4,Cy>Ben

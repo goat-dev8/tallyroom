@@ -1,0 +1,27 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:dash-maine",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=maine-2018-cd2"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear (counting runs in a browser worker)"
+  },
+  {
+   "type": "assertion",
+   "description": "'kpi-ballots' reads '296,077', 'kpi-rounds' reads '2', 'kpi-winner' reads 'Golden, Jared F.', 'kpi-share' reads '50.6%'"
+  },
+  {
+   "type": "assertion",
+   "description": "'parity-badge' reads 'Matches certified result'"
+  },
+  {
+   "type": "assertion",
+   "description": "'round-title' reads 'Round 1' and 'eliminated' reads 'Eliminated after round 1: Hoar, William R.S., Bond, Tiffany L.'"
+  }
+ ]
+}

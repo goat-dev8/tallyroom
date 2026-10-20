@@ -1,0 +1,31 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:hero-autoplay",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to / and scroll until the element with data-testid 'hero-demo' is in view"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 30 seconds for the button data-testid 'demo-play' to become enabled"
+  },
+  {
+   "type": "assertion",
+   "description": "The hero demo shows the text 'Maine 2018, U.S. House District 2'"
+  },
+  {
+   "type": "assertion",
+   "description": "The 'Ballots cast' stat shows exactly '296,077'"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 15 seconds without clicking anything, until data-testid 'demo-round' reads 'Round 2 / 2'"
+  },
+  {
+   "type": "assertion",
+   "description": "data-testid 'demo-outcome' reads exactly 'Golden, Jared F.' and data-testid 'demo-certified' shows 'Matches the certified result'"
+  }
+ ]
+}

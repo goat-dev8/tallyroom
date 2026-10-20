@@ -123,3 +123,16 @@ test.describe('upload', () => {
     await expect(page.getByTestId('stv-seats')).toHaveText('2');
   });
 });
+
+test('arrow keys step rounds even when focus is on the page body', async ({ page }) => {
+  await page.goto('/app?election=maine-2018-cd2');
+  await expect(page.getByTestId('result')).toBeVisible({ timeout: 60000 });
+  await page.locator('body').press('ArrowRight');
+  await expect(page.getByTestId('round-title')).toHaveText('Round 2');
+  await expect(page).toHaveURL(/round=2/);
+  await page.locator('body').press('ArrowLeft');
+  await expect(page.getByTestId('round-title')).toHaveText('Round 1');
+  const golden = page.locator('[data-testid=table-row][data-candidate="DEM Golden, Jared F."]');
+  await expect(golden.getByTestId('cell-r1')).toHaveText('132,013');
+  await expect(golden.getByTestId('cell-r2')).toHaveText('142,440');
+});

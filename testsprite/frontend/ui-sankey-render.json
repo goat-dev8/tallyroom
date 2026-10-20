@@ -1,0 +1,27 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:sankey-render",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=maine-2018-cd2"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear"
+  },
+  {
+   "type": "assertion",
+   "description": "'sankey-title' reads 'Transfers from round 1 into round 2'"
+  },
+  {
+   "type": "assertion",
+   "description": "The svg with data-testid 'sankey' has aria-label 'Vote transfers from round 1 to round 2' and contains at least 3 path elements with data-testid 'sankey-link' (they also carry class 'sankey-link')"
+  },
+  {
+   "type": "assertion",
+   "description": "Sankey node labels include 'Golden, Jared F. \u00b7 142,440' and 'Poliquin, Bruce \u00b7 138,931'"
+  }
+ ]
+}

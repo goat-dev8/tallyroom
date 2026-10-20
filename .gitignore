@@ -7,3 +7,5 @@ public/data/
 *.tsbuildinfo
 test-results/
 playwright-report/
+AGENTS.md
+.testsprite/

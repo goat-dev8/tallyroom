@@ -1,0 +1,35 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:round-step",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=nyc-2021-dem-mayor"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 90 seconds for 'result'"
+  },
+  {
+   "type": "assertion",
+   "description": "'round-title' reads 'Round 1' and 'round-prev' is disabled"
+  },
+  {
+   "type": "action",
+   "description": "Click 'round-next' 6 times"
+  },
+  {
+   "type": "assertion",
+   "description": "'round-title' reads 'Round 7' and 'eliminated' reads 'Eliminated after round 7: Maya D. Wiley'"
+  },
+  {
+   "type": "action",
+   "description": "Click 'round-next' once more"
+  },
+  {
+   "type": "assertion",
+   "description": "'round-title' reads 'Round 8', 'round-next' is disabled, and the URL contains round=8"
+  }
+ ]
+}

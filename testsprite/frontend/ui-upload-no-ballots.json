@@ -1,0 +1,27 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:upload-no-ballots",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=upload"
+  },
+  {
+   "type": "action",
+   "description": "Replace the 'ballots-input' text with '# only a comment' and click 'run-count'"
+  },
+  {
+   "type": "assertion",
+   "description": "'error-message' reads 'Add at least one ballot line, for example 5,Alice>Bob>Cara'"
+  },
+  {
+   "type": "action",
+   "description": "Replace the text with 'garbage line here' and click 'run-count'"
+  },
+  {
+   "type": "assertion",
+   "description": "'error-message' reads 'Line 1: expected \"count,ranking\"'"
+  }
+ ]
+}

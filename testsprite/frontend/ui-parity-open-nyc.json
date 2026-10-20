@@ -1,0 +1,27 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:parity-open-nyc",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /, scroll to the parity section and click data-testid 'parity-open-nyc-2021-dem-mayor'"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 90 seconds for data-testid 'result' (6 MB file counted in the browser)"
+  },
+  {
+   "type": "assertion",
+   "description": "The URL contains election=nyc-2021-dem-mayor&round=8 and 'round-title' reads 'Round 8'"
+  },
+  {
+   "type": "assertion",
+   "description": "'kpi-winner' reads 'Eric L. Adams', 'kpi-rounds' reads '8', 'kpi-ballots' reads '947,932'"
+  },
+  {
+   "type": "assertion",
+   "description": "'parity-badge' reads 'Matches certified result'"
+  }
+ ]
+}

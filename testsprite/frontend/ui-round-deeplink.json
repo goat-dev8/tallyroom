@@ -1,0 +1,27 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:round-deeplink",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=alaska-2022-special&round=2"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear (counting runs in a browser worker)"
+  },
+  {
+   "type": "assertion",
+   "description": "'round-title' reads 'Round 2' and 'dash-rail-r2' has aria-selected='true'"
+  },
+  {
+   "type": "assertion",
+   "description": "In 'round-bars' the candidate row data-candidate='Peltola, Mary S.' has data-votes='91266'"
+  },
+  {
+   "type": "assertion",
+   "description": "'sankey-title' reads 'Transfers from round 1 into round 2'"
+  }
+ ]
+}

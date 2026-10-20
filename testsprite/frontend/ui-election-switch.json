@@ -1,0 +1,35 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:election-switch",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=maine-2018-cd2"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear"
+  },
+  {
+   "type": "action",
+   "description": "Click 'election-alaska-2022-special'"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear"
+  },
+  {
+   "type": "assertion",
+   "description": "'dash-title' reads 'Alaska 2022, U.S. Representative special general'"
+  },
+  {
+   "type": "assertion",
+   "description": "The button 'election-alaska-2022-special' is highlighted as selected (aria-pressed='true') and 'election-maine-2018-cd2' is not (aria-pressed='false')"
+  },
+  {
+   "type": "assertion",
+   "description": "The URL contains election=alaska-2022-special and 'kpi-winner' reads 'Peltola, Mary S.'"
+  }
+ ]
+}

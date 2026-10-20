@@ -1,0 +1,27 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:sample-download",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=upload"
+  },
+  {
+   "type": "assertion",
+   "description": "The link data-testid 'sample-download' reads 'Sample CSV' and its href ends with /samples/ballots.csv"
+  },
+  {
+   "type": "assertion",
+   "description": "'format-help' contains 'Each line is a ballot count and a ranking, like 5,Alice>Bob'"
+  },
+  {
+   "type": "action",
+   "description": "Navigate directly to the URL path /samples/ballots.csv (it is served as plain text and displays in the browser)"
+  },
+  {
+   "type": "assertion",
+   "description": "The page text contains '7,Ann>Ben>Cy', '6,Ben>Ann' and '4,Cy>Ben'"
+  }
+ ]
+}

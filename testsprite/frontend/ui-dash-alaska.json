@@ -1,0 +1,27 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:dash-alaska",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=alaska-2022-special"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear (counting runs in a browser worker)"
+  },
+  {
+   "type": "assertion",
+   "description": "'dash-title' reads 'Alaska 2022, U.S. Representative special general' and 'kpi-ballots' reads '192,289'"
+  },
+  {
+   "type": "assertion",
+   "description": "'kpi-winner' reads 'Peltola, Mary S.' and 'kpi-rounds' reads '2'"
+  },
+  {
+   "type": "assertion",
+   "description": "'eliminated' reads 'Eliminated after round 1: Begich, Nick' and 'majority-label' reads 'majority \u00b7 94,292' (case-insensitive)"
+  }
+ ]
+}
