@@ -45,7 +45,7 @@ export function assertSafeCounts(ballots: BallotGroup[]): void {
 
 export function parseBallots(text: string, declared?: string[]): { ballots: BallotGroup[]; candidates: string[] } {
   const ballots: BallotGroup[] = []; const seen: string[] = [];
-  const lines = text.replace(/^\uFEFF/, '').split(/\r?\n/);
+  const lines = text.replace(/^\uFEFF/, '').split(/\r\n|\r|\n/); // BUG-016: a bare CR also ends a line
   let first = true;
   const bad: ParseError[] = [];
   lines.forEach((raw, i) => { try { readLine(raw, i); } catch (e) { if (e instanceof ParseError) bad.push(e); else throw e; } });
@@ -287,7 +287,7 @@ export function parseBallotJson(ballots: unknown, declared?: string[]): { ballot
 
 /** Pattern TSV: `count \t rank1 \t ... ` with tokens `overvote`, `overvote:A|B` (names kept), `undervote`, or a candidate name. */
 export function parsePatternTsv(text: string): BallotGroup[] {
-  return text.split('\n').filter(Boolean).map(l => {
+  return text.split(/\r\n|\r|\n/).filter(Boolean).map(l => { // BUG-017: CRLF and CR endings
     const [c, ...ranks] = l.split('\t');
     return { count: Number(c), marks: ranks.map((r): Mark => r === 'undervote' ? { kind: 'skip' } : r === 'overvote' ? { kind: 'overvote' } : r.startsWith('overvote:') ? { kind: 'overvote', names: r.slice(9).split('|') } : { kind: 'candidate', name: r }) };
   });

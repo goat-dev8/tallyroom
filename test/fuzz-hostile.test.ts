@@ -10,7 +10,7 @@ const cases = readFileSync(new URL('./fuzz/hostile-2026.jsonl', import.meta.url)
 describe('hostile inputs (shapes of past bugs)', () => {
   it('all 120 frozen cases match their expectation, and every shape is present', () => {
     expect(cases.length).toBe(120);
-    for (const s of ['reserved', 'unicode', 'big-safe', 'big-over', 'header-only', 'comments', 'json-as-csv', 'crlf-bom', 'bytes-over', 'bytes-under'])
+    for (const s of ['reserved', 'unicode', 'big-safe', 'big-over', 'header-only', 'comments', 'json-as-csv', 'crlf-bom', 'bytes-over', 'bytes-under', 'tsv-endings'])
       expect(cases.some(c => c.shape === s), s).toBe(true);
     const bad = cases.map(c => ({ id: c.id, shape: c.shape, got: checkHostile(c) })).filter(x => x.got);
     expect(bad).toEqual([]);

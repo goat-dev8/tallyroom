@@ -48,3 +48,37 @@ Expected answers come from `fuzz/oracle.py`, with the oracle's own text parser a
 - `.github/workflows/fuzz-nightly.yml`: **one** scheduled job, with 20 seeds × 5,000 random cases plus 2 seeds × 400 hostile cases per run. It fails, and uploads the divergent requests, if the counters disagree. The cron has not fired yet, and it reaches main with this branch.
 
 The 100,000-case sweep above was a one-off local run. It is evidence that the two counters agree, not a count of tests.
+
+## Version 2 (after the independent review, 2026-10-20)
+
+**What the 100,000-case sweep missed, and why.** The review found BUG-014..017, and the sweep above had reported 0 divergences:
+- **BUG-014 (STV tie rules):** the generator never sent `rules` with STV cases, and the oracle's STV broke ties by candidate order ("later in candidate order is excluded"), which is exactly what the engine did. When both counters hard-code the same rule, a differential test can't see the difference.
+- **BUG-015:** the oracle had the same mistake. Under `duplicates: ignore`, a repeat didn't reset its run of blanks either, so this was a shared misreading.
+- **BUG-016 and BUG-017:** the generator only wrote LF line endings and never produced pattern TSV.
+- **Item 5 / BUG-018:** names were ASCII only.
+
+**Changes:**
+- The oracle now resets the blank run on an ignored repeat, accepts LF, CRLF and bare CR, compares names after NFC, and breaks STV ties with previous-round and then lot, written separately from `src/stv.ts`.
+- `gen.py` sends `tiebreak`/`lotOrder` with STV cases, uses LF/CRLF/CR line endings, and gives 15% of elections NFD names.
+- `hostile.py` adds a `tsv-endings` shape.
+- The frozen corpora (`test/fuzz/corpus-2026.jsonl`, `hostile-2026.jsonl`) were regenerated. Their stored answers came from the old oracle.
+
+**Measured** (seed 1, 3,000 cases, and the same 20 seeds × 5,000 as before):
+
+| Build of src/ | Seed 1 (3,000) | Seeds 100-119 (100,000) | What the divergences are |
+|---|---|---|---|
+| main 98d523f | 1,351 | not run | BUG-012 (INVALID_OVERVOTE), BUG-013 and BUG-016 (UNKNOWN_CANDIDATE), BUG-014 (42 STV), BUG-015 (2) |
+| fix/ui-polish (before this branch) | 538 | **17,900** (`sweep-100-119-v2-on-fix-ui-polish.jsonl`) | 12,096 BUG-016 (bare CR, every one checked), 4,253 BUG-018, 1,512 BUG-014, 39 BUG-015 |
+| this branch | 0 | **0** (`sweep-100-119-v2.jsonl`) | — |
+
+Hostile v2, seed 7, 400 cases:
+
+| Build of src/ | Divergences | What they are |
+|---|---|---|
+| main | 114 | BUG-009, 010, 011, 017 |
+| fix/ui-polish | 20 | all `tsv-endings`, i.e. BUG-017 |
+| this branch | 0 | — |
+
+In the regenerated 600-case corpus, the `fix/ui-polish` build disagrees on 110 cases: BUG-014, BUG-016 and BUG-018. BUG-015 is rare (39 in 100,000), so the frozen corpus doesn't contain it; `test/review-bugs.test.ts` covers it.
+
+This proves only that version 2 catches the bugs we now know about. A rule that both counters misread the same way would still get past it.

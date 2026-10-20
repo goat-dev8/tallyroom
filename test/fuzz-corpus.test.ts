@@ -18,7 +18,7 @@ describe('engine agrees with the Python counter on the frozen fuzz corpus', () =
     const bad: unknown[] = [];
     for (const c of cases) {
         const body: Record<string, unknown> = c.csv !== undefined ? { csv: c.csv, candidates: c.candidates } : { ballots: c.ballots, candidates: c.candidates };
-        if (c.seats) { body.seats = c.seats; body.quota = c.quota; } else body.rules = c.rules;
+        if (c.seats) { body.seats = c.seats; body.quota = c.quota; } body.rules = c.rules;
         const r = handleTabulate('POST', JSON.stringify(body), { contentType: 'application/json' });
         if (r.status !== 200) { bad.push({ id: c.id, status: r.status }); continue; }
         const b = r.body as any;

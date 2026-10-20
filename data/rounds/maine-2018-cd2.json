@@ -39,8 +39,8 @@
       "inactive": {
         "blank": 5711,
         "overvote": 533,
-        "skips": 443,
-        "undervote": 7684,
+        "skips": 442,
+        "undervote": 7685,
         "exhausted": 335
       },
       "threshold": 140686,

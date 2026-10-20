@@ -1,12 +1,22 @@
 /** Runs fuzz/hostile.py cases through handleTabulate (the code behind POST /api/tabulate) and checks each against
  *  its expectation. Usage: tsx fuzz/hostile.ts cases.jsonl [report.json]. Exit 1 on any mismatch. */
 import { readFileSync, writeFileSync } from 'node:fs';
-import * as local from '../src/api.js';
-// HOSTILE_API=/abs/path/to/src/api.ts runs the same cases against another build (used to check it finds old bugs).
-const api: typeof local = process.env.HOSTILE_API ? await import(process.env.HOSTILE_API) : local;
+import * as localApi from '../src/api.js';
+import * as localParse from '../src/parse.js';
+import * as localIrv from '../src/irv.js';
+const local = { ...localApi, ...localParse, ...localIrv };
+// HOSTILE_SRC=/abs/path/to/src runs the same cases against another build of src/ (used to check it finds old bugs).
+const S = process.env.HOSTILE_SRC;
+const api: typeof local = S ? { ...(await import(S + '/api.ts')), ...(await import(S + '/parse.ts')), ...(await import(S + '/irv.ts')) } : local;
 const handleTabulate = api.handleTabulate;
+const norm = (x: any) => JSON.stringify(x, (_k, v) => (v && typeof v === 'object' && !Array.isArray(v)) ? Object.fromEntries(Object.keys(v).sort().map(k => [k, v[k]])) : v);
 
 export function checkHostile(c: any): null | Record<string, unknown> {
+  if (c.tsv !== undefined) {
+    const r = api.tabulateIrv(api.parsePatternTsv(c.tsv), c.candidates);
+    const got = { winner: r.winner, rounds: r.rounds.map((x: any) => ({ tallies: { ...x.tallies }, continuing: x.continuing, eliminated: x.eliminated })) };
+    return norm(got) === norm(c.expect.result) ? null : { engine: got };
+  }
   const body = c.repeat ? c.repeat.prefix + c.repeat.char.repeat(c.repeat.n) : c.body;
   const r = handleTabulate('POST', body, { contentType: c.contentType });
   const b = r.body as any;
@@ -15,7 +25,6 @@ export function checkHostile(c: any): null | Record<string, unknown> {
   if (c.expect.winnerLength !== undefined && b?.winner?.length !== c.expect.winnerLength) return { status: r.status, winnerLength: b?.winner?.length };
   if (c.expect.result) {
     const got = { winner: b.winner, rounds: b.rounds.map((x: any) => ({ tallies: { ...x.tallies }, continuing: x.continuing, eliminated: x.eliminated })) };
-    const norm = (x: any) => JSON.stringify(x, (_k, v) => (v && typeof v === 'object' && !Array.isArray(v)) ? Object.fromEntries(Object.keys(v).sort().map(k => [k, v[k]])) : v);
     if (norm(got) !== norm(c.expect.result)) return { engine: got };
   }
   return null;

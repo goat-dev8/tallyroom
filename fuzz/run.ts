@@ -10,7 +10,7 @@ const fr = (s: string) => s; // exact strings compared as-is ("n/d")
 for (const l of lines) {
   const c = JSON.parse(l);
   const body: Record<string, unknown> = c.csv !== undefined ? { csv: c.csv, candidates: c.candidates } : { ballots: c.ballots, candidates: c.candidates };
-  if (c.seats) { body.seats = c.seats; body.quota = c.quota; } else body.rules = c.rules;
+  if (c.seats) { body.seats = c.seats; body.quota = c.quota; } body.rules = c.rules;
   const res = handleTabulate('POST', JSON.stringify(body), { contentType: 'application/json' });
   const b = res.body as any; let got: unknown;
   if (res.status !== 200) got = { status: res.status, error: b?.error };

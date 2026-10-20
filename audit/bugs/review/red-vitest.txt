@@ -1,0 +1,124 @@
+
+ RUN  v4.1.12 /tmp/stack
+
+ ❯ test/review-bugs.test.ts (6 tests | 5 failed) 24ms
+     × previous-round: B and C tie at 5 in round 2; C had fewer in round 1, so C is eliminated 14ms
+     × lot: the candidate last in lotOrder is eliminated 2ms
+     × A>_>A>_>B reaches B under two-exhaust 3ms
+     × "1,B\r5,A\r" is two ballot lines 1ms
+     × drops the CR instead of gluing it to the last name 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/review-bugs.test.ts > BUG-014: multi-seat STV applies the tie-break rules > previous-round: B and C tie at 5 in round 2; C had fewer in round 1, so C is eliminated
+AssertionError: expected [ 'B' ] to deeply equal [ 'C' ]
+
+- Expected
++ Received
+
+  [
+-   "C",
++   "B",
+  ]
+
+ ❯ test/review-bugs.test.ts:13:41
+     11|     const r = post({ seats: 2, ballots: '8,A>C\n5,B\n3,C', candidates:…
+     12|     expect(r.status).toBe(200);
+     13|     expect(r.body.rounds[1].eliminated).toEqual(['C']);
+       |                                         ^
+     14|     expect(r.body.winners).toEqual(['A', 'B']);
+     15|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  test/review-bugs.test.ts > BUG-014: multi-seat STV applies the tie-break rules > lot: the candidate last in lotOrder is eliminated
+AssertionError: expected [ 'C' ] to deeply equal [ 'A' ]
+
+- Expected
++ Received
+
+  [
+-   "A",
++   "C",
+  ]
+
+ ❯ test/review-bugs.test.ts:18:41
+     16|   it('lot: the candidate last in lotOrder is eliminated', () => {
+     17|     const r = post({ seats: 2, ballots: '1,A\n1,B\n1,C', rules: { tieb…
+     18|     expect(r.body.rounds[0].eliminated).toEqual(['A']);
+       |                                         ^
+     19|     expect([...r.body.winners].sort()).toEqual(['B', 'C']);
+     20|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  test/review-bugs.test.ts > BUG-015: a repeated (ignored) candidate is a marked rank, so it breaks a run of skips > A>_>A>_>B reaches B under two-exhaust
+AssertionError: expected { C: 4, B: 3 } to deeply equal { B: 5, C: 4 }
+
+- Expected
++ Received
+
+  {
+-   "B": 5,
++   "B": 3,
+    "C": 4,
+  }
+
+ ❯ test/review-bugs.test.ts:26:38
+     24|   it('A>_>A>_>B reaches B under two-exhaust', () => {
+     25|     const r = post({ ballots: '4,C\n3,B\n2,A>_>A>_>B', rules: { skips:…
+     26|     expect(r.body.rounds[1].tallies).toEqual({ B: 5, C: 4 });
+       |                                      ^
+     27|     expect(r.body.winner).toBe('B');
+     28|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  test/review-bugs.test.ts > BUG-016: a bare CR ends a record in ranking text > "1,B\r5,A\r" is two ballot lines
+AssertionError: expected 1 to be 6 // Object.is equality
+
+- Expected
++ Received
+
+- 6
++ 1
+
+ ❯ test/review-bugs.test.ts:34:33
+     32|   it('"1,B\\r5,A\\r" is two ballot lines', () => {
+     33|     const r = post({ ballots: '1,B\r5,A\r' });
+     34|     expect(r.body.totalBallots).toBe(6);
+       |                                 ^
+     35|     expect(r.body.winner).toBe('A');
+     36|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  test/review-bugs.test.ts > BUG-017: pattern TSV with CRLF line endings > drops the CR instead of gluing it to the last name
+AssertionError: expected { A: +0, B: +0 } to deeply equal { A: 2, B: 3 }
+
+- Expected
++ Received
+
+  {
+-   "A": 2,
+-   "B": 3,
++   "A": 0,
++   "B": 0,
+  }
+
+ ❯ test/review-bugs.test.ts:42:33
+     40|   it('drops the CR instead of gluing it to the last name', () => {
+     41|     const r = tabulateIrv(parsePatternTsv('3\tB\r\n2\tA\r\n'), ['A', '…
+     42|     expect(r.rounds[0].tallies).toEqual({ A: 2, B: 3 });
+       |                                 ^
+     43|     expect(r.winner).toBe('B');
+     44|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 1 passed (6)
+   Start at  21:58:29
+   Duration  422ms (transform 114ms, setup 0ms, import 148ms, tests 24ms, environment 0ms)
+

@@ -9,6 +9,7 @@ IRV
   * overvote rule: exhaust -> ballot inactive; skip -> rank passed over;
     continuing -> counts for the single continuing name, passed over if none, inactive if 2+;
   * skips rule two-exhaust: two blank ranks in a row (a repeat counts as blank under duplicates=skip) -> inactive;
+    under duplicates=ignore a repeat is still a marked rank, so it ends a run of blanks;
   * a ballot that went inactive stays inactive;
   * win: majority of continuing votes (floor(c/2)+1), last candidate standing, or strict leader of the final two;
   * batch: drop the largest group of trailing candidates whose combined votes are below the next one up;
@@ -16,14 +17,16 @@ IRV
 STV (seats > 1): Droop floor(n/(s+1))+1 or Hare n/s on all ballots, exact fractions, weighted inclusive Gregory:
   everyone at or above quota is elected together, each transfers (votes-quota)/votes of every paper it holds;
   blanks are passed over, overvotes exhaust; when hopefuls <= open seats they all win; otherwise the lowest
-  hopeful (ties: later in candidate order) is excluded.
+  hopeful is excluded; ties for lowest use the same rules as IRV (previous-round by default, then lot).
+Lines may end in LF, CRLF or a bare CR.
 """
 from fractions import Fraction
+import unicodedata
 
 
 def parse(text):
     out = []
-    for line in text.splitlines():
+    for line in text.replace("\r\n", "\n").replace("\r", "\n").split("\n"):
         if not line.strip():
             continue
         n, rest = line.split(",", 1)
@@ -33,9 +36,9 @@ def parse(text):
             if tok in ("", "_"):
                 marks.append(("skip",))
             elif tok.startswith("["):
-                marks.append(("ov", tuple(x.strip() for x in tok[1:-1].split("="))))
+                marks.append(("ov", tuple(unicodedata.normalize("NFC", x.strip()) for x in tok[1:-1].split("="))))
             else:
-                marks.append(("c", tok))
+                marks.append(("c", unicodedata.normalize("NFC", tok)))
         out.append((int(n), marks))
     return out
 
@@ -63,6 +66,7 @@ def irv_pick(marks, live, rules):
                 return None
             continue
         if m[1] in seen:
+            blanks = 0
             continue
         seen.add(m[1])
         blanks = 0
@@ -72,7 +76,8 @@ def irv_pick(marks, live, rules):
 
 
 def irv(ballots, cands, rules):
-    lot = rules.get("lotOrder") or cands
+    cands = [unicodedata.normalize("NFC", x) for x in cands]  # names are compared after NFC
+    lot = [unicodedata.normalize("NFC", x) for x in (rules.get("lotOrder") or cands)]
     live = list(cands)
     dead = set()
     rounds = []
@@ -116,7 +121,10 @@ def irv(ballots, cands, rules):
         live = [c for c in live if c not in out]
 
 
-def stv(ballots, cands, seats, quota_kind):
+def stv(ballots, cands, seats, quota_kind, tiebreak="previous-round", lot=None):
+    cands = [unicodedata.normalize("NFC", x) for x in cands]
+    lot = [unicodedata.normalize("NFC", x) for x in (lot or cands)]
+    hist = []
     total = sum(n for n, _ in ballots)
     quota = Fraction(total // (seats + 1) + 1) if quota_kind == "droop" else Fraction(total, seats)
     w = [Fraction(1)] * len(ballots)
@@ -144,6 +152,7 @@ def stv(ballots, cands, seats, quota_kind):
         rd = {"tallies": {k: f"{v.numerator}/{v.denominator}" for k, v in t.items()},
               "exhausted": f"{ex.numerator}/{ex.denominator}", "elected": [], "eliminated": []}
         rounds.append(rd)
+        hist.append(dict(t))
         order = sorted(hope, key=lambda c: (-t[c], cands.index(c)))
         if len(hope) <= seats - len(won):
             won += order
@@ -160,7 +169,15 @@ def stv(ballots, cands, seats, quota_kind):
             rd["elected"] = hit
             hope = [c for c in hope if c not in hit]
             continue
-        lo = order[-1]
+        low = min(t[c] for c in hope)
+        tied = [c for c in hope if t[c] == low]
+        if len(tied) > 1 and tiebreak == "previous-round":
+            for prev in reversed(hist[:-1]):
+                m = min(prev[c] for c in tied)
+                tied = [c for c in tied if prev[c] == m]
+                if len(tied) == 1:
+                    break
+        lo = max(tied, key=lot.index)
         rd["eliminated"] = [lo]
         hope.remove(lo)
     return {"winners": won, "quotaExact": f"{quota.numerator}/{quota.denominator}", "rounds": rounds}

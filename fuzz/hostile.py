@@ -40,7 +40,7 @@ def counted(lines):
 
 def case(rng, i):
     shape = rng.choice(["reserved", "unicode", "big-safe", "big-over", "header-only", "comments",
-                        "json-as-csv", "crlf-bom", "bytes-over", "bytes-under"])
+                        "json-as-csv", "crlf-bom", "bytes-over", "bytes-under", "tsv-endings"])
     pool = {"reserved": RESERVED, "unicode": UNICODE}.get(shape, PLAIN)
     names = rng.sample(pool + PLAIN, rng.randint(2, 4)) if shape in ("reserved", "unicode") else PLAIN[: rng.randint(2, 3)]
     ct, lines = "text/csv", ballots(rng, names, big=shape == "big-safe")
@@ -62,6 +62,12 @@ def case(rng, i):
         body, expect = json.dumps({"ballots": "\n".join(lines)}), counted(lines)
     elif shape == "crlf-bom":
         body, expect = "\ufeff" + "\r\n".join(lines) + "\r\n", counted(lines)
+    elif shape == "tsv-endings":  # pattern TSV (bundled elections) with LF, CRLF or bare CR line endings (BUG-017)
+        eol = rng.choice(["\n", "\r\n", "\r"])
+        rows = [l.split(",", 1) for l in lines]
+        tsv = "".join(n + "\t" + "\t".join(r.split(">")) + eol for n, r in rows)
+        return {"id": i, "shape": shape, "contentType": "", "tsv": tsv, "candidates": first_seen(lines),
+                "expect": counted(lines)}
     elif shape in ("bytes-over", "bytes-under"):  # 2-byte characters: the limit is in UTF-8 bytes, not characters
         n = (LIMIT // 2) - 1 + (rng.randint(1, 64) if shape == "bytes-over" else -rng.randint(1, 64))
         size = len(("3," + "é" * n).encode())  # body is built by the runner from "repeat" (keeps the jsonl small)

@@ -88,7 +88,9 @@ export function parseTabulateBody(rawBody: string, contentType = ''): { ok: true
       const code = resolved.error.startsWith('Unknown rules preset') ? 'UNKNOWN_PRESET' : 'INVALID_RULES';
       return { ok: false, result: fail(400, code, resolved.error) };
     }
-    const rules = resolved.rules;
+    let rules = resolved.rules;
+    // BUG-018: lotOrder names get the same trim + NFC as ballot and candidate names.
+    if (rules && Array.isArray(rules.lotOrder)) rules = { ...rules, lotOrder: (rules.lotOrder as unknown[]).map(n => (typeof n === 'string' ? n.trim().normalize('NFC') : n)) as string[] };
     const unknown = Object.keys(rules ?? {}).filter(k => !RULE_KEYS.has(k));
     if (unknown.length) return { ok: false, result: fail(400, 'UNKNOWN_RULE', `Unknown rule key(s): ${unknown.join(', ')}`, { keys: unknown }) };
     // BUG-013: declared names get the same trim + NFC as ballot names, and must be non-blank strings with no repeats
@@ -118,7 +120,7 @@ function checked(value: ParsedTabulate): { ok: true; value: ParsedTabulate } | {
 
 function finish(value: ParsedTabulate): ApiResult {
   if (value.seats !== undefined && value.seats !== 1) {
-    return { status: 200, body: { engineVersion: ENGINE_VERSION, method: 'stv', ...tabulateStv(value.ballots, value.candidates, value.seats, value.quota ?? 'droop') } };
+    return { status: 200, body: { engineVersion: ENGINE_VERSION, method: 'stv', ...tabulateStv(value.ballots, value.candidates, value.seats, value.quota ?? 'droop', { tiebreak: value.rules?.tiebreak, lotOrder: value.rules?.lotOrder }) } };
   }
   const rules: Rules = { ...DEFAULT_RULES, ...(value.rules ?? {}) };
   return { status: 200, body: { engineVersion: ENGINE_VERSION, method: 'irv', ...tabulateIrv(value.ballots, value.candidates, rules) } };

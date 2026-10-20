@@ -21,7 +21,7 @@ export function currentChoice(marks: BallotGroup['marks'], continuing: Set<strin
       if (rules.overvote !== 'skip') return { kind: 'inactive', reason: 'overvote' };
       run = 0; continue; // overvoted rank passed over; does not count toward the two-skip rule
     } else if (seen.has(m.name)) {
-      if (rules.duplicates === 'skip') skipped = true; else continue; // repeated candidate
+      if (rules.duplicates === 'skip') skipped = true; else { run = 0; continue; } // repeated candidate: a marked rank, so it ends a run of skips (BUG-015)
     } else {
       seen.add(m.name); run = 0;
       if (continuing.has(m.name)) return { kind: 'candidate', name: m.name };

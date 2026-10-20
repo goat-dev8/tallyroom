@@ -1,7 +1,7 @@
 // Manual QA on /app (NYC 2021, round 1 -> 2), items 1-10. See audit/sankey-a11y/README.md.
 import { test, expect, type Page, type Locator } from '@playwright/test';
 const URL = '/app?election=nyc-2021-dem-mayor&round=1';
-test.beforeEach(({ }, info) => { test.skip(info.project.name.includes('390'), 'pointer and keyboard checks run on desktop'); });
+test.skip(({ viewport }) => (viewport?.width ?? 0) < 500, 'pointer and keyboard checks run on desktop');
 
 async function open(page: Page) {
   await page.goto(URL);

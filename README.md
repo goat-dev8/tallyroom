@@ -30,7 +30,7 @@ curl -s https://tallyroom-rosy.vercel.app/api/tabulate -H 'content-type: applica
 |---|---|---|
 | TestSprite UI (`testsprite/frontend/`) | 34 plans, the same 34 tests in the TestSprite project | every PR preview, through the TestSprite V3 GitHub check |
 | TestSprite API (`testsprite/backend/`) | 22 tests, the same 22 `api:` tests in the TestSprite project | PR previews that touch API code (`testsprite-cli.yml`), and production after merges that touch app code (`testsprite-prod.yml`) |
-| Vitest (`test/`) | 240 tests (the 600-case fuzz corpus and the 120-case hostile corpus are 1 test each) | every PR and every push to main (`ci.yml`) |
+| Vitest (`test/`) | 247 tests (the 600-case fuzz corpus and the 120-case hostile corpus are 1 test each) | every PR and every push to main (`ci.yml`) |
 | Playwright (`tests/e2e/`) | 44 tests × 2 viewports | every PR (`ci.yml`, `playwright e2e` job) |
 
 Plans written but not yet created in TestSprite are in `testsprite/planned/`, and they aren't counted above. The V3 bot says it queued 23 API tests. That is because the TestSprite project still holds one old smoke test, `smoke:api-health-pr1-preview`, which isn't in this repo.
