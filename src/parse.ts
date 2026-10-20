@@ -270,10 +270,10 @@ export function parseBallotJson(ballots: unknown, declared?: string[]): { ballot
   return { ballots: groups, candidates: collectCandidates(groups, declared) };
 }
 
-/** Pattern TSV: `count \t rank1 \t ... ` with tokens `overvote`, `undervote`, or a candidate name. */
+/** Pattern TSV: `count \t rank1 \t ... ` with tokens `overvote`, `overvote:A|B` (names kept), `undervote`, or a candidate name. */
 export function parsePatternTsv(text: string): BallotGroup[] {
   return text.split('\n').filter(Boolean).map(l => {
     const [c, ...ranks] = l.split('\t');
-    return { count: Number(c), marks: ranks.map((r): Mark => r === 'undervote' ? { kind: 'skip' } : r === 'overvote' ? { kind: 'overvote' } : { kind: 'candidate', name: r }) };
+    return { count: Number(c), marks: ranks.map((r): Mark => r === 'undervote' ? { kind: 'skip' } : r === 'overvote' ? { kind: 'overvote' } : r.startsWith('overvote:') ? { kind: 'overvote', names: r.slice(9).split('|') } : { kind: 'candidate', name: r }) };
   });
 }

@@ -13,7 +13,12 @@ export function currentChoice(marks: BallotGroup['marks'], continuing: Set<strin
     let skipped = false;
     if (m.kind === 'skip') skipped = true;
     else if (m.kind === 'overvote') {
-      if (rules.overvote === 'exhaust') return { kind: 'inactive', reason: 'overvote' };
+      if (rules.overvote === 'continuing' && m.names) {
+        const live = m.names.filter(n => continuing.has(n));
+        if (live.length === 1) return { kind: 'candidate', name: live[0] };
+        if (live.length === 0) { run = 0; continue; }
+      }
+      if (rules.overvote !== 'skip') return { kind: 'inactive', reason: 'overvote' };
       run = 0; continue; // overvoted rank passed over; does not count toward the two-skip rule
     } else if (seen.has(m.name)) {
       if (rules.duplicates === 'skip') skipped = true; else continue; // repeated candidate
@@ -38,14 +43,18 @@ export function tabulateIrv(ballots: BallotGroup[], candidates: string[], partia
   const totalBallots = ballots.reduce((s, b) => s + b.count, 0);
   const continuing = new Set(candidates);
   const rounds: Round[] = [];
+  // Once inactive, a ballot stays inactive with the same reason. Under overvote "continuing" this is what makes an
+  // overvote that named 2+ continuing candidates when reached stay exhausted after one of them is eliminated.
+  const dead = new Map<BallotGroup, InactiveReason>();
   if (candidates.length === 0) throw new Error('No candidates');
   for (let r = 1; ; r++) {
     // BUG-003: null-prototype maps, so a candidate named "__proto__" or "constructor" keeps its votes.
     const tallies: Record<string, number> = Object.create(null); for (const c of candidates) if (continuing.has(c)) tallies[c] = 0;
     const inactive: Record<InactiveReason, number> = { blank: 0, overvote: 0, skips: 0, undervote: 0, exhausted: 0 };
     for (const b of ballots) {
+      const gone = dead.get(b); if (gone) { inactive[gone] += b.count; continue; }
       const p = currentChoice(b.marks, continuing, rules);
-      if (p.kind === 'candidate') tallies[p.name] += b.count; else inactive[p.reason] += b.count;
+      if (p.kind === 'candidate') tallies[p.name] += b.count; else { inactive[p.reason] += b.count; dead.set(b, p.reason); }
     }
     // Inactive is cumulative by construction: once a ballot is inactive it never becomes active again
     // (continuing set only shrinks). Reasons may only move from active to inactive.
