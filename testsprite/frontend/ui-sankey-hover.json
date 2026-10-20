@@ -1,0 +1,39 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:sankey-hover",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=nyc-2021-dem-mayor&round=1"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 60 seconds for the element with data-testid 'sankey' to appear, then wait 2 seconds for the flows to finish drawing"
+  },
+  {
+   "type": "action",
+   "description": "Hover the first rect inside the element data-testid 'sankey-node' with data-node 'b:Eric L. Adams'"
+  },
+  {
+   "type": "assertion",
+   "description": "'sankey-tooltip' is visible and contains 'Eric L. Adams' and '289,603'"
+  },
+  {
+   "type": "action",
+   "description": "Move the mouse to the vertical middle of the last element with data-testid 'sankey-link', offset 4 pixels below its centre line"
+  },
+  {
+   "type": "assertion",
+   "description": "'sankey-tooltip' is visible and contains 'Write-in'"
+  },
+  {
+   "type": "action",
+   "description": "Hover the 'bar-track' inside the 'candidate-row' with data-candidate 'Eric L. Adams'"
+  },
+  {
+   "type": "assertion",
+   "description": "The element data-testid 'bar-tooltip' in that row is visible and contains '289,403'"
+  }
+ ]
+}

@@ -47,6 +47,7 @@ export function RoundBars({ result, round, compact = false }: { result: IrvResul
                   {out && <X className="h-3.5 w-3.5 shrink-0 text-mute" aria-label="eliminated" />}
                   {compact && <span className="ml-auto shrink-0 font-mono text-[11px] text-mute tnum"><CountUp value={v} className="text-fg" /> · {pct(v, r.continuing)}</span>}
                 </div>
+                <span role="tooltip" data-testid="bar-tooltip" className="pointer-events-none absolute left-1/2 -top-7 z-30 hidden -translate-x-1/2 whitespace-nowrap rounded-lg border border-white/10 bg-[#0e1013]/95 px-2.5 py-1 font-mono text-[11px] text-fg shadow-lg tnum group-hover:block">{shortName(name)} · {fmt(v)} · {pct(v, r.continuing)} of continuing{gain > 0 ? ` · +${fmt(gain)} by transfer` : ''}{out ? ' · eliminated' : ''}</span>
                 <div className={`relative overflow-hidden rounded-md bg-[linear-gradient(180deg,#ffffff06,#ffffff03)] ring-1 ring-inset ring-white/[.05] ${compact ? 'h-5' : 'h-7'}`} data-testid="bar-track">
                   {/* full share (first div: tests measure it) + gloss */}
                   <motion.div aria-hidden data-testid="bar-share" className="pointer-events-none absolute z-10 inset-y-0 left-0 w-full origin-left" initial={reduce ? false : { scaleX: 0 }} animate={{ scaleX: share }} transition={t}
