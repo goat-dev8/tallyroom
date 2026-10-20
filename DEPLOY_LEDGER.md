@@ -76,6 +76,9 @@ Rules
 
 | 2026-10-20 | ~10:25 | fix/api-input (PR #20) | BUG-002..004 fix + tests (red run was on production, no deploy) | Built: preview | ~54 (Vercel count 53 at 10:05) | 22 (CLI api) + V3 app | ~11 + V3 | One push. |
 
+| 2026-10-20 | 10:25 | – (squash-merge of #20 to main) | 7a1c46e | Built: READY, production | ~55 | 22 (prod API suite) | ~11 | |
+| 2026-10-20 | ~10:30 | ci/prod-paths | CI/docs/plan-only (prod suite paths filter, defects links, ui:rounds-table-maine plan) | Skipped by ignoreCommand | — | 0 | 0 | No deploy. |
+
 ## Daily totals
 | Date (Cairo) | Deploys built | Builds skipped | Peak 24 h count | Credits used |
 |---|---|---|---|---|

@@ -4,6 +4,15 @@ name: TestSprite API (production)
 on:
   push:
     branches: [main]
+    # Only when the deployed app or the API tests can change: CI/docs-only merges cost no credits.
+    paths:
+      - 'src/**'
+      - 'app/**'
+      - 'components/**'
+      - 'lib/**'
+      - 'data/**'
+      - 'testsprite/backend/**'
+      - 'ts-tests/api/**'
   schedule:
     - cron: '30 1 * * *' # 04:30 Cairo
   workflow_dispatch:
