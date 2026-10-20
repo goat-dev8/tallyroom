@@ -1,0 +1,66 @@
+# Nightly: re-derive the three certified results from the raw official cast vote records.
+# Raw files are mirrored byte-for-byte on the `raw-cvr-v1` release; every file is SHA-256 checked
+# against data/SHA256SUMS.*.txt, converted again, compared with the committed pattern fixtures,
+# then counted with `npm run parity` (exits non-zero on any gap vs the certified reports).
+name: Certified parity (from raw CVRs)
+on:
+  schedule:
+    - cron: '0 2 * * *' # 05:00 Cairo
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rederive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci && pip install openpyxl==3.1.5 xlrd==2.0.1
+      - name: Raw CVR mirror available?
+        id: raw
+        run: echo "ok=$(gh release view raw-cvr-v1 -R ${{ github.repository }} >/dev/null 2>&1 && echo true || echo false)" >> "$GITHUB_OUTPUT"
+      - name: Download raw CVRs
+        if: steps.raw.outputs.ok == 'true'
+        run: |
+          mkdir -p dl && gh release download raw-cvr-v1 -D dl
+          mkdir -p data/raw/maine-2018-cd2 data/raw/alaska-2022-special data/raw/nyc-2021-dem-mayor
+          mv dl/maine-* data/raw/maine-2018-cd2/ && for f in data/raw/maine-2018-cd2/maine-*; do mv "$f" "data/raw/maine-2018-cd2/${f##*/maine-}"; done
+          mv dl/alaska-cvr.zip data/raw/alaska-2022-special/cvr.zip; mv dl/alaska-RcvDetailedReport.pdf data/raw/alaska-2022-special/RcvDetailedReport.pdf
+          mv dl/nyc-PE2021_CVR_Final.zip data/raw/nyc-2021-dem-mayor/PE2021_CVR_Final.zip; mv dl/nyc-recap.html data/raw/nyc-2021-dem-mayor/recap.html
+      - name: Verify SHA-256 of every raw file
+        if: steps.raw.outputs.ok == 'true'
+        run: |
+          (cd data/raw/maine-2018-cd2 && grep -v ' data/' ../../SHA256SUMS.maine-2018-cd2.txt | sha256sum -c -)
+          grep 'data/raw/' data/SHA256SUMS.alaska-2022-special.txt | sha256sum -c -
+          grep 'data/raw/' data/SHA256SUMS.nyc-2021-dem-mayor.txt | sha256sum -c -
+      - name: Re-derive pattern fixtures from raw
+        if: steps.raw.outputs.ok == 'true'
+        run: |
+          cp data/fixtures/*.tsv /tmp/
+          python3 -W ignore scripts/maine_xlsx_to_patterns.py
+          (cd data/raw/alaska-2022-special && unzip -q -o cvr.zip)
+          npx tsx scripts/dominion_cvr_to_patterns.ts data/raw/alaska-2022-special 69 data/fixtures/alaska-2022-special.patterns.tsv
+          (cd data/raw/nyc-2021-dem-mayor && mkdir -p cvr && unzip -q -o PE2021_CVR_Final.zip -d cvr)
+          python3 -W ignore scripts/nyc_xlsx_to_patterns.py "$(dirname "$(find data/raw/nyc-2021-dem-mayor/cvr -name 2021P_CandidacyID_To_Name.xlsx | head -1)")" "DEM Mayor Choice" data/fixtures/nyc-2021-dem-mayor.patterns.tsv
+          sha256sum -c data/SHA256SUMS.fixtures.txt
+      - name: Verify committed fixtures (always)
+        run: sha256sum -c data/SHA256SUMS.fixtures.txt
+      - name: Count and compare with certified reports
+        run: |
+          npm run parity | tee parity.txt
+          { echo "### Certified parity (raw re-derive: ${{ steps.raw.outputs.ok }})"; echo; cat parity.txt; } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: parity-report
+          path: parity.txt
+          if-no-files-found: ignore

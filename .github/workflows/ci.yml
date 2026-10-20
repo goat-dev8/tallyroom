@@ -1,0 +1,44 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
+jobs:
+  checks:
+    name: lint + typecheck + vitest
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Lint (oxlint, config in .oxlintrc.json)
+        run: npx --yes oxlint@1.89.0
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Vitest (engine, parity, property, API)
+        run: npx vitest run --reporter=default --reporter=junit --outputFile.junit=vitest-junit.xml
+      - name: Job summary
+        if: always()
+        run: |
+          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import xml.etree.ElementTree as ET, os
+          if not os.path.exists('vitest-junit.xml'): print('No Vitest report.'); raise SystemExit
+          r = ET.parse('vitest-junit.xml').getroot()
+          s = r if r.tag == 'testsuites' else r
+          print(f"### Vitest: {s.get('tests')} tests, {s.get('failures')} failures, {s.get('errors')} errors, {s.get('skipped','0')} skipped")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: vitest-junit
+          path: vitest-junit.xml
+          if-no-files-found: ignore

@@ -11,7 +11,7 @@ if [ -z "$BASE" ] || ! git cat-file -e "$BASE^{commit}" 2>/dev/null; then
 fi
 CHANGED="$(git diff --name-only "$BASE" HEAD)"
 if [ -z "$CHANGED" ]; then echo "skip: no file changes"; exit 0; fi
-SKIP_RE='^(docs/.*|[^/]+\.md|LICENSE|\.github/.*|testsprite/.*|testsprite_tests/.*|\.testsprite/.*|scripts/vercel-ignore\.sh|DEPLOY_LEDGER\.md)$'
+SKIP_RE='^(docs/.*|audit/.*|\.oxlintrc\.json|[^/]+\.md|LICENSE|\.github/.*|testsprite/.*|testsprite_tests/.*|\.testsprite/.*|scripts/vercel-ignore\.sh|scripts/testsprite-filter\.mjs|DEPLOY_LEDGER\.md)$'
 while IFS= read -r f; do
   if ! [[ "$f" =~ $SKIP_RE ]]; then echo "build: $f changed"; exit 1; fi
 done <<< "$CHANGED"

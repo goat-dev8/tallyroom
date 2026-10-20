@@ -38,7 +38,44 @@ Rules
 | 2026-10-20 | ~01:25 | test/frontend-testids (PR #10) | this commit (ledger only) | Built: preview | — | 0 | 0 | Ledger-only, so the ignore step skipped it (CANCELED). |
 | 2026-10-20 | ~01:30 | test/frontend-testids (PR #10) | this commit (e2e for window arrow keys, BUGS.md) | Built: preview | — | 0 | 0 | Builds, so the Vercel status and TestSprite V3 check attach to the PR head. |
 
+| 2026-10-20 | 01:36 | ui/dash-bars (PR #14) | first push | Built: preview | ~25 | 34 (V3 app) | ~17 | Missed row (added 10:00): dashboard redesign push 1/3. |
+| 2026-10-20 | 01:36 | ui/dash-sankey (PR #15) | first push | Built: preview | ~26 | 34 (V3 app) | ~17 | Missed row: redesign push 2/3. |
+| 2026-10-20 | 01:37 | ui/dash-cards (PR #16) | first push | Built: preview | ~27 | 34 (V3 app) | ~17 | Missed row: redesign push 3/3. |
+| 2026-10-20 | 08:13 | feat/api-elections-list (PR #2) | 9f723ad (merge of main into the PR, needed after the base was squash-merged) | Built: preview | ~28 | 34 (V3 app) | ~17 | One push per PR during the bottom-up merge. |
+| 2026-10-20 | 08:20 | – (squash-merge of #2 to main) | f1eea74 | Built: READY, production | ~29 | 0 | 0 | Bottom-up merge of the stack. |
+| 2026-10-20 | 08:20 | feat/api-rounds (PR #3) | cb050ee (merge of main into the PR, needed after the base was squash-merged) | Built: preview | ~30 | 34 (V3 app) | ~17 | One push per PR during the bottom-up merge. |
+| 2026-10-20 | 08:25 | – (squash-merge of #3 to main) | e79555d | Built: READY, production | ~31 | 0 | 0 | Bottom-up merge of the stack. |
+| 2026-10-20 | 08:25 | feat/api-tabulate-formats (PR #4) | 5d6ddc9 (merge of main into the PR, needed after the base was squash-merged) | Built: preview | ~32 | 34 (V3 app) | ~17 | One push per PR during the bottom-up merge. |
+| 2026-10-20 | 08:27 | – (squash-merge of #4 to main) | 29831ce | Built: READY, production | ~33 | 0 | 0 | Bottom-up merge of the stack. |
+| 2026-10-20 | 08:27 | feat/api-report (PR #5) | 9e4f5af (merge of main into the PR, needed after the base was squash-merged) | Built: preview | ~34 | 34 (V3 app) | ~17 | One push per PR during the bottom-up merge. |
+| 2026-10-20 | 08:33 | – (squash-merge of #5 to main) | 7ef135f | Built: READY, production | ~35 | 0 | 0 | Bottom-up merge of the stack. |
+| 2026-10-20 | 08:33 | feat/api-options-presets (PR #6) | 7c7daaf (merge of main into the PR, needed after the base was squash-merged) | Built: preview | ~36 | 34 (V3 app) | ~17 | One push per PR during the bottom-up merge. |
+| 2026-10-20 | 08:38 | – (squash-merge of #6 to main) | b3ac979 | Built: READY, production | ~37 | 0 | 0 | Bottom-up merge of the stack. |
+| 2026-10-20 | 08:40 | feat/api-server-tabulate (PR #7) | 2ceac2d (merge of main into the PR, needed after the base was squash-merged) | Built: preview | ~38 | 34 (V3 app) | ~17 | One push per PR during the bottom-up merge. |
+| 2026-10-20 | 08:45 | – (squash-merge of #7 to main) | 8563ea7 | Built: READY, production | ~39 | 0 | 0 | Bottom-up merge of the stack. |
+| 2026-10-20 | 08:45 | feat/csv-count-ranking (PR #8) | ceae659 (merge of main into the PR, needed after the base was squash-merged) | Built: preview | ~40 | 34 (V3 app) | ~17 | One push per PR during the bottom-up merge. |
+| 2026-10-20 | 08:51 | – (squash-merge of #8 to main) | f93daaf | Built: READY, production | ~41 | 0 | 0 | Bottom-up merge of the stack. |
+| 2026-10-20 | 08:52 | fix/csv-single-choice (PR #13) | 51525f7 (merge of main into the PR, needed after the base was squash-merged) | Built: preview | ~42 | 34 (V3 app) | ~17 | One push per PR during the bottom-up merge. |
+| 2026-10-20 | 08:57 | – (squash-merge of #13 to main) | 99c4409 | Built: READY, production | ~43 | 0 | 0 | Bottom-up merge of the stack. |
+| 2026-10-20 | 09:06 | ci/api-base-url (PR #17) | 40352a6 (merge of main into the PR, needed after the base was squash-merged) | Built: preview | ~44 | 34 (V3 app) | ~17 | One push per PR during the bottom-up merge. |
+| 2026-10-20 | 09:11 | – (squash-merge of #17 to main) | 9d3e379 | Built: READY, production | ~45 | 0 | 0 | Bottom-up merge of the stack. |
+| 2026-10-20 | 09:12 | test/frontend-testids (PR #10) | 4fca0e9 (merge of main into the PR, needed after the base was squash-merged) | Built: preview | ~46 | 34 (V3 app) | ~17 | One push per PR during the bottom-up merge. |
+| 2026-10-20 | 09:19 | – (squash-merge of #10 to main) | d137b6a | Built: READY, production | ~47 | 0 | 0 | Bottom-up merge of the stack. |
+| 2026-10-20 | 09:19 | ci/testsprite-cli (PR #11) | f84d40c (merge of main into the PR, needed after the base was squash-merged) | Built: preview | ~48 | 34 (V3 app) | ~17 | One push per PR during the bottom-up merge. |
+| 2026-10-20 | 09:26 | – (squash-merge of #11 to main) | 39ff831 | Built: READY, production | ~49 | 0 | 0 | Bottom-up merge of the stack. |
+| 2026-10-20 | 09:26 | test/stv-props (PR #12) | f4a078c (merge of main into the PR, needed after the base was squash-merged) | Built: preview | ~50 | 34 (V3 app) | ~17 | One push per PR during the bottom-up merge. |
+| 2026-10-20 | 09:33 | – (squash-merge of #12 to main) | 7a9e65d | Built: READY, production | ~51 | 0 | 0 | Bottom-up merge of the stack. |
+| 2026-10-20 | 09:33 | ui/dash-bars (PR #14) | a4dbd65 (merge of main into the PR, needed after the base was squash-merged) | Built: preview | ~52 | 34 (V3 app) | ~17 | One push per PR during the bottom-up merge. |
+| 2026-10-20 | 09:40 | – (squash-merge of #14 to main) | ed2c536 | Built: READY, production | ~53 | 0 | 0 | Bottom-up merge of the stack. |
+| 2026-10-20 | 09:40 | ui/dash-sankey (PR #15) | ec19b0c (merge of main into the PR, needed after the base was squash-merged) | Built: preview | ~54 | 34 (V3 app) | ~17 | One push per PR during the bottom-up merge. |
+| 2026-10-20 | 09:46 | – (squash-merge of #15 to main) | 29cbb23 | Built: READY, production | ~55 | 0 | 0 | Bottom-up merge of the stack. |
+| 2026-10-20 | 09:46 | ui/dash-cards (PR #16) | 3c8cd17 (merge of main into the PR, needed after the base was squash-merged) | Built: preview | ~56 | 34 (V3 app) | ~17 | One push per PR during the bottom-up merge. |
+| 2026-10-20 | 09:57 | – (squash-merge of #16 to main) | 07f1900 | Built: READY, production | ~57 | 0 | 0 | Bottom-up merge of the stack. |
+| 2026-10-20 | 08:12 | – (squash-merge of #1 to main) | 335e2da | Built: READY, production | ~58 | 0 | 0 | First merge to main (logged out of order). |
+| 2026-10-20 | ~10:00 | ci/workflows | CI-only (workflows, lint config, ignore rules) | Skipped by ignoreCommand | — | api: via CLI on production | ~10 | No deploy spent; proves the CLI Action + JUnit. |
+
 ## Daily totals
 | Date (Cairo) | Deploys built | Builds skipped | Peak 24 h count | Credits used |
 |---|---|---|---|---|
 | 2026-10-19 | 10 | 1 | 10 | 0 |
+| 2026-10-20 (to 10:00) | ~58 | ≥3 | ~58 (under the 80 cap) | V3 app ~17 per UI run; balance 156.8 at 09:55 |

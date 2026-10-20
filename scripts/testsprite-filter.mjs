@@ -6,7 +6,7 @@ export const PROJECTS = {
   'ui:': 'f312fcf5-741d-4116-bed4-c7ac9334859a', // tallyroom-web (frontend)
 };
 
-const SKIP = /^(docs\/.*|[^/]+\.md|LICENSE|testsprite\/.*|testsprite_tests\/.*|\.testsprite\/.*|DEPLOY_LEDGER\.md)$/;
+const SKIP = /^(docs\/.*|audit\/.*|[^/]+\.md|LICENSE|testsprite\/.*|testsprite_tests\/.*|\.testsprite\/.*|DEPLOY_LEDGER\.md)$/;
 const API = /^(app\/api\/|src\/|data\/|scripts\/(precompute-rounds|copy-fixtures)\.)/;
 const UI = /^(app\/(?!api\/)|components\/|public\/|lib\/|styles\/|app\/globals\.css)/;
 const BOTH = /^(package(-lock)?\.json|next\.config\.|tsconfig\.json|postcss\.config\.|vercel\.json|middleware\.|\.github\/workflows\/testsprite-cli\.yml|scripts\/testsprite-filter\.mjs)/;
@@ -20,7 +20,7 @@ export function suitesFor(files) {
     // The browser runs the same engine (src/) on the same fixtures (data/), so they gate the UI too.
     if (API.test(f)) { out.add('api:'); if (/^(src|data)\//.test(f)) out.add('ui:'); continue; }
     if (UI.test(f)) { out.add('ui:'); continue; }
-    if (/^test\//.test(f) || /^scripts\//.test(f) || /^\.github\//.test(f)) continue; // local-only checks
+    if (f.startsWith('test/') || f.startsWith('scripts/') || f.startsWith('.github/')) continue; // local-only checks
     out.add('api:'); out.add('ui:'); // unknown path: run everything rather than miss a regression
   }
   return ['api:', 'ui:'].filter(s => out.has(s));
