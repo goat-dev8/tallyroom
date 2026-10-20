@@ -1,0 +1,14 @@
+idempotency-key: cli-create-c6962746-a227-43ec-a47f-b656577bbc15
+Run ec6c8bb6-2a1b-40ed-847a-46ed1606abdc
+Dashboard: https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/28a6c190-394e-48b1-ba0a-ae78b929d580
+requestId: cli_063f52cb-9c66-41ca-a7a4-fa0d8d9feef3
+Run finished with status: failed. Backend failure artifacts are addressed by testId — use 'testsprite test failure get 28a6c190-394e-48b1-ba0a-ae78b929d580' to download the bundle.
+{
+  "error": {
+    "code": "CLI_ERROR",
+    "message": "Run ec6c8bb6-2a1b-40ed-847a-46ed1606abdc finished with status: failed",
+    "nextAction": "",
+    "requestId": "local",
+    "details": {}
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "testId": "9104fe07-c858-4e03-b179-14dd041dcc9e",
+  "status": "failed",
+  "startedAt": "2026-10-20T20:49:51.442Z",
+  "finishedAt": "2026-10-20T20:49:54.834Z",
+  "videoUrl": null,
+  "failureAnalysisUrl": null,
+  "snapshotId": "snap_7ae26deba3bf8775",
+  "runIdIfAvailable": "82cd22d6-fc22-43f8-b5a4-b26061f23e32",
+  "codeVersion": "v-c206c8fe563d",
+  "targetUrl": null,
+  "targetUrlSource": null,
+  "environment": null,
+  "failedStepIndex": null,
+  "failureKind": "assertion",
+  "verdict": "failed",
+  "executionStatus": "completed",
+  "summary": "Failed (assertion): POST https://tallyroom-rosy.vercel.app/api/tabulate → 422\nResponse: {\"error\":{\"code\":\"INVALID_OVERVOTE\",\"message\":\"rules.overvote must be one of: exhaust, skip\",\"details\":{\"field\":\"rules.overvote\",\"value\":\"continuing\"}}}\n(422, {'error': {'code': 'INVALID_OVERVOTE', 'message': 'rules.overvote must be one of: exhaust, skip', 'details': {'field': 'rules.overvote', 'value': 'continuing'}}})\nAnalysis: The test called https://tallyroom-rosy.vercel.app/api/tabulate with rules.overv…",
+  "apiOutput": "",
+  "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 149, in test\nAssertionError: (422, {'error': {'code': 'INVALID_OVERVOTE', 'message': 'rules.overvote must be one of: exhaust, skip', 'details': {'field': 'rules.overvote', 'value': 'continuing'}}})\n"
+}

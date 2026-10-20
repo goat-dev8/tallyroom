@@ -1,0 +1,37 @@
+{
+  "testId": "2baa46fc-8615-4c7f-ab83-e33806ae4190",
+  "type": "backend",
+  "codeVersion": "v-81f85c07abc3",
+  "createdAt": "2026-10-20T20:49:30.010Z",
+  "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/2baa46fc-8615-4c7f-ab83-e33806ae4190",
+  "run": {
+    "runId": "47c4d103-503b-4dc4-8870-4af795313baa",
+    "testId": "2baa46fc-8615-4c7f-ab83-e33806ae4190",
+    "testTitle": "api:prodred-bug-009",
+    "projectId": "a7aa06b0-0721-49ff-a7aa-0181ad8586d6",
+    "userId": "04180438-a0a1-70ab-b51f-4dce971c378f",
+    "status": "failed",
+    "source": "cli",
+    "createdAt": "2026-10-20T20:49:30.126Z",
+    "startedAt": "2026-10-20T20:49:30.126Z",
+    "finishedAt": "2026-10-20T20:49:33.619Z",
+    "codeVersion": "v-81f85c07abc3",
+    "targetUrl": null,
+    "environment": null,
+    "createdFrom": null,
+    "failedStepIndex": null,
+    "failureKind": "assertion",
+    "error": "(422, {'error': {'code': 'CSV_FORMAT_AMBIGUOUS', 'message': 'Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...', 'details': {'row': 2, 'column': 2}}})",
+    "videoUrl": null,
+    "stepSummary": {
+      "total": 0,
+      "completed": 0,
+      "passedCount": 0,
+      "failedCount": 0
+    },
+    "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/2baa46fc-8615-4c7f-ab83-e33806ae4190",
+    "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/56cb3711-4fac-4cdd-8d24-a5c652995ee8/test/47c4d103-503b-4dc4-8870-4af795313baa",
+    "apiOutput": "",
+    "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 149, in test\nAssertionError: (422, {'error': {'code': 'CSV_FORMAT_AMBIGUOUS', 'message': 'Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...', 'details': {'row': 2, 'column': 2}}})\n"
+  }
+}

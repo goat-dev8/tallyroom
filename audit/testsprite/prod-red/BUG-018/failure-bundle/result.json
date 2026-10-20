@@ -1,0 +1,21 @@
+{
+  "testId": "cbdc897f-1356-4f5f-bb37-e5b4f0c56a8f",
+  "status": "failed",
+  "startedAt": "2026-10-20T20:50:24.783Z",
+  "finishedAt": "2026-10-20T20:50:28.321Z",
+  "videoUrl": null,
+  "failureAnalysisUrl": null,
+  "snapshotId": "snap_ab85fc081b0d940c",
+  "runIdIfAvailable": "0becbade-d477-42bd-91b6-85c98181a084",
+  "codeVersion": "v-c1b37f815d1d",
+  "targetUrl": null,
+  "targetUrlSource": null,
+  "environment": null,
+  "failedStepIndex": null,
+  "failureKind": "assertion",
+  "verdict": "failed",
+  "executionStatus": "completed",
+  "summary": "Failed (assertion): POST https://tallyroom-rosy.vercel.app/api/tabulate → 422\nResponse: {\"error\":{\"code\":\"INVALID_LOT_ORDER\",\"message\":\"rules.lotOrder is missing candidate \\\"Zoë\\\"\",\"details\":{\"field\":\"rules.lotOrder\",\"candidate\":\"Zoë\"}}}\n(422, {'error': {'code': 'INVALID_LOT_ORDER', 'message': 'rules.lotOrder is missing candidate \"Zoë\"', 'details': {'field': 'rules.lotOrder', 'candidate': 'Zoë'}}})\nAnalysis: The test called https://tallyroom-rosy.vercel.app/api/tabulate with a lot-order using d…",
+  "apiOutput": "",
+  "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 153, in <module>\n  File \"<string>\", line 150, in test\nAssertionError: (422, {'error': {'code': 'INVALID_LOT_ORDER', 'message': 'rules.lotOrder is missing candidate \"Zoë\"', 'details': {'field': 'rules.lotOrder', 'candidate': 'Zoë'}}})\n"
+}

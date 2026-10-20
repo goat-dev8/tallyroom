@@ -1,0 +1,14 @@
+idempotency-key: cli-create-d938a570-1bbb-42c6-bc36-c8eeddbc02d7
+Run 47c4d103-503b-4dc4-8870-4af795313baa
+Dashboard: https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/2baa46fc-8615-4c7f-ab83-e33806ae4190
+requestId: cli_bba8fe98-e869-4111-abd4-76634ed2bf28
+Run finished with status: failed. Backend failure artifacts are addressed by testId — use 'testsprite test failure get 2baa46fc-8615-4c7f-ab83-e33806ae4190' to download the bundle.
+{
+  "error": {
+    "code": "CLI_ERROR",
+    "message": "Run 47c4d103-503b-4dc4-8870-4af795313baa finished with status: failed",
+    "nextAction": "",
+    "requestId": "local",
+    "details": {}
+  }
+}
