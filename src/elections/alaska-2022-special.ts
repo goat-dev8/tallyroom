@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { parsePatternTsv } from '../parse.js';
 import { Rules } from '../types.js';
 
@@ -22,6 +22,6 @@ export const ALASKA_2022_SPECIAL = {
     begichTransfers: { 'Palin, Sarah': 27053, 'Peltola, Mary S.': 15467, exhausted: 11243, overvotes: 47 },
   },
   load() {
-    return parsePatternTsv(readFileSync(fileURLToPath(new URL('../../data/fixtures/alaska-2022-special.patterns.tsv', import.meta.url)), 'utf8'));
+    return parsePatternTsv(readFileSync(join(process.cwd(), 'data', 'fixtures', 'alaska-2022-special.patterns.tsv'), 'utf8'));
   },
 };

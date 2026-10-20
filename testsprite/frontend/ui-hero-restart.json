@@ -13,7 +13,7 @@
   },
   {
    "type": "action",
-   "description": "Click data-testid 'demo-restart'"
+   "description": "Click data-testid 'demo-restart', then immediately click 'demo-play' to pause so the demo cannot auto-advance"
   },
   {
    "type": "assertion",
@@ -25,7 +25,7 @@
   },
   {
    "type": "assertion",
-   "description": "'hero-demo' has data-state='playing' after restart"
+   "description": "After clicking 'demo-play' again, 'hero-demo' has data-state='playing'"
   }
  ]
 }
