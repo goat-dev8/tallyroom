@@ -17,4 +17,4 @@ Green: `green-playwright-local.txt` (whole e2e suite against local `next start`:
 | 9 | Flows 1–3px wide could not be hovered | Each flow has an invisible hit path at least 12px wide. Thin flows are drawn last, on top | 9 |
 | 10 | R2–R8 tabs had low contrast | Upcoming rounds use #b4b9c2 (9.7:1 on the panel) at 11px | 10 |
 
-TestSprite plans, written but not run: `testsprite/frontend/ui-sankey-keyboard.json`, `ui-sankey-hover.json`, `ui-sankey-labels.json`. The existing `ui:sankey-render` plan still holds: the aria-label is unchanged and every flow keeps `data-testid="sankey-link"` and `class="sankey-link"`. The drawn curve is now `sankey-flow`.
+TestSprite plans, written but not created in TestSprite and never run: `testsprite/planned/frontend/ui-sankey-keyboard.json`, `ui-sankey-hover.json`, `ui-sankey-labels.json`. The existing `ui:sankey-render` plan still holds: the aria-label is unchanged and every flow keeps `data-testid="sankey-link"` and `class="sankey-link"`. The drawn curve is now `sankey-flow`.
