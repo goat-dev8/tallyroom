@@ -39,6 +39,10 @@ export function validateTabulateOptions(value: { seats?: unknown; quota?: unknow
   if (rules.batch !== undefined && typeof rules.batch !== 'boolean') {
     return { status: 422, code: 'INVALID_BATCH', message: 'rules.batch must be a boolean', details: { field: 'rules.batch' } };
   }
+  if (rules.batch === true && value.seats !== undefined && value.seats !== 1) {
+    // BUG-019: batch elimination is defined for single-winner IRV only; refuse it rather than silently ignore it.
+    return { status: 422, code: 'INVALID_BATCH', message: 'rules.batch is only supported for single-winner IRV (seats: 1)', details: { field: 'rules.batch' } };
+  }
   if (rules.lotOrder !== undefined) {
     const lot = rules.lotOrder;
     if (!Array.isArray(lot) || lot.some(n => typeof n !== 'string')) {

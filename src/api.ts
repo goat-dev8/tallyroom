@@ -120,7 +120,7 @@ function checked(value: ParsedTabulate): { ok: true; value: ParsedTabulate } | {
 
 function finish(value: ParsedTabulate): ApiResult {
   if (value.seats !== undefined && value.seats !== 1) {
-    return { status: 200, body: { engineVersion: ENGINE_VERSION, method: 'stv', ...tabulateStv(value.ballots, value.candidates, value.seats, value.quota ?? 'droop', { tiebreak: value.rules?.tiebreak, lotOrder: value.rules?.lotOrder }) } };
+    return { status: 200, body: { engineVersion: ENGINE_VERSION, method: 'stv', ...tabulateStv(value.ballots, value.candidates, value.seats, value.quota ?? 'droop', value.rules ?? {}) } };
   }
   const rules: Rules = { ...DEFAULT_RULES, ...(value.rules ?? {}) };
   return { status: 200, body: { engineVersion: ENGINE_VERSION, method: 'irv', ...tabulateIrv(value.ballots, value.candidates, rules) } };

@@ -69,7 +69,7 @@ function bundledReport(id: string): ApiResult {
 function uploadReport(value: ParsedTabulate): ShareableReport {
   const ballotCount = value.ballots.reduce((s, b) => s + b.count, 0);
   if (value.seats !== undefined && value.seats !== 1) {
-    const result = tabulateStv(value.ballots, value.candidates, value.seats, value.quota ?? 'droop', { tiebreak: value.rules?.tiebreak, lotOrder: value.rules?.lotOrder });
+    const result = tabulateStv(value.ballots, value.candidates, value.seats, value.quota ?? 'droop', value.rules ?? {});
     return seal({
       engineVersion: ENGINE_VERSION,
       election: null,

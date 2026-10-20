@@ -68,7 +68,7 @@ export function openApiDocument() {
       Error: errorBody,
       Rules: { type: 'object', additionalProperties: false, properties: {
         overvote: { enum: [...OVERVOTE_OPTIONS] }, skips: { enum: [...SKIP_OPTIONS] }, duplicates: { enum: [...DUPLICATE_OPTIONS] },
-        batch: { type: 'boolean' }, tiebreak: { enum: [...TIEBREAK_OPTIONS] }, lotOrder: { type: 'array', items: { type: 'string' } } } },
+        batch: { type: 'boolean', description: 'Single-winner IRV only; 422 INVALID_BATCH when true with seats > 1.' }, tiebreak: { enum: [...TIEBREAK_OPTIONS] }, lotOrder: { type: 'array', items: { type: 'string' } } } },
       TabulateRequest: { type: 'object', properties: {
         ballots: { oneOf: [{ type: 'string', description: '`count,A>B>C` lines; `_` blank rank, `[A=B]` overvote' }, { type: 'array' }] },
         csv: { type: 'string', description: 'Alternative to ballots: CSV text' },

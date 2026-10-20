@@ -1,3 +1,5 @@
+import { currentChoice } from './irv.js';
+import { DEFAULT_RULES, Rules } from './types.js';
 import { Fraction } from './fraction.js';
 import { BallotGroup } from './types.js';
 
@@ -8,7 +10,11 @@ export interface StvResult { quota: string; quotaExact: string; winners: string[
 
 /** Multi-seat STV, weighted inclusive Gregory surplus transfer, exact rationals.
  *  quota droop = floor(valid/(seats+1))+1 ; hare = valid/seats (exact). Skips are passed over; overvotes exhaust. */
-export function tabulateStv(ballots: BallotGroup[], candidates: string[], seats: number, quotaKind: 'droop' | 'hare' = 'droop', ties: { tiebreak?: 'previous-round' | 'lot'; lotOrder?: string[] } = {}): StvResult {
+export function tabulateStv(ballots: BallotGroup[], candidates: string[], seats: number, quotaKind: 'droop' | 'hare' = 'droop', partial: Partial<Rules> = {}): StvResult {
+  // BUG-019: ballots are read with the same overvote, skips and duplicates rules as IRV (currentChoice), and a
+  // ballot that goes inactive stays inactive. Batch elimination is IRV-only (rejected for STV by the API).
+  const rules: Rules = { ...DEFAULT_RULES, ...partial };
+  const ties = rules;
   // BUG-014: ties for last place follow the same rules as IRV: previous-round (default), then lot (last in lotOrder goes).
   const lot = ties.lotOrder ?? candidates;
   for (const c of candidates) if (!lot.includes(c)) throw new Error(`lotOrder is missing candidate "${c}"`);
@@ -20,7 +26,13 @@ export function tabulateStv(ballots: BallotGroup[], candidates: string[], seats:
   type Paper = { marks: BallotGroup['marks']; weight: Fraction; count: number };
   const papers: Paper[] = ballots.map(b => ({ marks: b.marks, count: b.count, weight: Fraction.of(1) }));
   const hopeful = new Set(candidates); const elected: string[] = []; const rounds: StvRound[] = [];
-  const choice = (p: Paper) => { for (const m of p.marks) { if (m.kind === 'overvote') return null; if (m.kind === 'candidate' && hopeful.has(m.name)) return m.name; } return null; };
+  const dead = new Set<Paper>();
+  const choice = (p: Paper) => {
+    if (dead.has(p)) return null;
+    const pick = currentChoice(p.marks, hopeful, rules);
+    if (pick.kind === 'candidate') return pick.name;
+    dead.add(p); return null;
+  };
   const fmt = (f: Fraction) => f.toFixed(4);
   const exact = (f: Fraction) => `${f.n}/${f.d}`;
   for (let r = 1; elected.length < seats; r++) {
