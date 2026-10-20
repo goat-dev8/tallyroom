@@ -71,3 +71,13 @@ The gate (`scripts/testsprite-gate.mjs`) requires the UI App run at N/N and a gr
 The eliminated cell now carries the plain "—" as its text, and the hover title "Eliminated" sits on the `<td>`; before, the dash was inside a span that had the title. `data-testid="cell-out"` is kept. The local Playwright check (`gp/bond-r2-emdash.spec.ts`) passed 3/3.
 
 The full local e2e run under `next dev` showed the same dev-mode failures with and without this change: 4 with it, 7 without, including hero-hold, the reduced-motion landing test and the timing-sensitive tests. None of them touch the rounds table.
+
+| Step | When | Check / run | Result |
+|---|---|---|---|
+| em-dash fix pushed (d8847a9) | 02:26 | | |
+| App UI check | 02:28 | 28a96482 | **All 34 tests passed** |
+| testsprite-cli | 02:27 | UI-only diff, so no API suites picked | success |
+| testsprite-v3-gate | 02:28 | | success |
+| lint + typecheck + vitest | 02:25 | | **failure**: an oxlint error in `scripts/testsprite-gate.mjs:65` (a comma expression), also red on G′ 9d01828. Fixed locally, not yet pushed |
+
+Credits after this round: 149.2. The redo has used 73.2 (28.8 + 3.0 + 24.4 + 17.0).

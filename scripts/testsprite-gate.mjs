@@ -62,7 +62,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     await new Promise(r => setTimeout(r, 10000));
   }
   const lines = need.map(k => `- ${k}: ${res[k].ok ? 'pass' : 'FAIL'}: ${res[k].msg} ${res[k].url ?? ''}`);
-  if (cliName) { lines.push(`- ${cliName}: ${cli.ok ? 'pass' : 'FAIL'}: ${cli.msg}`); if (!cli.ok) need.push(cliName), res[cliName] = cli; }
+  if (cliName) { lines.push(`- ${cliName}: ${cli.ok ? 'pass' : 'FAIL'}: ${cli.msg}`); if (!cli.ok) { need.push(cliName); res[cliName] = cli; } }
   console.log(lines.join('\n'));
   if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### TestSprite V3 gate\n\nHead: \`${sha}\`\n\n${lines.join('\n')}\n`);
   const bad = need.filter(k => !res[k].ok);
