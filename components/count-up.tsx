@@ -1,13 +1,16 @@
 'use client';
 import { animate, useReducedMotion } from 'motion/react';
 import { useEffect, useRef } from 'react';
-export function CountUp({ value, className }: { value: number; className?: string }) {
-  const ref = useRef<HTMLSpanElement>(null); const prev = useRef(0); const reduce = useReducedMotion();
+const f = (n: number) => n.toLocaleString('en-US');
+/** Counts from the previous value to the exact new one; always lands on the exact integer. Width is fixed by tabular numerals. */
+export function CountUp({ value, className, duration = 0.9 }: { value: number; className?: string; duration?: number }) {
+  const ref = useRef<HTMLSpanElement>(null); const prev = useRef<number | null>(null); const reduce = useReducedMotion();
   useEffect(() => {
     const el = ref.current; if (!el) return;
-    if (reduce) { el.textContent = value.toLocaleString('en-US'); prev.current = value; return; }
-    const c = animate(prev.current, value, { duration: 0.9, ease: [0.22, 1, 0.36, 1], onUpdate: v => { el.textContent = Math.round(v).toLocaleString('en-US'); } });
-    prev.current = value; return () => c.stop();
-  }, [value, reduce]);
-  return <span ref={ref} className={`tnum ${className ?? ''}`}>{value.toLocaleString('en-US')}</span>;
+    const from = prev.current; prev.current = value;
+    if (reduce || from === null || from === value) { el.textContent = f(value); return; }
+    const c = animate(from, value, { duration, ease: [0.22, 1, 0.36, 1], onUpdate: v => { el.textContent = f(Math.round(v)); }, onComplete: () => { el.textContent = f(value); } });
+    return () => { c.stop(); el.textContent = f(value); };
+  }, [value, reduce, duration]);
+  return <span ref={ref} className={`tnum ${className ?? ''}`} data-value={value}>{f(value)}</span>;
 }

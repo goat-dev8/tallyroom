@@ -5,3 +5,5 @@ data/raw/
 next-env.d.ts
 public/data/
 *.tsbuildinfo
+test-results/
+playwright-report/
