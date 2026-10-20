@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { motion, useReducedMotion } from 'motion/react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { AlertTriangle, BadgeCheck, ChevronLeft, ChevronRight, Database, Download, FileUp, Inbox, Link2, Loader2, Upload, Vote, X } from 'lucide-react';
 import type { IrvResult } from '../src/types';
 import { CATALOG, CERTIFIED, colorFor, fmt, pct, type CatalogEntry } from '../lib/catalog';
@@ -35,7 +35,9 @@ export function Dashboard() {
   const [res, setRes] = useState<IrvResult | null>(null); const [stv, setStv] = useState<Stv | null>(null);
   const [busy, setBusy] = useState(true); const [err, setErr] = useState(''); const [note, setNote] = useState('');
   const [round, setRound] = useState(0); const [progress, setProgress] = useState<Progress | null>(null);
-  const [text, setText] = useState(SAMPLE); const [seats, setSeats] = useState(1); const [fileName, setFileName] = useState(''); const [drag, setDrag] = useState(false);
+  const [text, setText] = useState(SAMPLE); const [seatsText, setSeatsText] = useState('1'); const seats = Math.min(50, Math.max(1, Number(seatsText) || 1)); const setSeats = (n: number) => setSeatsText(String(n));
+  const [toast, setToast] = useState<{ id: number; text: string; ms: number } | null>(null);
+  const mainRef = useRef<HTMLElement>(null); const [holdH, setHoldH] = useState<number | null>(null); const [fileName, setFileName] = useState(''); const [drag, setDrag] = useState(false);
   const wantRound = useRef<number | null>(null);
   const entry: CatalogEntry | null = src.kind === 'bundled' ? CATALOG.find(c => c.slug === src.slug) ?? null : null;
 
@@ -49,6 +51,10 @@ export function Dashboard() {
       e => live && setErr(String(e.message ?? e))).finally(() => live && setBusy(false));
     return () => { live = false; unsubscribe(entry.slug, on); };
   }, [ready, entry?.slug]);
+  // Toast: an overlay that never moves the page, gone after its time.
+  useEffect(() => { if (!toast) return; const t = setTimeout(() => setToast(x => (x?.id === toast.id ? null : x)), toast.ms); return () => clearTimeout(t); }, [toast]);
+  // While a new election counts, keep the old height so the page does not collapse and jump.
+  useEffect(() => { if (res || err || stv) setHoldH(null); }, [res, err, stv]);
   // Keep the URL shareable.
   useEffect(() => {
     if (!ready) return; const p = new URLSearchParams();
@@ -56,7 +62,7 @@ export function Dashboard() {
     window.history.replaceState(null, '', `${window.location.pathname}?${p}`);
   }, [ready, src, round, res]);
 
-  const pick = (s: Source) => { if (s.kind === src.kind && (s.kind === 'upload' || (src.kind === 'bundled' && src.slug === s.slug))) return; if (s.kind === 'upload') setBusy(false); setNote(''); setErr(''); setStv(null); setRes(null); setRound(0); setSrc(s); };
+  const pick = (s: Source) => { if (s.kind === src.kind && (s.kind === 'upload' || (src.kind === 'bundled' && src.slug === s.slug))) return; if (s.kind === 'upload') setBusy(false); else if (mainRef.current) setHoldH(mainRef.current.offsetHeight); setNote(''); setErr(''); setStv(null); setRes(null); setRound(0); setSrc(s); };
   async function runUpload() {
     setErr(''); setRes(null); setStv(null);
     if (!text.split(/\r?\n/).some(l => l.trim() && !l.trim().startsWith('#'))) { setErr('Add at least one ballot line, for example 5,Alice>Bob>Cara'); return; }
@@ -78,7 +84,7 @@ export function Dashboard() {
     const blob = new Blob([JSON.stringify(stv ?? res, null, 2)], { type: 'application/json' });
     const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `${entry?.slug ?? 'tallyroom-result'}.json`; a.click(); URL.revokeObjectURL(a.href);
   }
-  async function copyLink() { try { await navigator.clipboard.writeText(window.location.href); setNote('Link copied.'); } catch { setNote(window.location.href); } }
+  async function copyLink() { try { await navigator.clipboard.writeText(window.location.href); setToast({ id: Date.now(), text: 'Link copied.', ms: 2500 }); } catch { setToast({ id: Date.now(), text: `Copy this link: ${window.location.href}`, ms: 8000 }); } }
   const r = res?.rounds[round]; const n = res?.rounds.length ?? 0;
   const matches = !!(entry && res && res.winner === entry.certifiedWinner && n === CERTIFIED[entry.slug].rounds);
   // Arrow keys step rounds from anywhere on the page (window listener, so focus on <body> works too).
@@ -116,7 +122,7 @@ export function Dashboard() {
         <p className="mt-8 hidden px-2 text-[11px] leading-relaxed text-mute md:block">Counting runs in your browser on the same verified files the parity tests use. Use ← → to step rounds.</p>
       </aside>
 
-      <main className="min-w-0 p-5 md:p-8" data-testid="dashboard">
+      <main ref={mainRef} className="min-w-0 p-5 md:p-8" data-testid="dashboard" style={holdH ? { minHeight: holdH } : undefined}>
         <div className="flex flex-wrap items-start gap-3">
           <div className="min-w-0 flex-1">
             <h1 className="text-xl font-semibold tracking-tight" data-testid="dash-title">{entry ? entry.title : 'Count your own ballots'}</h1>
@@ -143,7 +149,7 @@ export function Dashboard() {
               <button type="button" className="text-xs text-mute underline-offset-2 hover:text-fg hover:underline" data-testid="sample-irv" onClick={() => { setText(SAMPLE); setSeats(1); setFileName(''); setRes(null); setStv(null); setErr(''); }}>IRV sample</button>
               <button type="button" className="text-xs text-mute underline-offset-2 hover:text-fg hover:underline" data-testid="sample-stv" onClick={() => { setText(STV_SAMPLE); setSeats(2); setFileName(''); setRes(null); setStv(null); setErr(''); }}>STV sample</button>
               <a href="/samples/ballots.csv" download="ballots.csv" className="text-xs text-mute underline-offset-2 hover:text-fg hover:underline" data-testid="sample-download">Sample CSV</a>
-              <label className="ml-auto flex items-center gap-2 text-mute">Seats <input type="number" min={1} max={50} value={seats} data-testid="seats-input" onChange={e => setSeats(Math.min(50, Math.max(1, Number(e.target.value) || 1)))} className="w-16 rounded-md border border-line bg-ink px-2 py-1 text-fg" /></label>
+              <label className="ml-auto flex items-center gap-2 text-mute">Seats <input type="text" inputMode="numeric" pattern="[0-9]*" maxLength={2} aria-label="Seats (1 to 50)" value={seatsText} data-testid="seats-input" onChange={e => setSeatsText(e.target.value.replace(/\D/g, ''))} onBlur={() => setSeatsText(String(seats))} className="w-16 rounded-md border border-line bg-ink px-2 py-1 text-base text-fg sm:text-sm" /></label>
               <Button variant="tally" onClick={runUpload} disabled={busy} data-testid="run-count">{busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Vote className="h-4 w-4" />} Count</Button>
             </div>
           </div>
@@ -200,6 +206,8 @@ export function Dashboard() {
                 <td className="p-3 text-xs">{x.elected.length > 0 && <div className="text-win">Elected {x.elected.join(', ')}</div>}{x.eliminated.length > 0 && <div className="text-mute">Eliminated {x.eliminated.join(', ')}</div>}</td></tr>)}</tbody></table></div>
           </motion.section>
         )}
+      <AnimatePresence>{toast && <motion.div key={toast.id} role="status" aria-live="polite" data-testid="toast" initial={reduce ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8, transition: { duration: 0.25 } }}
+          className="pointer-events-none fixed bottom-6 left-1/2 z-50 max-w-[90vw] -translate-x-1/2 break-all rounded-xl border border-white/10 bg-[#0e1013]/95 px-4 py-2 text-sm text-fg shadow-[0_12px_40px_-8px_rgba(0,0,0,.8)] backdrop-blur-md">{toast.text}</motion.div>}</AnimatePresence>
       </main>
     </div>
   );

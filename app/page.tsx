@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight, ArrowUpRight, GitBranch } from 'lucide-react';
 import { Logo } from '../components/logo';
+import { MobileNav } from '../components/mobile-nav';
 import { HeroDemo } from '../components/hero-demo';
 import { HeroVisual } from '../components/hero-visual';
 import { ThreadsBg } from '../components/threads-bg';
@@ -41,6 +42,7 @@ export default function Landing() {
           <div className="ml-auto flex items-center gap-1.5">
             <a href="https://github.com/goat-dev8/tallyroom" className={buttonVariants({ variant: 'ghost', size: 'sm' })} aria-label="Source on GitHub" data-testid="nav-github"><GitBranch className="h-4 w-4" /><span className="hidden sm:inline">Source</span></a>
             <Link href="/app" className={buttonVariants({ size: 'sm' })} data-testid="nav-dashboard">Open dashboard</Link>
+            <MobileNav />
           </div>
         </nav>
       </header>

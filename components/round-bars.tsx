@@ -19,7 +19,7 @@ export function RoundBars({ result, round, compact = false }: { result: IrvResul
   const rows = Object.entries(r.tallies).sort((a, b) => b[1] - a[1]);
   const inactive = Object.values(r.inactive).reduce((s, x) => s + x, 0);
   const t = reduce ? { duration: 0 } : { duration: 0.9, ease: EASE };
-  const cols = compact ? '' : 'sm:grid-cols-[minmax(0,13rem)_1fr_9.5rem]';
+  const cols = compact ? '' : 'sm:grid-cols-[minmax(0,14.5rem)_1fr_9.5rem]';
   return (
     <LayoutGroup>
       <div className="relative" data-testid="round-bars" data-round={round + 1}>
@@ -40,11 +40,11 @@ export function RoundBars({ result, round, compact = false }: { result: IrvResul
               <motion.li layout={!reduce} key={name} transition={{ type: 'spring', stiffness: 320, damping: 34 }} data-testid="candidate-row" data-candidate={name} data-votes={v}
                 className={`group relative rounded-xl px-2 py-1.5 transition-colors duration-200 hover:bg-white/[.025] ${compact ? 'space-y-1.5' : `grid items-center gap-x-4 gap-y-1.5 ${cols}`} ${won ? 'bg-win/[.04] ring-1 ring-win/25' : ''}`}>
                 <div className="flex min-w-0 items-center gap-2.5 text-sm">
-                  {!compact && <span className="w-4 shrink-0 text-right font-mono text-[10px] text-mute tnum">{i + 1}</span>}
+                  {!compact && <span className="w-4 shrink-0 text-right font-mono text-[10px] text-mute tnum">{out ? <X className="ml-auto h-3 w-3" aria-hidden /> : i + 1}</span>}
                   <span className="relative grid h-2.5 w-2.5 shrink-0 place-items-center"><span className="absolute inset-0 rounded-full blur-[3px]" style={{ background: hex(c, out ? 0.2 : 0.7) }} /><span className="relative h-2 w-2 rounded-full" style={{ background: c, opacity: out ? 0.4 : 1 }} /></span>
-                  <span className={`truncate ${out ? 'text-mute line-through decoration-1' : 'text-fg'}`}>{shortName(name)}</span>
+                  <span title={shortName(name)} data-testid="candidate-name" className={`min-w-0 truncate ${out ? 'text-mute line-through decoration-1' : 'text-fg'}`}>{shortName(name)}{out && <span className="sr-only"> (eliminated)</span>}</span>
                   {won && <motion.span initial={reduce ? false : { scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 0.5, duration: 0.42, ease: EASE }} className="grid h-4 w-4 shrink-0 place-items-center rounded-full bg-win/15"><Check className="h-3 w-3 text-win" aria-label="winner" data-testid="winner-mark" /></motion.span>}
-                  {out && <X className="h-3.5 w-3.5 shrink-0 text-mute" aria-label="eliminated" />}
+                  {out && compact && <X className="h-3.5 w-3.5 shrink-0 text-mute" aria-hidden />}
                   {compact && <span className="ml-auto shrink-0 font-mono text-[11px] text-mute tnum"><CountUp value={v} className="text-fg" /> · {pct(v, r.continuing)}</span>}
                 </div>
                 <span role="tooltip" data-testid="bar-tooltip" className="pointer-events-none absolute left-1/2 -top-7 z-30 hidden -translate-x-1/2 whitespace-nowrap rounded-lg border border-white/10 bg-[#0e1013]/95 px-2.5 py-1 font-mono text-[11px] text-fg shadow-lg tnum group-hover:block">{shortName(name)} · {fmt(v)} · {pct(v, r.continuing)} of continuing{gain > 0 ? ` · +${fmt(gain)} by transfer` : ''}{out ? ' · eliminated' : ''}</span>

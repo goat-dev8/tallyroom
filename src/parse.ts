@@ -47,7 +47,16 @@ export function parseBallots(text: string, declared?: string[]): { ballots: Ball
   const ballots: BallotGroup[] = []; const seen: string[] = [];
   const lines = text.replace(/^\uFEFF/, '').split(/\r?\n/);
   let first = true;
-  lines.forEach((raw, i) => {
+  const bad: ParseError[] = [];
+  lines.forEach((raw, i) => { try { readLine(raw, i); } catch (e) { if (e instanceof ParseError) bad.push(e); else throw e; } });
+  // Report every bad line (first 5 spelled out) so one upload shows all problems, not only the first.
+  if (bad.length > 1) {
+    const e = bad[0]; const shown = bad.slice(0, 5).map(x => x.message).join('; ');
+    e.message = shown + (bad.length > 5 ? `; and ${bad.length - 5} more bad lines` : ''); (e as ParseError & { lines?: number[] }).lines = bad.map(x => x.line);
+    throw e;
+  }
+  if (bad.length === 1) throw bad[0];
+  function readLine(raw: string, i: number) {
     const line = raw.trim(); if (!line || line.startsWith('#')) return;
     if (first) { first = false; if (RANKING_FORMAT_HEADER.test(line)) return; }
     const comma = line.indexOf(','); if (comma < 0) throw new ParseError(i + 1, 'expected "count,ranking"');
@@ -63,7 +72,7 @@ export function parseBallots(text: string, declared?: string[]): { ballots: Ball
       return { kind: 'candidate', name } as Mark;
     });
     ballots.push({ count: Number(countStr), marks });
-  });
+  }
   if (ballots.length === 0) throw new BallotSemanticError('No valid ballots to count');
   assertSafeCounts(ballots);
   return { ballots, candidates: declared ?? seen };
