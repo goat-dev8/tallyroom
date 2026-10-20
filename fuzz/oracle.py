@@ -142,35 +142,34 @@ def irv(ballots, cands, rules):
 
 def stv(ballots, cands, seats, quota_kind, tiebreak="previous-round", lot=None, rules=None):
     # BUG-019: ballots are read with the IRV ballot rules; once inactive, a paper stays inactive.
+    # BUG-028/029 (SSI 2007/42 Sch. 1): quota from valid papers (rules 45(3), 46); one surplus per stage, largest
+    # first (rule 49); a paper only moves when its holder is excluded or its surplus is transferred.
     rules = {"overvote": "exhaust", "skips": "continue", "duplicates": "ignore", **(rules or {})}
-    dead = set()
     cands = [unicodedata.normalize("NFC", x) for x in cands]
     lot = [unicodedata.normalize("NFC", x) for x in (lot or cands)]
     hist = []
-    total = sum(n for n, _ in ballots)
-    quota = Fraction(total // (seats + 1) + 1) if quota_kind == "droop" else Fraction(total, seats)
+    hope, won, waiting, rounds = list(cands), [], [], []
     w = [Fraction(1)] * len(ballots)
-    hope, won, rounds = list(cands), [], []
+    at = [irv_pick(marks, set(hope), rules) for _, marks in ballots]
+    valid = sum(n for (n, _), h in zip(ballots, at) if h is not None)
+    if valid == 0:
+        return {"status": 422, "error": "NO_VALID_BALLOTS"}
+    quota = Fraction(valid // (seats + 1) + 1) if quota_kind == "droop" else Fraction(valid, seats)
 
-    def top(i, marks):
-        if i in dead:
-            return None
-        c = irv_pick(marks, set(hope), rules)
-        if c is None:
-            dead.add(i)
-        return c
+    def move(c, f):
+        for i, (_, marks) in enumerate(ballots):
+            if at[i] == c:
+                w[i] *= f
+                at[i] = irv_pick(marks, set(hope), rules)
 
     while len(won) < seats:
-        t = {c: Fraction(0) for c in hope}
+        t = {c: Fraction(0) for c in cands if c in hope or c in waiting}
         ex = Fraction(0)
-        holder = []
-        for i, (n, marks) in enumerate(ballots):
-            c = top(i, marks)
-            holder.append(c)
-            if c is None:
+        for i, (n, _) in enumerate(ballots):
+            if at[i] is None:
                 ex += w[i] * n
-            else:
-                t[c] += w[i] * n
+            elif at[i] in t:
+                t[at[i]] += w[i] * n
         rd = {"tallies": {k: f"{v.numerator}/{v.denominator}" for k, v in t.items()},
               "exhausted": f"{ex.numerator}/{ex.denominator}", "elected": [], "eliminated": []}
         rounds.append(rd)
@@ -181,15 +180,29 @@ def stv(ballots, cands, seats, quota_kind, tiebreak="previous-round", lot=None, 
             rd["elected"] = order
             break
         hit = [c for c in order if t[c] >= quota]
-        if hit:
-            for c in hit:
-                f = (t[c] - quota) / t[c]
-                for i in range(len(ballots)):
-                    if holder[i] == c:
-                        w[i] *= f
-            won += hit
-            rd["elected"] = hit
-            hope = [c for c in hope if c not in hit]
+        won += hit
+        waiting += hit
+        rd["elected"] = list(hit)
+        hope = [c for c in hope if c not in hit]
+        if len(won) >= seats:
+            break
+        if len(hope) <= seats - len(won):
+            rd["elected"] += hope
+            won += hope
+            hope = []
+            break
+        if waiting:
+            big = max(t[c] for c in waiting)
+            tied = [c for c in waiting if t[c] == big]
+            for prev in reversed(hist[:-1]):
+                if len(tied) == 1 or any(c not in prev for c in tied):
+                    break
+                m = max(prev[c] for c in tied)
+                tied = [c for c in tied if prev[c] == m]
+            s = min(tied, key=lot.index)
+            waiting.remove(s)
+            rd["surplusTransferred"] = s
+            move(s, (t[s] - quota) / t[s])
             continue
         low = min(t[c] for c in hope)
         tied = [c for c in hope if t[c] == low]
@@ -202,4 +215,5 @@ def stv(ballots, cands, seats, quota_kind, tiebreak="previous-round", lot=None, 
         lo = max(tied, key=lot.index)
         rd["eliminated"] = [lo]
         hope.remove(lo)
+        move(lo, Fraction(1))
     return {"winners": won, "quotaExact": f"{quota.numerator}/{quota.denominator}", "rounds": rounds}

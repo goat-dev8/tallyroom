@@ -1,11 +1,13 @@
 import { currentChoice } from './irv.js';
 import { BallotGroup, DEFAULT_RULES, Round, Rules } from './types.js';
 
-/** One pile of ballots moving off an eliminated candidate. `to` is a continuing candidate or `exhausted`. */
+/** One pile of ballots moving off an eliminated candidate. `to` is a continuing candidate, or `exhausted` with
+ *  `exhausted: true` for the inactive pile (BUG-033: a candidate may itself be called "exhausted"). */
 export interface TransferEdge {
   from: string;
   to: string;
   count: number;
+  exhausted?: true;
 }
 
 /**
@@ -39,15 +41,15 @@ export function eliminationTransfers(
     const prev = currentChoice(b.marks, before, rules);
     if (prev.kind !== 'candidate' || !gone.has(prev.name)) continue;
     const next = currentChoice(b.marks, after, rules);
-    const to = next.kind === 'candidate' ? next.name : 'exhausted';
-    const key = `${prev.name}\0${to}`;
+    const pile = next.kind !== 'candidate';
+    const key = `${prev.name}\0${pile ? 'p' : 'c' + next.name}`; // tagged, so no candidate name can equal the pile
     counts.set(key, (counts.get(key) ?? 0) + b.count);
   }
-  const destOrder = (name: string) => (name === 'exhausted' ? candidates.length + 1 : candidates.indexOf(name));
+  const destOrder = (e: TransferEdge) => (e.exhausted ? candidates.length + 1 : candidates.indexOf(e.to));
   return [...counts.entries()]
-    .map(([key, count]) => {
+    .map(([key, count]): TransferEdge => {
       const [from, to] = key.split('\0');
-      return { from, to, count };
+      return to === 'p' ? { from, to: 'exhausted', count, exhausted: true } : { from, to: to.slice(1), count };
     })
-    .sort((a, b) => candidates.indexOf(a.from) - candidates.indexOf(b.from) || destOrder(a.to) - destOrder(b.to) || a.to.localeCompare(b.to));
+    .sort((a, b) => candidates.indexOf(a.from) - candidates.indexOf(b.from) || destOrder(a) - destOrder(b) || a.to.localeCompare(b.to));
 }

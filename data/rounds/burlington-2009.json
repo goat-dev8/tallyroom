@@ -70,7 +70,8 @@
         {
           "from": "James Simpson",
           "to": "exhausted",
-          "count": 4
+          "count": 4,
+          "exhausted": true
         },
         {
           "from": "Dan Smith",
@@ -90,7 +91,8 @@
         {
           "from": "Dan Smith",
           "to": "exhausted",
-          "count": 132
+          "count": 132,
+          "exhausted": true
         },
         {
           "from": "Write-In",
@@ -110,7 +112,8 @@
         {
           "from": "Write-In",
           "to": "exhausted",
-          "count": 11
+          "count": 11,
+          "exhausted": true
         }
       ]
     },
@@ -144,7 +147,8 @@
         {
           "from": "Andy Montroll",
           "to": "exhausted",
-          "count": 455
+          "count": 455,
+          "exhausted": true
         }
       ]
     }

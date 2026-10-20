@@ -1,0 +1,30 @@
+/** Re-run of the independent review's N1..N14 against the working tree. npx tsx audit/bugs/review3/repro-207fc07.ts */
+import { handleTabulate } from '../../../src/api.js';
+import { parseBallots } from '../../../src/parse.js';
+import { tabulateIrv } from '../../../src/irv.js';
+import { eliminationTransfers } from '../../../src/transfers.js';
+import { handleMcpMessage, handleMcpHttp } from '../../../src/mcp.js';
+import { openApiDocument } from '../../../src/openapi.js';
+import { buildFlow } from '../../../components/sankey.js';
+const post = (b: unknown, ct = 'application/json') => handleTabulate('POST', typeof b === 'string' ? b : JSON.stringify(b), { contentType: ct }) as any;
+const say = (k: string, v: unknown) => console.log(k.padEnd(28), typeof v === 'string' ? v : JSON.stringify(v));
+let r = post({ ballots: '10,A>C\n6,B\n5,C\n9,_', seats: 2, candidates: ['A', 'B', 'C'] }); say('N1 quota/winners', [r.body.quotaExact, r.body.winners]);
+r = post({ ballots: '10,A>C\n6,B\n5,C', seats: 2, candidates: ['A', 'B', 'C'] }); say('N1 control (no blanks)', [r.body.quotaExact, r.body.winners]);
+r = post({ ballots: '91,A>C\n55,B>C>D\n10,C\n40,D\n44,F', seats: 4, candidates: ['A', 'B', 'C', 'D', 'F'] }); say('N2 winners', r.body.winners);
+r = post('5,"Ada>Bo"\n4,"Bo>Ada"\n2,"Cy>Bo"\n', 'text/csv'); say('N3 quoted', [r.status, r.body.winner, r.body.candidates]);
+r = post('5,"Ada, Jr.>Bo"\n4,"Bo>Ada, Jr."\n', 'text/csv'); say('N3 quoted comma', [r.status, r.body.winner ?? r.body.error?.code, r.body.candidates]);
+const mcp = (name: string, args: unknown) => handleMcpMessage({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name, arguments: args } }) as any;
+say('N4 seat typo', mcp('count_ballots', { ballots: '6,Ada>Bo\n3,Bo', seat: 2 }).result?.isError);
+say('N4 id array', [mcp('election_rounds', { id: ['alaska-2022'] }).result?.isError, mcp('election_rounds', { id: ['alaska-2022'] }).result?.structuredContent?.id]);
+say('N4 arguments null', mcp('list_elections', null).result?.isError ?? mcp('list_elections', null).error);
+const ids = (t: string) => { const p = parseBallots(t); const f = buildFlow(tabulateIrv(p.ballots, p.candidates) as any, 0)!; const i = f.nodes.map((n: any) => n.id); return `${i.length} nodes, ${new Set(i).size} unique`; };
+say('N5 inactive name', ids('5,inactive>Alice\n3,Alice>inactive\n4,Bob\n2,_'));
+say('N5 out name', ids('6,out>Alice\n5,Alice>out\n4,Bob\n3,Cy>Bob\n2,_'));
+{ const p = parseBallots('3,Zed>exhausted\n2,Zed\n6,exhausted>Alice\n6,Alice>exhausted'); const c = ['Alice', 'exhausted', 'Zed']; say('N6 edges', eliminationTransfers(p.ballots, c, {}, tabulateIrv(p.ballots, c).rounds, 1)); }
+say('N9 id true', (handleMcpMessage({ jsonrpc: '2.0', id: true, method: 'ping' }) as any));
+say('N9 id {}', (handleMcpMessage({ jsonrpc: '2.0', id: {}, method: 'ping' }) as any));
+say('N9 id null', (handleMcpMessage({ jsonrpc: '2.0', id: null, method: 'ping' }) as any));
+say('N9 posted response', handleMcpHttp('POST', '{"jsonrpc":"2.0","id":4,"result":{}}'));
+say('N9 empty batch', handleMcpHttp('POST', '[]'));
+const s = (openApiDocument() as any).paths['/api/mcp'].post.responses['200'].content['application/json'].schema;
+say('N11 mcp 200 schema', [s, Array.isArray(handleMcpHttp('POST', '[{"jsonrpc":"2.0","id":1,"method":"ping"}]').body)]);

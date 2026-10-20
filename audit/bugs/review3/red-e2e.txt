@@ -1,0 +1,334 @@
+
+Running 8 tests using 4 workers
+
+  ✘  3 [desktop-1440] › tests/e2e/review3-ui.spec.ts:6:1 › BUG-038 (N12): the "Tallies (exact)" column shows exact fractions (21.2s)
+  ✘  4 [desktop-1440] › tests/e2e/review3-ui.spec.ts:28:1 › BUG-040 (N14): a winner with no votes is not said to hold a majority (21.1s)
+  ✘  1 [desktop-1440] › tests/e2e/review3-ui.spec.ts:19:3 › BUG-039 (N13): ?election=alaska-2022 (the API id) opens that election and keeps the round (21.2s)
+  ✘  2 [desktop-1440] › tests/e2e/review3-ui.spec.ts:19:3 › BUG-039 (N13): ?election=nyc-2021 (the API id) opens that election and keeps the round (21.2s)
+  ✘  8 [mobile-390] › tests/e2e/review3-ui.spec.ts:28:1 › BUG-040 (N14): a winner with no votes is not said to hold a majority (20.7s)
+  ✘  5 [mobile-390] › tests/e2e/review3-ui.spec.ts:6:1 › BUG-038 (N12): the "Tallies (exact)" column shows exact fractions (20.8s)
+  ✘  6 [mobile-390] › tests/e2e/review3-ui.spec.ts:19:3 › BUG-039 (N13): ?election=alaska-2022 (the API id) opens that election and keeps the round (20.8s)
+  ✘  7 [mobile-390] › tests/e2e/review3-ui.spec.ts:19:3 › BUG-039 (N13): ?election=nyc-2021 (the API id) opens that election and keeps the round (20.8s)
+
+
+  1) [desktop-1440] › tests/e2e/review3-ui.spec.ts:6:1 › BUG-038 (N12): the "Tallies (exact)" column shows exact fractions 
+
+    Error: expect(locator).not.toContainText(expected) failed
+
+    Locator: locator('[data-testid=stv-round][data-round="2"]').locator('td').nth(1)
+    Expected substring: not ".0000"
+    Received string: "Bob: 10.0000Cara: 7.0000Dev: 4.0000"
+    Timeout: 20000ms
+
+    Call log:
+      - Expect "not toContainText" locator('[data-testid=stv-round][data-round="2"]').locator('td').nth(1) with timeout 20000ms
+      - waiting for locator('[data-testid=stv-round][data-round="2"]').locator('td').nth(1)
+        44 × locator resolved to <td class="p-3 font-mono text-xs">…</td>
+           - unexpected value "Bob: 10.0000Cara: 7.0000Dev: 4.0000"
+
+
+      12 |   // quota floor(32/3)+1 = 11; Alice's surplus 1 moves 12 × 1/12 to Bob: Bob 9 + 1 = 10, shown as the exact value 10/1 or 10.
+      13 |   await expect(r2).toContainText('Bob: 10');
+    > 14 |   await expect(r2.locator('td').nth(1)).not.toContainText('.0000');
+         |                                             ^
+      15 |   await page.screenshot({ path: shot('n12-stv-exact', info), fullPage: true });
+      16 | });
+      17 |
+        at /tmp/stack/tests/e2e/review3-ui.spec.ts:14:45
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/review3-ui-BUG-038-N12-the-7f6cd-olumn-shows-exact-fractions-desktop-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/review3-ui-BUG-038-N12-the-7f6cd-olumn-shows-exact-fractions-desktop-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/review3-ui-BUG-038-N12-the-7f6cd-olumn-shows-exact-fractions-desktop-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/review3-ui-BUG-038-N12-the-7f6cd-olumn-shows-exact-fractions-desktop-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-1440] › tests/e2e/review3-ui.spec.ts:19:3 › BUG-039 (N13): ?election=alaska-2022 (the API id) opens that election and keeps the round 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  getByTestId('round-title')
+    Expected: "Round 2"
+    Received: "Round 1"
+    Timeout:  20000ms
+
+    Call log:
+      - Expect "toHaveText" getByTestId('round-title') with timeout 20000ms
+      - waiting for getByTestId('round-title')
+        44 × locator resolved to <h2 class="font-medium" data-testid="round-title">Round 1</h2>
+           - unexpected value "Round 1"
+
+
+      20 |     await page.goto(`/app?election=${id}&round=2`);
+      21 |     await expect(page.getByTestId('result')).toBeVisible({ timeout: 90_000 });
+    > 22 |     await expect(page.getByTestId('round-title')).toHaveText('Round 2');
+         |                                                   ^
+      23 |     await expect(page.locator('body')).toContainText(title);
+      24 |     await expect(page).toHaveURL(new RegExp(`election=${slug}&round=2`));
+      25 |     await page.screenshot({ path: shot(`n13-${id}`, info) });
+        at /tmp/stack/tests/e2e/review3-ui.spec.ts:22:51
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/review3-ui-BUG-039-N13-ele-13fc0-lection-and-keeps-the-round-desktop-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/review3-ui-BUG-039-N13-ele-13fc0-lection-and-keeps-the-round-desktop-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/review3-ui-BUG-039-N13-ele-13fc0-lection-and-keeps-the-round-desktop-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/review3-ui-BUG-039-N13-ele-13fc0-lection-and-keeps-the-round-desktop-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [desktop-1440] › tests/e2e/review3-ui.spec.ts:19:3 › BUG-039 (N13): ?election=nyc-2021 (the API id) opens that election and keeps the round 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  getByTestId('round-title')
+    Expected: "Round 2"
+    Received: "Round 1"
+    Timeout:  20000ms
+
+    Call log:
+      - Expect "toHaveText" getByTestId('round-title') with timeout 20000ms
+      - waiting for getByTestId('round-title')
+        44 × locator resolved to <h2 class="font-medium" data-testid="round-title">Round 1</h2>
+           - unexpected value "Round 1"
+
+
+      20 |     await page.goto(`/app?election=${id}&round=2`);
+      21 |     await expect(page.getByTestId('result')).toBeVisible({ timeout: 90_000 });
+    > 22 |     await expect(page.getByTestId('round-title')).toHaveText('Round 2');
+         |                                                   ^
+      23 |     await expect(page.locator('body')).toContainText(title);
+      24 |     await expect(page).toHaveURL(new RegExp(`election=${slug}&round=2`));
+      25 |     await page.screenshot({ path: shot(`n13-${id}`, info) });
+        at /tmp/stack/tests/e2e/review3-ui.spec.ts:22:51
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/review3-ui-BUG-039-N13-ele-0c61c-lection-and-keeps-the-round-desktop-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/review3-ui-BUG-039-N13-ele-0c61c-lection-and-keeps-the-round-desktop-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/review3-ui-BUG-039-N13-ele-0c61c-lection-and-keeps-the-round-desktop-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/review3-ui-BUG-039-N13-ele-0c61c-lection-and-keeps-the-round-desktop-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [desktop-1440] › tests/e2e/review3-ui.spec.ts:28:1 › BUG-040 (N14): a winner with no votes is not said to hold a majority 
+
+    Error: expect(locator).not.toContainText(expected) failed
+
+    Locator: getByTestId('sankey-final')
+    Expected substring: not "majority"
+    Received string: "Final round. No further transfers: the winner holds a majority of continuing ballots."
+    Timeout: 20000ms
+
+    Call log:
+      - Expect "not toContainText" getByTestId('sankey-final') with timeout 20000ms
+      - waiting for getByTestId('sankey-final')
+        44 × locator resolved to <div data-testid="sankey-final" class="grid place-items-center rounded-xl border border-dashed border-line py-12 text-center">…</div>
+           - unexpected value "Final round. No further transfers: the winner holds a majority of continuing ballots."
+
+
+      31 |   await page.getByTestId('run-count').click();
+      32 |   const fin = page.getByTestId('sankey-final'); await expect(fin).toBeVisible();
+    > 33 |   await expect(fin).not.toContainText('majority');
+         |                         ^
+      34 |   await page.screenshot({ path: shot('n14-zero-vote-final', info) });
+      35 | });
+      36 |
+        at /tmp/stack/tests/e2e/review3-ui.spec.ts:33:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/review3-ui-BUG-040-N14-a-w-9aa1c-not-said-to-hold-a-majority-desktop-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/review3-ui-BUG-040-N14-a-w-9aa1c-not-said-to-hold-a-majority-desktop-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/review3-ui-BUG-040-N14-a-w-9aa1c-not-said-to-hold-a-majority-desktop-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/review3-ui-BUG-040-N14-a-w-9aa1c-not-said-to-hold-a-majority-desktop-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [mobile-390] › tests/e2e/review3-ui.spec.ts:6:1 › BUG-038 (N12): the "Tallies (exact)" column shows exact fractions 
+
+    Error: expect(locator).not.toContainText(expected) failed
+
+    Locator: locator('[data-testid=stv-round][data-round="2"]').locator('td').nth(1)
+    Expected substring: not ".0000"
+    Received string: "Bob: 10.0000Cara: 7.0000Dev: 4.0000"
+    Timeout: 20000ms
+
+    Call log:
+      - Expect "not toContainText" locator('[data-testid=stv-round][data-round="2"]').locator('td').nth(1) with timeout 20000ms
+      - waiting for locator('[data-testid=stv-round][data-round="2"]').locator('td').nth(1)
+        44 × locator resolved to <td class="p-3 font-mono text-xs">…</td>
+           - unexpected value "Bob: 10.0000Cara: 7.0000Dev: 4.0000"
+
+
+      12 |   // quota floor(32/3)+1 = 11; Alice's surplus 1 moves 12 × 1/12 to Bob: Bob 9 + 1 = 10, shown as the exact value 10/1 or 10.
+      13 |   await expect(r2).toContainText('Bob: 10');
+    > 14 |   await expect(r2.locator('td').nth(1)).not.toContainText('.0000');
+         |                                             ^
+      15 |   await page.screenshot({ path: shot('n12-stv-exact', info), fullPage: true });
+      16 | });
+      17 |
+        at /tmp/stack/tests/e2e/review3-ui.spec.ts:14:45
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/review3-ui-BUG-038-N12-the-7f6cd-olumn-shows-exact-fractions-mobile-390/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/review3-ui-BUG-038-N12-the-7f6cd-olumn-shows-exact-fractions-mobile-390/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/review3-ui-BUG-038-N12-the-7f6cd-olumn-shows-exact-fractions-mobile-390/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/review3-ui-BUG-038-N12-the-7f6cd-olumn-shows-exact-fractions-mobile-390/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [mobile-390] › tests/e2e/review3-ui.spec.ts:19:3 › BUG-039 (N13): ?election=alaska-2022 (the API id) opens that election and keeps the round 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  getByTestId('round-title')
+    Expected: "Round 2"
+    Received: "Round 1"
+    Timeout:  20000ms
+
+    Call log:
+      - Expect "toHaveText" getByTestId('round-title') with timeout 20000ms
+      - waiting for getByTestId('round-title')
+        44 × locator resolved to <h2 class="font-medium" data-testid="round-title">Round 1</h2>
+           - unexpected value "Round 1"
+
+
+      20 |     await page.goto(`/app?election=${id}&round=2`);
+      21 |     await expect(page.getByTestId('result')).toBeVisible({ timeout: 90_000 });
+    > 22 |     await expect(page.getByTestId('round-title')).toHaveText('Round 2');
+         |                                                   ^
+      23 |     await expect(page.locator('body')).toContainText(title);
+      24 |     await expect(page).toHaveURL(new RegExp(`election=${slug}&round=2`));
+      25 |     await page.screenshot({ path: shot(`n13-${id}`, info) });
+        at /tmp/stack/tests/e2e/review3-ui.spec.ts:22:51
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/review3-ui-BUG-039-N13-ele-13fc0-lection-and-keeps-the-round-mobile-390/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/review3-ui-BUG-039-N13-ele-13fc0-lection-and-keeps-the-round-mobile-390/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/review3-ui-BUG-039-N13-ele-13fc0-lection-and-keeps-the-round-mobile-390/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/review3-ui-BUG-039-N13-ele-13fc0-lection-and-keeps-the-round-mobile-390/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [mobile-390] › tests/e2e/review3-ui.spec.ts:19:3 › BUG-039 (N13): ?election=nyc-2021 (the API id) opens that election and keeps the round 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  getByTestId('round-title')
+    Expected: "Round 2"
+    Received: "Round 1"
+    Timeout:  20000ms
+
+    Call log:
+      - Expect "toHaveText" getByTestId('round-title') with timeout 20000ms
+      - waiting for getByTestId('round-title')
+        44 × locator resolved to <h2 class="font-medium" data-testid="round-title">Round 1</h2>
+           - unexpected value "Round 1"
+
+
+      20 |     await page.goto(`/app?election=${id}&round=2`);
+      21 |     await expect(page.getByTestId('result')).toBeVisible({ timeout: 90_000 });
+    > 22 |     await expect(page.getByTestId('round-title')).toHaveText('Round 2');
+         |                                                   ^
+      23 |     await expect(page.locator('body')).toContainText(title);
+      24 |     await expect(page).toHaveURL(new RegExp(`election=${slug}&round=2`));
+      25 |     await page.screenshot({ path: shot(`n13-${id}`, info) });
+        at /tmp/stack/tests/e2e/review3-ui.spec.ts:22:51
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/review3-ui-BUG-039-N13-ele-0c61c-lection-and-keeps-the-round-mobile-390/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/review3-ui-BUG-039-N13-ele-0c61c-lection-and-keeps-the-round-mobile-390/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/review3-ui-BUG-039-N13-ele-0c61c-lection-and-keeps-the-round-mobile-390/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/review3-ui-BUG-039-N13-ele-0c61c-lection-and-keeps-the-round-mobile-390/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [mobile-390] › tests/e2e/review3-ui.spec.ts:28:1 › BUG-040 (N14): a winner with no votes is not said to hold a majority 
+
+    Error: expect(locator).not.toContainText(expected) failed
+
+    Locator: getByTestId('sankey-final')
+    Expected substring: not "majority"
+    Received string: "Final round. No further transfers: the winner holds a majority of continuing ballots."
+    Timeout: 20000ms
+
+    Call log:
+      - Expect "not toContainText" getByTestId('sankey-final') with timeout 20000ms
+      - waiting for getByTestId('sankey-final')
+        44 × locator resolved to <div data-testid="sankey-final" class="grid place-items-center rounded-xl border border-dashed border-line py-12 text-center">…</div>
+           - unexpected value "Final round. No further transfers: the winner holds a majority of continuing ballots."
+
+
+      31 |   await page.getByTestId('run-count').click();
+      32 |   const fin = page.getByTestId('sankey-final'); await expect(fin).toBeVisible();
+    > 33 |   await expect(fin).not.toContainText('majority');
+         |                         ^
+      34 |   await page.screenshot({ path: shot('n14-zero-vote-final', info) });
+      35 | });
+      36 |
+        at /tmp/stack/tests/e2e/review3-ui.spec.ts:33:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/review3-ui-BUG-040-N14-a-w-9aa1c-not-said-to-hold-a-majority-mobile-390/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/review3-ui-BUG-040-N14-a-w-9aa1c-not-said-to-hold-a-majority-mobile-390/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/review3-ui-BUG-040-N14-a-w-9aa1c-not-said-to-hold-a-majority-mobile-390/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/review3-ui-BUG-040-N14-a-w-9aa1c-not-said-to-hold-a-majority-mobile-390/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8 failed
+    [desktop-1440] › tests/e2e/review3-ui.spec.ts:6:1 › BUG-038 (N12): the "Tallies (exact)" column shows exact fractions 
+    [desktop-1440] › tests/e2e/review3-ui.spec.ts:19:3 › BUG-039 (N13): ?election=alaska-2022 (the API id) opens that election and keeps the round 
+    [desktop-1440] › tests/e2e/review3-ui.spec.ts:19:3 › BUG-039 (N13): ?election=nyc-2021 (the API id) opens that election and keeps the round 
+    [desktop-1440] › tests/e2e/review3-ui.spec.ts:28:1 › BUG-040 (N14): a winner with no votes is not said to hold a majority 
+    [mobile-390] › tests/e2e/review3-ui.spec.ts:6:1 › BUG-038 (N12): the "Tallies (exact)" column shows exact fractions 
+    [mobile-390] › tests/e2e/review3-ui.spec.ts:19:3 › BUG-039 (N13): ?election=alaska-2022 (the API id) opens that election and keeps the round 
+    [mobile-390] › tests/e2e/review3-ui.spec.ts:19:3 › BUG-039 (N13): ?election=nyc-2021 (the API id) opens that election and keeps the round 
+    [mobile-390] › tests/e2e/review3-ui.spec.ts:28:1 › BUG-040 (N14): a winner with no votes is not said to hold a majority 

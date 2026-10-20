@@ -20,10 +20,10 @@ describe('engine agrees with the Python counter on the frozen fuzz corpus', () =
         const body: Record<string, unknown> = c.csv !== undefined ? { csv: c.csv, candidates: c.candidates } : { ballots: c.ballots, candidates: c.candidates };
         if (c.seats) { body.seats = c.seats; body.quota = c.quota; } body.rules = c.rules;
         const r = handleTabulate('POST', JSON.stringify(body), { contentType: 'application/json' });
-        if (r.status !== 200) { bad.push({ id: c.id, status: r.status }); continue; }
+        if (r.status !== 200) { if (sortKeys({ status: r.status, error: (r.body as any)?.error?.code }) !== sortKeys(c.expected)) bad.push({ id: c.id, status: r.status }); continue; }
         const b = r.body as any;
         const got = c.seats
-          ? { winners: b.winners, quotaExact: b.quotaExact, rounds: b.rounds.map((x: any) => ({ tallies: x.exact.tallies, exhausted: x.exact.exhausted, elected: x.elected, eliminated: x.eliminated })) }
+          ? { winners: b.winners, quotaExact: b.quotaExact, rounds: b.rounds.map((x: any) => ({ tallies: x.exact.tallies, exhausted: x.exact.exhausted, elected: x.elected, eliminated: x.eliminated, ...(x.surplusTransferred ? { surplusTransferred: x.surplusTransferred } : {}) })) }
           : { winner: b.winner, rounds: b.rounds.map((x: any) => ({ tallies: { ...x.tallies }, continuing: x.continuing, eliminated: x.eliminated })) };
         if (sortKeys(got) !== sortKeys(c.expected)) bad.push({ id: c.id, engine: got, oracle: c.expected });
     }

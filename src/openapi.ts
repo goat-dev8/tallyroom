@@ -60,8 +60,12 @@ export function openApiDocument() {
       '/api/health': { get: { operationId: 'health', summary: 'Liveness and engine version',
         responses: { 200: json({ type: 'object', required: ['ok', 'engineVersion'], properties: { ok: { const: true }, engineVersion: { type: 'string' } } }, 'Healthy') } } },
       '/api/mcp': { post: { operationId: 'mcp', summary: 'Model Context Protocol endpoint (JSON-RPC 2.0, streamable HTTP, stateless). Tools: count_ballots, list_elections, election_rounds, counting_rules',
-        requestBody: { required: true, content: { 'application/json': { schema: { type: 'object' } } } },
-        responses: { 200: json({ type: 'object' }, 'JSON-RPC response'), 202: { description: 'Notification accepted' }, 400: json({ type: 'object' }, 'JSON-RPC parse error (-32700) or invalid request') } } },
+        requestBody: { required: true, content: { 'application/json': { schema: { oneOf: [{ type: 'object' }, { type: 'array', items: { type: 'object' } }] } } } },
+        // BUG-037: a batch request gets an array of responses. BUG-036: 413 over 4 MB of UTF-8.
+        responses: { 200: json({ oneOf: [{ type: 'object' }, { type: 'array', items: { type: 'object' } }] }, 'JSON-RPC response, or an array of responses for a batch'),
+          202: { description: 'Notification or client response accepted (no body)' },
+          400: json({ type: 'object' }, 'JSON-RPC parse error (-32700), invalid request or empty batch (-32600), or unsupported MCP-Protocol-Version'),
+          413: json({ type: 'object' }, 'Body over 4 MB (UTF-8 bytes)') } } },
       '/api/openapi': { get: { operationId: 'openapi', summary: 'This document', responses: { 200: json({ type: 'object' }, 'OpenAPI 3.1') } } },
     },
     components: { schemas: {
@@ -85,7 +89,11 @@ export function openApiDocument() {
         rounds: { type: 'array', items: { $ref: '#/components/schemas/IrvRound' } } } },
       StvResult: { type: 'object', required: ['engineVersion', 'method', 'winners', 'quota', 'quotaExact', 'rounds'], properties: {
         engineVersion: { type: 'string' }, method: { const: 'stv' }, winners: { type: 'array', items: { type: 'string' } },
-        quota: { type: 'string', description: '4 dp' }, quotaExact: { type: 'string', description: 'reduced fraction n/d' }, rounds: { type: 'array' } } },
+        quota: { type: 'string', description: '4 dp' }, quotaExact: { type: 'string', description: 'reduced fraction n/d; from valid ballots (BUG-028)' },
+        rounds: { type: 'array', items: { type: 'object', required: ['round', 'tallies', 'exhausted', 'elected', 'eliminated', 'exact'], properties: {
+          round: { type: 'integer' }, tallies: { type: 'object' }, exhausted: { type: 'string' }, elected: { type: 'array', items: { type: 'string' } },
+          eliminated: { type: 'array', items: { type: 'string' } }, exact: { type: 'object' },
+          surplusTransferred: { type: 'string', description: 'Elected candidate whose surplus was transferred at the end of this round (one per round, largest first; BUG-029)' } } } } } },
       ElectionMetadata: { type: 'object', required: ['id', 'name', 'candidates', 'ballotCount', 'certifiedWinner', 'source'], properties: {
         id: { type: 'string' }, name: { type: 'string' }, jurisdiction: { type: 'string' }, year: { type: 'integer' }, method: { const: 'IRV' },
         seats: { type: 'integer' }, candidates: { type: 'array', items: { type: 'string' } }, ballotCount: { type: 'integer' },

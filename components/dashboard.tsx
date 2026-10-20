@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { AlertTriangle, BadgeCheck, ChevronLeft, ChevronRight, Database, Download, FileUp, Inbox, Link2, Loader2, Upload, Vote, X } from 'lucide-react';
 import type { IrvResult } from '../src/types';
-import { CATALOG, CERTIFIED, colorFor, fmt, pct, type CatalogEntry } from '../lib/catalog';
+import { API_ID_TO_SLUG, CATALOG, CERTIFIED, colorFor, fmt, pct, type CatalogEntry } from '../lib/catalog';
 import { countBundled, unsubscribe, type Progress } from '../lib/engine';
 import { Logo } from './logo';
 import { RoundBars, shortName } from './round-bars';
@@ -14,14 +14,17 @@ import { SpotlightCard } from './spotlight-card';
 import { CountUp } from './count-up';
 import { Badge, Button, cn } from './ui';
 type Source = { kind: 'bundled'; slug: string } | { kind: 'upload' };
-type Stv = { method: 'stv'; quota: string; winners: string[]; rounds: { round: number; tallies: Record<string, string>; exhausted: string; elected: string[]; eliminated: string[] }[] };
+type Stv = { method: 'stv'; quota: string; winners: string[]; rounds: { round: number; tallies: Record<string, string>; exhausted: string; elected: string[]; eliminated: string[]; exact: { tallies: Record<string, string>; exhausted: string } }[] };
+// BUG-038: the "Tallies (exact)" column shows the API's exact fractions ("14/3"; whole numbers without "/1").
+const exactText = (f: string) => f.endsWith('/1') ? f.slice(0, -2) : f;
 const SAMPLE = '# count,first>second>third\n8,Alice>Bob\n6,Bob>Cara\n5,Cara>Bob\n2,Dev>Alice\n';
 const STV_SAMPLE = '# 2 seats: set Seats to 2\n12,Alice>Bob>Cara\n6,Bob>Alice\n5,Cara>Dev\n4,Dev>Cara\n3,Bob>Cara\n';
 const MAX_BYTES = 10 * 1024 * 1024;
 const PHASE: Record<Progress['phase'], string> = { download: 'Downloading cast vote record', parse: 'Reading ballot patterns', count: 'Counting rounds', done: 'Done' };
 
 function readUrl(): { src: Source; round: number | null; note: string } {
-  const p = new URLSearchParams(window.location.search); const e = p.get('election'); const r = Number(p.get('round'));
+  const p = new URLSearchParams(window.location.search); const asked = p.get('election'); const r = Number(p.get('round'));
+  const e = asked && !CATALOG.some(c => c.slug === asked) && API_ID_TO_SLUG[asked] ? API_ID_TO_SLUG[asked] : asked; // BUG-039
   const round = Number.isInteger(r) && r > 0 ? r - 1 : null;
   if (e === 'upload') return { src: { kind: 'upload' }, round: null, note: '' };
   if (e && !CATALOG.some(c => c.slug === e)) return { src: { kind: 'bundled', slug: CATALOG[0].slug }, round: null, note: `No election called “${e}”. Showing ${CATALOG[0].short} ${CATALOG[0].year}.` };
@@ -202,7 +205,7 @@ export function Dashboard() {
             <div className="grid grid-cols-2 gap-3 lg:grid-cols-4"><Kpi k="Method" v="STV (Gregory)" testid="stv-method" /><Kpi k="Seats" v={String(stv.winners.length)} testid="stv-seats" /><Kpi k="Quota" v={stv.quota} testid="stv-quota" /><Kpi k="Rounds" v={String(stv.rounds.length)} testid="stv-rounds" /></div>
             <div className="card p-5"><h2 className="font-medium">Elected</h2><div className="mt-3 flex flex-wrap gap-2" data-testid="stv-winners">{stv.winners.map((w, i) => <Badge key={w} className="border-win/30 py-1 text-sm text-win"><span className="font-mono text-[11px] text-mute">{i + 1}</span> {w}</Badge>)}</div></div>
             <div className="card overflow-x-auto p-0"><table className="w-full text-sm tnum"><thead className="text-left font-mono text-[11px] text-mute"><tr className="border-b border-line"><th className="p-3 font-normal">Round</th><th className="p-3 font-normal">Tallies (exact)</th><th className="p-3 font-normal">Exhausted</th><th className="p-3 font-normal">Outcome</th></tr></thead>
-              <tbody>{stv.rounds.map(x => <tr key={x.round} className="border-b border-line/60 last:border-0 align-top" data-testid="stv-round" data-round={x.round}><td className="p-3 font-mono">R{x.round}</td><td className="p-3 font-mono text-xs">{Object.entries(x.tallies).map(([k, v]) => <div key={k}>{k}: {v}</div>)}</td><td className="p-3 font-mono text-xs">{x.exhausted}</td>
+              <tbody>{stv.rounds.map(x => <tr key={x.round} className="border-b border-line/60 last:border-0 align-top" data-testid="stv-round" data-round={x.round}><td className="p-3 font-mono">R{x.round}</td><td className="p-3 font-mono text-xs">{Object.entries(x.exact.tallies).map(([k, v]) => <div key={k} title={x.tallies[k]}>{k}: {exactText(v)}</div>)}</td><td className="p-3 font-mono text-xs" title={x.exhausted}>{exactText(x.exact.exhausted)}</td>
                 <td className="p-3 text-xs">{x.elected.length > 0 && <div className="text-win">Elected {x.elected.join(', ')}</div>}{x.eliminated.length > 0 && <div className="text-mute">Eliminated {x.eliminated.join(', ')}</div>}</td></tr>)}</tbody></table></div>
           </motion.section>
         )}

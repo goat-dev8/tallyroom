@@ -1,3 +1,4 @@
+import { assertCandidateLimit } from './parse.js';
 import { BallotGroup, DEFAULT_RULES, InactiveReason, IrvResult, Round, Rules } from './types.js';
 
 type Pick = { kind: 'candidate'; name: string } | { kind: 'inactive'; reason: InactiveReason };
@@ -37,6 +38,7 @@ export function currentChoice(marks: BallotGroup['marks'], continuing: Set<strin
 }
 
 export function tabulateIrv(ballots: BallotGroup[], candidates: string[], partial: Partial<Rules> = {}): IrvResult {
+  assertCandidateLimit(candidates);
   const rules: Rules = { ...DEFAULT_RULES, ...partial };
   const lot = rules.lotOrder ?? candidates;
   for (const c of candidates) if (!lot.includes(c)) throw new Error(`lotOrder is missing candidate "${c}"`);
@@ -75,11 +77,11 @@ export function tabulateIrv(ballots: BallotGroup[], candidates: string[], partia
       for (let k = 1; k <= asc.length - 2; k++) { sum += tallies[asc[k - 1]]; if (sum < tallies[asc[k]]) elim = asc.slice(0, k); }
     }
     if (elim.length === 0) {
-      const min = Math.min(...Object.values(tallies));
+      const min = Object.values(tallies).reduce((a, b) => (b < a ? b : a), Infinity); // no spread: BUG-034
       let tied = Object.keys(tallies).filter(c => tallies[c] === min);
       if (tied.length > 1 && rules.tiebreak === 'previous-round') {
         for (let back = rounds.length - 2; back >= 0 && tied.length > 1; back--) {
-          const t = rounds[back].tallies; const m = Math.min(...tied.map(c => t[c]));
+          const t = rounds[back].tallies; const m = tied.reduce((a, c) => (t[c] < a ? t[c] : a), Infinity);
           tied = tied.filter(c => t[c] === m);
         }
         if (tied.length === 1) round.tieNote = 'previous-round';

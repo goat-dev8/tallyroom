@@ -24,9 +24,19 @@ export function writeInContinues(name: string, declared?: string[]): boolean {
   return name === WRITE_IN && !!declared?.includes(WRITE_IN);
 }
 
+// BUG-034: a Set per list keeps inferring n candidates O(n) (seen.includes made 130,000 names take about a minute).
+const seenSets = new WeakMap<string[], Set<string>>();
 function remember(seen: string[], name: string, declared?: string[]) {
   if (name === WRITE_IN && !writeInContinues(name, declared)) return;
-  if (!seen.includes(name)) seen.push(name);
+  let set = seenSets.get(seen); if (!set) seenSets.set(seen, (set = new Set(seen)));
+  if (!set.has(name)) { set.add(name); seen.push(name); }
+}
+
+/** BUG-034: the most candidates one count accepts. More is refused with 422 TOO_MANY_CANDIDATES. */
+export const MAX_CANDIDATES = 1000;
+export function assertCandidateLimit(candidates: string[]): void {
+  if (candidates.length > MAX_CANDIDATES)
+    throw new BallotSemanticError(`${candidates.length} candidates; at most ${MAX_CANDIDATES} can be counted`, undefined, undefined, undefined, 'TOO_MANY_CANDIDATES');
 }
 
 /** Parse `count,A>B>C` lines. `[A=B]` or `overvote` is an overvote, `_` or `undervote` a skipped rank. Quoted names may contain commas. */
@@ -62,7 +72,11 @@ export function parseBallots(text: string, declared?: string[]): { ballots: Ball
     const comma = line.indexOf(','); if (comma < 0) throw new ParseError(i + 1, 'expected "count,ranking"');
     const countStr = line.slice(0, comma).trim();
     if (!/^[1-9]\d*$/.test(countStr)) throw new ParseError(i + 1, 'count must be a positive integer', 1);
-    const marks: Mark[] = line.slice(comma + 1).split('>').map((tok, idx) => {
+    // BUG-030: a ranking field quoted as one RFC 4180 field ("Ada>Bo", inner quotes doubled) is unquoted before it is
+    // split into ranks; per-name quotes ("A">"B") are not one quoted field and are left to clean().
+    let field = line.slice(comma + 1).trim();
+    if (/^"(?:[^"]|"")*"$/.test(field)) field = field.slice(1, -1).replace(/""/g, '"');
+    const marks: Mark[] = field.split('>').map((tok, idx) => {
       const t = tok.trim();
       if (t === '_' || t === '' || /^undervote$/i.test(t)) return { kind: 'skip' } as Mark;
       if (/^\[.*\]$/.test(t) || /^overvote$/i.test(t)) {

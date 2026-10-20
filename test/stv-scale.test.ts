@@ -14,7 +14,9 @@ const run = (b: string) => { const t = Date.now(); const r = handleTabulate('POS
 
 describe('BUG-026: STV cost is bounded', () => {
   it('a count whose exact fractions explode is refused quickly with 422 STV_TOO_COMPLEX', () => {
-    const r = run(body(30, 15, 3000, 0));
+    // After BUG-029 (one surplus per stage) this 30-candidate case stays under the bound (200 in ~0.2 s); 40 candidates
+    // for 20 seats still crosses it.
+    const r = run(body(40, 20, 3000, 0));
     expect(r.status).toBe(422); expect(r.body.error.code).toBe('STV_TOO_COMPLEX');
     expect(r.ms).toBeLessThan(5000);
   }, 20000);

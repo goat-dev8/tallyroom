@@ -136,7 +136,8 @@
         {
           "from": "Write-in",
           "to": "exhausted",
-          "count": 752
+          "count": 752,
+          "exhausted": true
         }
       ]
     },
@@ -235,7 +236,8 @@
         {
           "from": "Isaac Wright Jr.",
           "to": "exhausted",
-          "count": 455
+          "count": 455,
+          "exhausted": true
         }
       ]
     },
@@ -307,7 +309,8 @@
         {
           "from": "Aaron S. Foldenauer",
           "to": "exhausted",
-          "count": 2147
+          "count": 2147,
+          "exhausted": true
         },
         {
           "from": "Art Chang",
@@ -352,7 +355,8 @@
         {
           "from": "Art Chang",
           "to": "exhausted",
-          "count": 993
+          "count": 993,
+          "exhausted": true
         },
         {
           "from": "Paperboy Love Prince",
@@ -397,7 +401,8 @@
         {
           "from": "Paperboy Love Prince",
           "to": "exhausted",
-          "count": 402
+          "count": 402,
+          "exhausted": true
         },
         {
           "from": "Joycelyn Taylor",
@@ -442,7 +447,8 @@
         {
           "from": "Joycelyn Taylor",
           "to": "exhausted",
-          "count": 565
+          "count": 565,
+          "exhausted": true
         }
       ]
     },
@@ -510,7 +516,8 @@
         {
           "from": "Shaun Donovan",
           "to": "exhausted",
-          "count": 2748
+          "count": 2748,
+          "exhausted": true
         }
       ]
     },
@@ -558,7 +565,8 @@
         {
           "from": "Scott M. Stringer",
           "to": "exhausted",
-          "count": 9371
+          "count": 9371,
+          "exhausted": true
         },
         {
           "from": "Dianne Morales",
@@ -583,7 +591,8 @@
         {
           "from": "Dianne Morales",
           "to": "exhausted",
-          "count": 5170
+          "count": 5170,
+          "exhausted": true
         },
         {
           "from": "Raymond J. McGuire",
@@ -608,7 +617,8 @@
         {
           "from": "Raymond J. McGuire",
           "to": "exhausted",
-          "count": 3842
+          "count": 3842,
+          "exhausted": true
         }
       ]
     },
@@ -650,7 +660,8 @@
         {
           "from": "Andrew Yang",
           "to": "exhausted",
-          "count": 39269
+          "count": 39269,
+          "exhausted": true
         }
       ]
     },
@@ -684,7 +695,8 @@
         {
           "from": "Maya D. Wiley",
           "to": "exhausted",
-          "count": 74488
+          "count": 74488,
+          "exhausted": true
         }
       ]
     }

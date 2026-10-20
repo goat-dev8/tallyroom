@@ -60,7 +60,8 @@ export function errorResult(e: unknown): ApiResult {
     const status = e instanceof BallotSemanticError ? 422 : 400;
     return fail(status, status === 422 ? 'UNPROCESSABLE' : 'PARSE_ERROR', e.message, details);
   }
-  if (e instanceof RangeError) return fail(400, 'SEATS_OUT_OF_RANGE', e.message, null);
+  // BUG-034: only the engine's own seats check is SEATS_OUT_OF_RANGE; any other RangeError is not the client's seats.
+  if (e instanceof RangeError && e.message.startsWith('Seats must be')) return fail(400, 'SEATS_OUT_OF_RANGE', e.message, null);
   if (e instanceof Error) return fail(400, 'BAD_REQUEST', e.message, null);
   throw e;
 }

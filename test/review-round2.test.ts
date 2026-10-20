@@ -24,7 +24,7 @@ describe('BUG-022: report transfers skip ballots that are already inactive', () 
   it('round-3 edge B to exhausted is 1, not 4', () => {
     const r: any = handleReport('POST', { rawBody: JSON.stringify({ ballots: '3,[A=B]\n1,B\n4,C\n4,D', candidates: ['A', 'B', 'C', 'D'], rules: { overvote: 'continuing' } }), contentType: 'application/json' });
     expect(r.status).toBe(200);
-    expect(r.body.rounds[2].transfers).toEqual([{ from: 'B', to: 'exhausted', count: 1 }]);
+    expect(r.body.rounds[2].transfers).toEqual([{ from: 'B', to: 'exhausted', count: 1, exhausted: true }]);
   });
 });
 

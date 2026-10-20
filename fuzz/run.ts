@@ -15,8 +15,8 @@ for (const l of lines) {
   if (c.seats) { body.seats = c.seats; body.quota = c.quota; } body.rules = c.rules;
   const res = handleTabulate('POST', JSON.stringify(body), { contentType: 'application/json' });
   const b = res.body as any; let got: unknown;
-  if (res.status !== 200) got = { status: res.status, error: b?.error };
-  else if (c.seats) { stv++; got = { winners: b.winners, quotaExact: b.quotaExact, rounds: b.rounds.map((r: any) => ({ tallies: Object.fromEntries(Object.entries(r.exact.tallies).map(([k, v]) => [k, fr(v as string)])), exhausted: r.exact.exhausted, elected: r.elected, eliminated: r.eliminated })) }; }
+  if (res.status !== 200) got = { status: res.status, error: b?.error?.code ?? b?.error };
+  else if (c.seats) { stv++; got = { winners: b.winners, quotaExact: b.quotaExact, rounds: b.rounds.map((r: any) => ({ tallies: Object.fromEntries(Object.entries(r.exact.tallies).map(([k, v]) => [k, fr(v as string)])), exhausted: r.exact.exhausted, elected: r.elected, eliminated: r.eliminated, ...(r.surplusTransferred ? { surplusTransferred: r.surplusTransferred } : {}) })) }; }
   else { irv++;
     // Transfers come from the report handler (same code as POST /api/report); the oracle tracks them per round (BUG-022).
     const rep = handleReport('POST', { rawBody: JSON.stringify(body), contentType: 'application/json' }) as any;

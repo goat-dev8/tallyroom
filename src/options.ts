@@ -104,8 +104,8 @@ export function countingOptions() {
         field: 'quota',
         default: 'droop',
         options: [
-          { id: 'droop', description: 'floor(ballots / (seats + 1)) + 1' },
-          { id: 'hare', description: 'ballots / seats, kept as an exact rational' },
+          { id: 'droop', description: 'floor(valid ballots / (seats + 1)) + 1. Valid ballots count for a candidate at the first stage (blank and void first preferences are not counted), as in SSI 2007/42 Sch. 1 r. 46. One surplus is transferred per stage, largest first (r. 49).' },
+          { id: 'hare', description: 'valid ballots / seats, kept as an exact rational' },
         ],
       },
     },

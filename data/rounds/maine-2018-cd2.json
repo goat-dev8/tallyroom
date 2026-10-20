@@ -59,7 +59,8 @@
         {
           "from": "Bond, Tiffany L.",
           "to": "exhausted",
-          "count": 5573
+          "count": 5573,
+          "exhausted": true
         },
         {
           "from": "Hoar, William R.S.",
@@ -74,7 +75,8 @@
         {
           "from": "Hoar, William R.S.",
           "to": "exhausted",
-          "count": 2680
+          "count": 2680,
+          "exhausted": true
         }
       ]
     }

@@ -5,6 +5,9 @@ import { sankey, sankeyLinkHorizontal, sankeyJustify } from 'd3-sankey';
 import type { IrvResult } from '../src/types';
 import { colorFor, fmt } from '../lib/catalog';
 type N = { id: string; label: string; color: string }; type L = { source: string; target: string; value: number; color: string };
+// BUG-032: reserved nodes use a "r:" prefix. Candidate nodes are "a:"/"b:" + name, so no name can produce a reserved
+// id (a candidate called "inactive" or "out" used to share an id with the pile and d3-sankey kept only one of them).
+const OUT = 'r:out', IN_A = 'r:a-inactive', IN_B = 'r:b-inactive';
 /** Exact vote flow from round i to round i+1. Batch eliminations are grouped into one source so every flow is a certified number. */
 export function buildFlow(res: IrvResult, i: number) {
   const a = res.rounds[i], b = res.rounds[i + 1]; if (!b) return null;
@@ -13,22 +16,22 @@ export function buildFlow(res: IrvResult, i: number) {
   const inB = Object.values(b.inactive).reduce((s, x) => s + x, 0);
   const out = a.eliminated; const outLabel = out.length === 1 ? out[0] : `${out.length} eliminated`;
   for (const [c, v] of Object.entries(a.tallies)) if (!out.includes(c) && v > 0) nodes.push({ id: 'a:' + c, label: c, color: colorFor(res.candidates, c) });
-  if (out.length) nodes.push({ id: 'a:out', label: outLabel, color: out.length === 1 ? colorFor(res.candidates, out[0]) : '#64748b' });
-  if (inA) nodes.push({ id: 'a:inactive', label: 'Inactive', color: '#3b3f47' });
+  if (out.length) nodes.push({ id: OUT, label: outLabel, color: out.length === 1 ? colorFor(res.candidates, out[0]) : '#64748b' });
+  if (inA) nodes.push({ id: IN_A, label: 'Inactive', color: '#3b3f47' });
   for (const c of Object.keys(b.tallies)) nodes.push({ id: 'b:' + c, label: c, color: colorFor(res.candidates, c) });
-  nodes.push({ id: 'b:inactive', label: 'Inactive', color: '#3b3f47' });
+  nodes.push({ id: IN_B, label: 'Inactive', color: '#3b3f47' });
   let moved = 0;
   for (const [c, v] of Object.entries(b.tallies)) {
     const before = a.tallies[c] ?? 0; const gain = v - before; moved += gain;
     if (before) links.push({ source: 'a:' + c, target: 'b:' + c, value: before, color: colorFor(res.candidates, c) });
-    if (gain > 0 && out.length) links.push({ source: 'a:out', target: 'b:' + c, value: gain, color: colorFor(res.candidates, c) });
+    if (gain > 0 && out.length) links.push({ source: OUT, target: 'b:' + c, value: gain, color: colorFor(res.candidates, c) });
   }
   const outTotal = out.reduce((s, c) => s + (a.tallies[c] ?? 0), 0);
-  if (outTotal - moved > 0) links.push({ source: 'a:out', target: 'b:inactive', value: outTotal - moved, color: '#64748b' });
-  if (inA) links.push({ source: 'a:inactive', target: 'b:inactive', value: inA, color: '#3b3f47' });
+  if (outTotal - moved > 0) links.push({ source: OUT, target: IN_B, value: outTotal - moved, color: '#64748b' });
+  if (inA) links.push({ source: IN_A, target: IN_B, value: inA, color: '#3b3f47' });
   return { nodes: nodes.filter(n => links.some(l => l.source === n.id || l.target === n.id)), links, check: inB };
 }
-const rank = (n: any) => (n.id.endsWith(':inactive') ? 2 : n.id === 'a:out' ? 1 : 0);
+const rank = (n: any) => (n.id === IN_A || n.id === IN_B ? 2 : n.id === OUT ? 1 : 0);
 const LABEL_GAP = 15; // viewBox px between label baselines; an 11px label with descenders is ~14px tall
 /** Spread label centres in one column so none overlap, keeping each as close to its node as possible. */
 export function spreadLabels(ys: number[], top: number, bottom: number, gap = LABEL_GAP): number[] {
@@ -51,7 +54,7 @@ export function Sankey({ result, round }: { result: IrvResult; round: number }) 
   const box = useRef<HTMLDivElement>(null);
   const hits = useRef<(SVGPathElement | null)[]>([]);
   const flow = useMemo(() => buildFlow(result, round), [result, round]);
-  const cols = flow ? Math.max(flow.nodes.filter(n => n.id.startsWith('b:')).length, flow.nodes.filter(n => n.id.startsWith('a:')).length, 3) : 0;
+  const cols = flow ? Math.max(flow.nodes.filter(n => n.id.startsWith('b:') || n.id === IN_B).length, flow.nodes.filter(n => n.id.startsWith('a:') || n.id === OUT || n.id === IN_A).length, 3) : 0;
   const H = flow ? Math.min(640, Math.max(190, LABEL_GAP * 2 * cols + 40)) : 0;
   const g = useMemo(() => {
     if (!flow || !flow.links.some(l => l.value > 0)) return null;
@@ -67,7 +70,13 @@ export function Sankey({ result, round }: { result: IrvResult; round: number }) 
     }
     return m;
   }, [g, H]);
-  if (!g) return <div className="grid place-items-center rounded-xl border border-dashed border-line py-12 text-center" data-testid="sankey-final"><p className="max-w-sm text-sm text-mute">Final round. No further transfers: the winner holds a majority of continuing ballots.</p></div>;
+  if (!g) {
+    // BUG-040: only claim a majority when the winner holds one (a sole remaining candidate can win with 0 votes).
+    const last = result.rounds[result.rounds.length - 1]; const held = last?.tallies[result.winner] ?? 0;
+    const why = held * 2 > (last?.continuing ?? 0) ? 'the winner holds a majority of continuing ballots.'
+      : `${result.winner} is the last continuing candidate, with ${fmt(held)} ${held === 1 ? 'vote' : 'votes'} of ${fmt(last?.continuing ?? 0)} continuing.`;
+    return <div className="grid place-items-center rounded-xl border border-dashed border-line py-12 text-center" data-testid="sankey-final"><p className="max-w-sm text-sm text-mute">Final round. No further transfers: {why}</p></div>;
+  }
   const path = sankeyLinkHorizontal();
   const clean = (x: string) => x.replace(/^(REP|DEM) /, '');
   const data = (l: any) => ({ from: clean(l.source.label), to: clean(l.target.label), value: l.value as number, share: l.source.value ? (100 * l.value / l.source.value).toFixed(1) + '%' : '' });
@@ -134,7 +143,7 @@ export function Sankey({ result, round }: { result: IrvResult; round: number }) 
       <details className="mt-3 text-xs text-mute" data-testid="transfer-details">
         <summary className="cursor-pointer select-none hover:text-fg" data-testid="transfer-toggle">Show transfers as a list</summary>
         <ul className="mt-2 space-y-1 font-mono tnum" data-testid="transfer-list" aria-label="Ballot transfers">
-          {g.links.filter((l: any) => l.source.id === 'a:out').map((l: any) => (
+          {g.links.filter((l: any) => l.source.id === OUT).map((l: any) => (
             <li key={l.target.id} data-testid="transfer-item" className="text-fg">{clean(l.source.label)} → {clean(l.target.label)}: {fmt(l.value)} ballots{l.source.value ? <span className="text-mute"> ({(100 * l.value / l.source.value).toFixed(1)}% of source)</span> : null}</li>
           ))}
         </ul>

@@ -1,0 +1,9 @@
+
+ RUN  v4.1.12 /tmp/stack
+
+
+ Test Files  43 passed (43)
+      Tests  312 passed (312)
+   Start at  23:41:11
+   Duration  3.06s (transform 1.39s, setup 0ms, import 4.22s, tests 7.64s, environment 4ms)
+

@@ -1,0 +1,770 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/tmp/stack/node_modules/.bin/playwright",
+      "test",
+      "tests/e2e/review3-ui.spec.ts"
+    ],
+    "configFile": "/tmp/stack/playwright.config.ts",
+    "rootDir": "/tmp/stack/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/tmp/stack/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "desktop-1440",
+        "name": "desktop-1440",
+        "testDir": "/tmp/stack/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/tmp/stack/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "mobile-390",
+        "name": "mobile-390",
+        "testDir": "/tmp/stack/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/tmp/stack/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "name": "desktop-1440",
+        "testDir": "/tmp/stack/tests/e2e",
+        "snapshotDir": "/tmp/stack/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://localhost:3140",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-1440"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/tmp/stack/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "name": "mobile-390",
+        "testDir": "/tmp/stack/tests/e2e",
+        "snapshotDir": "/tmp/stack/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://localhost:3140",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 2,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-390"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "audit/bugs/review3/red-e2e.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "review3-ui.spec.ts",
+      "file": "review3-ui.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "BUG-038 (N12): the \"Tallies (exact)\" column shows exact fractions",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1440",
+              "projectName": "desktop-1440",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 21158,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-testid=stv-round][data-round=\"2\"]').locator('td').nth(1)\nExpected substring: not \u001b[32m\".0000\"\u001b[39m\nReceived string: \u001b[31m\"Bob: 10\u001b[7m.0000\u001b[27mCara: 7.0000Dev: 4.0000\"\u001b[39m\nTimeout: 20000ms\n\nCall log:\n\u001b[2m  - Expect \"not toContainText\" locator('[data-testid=stv-round][data-round=\"2\"]').locator('td').nth(1) with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=stv-round][data-round=\"2\"]').locator('td').nth(1)\u001b[22m\n\u001b[2m    44 × locator resolved to <td class=\"p-3 font-mono text-xs\">…</td>\u001b[22m\n\u001b[2m       - unexpected value \"Bob: 10.0000Cara: 7.0000Dev: 4.0000\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-testid=stv-round][data-round=\"2\"]').locator('td').nth(1)\nExpected substring: not \u001b[32m\".0000\"\u001b[39m\nReceived string: \u001b[31m\"Bob: 10\u001b[7m.0000\u001b[27mCara: 7.0000Dev: 4.0000\"\u001b[39m\nTimeout: 20000ms\n\nCall log:\n\u001b[2m  - Expect \"not toContainText\" locator('[data-testid=stv-round][data-round=\"2\"]').locator('td').nth(1) with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=stv-round][data-round=\"2\"]').locator('td').nth(1)\u001b[22m\n\u001b[2m    44 × locator resolved to <td class=\"p-3 font-mono text-xs\">…</td>\u001b[22m\n\u001b[2m       - unexpected value \"Bob: 10.0000Cara: 7.0000Dev: 4.0000\"\u001b[22m\n\n    at /tmp/stack/tests/e2e/review3-ui.spec.ts:14:45",
+                    "location": {
+                      "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                      "column": 45,
+                      "line": 14
+                    },
+                    "snippet": "  12 |   // quota floor(32/3)+1 = 11; Alice's surplus 1 moves 12 × 1/12 to Bob: Bob 9 + 1 = 10, shown as the exact value 10/1 or 10.\n  13 |   await expect(r2).toContainText('Bob: 10');\n> 14 |   await expect(r2.locator('td').nth(1)).not.toContainText('.0000');\n     |                                             ^\n  15 |   await page.screenshot({ path: shot('n12-stv-exact', info), fullPage: true });\n  16 | });\n  17 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                        "column": 45,
+                        "line": 14
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-testid=stv-round][data-round=\"2\"]').locator('td').nth(1)\nExpected substring: not \u001b[32m\".0000\"\u001b[39m\nReceived string: \u001b[31m\"Bob: 10\u001b[7m.0000\u001b[27mCara: 7.0000Dev: 4.0000\"\u001b[39m\nTimeout: 20000ms\n\nCall log:\n\u001b[2m  - Expect \"not toContainText\" locator('[data-testid=stv-round][data-round=\"2\"]').locator('td').nth(1) with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=stv-round][data-round=\"2\"]').locator('td').nth(1)\u001b[22m\n\u001b[2m    44 × locator resolved to <td class=\"p-3 font-mono text-xs\">…</td>\u001b[22m\n\u001b[2m       - unexpected value \"Bob: 10.0000Cara: 7.0000Dev: 4.0000\"\u001b[22m\n\n\n  12 |   // quota floor(32/3)+1 = 11; Alice's surplus 1 moves 12 × 1/12 to Bob: Bob 9 + 1 = 10, shown as the exact value 10/1 or 10.\n  13 |   await expect(r2).toContainText('Bob: 10');\n> 14 |   await expect(r2.locator('td').nth(1)).not.toContainText('.0000');\n     |                                             ^\n  15 |   await page.screenshot({ path: shot('n12-stv-exact', info), fullPage: true });\n  16 | });\n  17 |\n    at /tmp/stack/tests/e2e/review3-ui.spec.ts:14:45"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-20T20:36:13.614Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-038-N12-the-7f6cd-olumn-shows-exact-fractions-desktop-1440/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-038-N12-the-7f6cd-olumn-shows-exact-fractions-desktop-1440/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-038-N12-the-7f6cd-olumn-shows-exact-fractions-desktop-1440/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                    "column": 45,
+                    "line": 14
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3870145c02e8ede7271a-5f17caf90abc60834b4b",
+          "file": "review3-ui.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "BUG-039 (N13): ?election=alaska-2022 (the API id) opens that election and keeps the round",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1440",
+              "projectName": "desktop-1440",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 21220,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('round-title')\nExpected: \u001b[32m\"Round \u001b[7m2\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Round \u001b[7m1\u001b[27m\"\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('round-title') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('round-title')\u001b[22m\n\u001b[2m    44 × locator resolved to <h2 class=\"font-medium\" data-testid=\"round-title\">Round 1</h2>\u001b[22m\n\u001b[2m       - unexpected value \"Round 1\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('round-title')\nExpected: \u001b[32m\"Round \u001b[7m2\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Round \u001b[7m1\u001b[27m\"\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('round-title') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('round-title')\u001b[22m\n\u001b[2m    44 × locator resolved to <h2 class=\"font-medium\" data-testid=\"round-title\">Round 1</h2>\u001b[22m\n\u001b[2m       - unexpected value \"Round 1\"\u001b[22m\n\n    at /tmp/stack/tests/e2e/review3-ui.spec.ts:22:51",
+                    "location": {
+                      "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                      "column": 51,
+                      "line": 22
+                    },
+                    "snippet": "  20 |     await page.goto(`/app?election=${id}&round=2`);\n  21 |     await expect(page.getByTestId('result')).toBeVisible({ timeout: 90_000 });\n> 22 |     await expect(page.getByTestId('round-title')).toHaveText('Round 2');\n     |                                                   ^\n  23 |     await expect(page.locator('body')).toContainText(title);\n  24 |     await expect(page).toHaveURL(new RegExp(`election=${slug}&round=2`));\n  25 |     await page.screenshot({ path: shot(`n13-${id}`, info) });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                        "column": 51,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('round-title')\nExpected: \u001b[32m\"Round \u001b[7m2\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Round \u001b[7m1\u001b[27m\"\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('round-title') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('round-title')\u001b[22m\n\u001b[2m    44 × locator resolved to <h2 class=\"font-medium\" data-testid=\"round-title\">Round 1</h2>\u001b[22m\n\u001b[2m       - unexpected value \"Round 1\"\u001b[22m\n\n\n  20 |     await page.goto(`/app?election=${id}&round=2`);\n  21 |     await expect(page.getByTestId('result')).toBeVisible({ timeout: 90_000 });\n> 22 |     await expect(page.getByTestId('round-title')).toHaveText('Round 2');\n     |                                                   ^\n  23 |     await expect(page.locator('body')).toContainText(title);\n  24 |     await expect(page).toHaveURL(new RegExp(`election=${slug}&round=2`));\n  25 |     await page.screenshot({ path: shot(`n13-${id}`, info) });\n    at /tmp/stack/tests/e2e/review3-ui.spec.ts:22:51"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-20T20:36:13.608Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-039-N13-ele-13fc0-lection-and-keeps-the-round-desktop-1440/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-039-N13-ele-13fc0-lection-and-keeps-the-round-desktop-1440/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-039-N13-ele-13fc0-lection-and-keeps-the-round-desktop-1440/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                    "column": 51,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3870145c02e8ede7271a-ac844df415736fe27abf",
+          "file": "review3-ui.spec.ts",
+          "line": 19,
+          "column": 3
+        },
+        {
+          "title": "BUG-039 (N13): ?election=nyc-2021 (the API id) opens that election and keeps the round",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1440",
+              "projectName": "desktop-1440",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 21188,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('round-title')\nExpected: \u001b[32m\"Round \u001b[7m2\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Round \u001b[7m1\u001b[27m\"\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('round-title') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('round-title')\u001b[22m\n\u001b[2m    44 × locator resolved to <h2 class=\"font-medium\" data-testid=\"round-title\">Round 1</h2>\u001b[22m\n\u001b[2m       - unexpected value \"Round 1\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('round-title')\nExpected: \u001b[32m\"Round \u001b[7m2\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Round \u001b[7m1\u001b[27m\"\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('round-title') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('round-title')\u001b[22m\n\u001b[2m    44 × locator resolved to <h2 class=\"font-medium\" data-testid=\"round-title\">Round 1</h2>\u001b[22m\n\u001b[2m       - unexpected value \"Round 1\"\u001b[22m\n\n    at /tmp/stack/tests/e2e/review3-ui.spec.ts:22:51",
+                    "location": {
+                      "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                      "column": 51,
+                      "line": 22
+                    },
+                    "snippet": "  20 |     await page.goto(`/app?election=${id}&round=2`);\n  21 |     await expect(page.getByTestId('result')).toBeVisible({ timeout: 90_000 });\n> 22 |     await expect(page.getByTestId('round-title')).toHaveText('Round 2');\n     |                                                   ^\n  23 |     await expect(page.locator('body')).toContainText(title);\n  24 |     await expect(page).toHaveURL(new RegExp(`election=${slug}&round=2`));\n  25 |     await page.screenshot({ path: shot(`n13-${id}`, info) });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                        "column": 51,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('round-title')\nExpected: \u001b[32m\"Round \u001b[7m2\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Round \u001b[7m1\u001b[27m\"\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('round-title') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('round-title')\u001b[22m\n\u001b[2m    44 × locator resolved to <h2 class=\"font-medium\" data-testid=\"round-title\">Round 1</h2>\u001b[22m\n\u001b[2m       - unexpected value \"Round 1\"\u001b[22m\n\n\n  20 |     await page.goto(`/app?election=${id}&round=2`);\n  21 |     await expect(page.getByTestId('result')).toBeVisible({ timeout: 90_000 });\n> 22 |     await expect(page.getByTestId('round-title')).toHaveText('Round 2');\n     |                                                   ^\n  23 |     await expect(page.locator('body')).toContainText(title);\n  24 |     await expect(page).toHaveURL(new RegExp(`election=${slug}&round=2`));\n  25 |     await page.screenshot({ path: shot(`n13-${id}`, info) });\n    at /tmp/stack/tests/e2e/review3-ui.spec.ts:22:51"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-20T20:36:13.612Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-039-N13-ele-0c61c-lection-and-keeps-the-round-desktop-1440/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-039-N13-ele-0c61c-lection-and-keeps-the-round-desktop-1440/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-039-N13-ele-0c61c-lection-and-keeps-the-round-desktop-1440/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                    "column": 51,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3870145c02e8ede7271a-bc74a9f09feda00c3e71",
+          "file": "review3-ui.spec.ts",
+          "line": 19,
+          "column": 3
+        },
+        {
+          "title": "BUG-040 (N14): a winner with no votes is not said to hold a majority",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1440",
+              "projectName": "desktop-1440",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 21149,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sankey-final')\nExpected substring: not \u001b[32m\"majority\"\u001b[39m\nReceived string: \u001b[31m\"Final round. No further transfers: the winner holds a \u001b[7mmajority\u001b[27m of continuing ballots.\"\u001b[39m\nTimeout: 20000ms\n\nCall log:\n\u001b[2m  - Expect \"not toContainText\" getByTestId('sankey-final') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sankey-final')\u001b[22m\n\u001b[2m    44 × locator resolved to <div data-testid=\"sankey-final\" class=\"grid place-items-center rounded-xl border border-dashed border-line py-12 text-center\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Final round. No further transfers: the winner holds a majority of continuing ballots.\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sankey-final')\nExpected substring: not \u001b[32m\"majority\"\u001b[39m\nReceived string: \u001b[31m\"Final round. No further transfers: the winner holds a \u001b[7mmajority\u001b[27m of continuing ballots.\"\u001b[39m\nTimeout: 20000ms\n\nCall log:\n\u001b[2m  - Expect \"not toContainText\" getByTestId('sankey-final') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sankey-final')\u001b[22m\n\u001b[2m    44 × locator resolved to <div data-testid=\"sankey-final\" class=\"grid place-items-center rounded-xl border border-dashed border-line py-12 text-center\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Final round. No further transfers: the winner holds a majority of continuing ballots.\"\u001b[22m\n\n    at /tmp/stack/tests/e2e/review3-ui.spec.ts:33:25",
+                    "location": {
+                      "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                      "column": 25,
+                      "line": 33
+                    },
+                    "snippet": "  31 |   await page.getByTestId('run-count').click();\n  32 |   const fin = page.getByTestId('sankey-final'); await expect(fin).toBeVisible();\n> 33 |   await expect(fin).not.toContainText('majority');\n     |                         ^\n  34 |   await page.screenshot({ path: shot('n14-zero-vote-final', info) });\n  35 | });\n  36 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                        "column": 25,
+                        "line": 33
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sankey-final')\nExpected substring: not \u001b[32m\"majority\"\u001b[39m\nReceived string: \u001b[31m\"Final round. No further transfers: the winner holds a \u001b[7mmajority\u001b[27m of continuing ballots.\"\u001b[39m\nTimeout: 20000ms\n\nCall log:\n\u001b[2m  - Expect \"not toContainText\" getByTestId('sankey-final') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sankey-final')\u001b[22m\n\u001b[2m    44 × locator resolved to <div data-testid=\"sankey-final\" class=\"grid place-items-center rounded-xl border border-dashed border-line py-12 text-center\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Final round. No further transfers: the winner holds a majority of continuing ballots.\"\u001b[22m\n\n\n  31 |   await page.getByTestId('run-count').click();\n  32 |   const fin = page.getByTestId('sankey-final'); await expect(fin).toBeVisible();\n> 33 |   await expect(fin).not.toContainText('majority');\n     |                         ^\n  34 |   await page.screenshot({ path: shot('n14-zero-vote-final', info) });\n  35 | });\n  36 |\n    at /tmp/stack/tests/e2e/review3-ui.spec.ts:33:25"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-20T20:36:13.624Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-040-N14-a-w-9aa1c-not-said-to-hold-a-majority-desktop-1440/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-040-N14-a-w-9aa1c-not-said-to-hold-a-majority-desktop-1440/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-040-N14-a-w-9aa1c-not-said-to-hold-a-majority-desktop-1440/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                    "column": 25,
+                    "line": 33
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3870145c02e8ede7271a-46085b353488647d3473",
+          "file": "review3-ui.spec.ts",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "BUG-038 (N12): the \"Tallies (exact)\" column shows exact fractions",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-390",
+              "projectName": "mobile-390",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 20824,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-testid=stv-round][data-round=\"2\"]').locator('td').nth(1)\nExpected substring: not \u001b[32m\".0000\"\u001b[39m\nReceived string: \u001b[31m\"Bob: 10\u001b[7m.0000\u001b[27mCara: 7.0000Dev: 4.0000\"\u001b[39m\nTimeout: 20000ms\n\nCall log:\n\u001b[2m  - Expect \"not toContainText\" locator('[data-testid=stv-round][data-round=\"2\"]').locator('td').nth(1) with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=stv-round][data-round=\"2\"]').locator('td').nth(1)\u001b[22m\n\u001b[2m    44 × locator resolved to <td class=\"p-3 font-mono text-xs\">…</td>\u001b[22m\n\u001b[2m       - unexpected value \"Bob: 10.0000Cara: 7.0000Dev: 4.0000\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-testid=stv-round][data-round=\"2\"]').locator('td').nth(1)\nExpected substring: not \u001b[32m\".0000\"\u001b[39m\nReceived string: \u001b[31m\"Bob: 10\u001b[7m.0000\u001b[27mCara: 7.0000Dev: 4.0000\"\u001b[39m\nTimeout: 20000ms\n\nCall log:\n\u001b[2m  - Expect \"not toContainText\" locator('[data-testid=stv-round][data-round=\"2\"]').locator('td').nth(1) with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=stv-round][data-round=\"2\"]').locator('td').nth(1)\u001b[22m\n\u001b[2m    44 × locator resolved to <td class=\"p-3 font-mono text-xs\">…</td>\u001b[22m\n\u001b[2m       - unexpected value \"Bob: 10.0000Cara: 7.0000Dev: 4.0000\"\u001b[22m\n\n    at /tmp/stack/tests/e2e/review3-ui.spec.ts:14:45",
+                    "location": {
+                      "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                      "column": 45,
+                      "line": 14
+                    },
+                    "snippet": "  12 |   // quota floor(32/3)+1 = 11; Alice's surplus 1 moves 12 × 1/12 to Bob: Bob 9 + 1 = 10, shown as the exact value 10/1 or 10.\n  13 |   await expect(r2).toContainText('Bob: 10');\n> 14 |   await expect(r2.locator('td').nth(1)).not.toContainText('.0000');\n     |                                             ^\n  15 |   await page.screenshot({ path: shot('n12-stv-exact', info), fullPage: true });\n  16 | });\n  17 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                        "column": 45,
+                        "line": 14
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-testid=stv-round][data-round=\"2\"]').locator('td').nth(1)\nExpected substring: not \u001b[32m\".0000\"\u001b[39m\nReceived string: \u001b[31m\"Bob: 10\u001b[7m.0000\u001b[27mCara: 7.0000Dev: 4.0000\"\u001b[39m\nTimeout: 20000ms\n\nCall log:\n\u001b[2m  - Expect \"not toContainText\" locator('[data-testid=stv-round][data-round=\"2\"]').locator('td').nth(1) with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=stv-round][data-round=\"2\"]').locator('td').nth(1)\u001b[22m\n\u001b[2m    44 × locator resolved to <td class=\"p-3 font-mono text-xs\">…</td>\u001b[22m\n\u001b[2m       - unexpected value \"Bob: 10.0000Cara: 7.0000Dev: 4.0000\"\u001b[22m\n\n\n  12 |   // quota floor(32/3)+1 = 11; Alice's surplus 1 moves 12 × 1/12 to Bob: Bob 9 + 1 = 10, shown as the exact value 10/1 or 10.\n  13 |   await expect(r2).toContainText('Bob: 10');\n> 14 |   await expect(r2.locator('td').nth(1)).not.toContainText('.0000');\n     |                                             ^\n  15 |   await page.screenshot({ path: shot('n12-stv-exact', info), fullPage: true });\n  16 | });\n  17 |\n    at /tmp/stack/tests/e2e/review3-ui.spec.ts:14:45"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-20T20:36:36.120Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-038-N12-the-7f6cd-olumn-shows-exact-fractions-mobile-390/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-038-N12-the-7f6cd-olumn-shows-exact-fractions-mobile-390/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-038-N12-the-7f6cd-olumn-shows-exact-fractions-mobile-390/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                    "column": 45,
+                    "line": 14
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3870145c02e8ede7271a-e5045756ee2176420b56",
+          "file": "review3-ui.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "BUG-039 (N13): ?election=alaska-2022 (the API id) opens that election and keeps the round",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-390",
+              "projectName": "mobile-390",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 20799,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('round-title')\nExpected: \u001b[32m\"Round \u001b[7m2\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Round \u001b[7m1\u001b[27m\"\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('round-title') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('round-title')\u001b[22m\n\u001b[2m    44 × locator resolved to <h2 class=\"font-medium\" data-testid=\"round-title\">Round 1</h2>\u001b[22m\n\u001b[2m       - unexpected value \"Round 1\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('round-title')\nExpected: \u001b[32m\"Round \u001b[7m2\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Round \u001b[7m1\u001b[27m\"\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('round-title') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('round-title')\u001b[22m\n\u001b[2m    44 × locator resolved to <h2 class=\"font-medium\" data-testid=\"round-title\">Round 1</h2>\u001b[22m\n\u001b[2m       - unexpected value \"Round 1\"\u001b[22m\n\n    at /tmp/stack/tests/e2e/review3-ui.spec.ts:22:51",
+                    "location": {
+                      "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                      "column": 51,
+                      "line": 22
+                    },
+                    "snippet": "  20 |     await page.goto(`/app?election=${id}&round=2`);\n  21 |     await expect(page.getByTestId('result')).toBeVisible({ timeout: 90_000 });\n> 22 |     await expect(page.getByTestId('round-title')).toHaveText('Round 2');\n     |                                                   ^\n  23 |     await expect(page.locator('body')).toContainText(title);\n  24 |     await expect(page).toHaveURL(new RegExp(`election=${slug}&round=2`));\n  25 |     await page.screenshot({ path: shot(`n13-${id}`, info) });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                        "column": 51,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('round-title')\nExpected: \u001b[32m\"Round \u001b[7m2\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Round \u001b[7m1\u001b[27m\"\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('round-title') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('round-title')\u001b[22m\n\u001b[2m    44 × locator resolved to <h2 class=\"font-medium\" data-testid=\"round-title\">Round 1</h2>\u001b[22m\n\u001b[2m       - unexpected value \"Round 1\"\u001b[22m\n\n\n  20 |     await page.goto(`/app?election=${id}&round=2`);\n  21 |     await expect(page.getByTestId('result')).toBeVisible({ timeout: 90_000 });\n> 22 |     await expect(page.getByTestId('round-title')).toHaveText('Round 2');\n     |                                                   ^\n  23 |     await expect(page.locator('body')).toContainText(title);\n  24 |     await expect(page).toHaveURL(new RegExp(`election=${slug}&round=2`));\n  25 |     await page.screenshot({ path: shot(`n13-${id}`, info) });\n    at /tmp/stack/tests/e2e/review3-ui.spec.ts:22:51"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-20T20:36:36.143Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-039-N13-ele-13fc0-lection-and-keeps-the-round-mobile-390/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-039-N13-ele-13fc0-lection-and-keeps-the-round-mobile-390/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-039-N13-ele-13fc0-lection-and-keeps-the-round-mobile-390/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                    "column": 51,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3870145c02e8ede7271a-6d94f4f0d66515170c29",
+          "file": "review3-ui.spec.ts",
+          "line": 19,
+          "column": 3
+        },
+        {
+          "title": "BUG-039 (N13): ?election=nyc-2021 (the API id) opens that election and keeps the round",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-390",
+              "projectName": "mobile-390",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 20796,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('round-title')\nExpected: \u001b[32m\"Round \u001b[7m2\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Round \u001b[7m1\u001b[27m\"\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('round-title') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('round-title')\u001b[22m\n\u001b[2m    44 × locator resolved to <h2 class=\"font-medium\" data-testid=\"round-title\">Round 1</h2>\u001b[22m\n\u001b[2m       - unexpected value \"Round 1\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('round-title')\nExpected: \u001b[32m\"Round \u001b[7m2\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Round \u001b[7m1\u001b[27m\"\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('round-title') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('round-title')\u001b[22m\n\u001b[2m    44 × locator resolved to <h2 class=\"font-medium\" data-testid=\"round-title\">Round 1</h2>\u001b[22m\n\u001b[2m       - unexpected value \"Round 1\"\u001b[22m\n\n    at /tmp/stack/tests/e2e/review3-ui.spec.ts:22:51",
+                    "location": {
+                      "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                      "column": 51,
+                      "line": 22
+                    },
+                    "snippet": "  20 |     await page.goto(`/app?election=${id}&round=2`);\n  21 |     await expect(page.getByTestId('result')).toBeVisible({ timeout: 90_000 });\n> 22 |     await expect(page.getByTestId('round-title')).toHaveText('Round 2');\n     |                                                   ^\n  23 |     await expect(page.locator('body')).toContainText(title);\n  24 |     await expect(page).toHaveURL(new RegExp(`election=${slug}&round=2`));\n  25 |     await page.screenshot({ path: shot(`n13-${id}`, info) });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                        "column": 51,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('round-title')\nExpected: \u001b[32m\"Round \u001b[7m2\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Round \u001b[7m1\u001b[27m\"\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('round-title') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('round-title')\u001b[22m\n\u001b[2m    44 × locator resolved to <h2 class=\"font-medium\" data-testid=\"round-title\">Round 1</h2>\u001b[22m\n\u001b[2m       - unexpected value \"Round 1\"\u001b[22m\n\n\n  20 |     await page.goto(`/app?election=${id}&round=2`);\n  21 |     await expect(page.getByTestId('result')).toBeVisible({ timeout: 90_000 });\n> 22 |     await expect(page.getByTestId('round-title')).toHaveText('Round 2');\n     |                                                   ^\n  23 |     await expect(page.locator('body')).toContainText(title);\n  24 |     await expect(page).toHaveURL(new RegExp(`election=${slug}&round=2`));\n  25 |     await page.screenshot({ path: shot(`n13-${id}`, info) });\n    at /tmp/stack/tests/e2e/review3-ui.spec.ts:22:51"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-20T20:36:36.194Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-039-N13-ele-0c61c-lection-and-keeps-the-round-mobile-390/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-039-N13-ele-0c61c-lection-and-keeps-the-round-mobile-390/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-039-N13-ele-0c61c-lection-and-keeps-the-round-mobile-390/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                    "column": 51,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3870145c02e8ede7271a-3cba50a9b537740aa419",
+          "file": "review3-ui.spec.ts",
+          "line": 19,
+          "column": 3
+        },
+        {
+          "title": "BUG-040 (N14): a winner with no votes is not said to hold a majority",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-390",
+              "projectName": "mobile-390",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 20706,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sankey-final')\nExpected substring: not \u001b[32m\"majority\"\u001b[39m\nReceived string: \u001b[31m\"Final round. No further transfers: the winner holds a \u001b[7mmajority\u001b[27m of continuing ballots.\"\u001b[39m\nTimeout: 20000ms\n\nCall log:\n\u001b[2m  - Expect \"not toContainText\" getByTestId('sankey-final') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sankey-final')\u001b[22m\n\u001b[2m    44 × locator resolved to <div data-testid=\"sankey-final\" class=\"grid place-items-center rounded-xl border border-dashed border-line py-12 text-center\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Final round. No further transfers: the winner holds a majority of continuing ballots.\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sankey-final')\nExpected substring: not \u001b[32m\"majority\"\u001b[39m\nReceived string: \u001b[31m\"Final round. No further transfers: the winner holds a \u001b[7mmajority\u001b[27m of continuing ballots.\"\u001b[39m\nTimeout: 20000ms\n\nCall log:\n\u001b[2m  - Expect \"not toContainText\" getByTestId('sankey-final') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sankey-final')\u001b[22m\n\u001b[2m    44 × locator resolved to <div data-testid=\"sankey-final\" class=\"grid place-items-center rounded-xl border border-dashed border-line py-12 text-center\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Final round. No further transfers: the winner holds a majority of continuing ballots.\"\u001b[22m\n\n    at /tmp/stack/tests/e2e/review3-ui.spec.ts:33:25",
+                    "location": {
+                      "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                      "column": 25,
+                      "line": 33
+                    },
+                    "snippet": "  31 |   await page.getByTestId('run-count').click();\n  32 |   const fin = page.getByTestId('sankey-final'); await expect(fin).toBeVisible();\n> 33 |   await expect(fin).not.toContainText('majority');\n     |                         ^\n  34 |   await page.screenshot({ path: shot('n14-zero-vote-final', info) });\n  35 | });\n  36 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                        "column": 25,
+                        "line": 33
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('sankey-final')\nExpected substring: not \u001b[32m\"majority\"\u001b[39m\nReceived string: \u001b[31m\"Final round. No further transfers: the winner holds a \u001b[7mmajority\u001b[27m of continuing ballots.\"\u001b[39m\nTimeout: 20000ms\n\nCall log:\n\u001b[2m  - Expect \"not toContainText\" getByTestId('sankey-final') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('sankey-final')\u001b[22m\n\u001b[2m    44 × locator resolved to <div data-testid=\"sankey-final\" class=\"grid place-items-center rounded-xl border border-dashed border-line py-12 text-center\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Final round. No further transfers: the winner holds a majority of continuing ballots.\"\u001b[22m\n\n\n  31 |   await page.getByTestId('run-count').click();\n  32 |   const fin = page.getByTestId('sankey-final'); await expect(fin).toBeVisible();\n> 33 |   await expect(fin).not.toContainText('majority');\n     |                         ^\n  34 |   await page.screenshot({ path: shot('n14-zero-vote-final', info) });\n  35 | });\n  36 |\n    at /tmp/stack/tests/e2e/review3-ui.spec.ts:33:25"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-20T20:36:36.209Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-040-N14-a-w-9aa1c-not-said-to-hold-a-majority-mobile-390/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-040-N14-a-w-9aa1c-not-said-to-hold-a-majority-mobile-390/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/stack/test-results/review3-ui-BUG-040-N14-a-w-9aa1c-not-said-to-hold-a-majority-mobile-390/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/tmp/stack/tests/e2e/review3-ui.spec.ts",
+                    "column": 25,
+                    "line": 33
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3870145c02e8ede7271a-6fd4b26170c43ed98c9e",
+          "file": "review3-ui.spec.ts",
+          "line": 28,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-20T20:36:12.800Z",
+    "duration": 44513.167,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 8,
+    "flaky": 0
+  }
+}
