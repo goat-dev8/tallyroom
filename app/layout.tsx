@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 export const viewport: Viewport = { themeColor: '#07080a', width: 'device-width', initialScale: 1 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}><body className="font-sans min-h-dvh">{children}</body></html>;
+  return <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning><head><script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js');setTimeout(function(){document.documentElement.classList.add('motion-ready')},2500)" }} /></head><body className="font-sans min-h-dvh">{children}</body></html>;
 }

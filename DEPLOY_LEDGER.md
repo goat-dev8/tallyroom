@@ -23,8 +23,9 @@ Rules
 | 2026-10-19 | 23:18 | #7 | 833093d | Built: READY, preview, dpl_FcoRAcFNev7vXk32LoE6X5eNGBNM | 8 | 0 | 0 | First push. POST /api/elections/[id]/tabulate returned 500 (fixture path via webpack URL). |
 | 2026-10-19 | 23:35 | #7 | (this commit) | Built, preview | 9 | 0 | 0 | Second push: fixture path fix. |
 | 2026-10-20 | ~02:00 | ci/api-base-url | backend TestSprite tests bound to the PR preview (script + 20 tests in repo) | Built: preview | ~24 | 21 (CLI, api) + V3 app | ~4.2 + V3 | One push. |
+| 2026-10-19 | ~23:40 | #1 (ui/foundation) | this commit (landing redesign, worker dashboard, e2e) | Built: preview | 10 | 0 | 0 | One push for the whole redesign. Deployment id in the PR checks. |
 
 ## Daily totals
 | Date (Cairo) | Deploys built | Builds skipped | Peak 24 h count | Credits used |
 |---|---|---|---|---|
-| 2026-10-19 | 9 | 1 | 9 | 0 |
+| 2026-10-19 | 10 | 1 | 10 | 0 |

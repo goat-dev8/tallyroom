@@ -1,26 +1,36 @@
 'use client';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
+import { hasFastWebGL } from '../lib/gpu';
 const Hero3D = dynamic(() => import('./hero-3d'), { ssr: false, loading: () => <BallotSvg /> });
-/** Static SVG on small screens, reduced motion, or before idle; the WebGL ballot box loads afterwards. */
+/** Static SVG on small screens, reduced motion, no WebGL, or until the page is idle; the WebGL ballot box loads afterwards. */
 export function HeroVisual() {
   const [on, setOn] = useState(false);
   useEffect(() => {
-    const ok = matchMedia('(min-width: 768px)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!ok) return; const ric = (window as any).requestIdleCallback ?? ((f: () => void) => setTimeout(f, 600));
-    const id = ric(() => setOn(true)); return () => (window as any).cancelIdleCallback?.(id);
+    const ok = matchMedia('(min-width: 1024px)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches && hasFastWebGL();
+    if (!ok) return;
+    let id: number | undefined; const t = setTimeout(() => { const ric = (window as any).requestIdleCallback ?? ((f: () => void) => setTimeout(f, 200)); id = ric(() => setOn(true), { timeout: 2500 }); }, 1200);
+    return () => { clearTimeout(t); if (id) (window as any).cancelIdleCallback?.(id); };
   }, []);
-  return <div className="h-full w-full">{on ? <Hero3D /> : <BallotSvg />}</div>;
+  return <div className="h-full w-full" data-testid="hero-visual" data-mode={on ? '3d' : 'svg'}>{on ? <Hero3D /> : <BallotSvg />}</div>;
 }
+/** Hand-built fallback: the same glass box, slot and ballot stack, in SVG. */
 export function BallotSvg() {
   return (
-    <svg viewBox="0 0 200 200" className="mx-auto h-full max-h-80 w-full" aria-hidden>
-      <defs><linearGradient id="gl" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stopColor="#cfd6ff" stopOpacity=".35" /><stop offset="1" stopColor="#7c8cff" stopOpacity=".08" /></linearGradient></defs>
-      <g transform="translate(100 108)">
-        <path d="M-56 -30 L0 -58 L56 -30 L56 34 L0 62 L-56 34 Z" fill="url(#gl)" stroke="#ffffff30" />
-        <path d="M-56 -30 L0 -2 L56 -30 M0 -2 V62" stroke="#ffffff22" fill="none" />
-        <path d="M-12 -36 L12 -24" stroke="#07080a" strokeWidth="4" strokeLinecap="round" />
-        {['#f5b83d', '#7c8cff', '#3ddc97'].map((c, i) => <rect key={c} x={-30 + i * 14} y={-92 + i * 10} width="40" height="22" rx="3" fill={c} opacity=".9" transform={`rotate(${-18 + i * 9})`} />)}
+    <svg viewBox="0 0 240 240" className="mx-auto h-full max-h-[22rem] w-full" aria-hidden data-testid="ballot-svg">
+      <defs>
+        <linearGradient id="bx-face" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stopColor="#dfe4ff" stopOpacity=".28" /><stop offset="1" stopColor="#7c8cff" stopOpacity=".06" /></linearGradient>
+        <linearGradient id="bx-top" x1="0" x2="1"><stop offset="0" stopColor="#fff" stopOpacity=".22" /><stop offset="1" stopColor="#fff" stopOpacity=".05" /></linearGradient>
+      </defs>
+      <ellipse cx="120" cy="206" rx="78" ry="9" fill="#000" opacity=".45" />
+      <g transform="translate(120 128)">
+        {['#f5b83d', '#7c8cff', '#3ddc97'].map((c, i) => <path key={c} d={`M-50 ${52 - i * 7} L0 ${76 - i * 7} L50 ${52 - i * 7} L0 ${28 - i * 7} Z`} fill={c} opacity=".85" />)}
+        <path d="M-66 -34 L0 -66 L66 -34 L66 40 L0 72 L-66 40 Z" fill="url(#bx-face)" stroke="#ffffff38" />
+        <path d="M-66 -34 L0 -2 L66 -34 L0 -66 Z" fill="url(#bx-top)" />
+        <path d="M-66 -34 L0 -2 L66 -34 M0 -2 V72" stroke="#ffffff26" fill="none" />
+        <path d="M-18 -40 L18 -24" stroke="#07080a" strokeWidth="5" strokeLinecap="round" />
+        <path d="M-66 -12 L0 20" stroke="#f5b83d" strokeWidth="2" opacity=".9" />
+        <rect x="-22" y="-104" width="44" height="30" rx="3" fill="#ff6b6b" transform="rotate(-24)" opacity=".95" />
       </g>
     </svg>
   );
