@@ -7,11 +7,12 @@ def P(body=None, raw=None, ct="application/json"):
     return r.status_code, j
 def s(st,j,keys):
     if isinstance(j,dict) and "error" in j: return (st, j["error"]["code"], j["error"]["message"][:90])
+    if not isinstance(j,dict): return (st, "non-JSON body", str(j)[:90])  # fixed 2026-10-21: was j.get on a str
     return (st,)+tuple(j.get(k) for k in keys)
 nfd=unicodedata.normalize("NFD","Zoë")
 probes={
 "009": lambda: s(*P(raw="# note, with comma\n3,A>B\n2,B>A\n", ct="text/csv"),["candidates","winner"]),
-"010": lambda: s(*P(raw=json.dumps({"ballots":"1,"+"é"*2_150_000+"\n2,B"})),["winner"]),
+"010": lambda: s(*P(raw=json.dumps({"ballots":"1,"+"é"*2_100_000+"\n2,B"},ensure_ascii=False).encode("utf-8"), ct="application/json; charset=utf-8"),["winner"]),  # fixed 2026-10-21: same body as regress:bug-010 (UTF-8, ~4.2 MB); the old body was \\u-escaped (~12.9 MB)
 "011": lambda: s(*P(raw=json.dumps({"ballots":"3,A>B\n2,B"}), ct="text/csv"),["candidates","winner"]),
 "012": lambda: s(*P({"ballots":"3,[A=B]\n2,B\n2,C","rules":{"overvote":"continuing"}}),["winner","rounds"]),
 "013": lambda: s(*P({"ballots":"3,A\n2,B","candidates":["A","A","B"],"seats":3}),["winners","quota"]),

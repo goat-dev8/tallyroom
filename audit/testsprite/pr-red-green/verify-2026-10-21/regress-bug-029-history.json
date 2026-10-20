@@ -1,0 +1,57 @@
+{
+  "runs": [
+    {
+      "runId": "b44fd754-c875-4bb8-86b5-f0b16fa4da86",
+      "status": "passed",
+      "source": "cli",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T21:09:59.633Z",
+      "startedAt": "2026-10-20T21:09:59.633Z",
+      "finishedAt": "2026-10-20T21:10:00.874Z",
+      "codeVersion": "v-126a4fa3c0bb",
+      "failureKind": null,
+      "targetUrl": null,
+      "targetUrlSource": null,
+      "environment": null
+    },
+    {
+      "runId": "b50d72fa-c97f-4842-9400-7663d9cbaebc",
+      "status": "failed",
+      "source": "cli",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T21:07:09.897Z",
+      "startedAt": "2026-10-20T21:07:09.897Z",
+      "finishedAt": "2026-10-20T21:07:15.028Z",
+      "codeVersion": "v-126a4fa3c0bb",
+      "failureKind": "assertion",
+      "targetUrl": null,
+      "targetUrlSource": null,
+      "environment": null
+    },
+    {
+      "runId": "001e2b8d-968f-4d9b-ac01-a097fadf802f",
+      "status": "failed",
+      "source": "cli",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T20:50:50.729Z",
+      "startedAt": "2026-10-20T20:50:50.729Z",
+      "finishedAt": "2026-10-20T20:50:54.372Z",
+      "codeVersion": "v-4cff03f4f843",
+      "failureKind": "assertion",
+      "targetUrl": null,
+      "targetUrlSource": null,
+      "environment": null
+    }
+  ],
+  "nextCursor": null,
+  "meta": {
+    "testKind": "unknown",
+    "tier": "Starter",
+    "retentionDays": 30,
+    "hiddenCount": 0,
+    "billingUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/settings/billing"
+  }
+}

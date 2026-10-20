@@ -55,3 +55,8 @@ Fix, committed locally and not pushed: `scripts/testsprite-preview.mjs` with `te
 - Suites are picked from the latest push's diff (`before..head`) on synchronize. Opened, reopened and force-pushed PRs
   use the whole PR diff.
 - Known limit: if a head's run was cancelled, the next CI-only push won't re-test that head's app changes.
+
+
+## Note (2026-10-21): are the greens real?
+
+All 15 green result files have 0 steps, an empty trace and a null targetUrl. That is the normal shape of a passing backend run: the reds also have 0 steps, and only an assertion error produces a trace. Red and green ran the same stored code (the same `codeVersion`), with the preview URL inside the code. See `GREEN-VERIFICATION.md` for the evidence, the remaining weakness, and a 3–6 credit plan to remove it.

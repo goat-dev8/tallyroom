@@ -1,0 +1,660 @@
+{
+  "runs": [
+    {
+      "runId": "c5de076e-d74d-469d-9fa7-97cedd0125a6",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T07:35:14.936Z",
+      "startedAt": "2026-10-20T07:35:14.936Z",
+      "finishedAt": "2026-10-20T07:36:25.807Z",
+      "codeVersion": "v20.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-fix-ui-errors-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "520ed1e7-4e73-4141-a5ef-58a9253e7a35",
+        "name": "github-pr-22"
+      }
+    },
+    {
+      "runId": "533f59ae-91ce-40ee-bbb0-5691476264d9",
+      "status": "blocked",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T07:28:27.925Z",
+      "startedAt": "2026-10-20T07:28:27.925Z",
+      "finishedAt": "2026-10-20T07:29:30.572Z",
+      "codeVersion": null,
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-ci-prod-paths-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "868f61d5-e755-4885-8d0b-9003b4436747",
+        "name": "github-pr-21"
+      }
+    },
+    {
+      "runId": "3c8f43b1-473b-43df-8c22-2719723a0353",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T07:20:23.404Z",
+      "startedAt": "2026-10-20T07:20:23.404Z",
+      "finishedAt": "2026-10-20T07:21:37.704Z",
+      "codeVersion": "v19.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-fix-api-input-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "efcf5bab-f1d8-4a20-9222-d200e2752ca1",
+        "name": "github-pr-20"
+      }
+    },
+    {
+      "runId": "71b5cb0d-a8f6-4a5c-bc49-a88e4bdd7a50",
+      "status": "blocked",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T07:05:50.751Z",
+      "startedAt": "2026-10-20T07:05:50.751Z",
+      "finishedAt": "2026-10-20T07:07:24.532Z",
+      "codeVersion": null,
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-chore-audit-layout-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "42b46c15-17d1-41a3-80c8-e706d840765a",
+        "name": "github-pr-19"
+      }
+    },
+    {
+      "runId": "82aafd95-e83e-471e-b077-3459e64a0d17",
+      "status": "blocked",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T07:03:00.331Z",
+      "startedAt": "2026-10-20T07:03:00.331Z",
+      "finishedAt": "2026-10-20T07:04:27.819Z",
+      "codeVersion": null,
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-ci-workflows-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "92b9cd1b-fb84-4c68-aea8-ef5210f7a9b0",
+        "name": "github-pr-18"
+      }
+    },
+    {
+      "runId": "f1c2d63c-7e52-4e49-a092-bd829f97970e",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T06:49:19.045Z",
+      "startedAt": "2026-10-20T06:49:19.045Z",
+      "finishedAt": "2026-10-20T06:50:15.852Z",
+      "codeVersion": "v18.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-ui-dash-cards-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "b6fe2f7f-0670-4ef9-8ffc-aabf65bec897",
+        "name": "github-pr-16"
+      }
+    },
+    {
+      "runId": "df64d1d9-e7a0-4c4d-9f8e-35659ba35f27",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T06:42:42.175Z",
+      "startedAt": "2026-10-20T06:42:42.175Z",
+      "finishedAt": "2026-10-20T06:44:18.548Z",
+      "codeVersion": "v17.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-ui-dash-sankey-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "d8dd04b4-aeb7-4eb7-b680-ddc225c81e2c",
+        "name": "github-pr-15"
+      }
+    },
+    {
+      "runId": "c208b6e5-e053-4793-acbc-4d5f06925664",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T06:36:15.605Z",
+      "startedAt": "2026-10-20T06:36:15.605Z",
+      "finishedAt": "2026-10-20T06:37:19.285Z",
+      "codeVersion": "v16.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-ui-dash-bars-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "2170db23-65f8-41bc-943f-3a7477587b56",
+        "name": "github-pr-14"
+      }
+    },
+    {
+      "runId": "a57acb23-3297-47a0-9520-f51971a422a3",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T06:29:34.417Z",
+      "startedAt": "2026-10-20T06:29:34.417Z",
+      "finishedAt": "2026-10-20T06:31:23.268Z",
+      "codeVersion": "v15.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-test-stv-props-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "bc64f0b6-f01c-45c3-ac58-2f2fbe19f504",
+        "name": "github-pr-12"
+      }
+    },
+    {
+      "runId": "5c68b898-0b4c-4192-af6b-d3f8ac46df81",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T06:22:11.642Z",
+      "startedAt": "2026-10-20T06:22:11.642Z",
+      "finishedAt": "2026-10-20T06:23:28.196Z",
+      "codeVersion": "v14.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-ci-testsprite-cli-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "66d1b2b1-8ba4-41cd-9099-e3277f19bdbe",
+        "name": "github-pr-11"
+      }
+    },
+    {
+      "runId": "b0212382-5530-4b5d-b373-f996324db965",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T06:14:06.690Z",
+      "startedAt": "2026-10-20T06:14:06.690Z",
+      "finishedAt": "2026-10-20T06:15:21.167Z",
+      "codeVersion": "v13.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-test-frontend-testids-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "9d59f2a0-7d41-45f2-8df3-67e77d7fb44c",
+        "name": "github-pr-10"
+      }
+    },
+    {
+      "runId": "d51c72c2-9042-4116-a030-3c2f80d3fdb3",
+      "status": "failed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T06:07:59.363Z",
+      "startedAt": "2026-10-20T06:07:59.363Z",
+      "finishedAt": "2026-10-20T06:09:55.364Z",
+      "codeVersion": null,
+      "failureKind": "assertion",
+      "targetUrl": "https://tallyroom-git-ci-api-base-url-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "4c5c4490-ae9f-4c34-8af8-45a64f84acd3",
+        "name": "github-pr-17"
+      }
+    },
+    {
+      "runId": "a5905edc-c27c-4319-b90f-d3eb73f907bb",
+      "status": "failed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T05:53:58.368Z",
+      "startedAt": "2026-10-20T05:53:58.368Z",
+      "finishedAt": "2026-10-20T05:55:41.352Z",
+      "codeVersion": null,
+      "failureKind": "assertion",
+      "targetUrl": "https://tallyroom-git-fix-csv-single-choice-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "6576d23e-38ce-47de-9e19-b2d712b869db",
+        "name": "github-pr-13"
+      }
+    },
+    {
+      "runId": "77c5d2fd-cefc-482c-a86d-bd58987ed897",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T05:47:49.982Z",
+      "startedAt": "2026-10-20T05:47:49.982Z",
+      "finishedAt": "2026-10-20T05:49:25.598Z",
+      "codeVersion": "v12.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-feat-csv-count-ranking-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "e9043980-a049-497a-8631-41544f54bc83",
+        "name": "github-pr-8"
+      }
+    },
+    {
+      "runId": "23a0f9ec-275f-4bf8-beb6-a711fad24dbd",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T05:40:52.270Z",
+      "startedAt": "2026-10-20T05:40:52.270Z",
+      "finishedAt": "2026-10-20T05:41:54.871Z",
+      "codeVersion": "v11.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-feat-api-server-tabulate-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "9f28453e-872e-45f1-9bda-b22f3516cd45",
+        "name": "github-pr-7"
+      }
+    },
+    {
+      "runId": "f8fc2c45-041f-4179-8dc5-71edca69c6f4",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T05:35:11.721Z",
+      "startedAt": "2026-10-20T05:35:11.721Z",
+      "finishedAt": "2026-10-20T05:36:05.260Z",
+      "codeVersion": "v10.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-feat-api-options-presets-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "f39c5aba-00f5-4240-be26-8a7fa8c27601",
+        "name": "github-pr-6"
+      }
+    },
+    {
+      "runId": "cc837310-89c9-4ac8-8cc1-06fea8c7d535",
+      "status": "failed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T05:29:36.118Z",
+      "startedAt": "2026-10-20T05:29:36.118Z",
+      "finishedAt": "2026-10-20T05:31:05.944Z",
+      "codeVersion": null,
+      "failureKind": "assertion",
+      "targetUrl": "https://tallyroom-git-feat-api-report-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "e227ce82-c947-4b1b-b652-c6adc8a45f29",
+        "name": "github-pr-5"
+      }
+    },
+    {
+      "runId": "f22fc5e0-6403-40d5-92c0-55f8ac3c3955",
+      "status": "failed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T05:27:32.876Z",
+      "startedAt": "2026-10-20T05:27:32.876Z",
+      "finishedAt": "2026-10-20T05:29:28.871Z",
+      "codeVersion": null,
+      "failureKind": "unknown",
+      "targetUrl": "https://tallyroom-git-feat-api-tabulate-formats-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "2eb0f266-37c5-48a0-9e8f-a1653a12feb8",
+        "name": "github-pr-4"
+      }
+    },
+    {
+      "runId": "6feea0dc-e029-4d35-a9c4-d04a347c42dc",
+      "status": "failed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T05:22:05.071Z",
+      "startedAt": "2026-10-20T05:22:05.071Z",
+      "finishedAt": "2026-10-20T05:23:32.033Z",
+      "codeVersion": null,
+      "failureKind": "assertion",
+      "targetUrl": "https://tallyroom-git-feat-api-rounds-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "062ccc29-506c-4bbe-b884-146e7cb26b31",
+        "name": "github-pr-3"
+      }
+    },
+    {
+      "runId": "2dcaceec-0f2b-43f7-8c0a-07d8149c3479",
+      "status": "failed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-20T05:14:40.367Z",
+      "startedAt": "2026-10-20T05:14:40.367Z",
+      "finishedAt": "2026-10-20T05:16:34.765Z",
+      "codeVersion": null,
+      "failureKind": "unknown",
+      "targetUrl": "https://tallyroom-git-feat-api-elections-list-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "0f8fcc75-eecd-4cca-bbdc-c28d2d9a098e",
+        "name": "github-pr-2"
+      }
+    },
+    {
+      "runId": "ff00b014-bb4a-4877-98e1-14f5e54fd3f5",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-19T22:49:34.783Z",
+      "startedAt": "2026-10-19T22:49:34.783Z",
+      "finishedAt": "2026-10-19T22:50:48.079Z",
+      "codeVersion": "v9.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-test-frontend-testids-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "e5f6d0a0-7049-4243-884b-fa82952193cb",
+        "name": "github-pr-10"
+      }
+    },
+    {
+      "runId": "34ee6f9d-6741-4bf6-ae27-4b3d08bf3f75",
+      "status": "failed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-19T22:49:33.298Z",
+      "startedAt": "2026-10-19T22:49:33.298Z",
+      "finishedAt": "2026-10-19T22:51:37.693Z",
+      "codeVersion": null,
+      "failureKind": "assertion",
+      "targetUrl": "https://tallyroom-git-ci-api-base-url-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "e2e677f6-a101-425d-bf28-b4642550ef1c",
+        "name": "github-pr-17"
+      }
+    },
+    {
+      "runId": "75dc2355-5f13-466d-8144-2259c8812b2a",
+      "status": "failed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-19T22:43:31.684Z",
+      "startedAt": "2026-10-19T22:43:31.684Z",
+      "finishedAt": "2026-10-19T22:45:30.617Z",
+      "codeVersion": null,
+      "failureKind": "assertion",
+      "targetUrl": "https://tallyroom-git-fix-csv-single-choice-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "18b0b87c-9111-498f-a169-8b8cd2a17e6a",
+        "name": "github-pr-13"
+      }
+    },
+    {
+      "runId": "1f18f671-e760-4fea-b98d-150a536644bf",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-19T22:42:46.827Z",
+      "startedAt": "2026-10-19T22:42:46.827Z",
+      "finishedAt": "2026-10-19T22:43:46.875Z",
+      "codeVersion": "v8.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-ui-dash-cards-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "a5560036-11ec-46a7-bae3-a33cf3ce8427",
+        "name": "github-pr-16"
+      }
+    },
+    {
+      "runId": "71607f5b-dc1b-4d62-9f87-6efce3c65db9",
+      "status": "failed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-19T22:41:58.798Z",
+      "startedAt": "2026-10-19T22:41:58.798Z",
+      "finishedAt": "2026-10-19T22:43:50.167Z",
+      "codeVersion": null,
+      "failureKind": "unknown",
+      "targetUrl": "https://tallyroom-git-ui-dash-sankey-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "ee4f881e-7946-4486-bdcb-3293a3ff2a4a",
+        "name": "github-pr-15"
+      }
+    },
+    {
+      "runId": "820affbf-8dcc-4996-90d8-1848f7ef175c",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-19T22:40:49.035Z",
+      "startedAt": "2026-10-19T22:40:49.035Z",
+      "finishedAt": "2026-10-19T22:41:56.363Z",
+      "codeVersion": "v7.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-ui-dash-bars-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "a2093f18-797f-4384-ad75-e27c0c8d8a1f",
+        "name": "github-pr-14"
+      }
+    },
+    {
+      "runId": "4991416e-5583-4b09-9bf7-f2ef585c3a94",
+      "status": "failed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-19T22:38:32.509Z",
+      "startedAt": "2026-10-19T22:38:32.509Z",
+      "finishedAt": "2026-10-19T22:40:16.690Z",
+      "codeVersion": null,
+      "failureKind": "assertion",
+      "targetUrl": "https://tallyroom-git-fix-csv-single-choice-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "461d7907-6785-4b21-a315-03da60d88d67",
+        "name": "github-pr-13"
+      }
+    },
+    {
+      "runId": "cb9b201d-0eac-49da-abfc-890a9ac8e599",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-19T22:35:28.990Z",
+      "startedAt": "2026-10-19T22:35:28.990Z",
+      "finishedAt": "2026-10-19T22:36:40.377Z",
+      "codeVersion": "v6.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-test-frontend-testids-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "1561215e-727c-4682-abc2-06f1a6076668",
+        "name": "github-pr-10"
+      }
+    },
+    {
+      "runId": "6f9668e6-5a3e-4b2f-96f1-d3fd5997cec3",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-19T22:30:03.317Z",
+      "startedAt": "2026-10-19T22:30:03.317Z",
+      "finishedAt": "2026-10-19T22:31:14.155Z",
+      "codeVersion": "v5.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-test-stv-props-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "80ef759a-7de6-4809-b7b2-f205f38aa676",
+        "name": "github-pr-12"
+      }
+    },
+    {
+      "runId": "8ca775fc-e9ec-4ec8-b07a-c7baa16e8587",
+      "status": "failed",
+      "source": "cli",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-19T22:15:17.490Z",
+      "startedAt": "2026-10-19T22:15:17.490Z",
+      "finishedAt": "2026-10-19T22:17:02.062Z",
+      "codeVersion": null,
+      "failureKind": "unknown",
+      "targetUrl": "https://tallyroom-git-test-stv-props-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "60183447-7b45-4836-b957-96581893d352",
+        "name": "default"
+      }
+    },
+    {
+      "runId": "676485d3-3255-4d9e-9cb2-207f0fc83dc0",
+      "status": "failed",
+      "source": "cli",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-19T22:12:00.344Z",
+      "startedAt": "2026-10-19T22:12:00.344Z",
+      "finishedAt": "2026-10-19T22:13:49.240Z",
+      "codeVersion": null,
+      "failureKind": "assertion",
+      "targetUrl": "https://tallyroom-git-test-stv-props-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "60183447-7b45-4836-b957-96581893d352",
+        "name": "default"
+      }
+    },
+    {
+      "runId": "b1ac197f-e3fa-42ab-b34d-e02f3247fa0b",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-19T21:58:42.424Z",
+      "startedAt": "2026-10-19T21:58:42.424Z",
+      "finishedAt": "2026-10-19T21:59:50.454Z",
+      "codeVersion": "v4.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-ci-testsprite-cli-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "f7098abb-b21c-40f2-b379-bae1313fa069",
+        "name": "github-pr-11"
+      }
+    },
+    {
+      "runId": "5a75ec45-9b5a-4597-a8f9-8b7a9d6ed68a",
+      "status": "failed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-19T21:53:52.737Z",
+      "startedAt": "2026-10-19T21:53:52.737Z",
+      "finishedAt": "2026-10-19T21:55:32.701Z",
+      "codeVersion": null,
+      "failureKind": "assertion",
+      "targetUrl": "https://tallyroom-git-test-frontend-testids-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "2b86a6ea-7d71-4e33-8adc-711d4fe24f3b",
+        "name": "github-pr-10"
+      }
+    },
+    {
+      "runId": "a81120bf-6d95-4b91-bd2e-6932e3304a27",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-19T21:31:04.670Z",
+      "startedAt": "2026-10-19T21:31:04.670Z",
+      "finishedAt": "2026-10-19T21:32:34.010Z",
+      "codeVersion": "v3.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-test-frontend-testids-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "8c78f5cb-2571-4017-bb98-87b9021abe47",
+        "name": "github-pr-10"
+      }
+    },
+    {
+      "runId": "d836f66f-2649-4ae2-9dd6-0dff223093e4",
+      "status": "passed",
+      "source": "cli",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-19T21:23:31.100Z",
+      "startedAt": "2026-10-19T21:23:31.100Z",
+      "finishedAt": "2026-10-19T21:24:46.034Z",
+      "codeVersion": "v2.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-test-frontend-testids-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "98cdf519-8cfc-4103-bc12-86972785a400",
+        "name": "tallyroom-git-test-frontend-testids-goats-projects-3f023cc9"
+      }
+    },
+    {
+      "runId": "f0d0a206-d325-4c2b-a243-a65318c72132",
+      "status": "passed",
+      "source": "github_action",
+      "isRerun": false,
+      "createdFrom": null,
+      "createdAt": "2026-10-19T21:22:18.680Z",
+      "startedAt": "2026-10-19T21:22:18.680Z",
+      "finishedAt": "2026-10-19T21:23:24.346Z",
+      "codeVersion": "v1.0",
+      "failureKind": null,
+      "targetUrl": "https://tallyroom-git-test-frontend-testids-goats-projects-3f023cc9.vercel.app",
+      "targetUrlSource": null,
+      "environment": {
+        "id": "4c358985-f257-447b-89cf-b5bf632f5fee",
+        "name": "github-pr-10"
+      }
+    }
+  ],
+  "nextCursor": null,
+  "meta": {
+    "testKind": "unknown",
+    "tier": "Starter",
+    "retentionDays": 30,
+    "hiddenCount": 0,
+    "billingUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/settings/billing"
+  }
+}

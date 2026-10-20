@@ -1,0 +1,24 @@
+{
+  "testId": "09f2ef75-dece-49f0-8b1d-4c122498dd74",
+  "status": "failed",
+  "startedAt": "2026-10-20T05:53:58.368Z",
+  "finishedAt": "2026-10-20T05:55:12.738Z",
+  "videoUrl": "https://testsprite-videos.s3.us-east-1.amazonaws.com/20261020-055510-2b8ff770.webm?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZQ3DRZAIIATWWF3S%2F20261020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261020T220032Z&X-Amz-Expires=604800&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEIH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFnpNoTmbPExXkB6WsV6YuQu3%2Fmudvg5Qe5%2BfU2nLzJGAiBOh39XOmnkNbBafbn2lPLk%2F6vtd5xyZeFIoVI3LgQyMCr7AwhKEAAaDDY1NDY1NDQyNTEwNCIMDTZ7RBZfPJTWzQx6KtgDOrx6aaNc6NEPdDiM5mr%2Bb8LSJwstgGB1Afn9760VwibYGsHbFTD%2BdRQG0RN6ptI0ye%2FLovu9TIj4mfKA4PwHX4EMKVm4RgTgS5hgQwAP3PdrUyXyc3yy3uqWAaS9tqHL%2F%2FS4z1yy1T%2FA7zDqyYFZsYMQqxDkp5ErLU7FOFHNGTdyOwq0L3H6mUvmBKe9P20VzWXaC5V5WJhP%2BtGufCHWmeYbl%2FQ79sA%2FDhQ6MYMFo2LStF0Q8pTfpAuNOoI7Sei5r%2BZxn%2FzRoZAXqe1gbrW1f3gk%2FgK9Tt5tJuY%2B%2FHA3tnIsCgHvQG6xHcwrDcWnw8R5T6v%2F%2Fc8Jm7PetN3npTEw3nO4M3e9EG%2FZThQIR4i8fEtq%2BFwE08Q9adi1itv87XByJ1PY%2FctNzDJC3f%2B8G0IRzDsNAnmrDjoE4iwRddFCPVGB47Q1TZEgQ8mxMEm8unheEuKKUu%2FWaYmIylPwMNSW%2FRglRQOuZL63Bl%2Fd%2B3XUtVrYxcWpvZOGov91JlCK%2Bm5L7ewpVKcVCh5E9YeiSj%2FJHQRltzDOhIDuQjtA1BzpJPnQx9ZgUK7KZ70EqV0k1ytJ8FaNbgZYEu7tNQll58nJZIeRiV88tCg2wdOl9VTJRUglqjQq0qpnbzCSq97WBjqmAUq6fciDlqHhS2Iggt8p94UJXETCOpnCsvF92O%2BNCegauDAdz%2B5jTfFnysx9xiJwew7am1xkd%2BOglZnhAGwx%2BfBOu4G3XOSEwK6fzTY16HUd9sJVFI%2B5wD6EfvkDcuOOrw%2FRR3525mWV8oSWMbUJE5P%2FzwqL1soR9bpsrBO96%2Fffr7egN7dv7x1YB14%2F1CWBCglxSPwJjWtRE6hGthRC1HexmIawVUc%3D&X-Amz-Signature=ca0ed816c89eafd1452885008e87a67b6cb588f068bb953cbdc1247d42881574&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+  "failureAnalysisUrl": null,
+  "snapshotId": "snap_a3e9d1fe2d521a38",
+  "runIdIfAvailable": "dd89af5e-ea99-4ff6-92e8-5c5ddbe6f537",
+  "codeVersion": null,
+  "targetUrl": "https://tallyroom-git-fix-csv-single-choice-goats-projects-3f023cc9.vercel.app",
+  "targetUrlSource": null,
+  "environment": {
+    "id": "6576d23e-38ce-47de-9e19-b2d712b869db",
+    "name": "github-pr-13"
+  },
+  "failedStepIndex": 3,
+  "failureKind": "assertion",
+  "verdict": "failed",
+  "executionStatus": "completed",
+  "summary": "Failed (assertion) on step 3: The hosting-side issue is likely that the Bond R2 cell is being emitted as an empty value rather than a literal em dash, or it is present but not exposed as readable text in the DOM. This can happen if the CSV import/parser treats a missing second-round value as blank, the table renderer suppresses placeholders for empty cells, or a recent deployment changed the cell content/markup so the test cannot read the em dash from the page content. Underlying error: TEST FA…",
+  "apiOutput": null,
+  "trace": null
+}

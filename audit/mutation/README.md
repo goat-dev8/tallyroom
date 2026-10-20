@@ -24,4 +24,4 @@ Survivors in parse.ts (164) are mainly error-message strings and regex alternati
 
 `test/parse-gaps.test.ts` (16 tests) covers parser behaviour, not message text: BOM, header only on line 1, anchored count/overvote/undervote tokens, quote stripping, write-in rule, CRLF/CR/escaped quotes in CSV, rank/count/ignored headers, count-column validation, blank and comment rows, headerless two-column files, and JSON ballot shapes and rejections. `parse-after.*` is the re-run (476 killed, 4 timeout, 114 survived, 14 no coverage). Most remaining survivors are regex alternatives in header detection that have equivalent behaviour.
 
-Probing the same code found three real bugs (BUG-009..011). They are fixed red→green on the local branch `fix/upload-input`, not here.
+Probing the same code found three real bugs (BUG-009..011). They were fixed red→green in commit 80412dd (first on the local branch `fix/upload-input`, which exists only in `stack-2026-10-20-round3.bundle`); that commit is on `ts-red-green` (PR #24), not on `main`. (Corrected 2026-10-21.)

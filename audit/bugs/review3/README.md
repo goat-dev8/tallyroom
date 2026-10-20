@@ -1,4 +1,4 @@
-# Independent review round 3 (cursor-round3-report.md, written against ea0e692), checked at 207fc07
+# Independent review round 3 (`cursor-round3-report.md`, in this folder since 2026-10-21, written against ea0e692), checked at 207fc07
 
 | Report item | Result | Ledger |
 |---|---|---|
@@ -17,6 +17,6 @@
 | N13 API-id deep links | reproduced (e2e) | BUG-039 |
 | N14 "holds a majority" | reproduced (e2e) | BUG-040 |
 
-Files: `repro-207fc07.*` (local repro), `red-production-curl.txt`, `red-vitest.txt` (21/21 fail),
-`green-vitest.txt` (25/25), `red-e2e.txt` (8/8 fail) / `green-e2e.txt` (8/8 pass), `full-e2e.txt`, `parity.txt`,
+Files: `repro-207fc07.*` (local repro), `red-production-curl.txt`, `red-vitest.txt` (21 failed, 3 passed of 24; corrected 2026-10-21, it used to say 21/21),
+`green-vitest.txt` (24 passed of 24; corrected 2026-10-21, it used to say 25/25), `red-e2e.txt` (8/8 fail) / `green-e2e.txt` (8/8 pass), `full-e2e.txt`, `parity.txt`,
 `fuzz-sweep-300-309.jsonl`, `stv-scale-after-BUG-029.txt`, screenshots `red-*.png` and `n1*-*.png`.

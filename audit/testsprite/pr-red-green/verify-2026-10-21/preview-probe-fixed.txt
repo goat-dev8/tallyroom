@@ -1,0 +1,16 @@
+run 2026-10-20T21:56:46Z against https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app (branch alias; latest READY deploy is aea3fce per GitHub statuses)
+009 [200, ["A", "B"], "A"]
+010 [413, "PAYLOAD_TOO_LARGE", "Ballot file too large (max 4 MB)"]
+011 [200, ["A", "B"], "A"]
+012 [200, "B", [{"round": 1, "tallies": {"A": 0, "B": 2, "C": 2}, "continuing": 4, "inactive": {"blank": 0, "overvote": 3, "skips": 0, "undervote": 0, "exhausted": 0}, "threshold": 3, "eliminated": ["A"]}, {"round": 2, "tallies": {"B": 2, "C": 2}, "continuing": 4,
+013 [422, "DUPLICATE_CANDIDATE", "candidates lists \"A\" more than once"]
+014 [200, ["A", "B"]]
+015 [200, "B"]
+016 [200, ["B", "A"], "A"]
+018 [200, "Zoë"]
+019 [200, ["B", "C"], [{"round": 1, "tallies": {"A": "0.0000", "B": "2.0000", "C": "2.0000"}, "exhausted": "3.0000", "elected": ["B", "C"], "eliminated": [], "exact": {"tallies": {"A": "0/1", "B": "2/1", "C": "2/1"}, "exhausted": "3/1"}}]]
+021 [422, "UNKNOWN_CANDIDATE", "Line 1: unknown candidate \"Zed\""]
+024 [400, "UNKNOWN_FIELD", "Unknown field(s): seat"]
+028 [200, "8/1", ["A", "C"]]
+029 [200, ["A", "B", "C", "D"]]
+030 [200, ["Ada", "Bo", "Cy"], "Bo"]

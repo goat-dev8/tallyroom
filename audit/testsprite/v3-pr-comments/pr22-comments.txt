@@ -1,0 +1,265 @@
+# PR #22 issue comments, fetched 2026-10-21 with gh api (images and signed URL queries removed)
+2026-10-20T07:34:16Z [vc]: #Sr6KnDI9lpf05yL8KwvNCDFZUSRwepYmjFfeP7e68dw=:eyJpc01vbm9yZXBvIjp0cnVlLCJ0eXBlIjoiZ2l0aHViIiwicHJvamVjdHMiOlt7Im5hbWUiOiJ0YWxseXJvb20iLCJwcm9qZWN0SWQiOiJwcmpfeXczMlNBUDlaR3ZTT0owYmdlZVV4ZGVUaXd4YyIsImluc3BlY3RvclVybCI6Imh0dHBzOi8vdmVyY2VsLmNvbS9nb2F0cy1wcm9qZWN0cy0zZjAyM2NjOS90YWxseXJvb20vR3Y2S0RSNGNOc0pmNDlvbXF0d3V5Qmc1NkFNYSIsInByZXZpZXdVcmwiOiJ0YWxseXJvb20tZ2l0LWZpeC11aS1lcnJvcnMtZ29hdHMtcHJvamVjdHMtM2YwMjNjYzkudmVyY2VsLmFwcCIsIm5leHRDb21taXRTdGF0dXMiOiJERVBMT1lFRCIsImxpdmVGZWVkYmFjayI6eyJyZXNvbHZlZCI6MCwidW5yZXNvbHZlZCI6MCwidG90YWwiOjAsImxpbmsiOiJ0YWxseXJvb20tZ2l0LWZpeC11aS1lcnJvcnMtZ29hdHMtcHJvamVjdHMtM2YwMjNjYzkudmVyY2VsLmFwcCJ9LCJyb290RGlyZWN0b3J5IjpudWxsfV19
+The latest updates on your projects. Learn more about [Vercel for GitHub](https://vercel.link/github-learn-more).
+
+| Project | Deployment | Actions | Updated |
+| :--- | :----- | :------ | :------ |
+|      [tallyroom](https://vercel.com/goats-projects-3f023cc9/tallyroom) | ![Ready](https://vercel.com/static/status/ready.svg) [Ready](https://vercel.com/goats-projects-3f023cc9/tallyroom/Gv6KDR4cNsJf49omqtwuyBg56AMa) | [Preview](https://tallyroom-git-fix-ui-errors-goats-projects-3f023cc9.vercel.app) |  Oct 20, 2026 7:35am UTC  |
+
+
+2026-10-20T07:35:19Z  
+###  Test Run In Progress
+
+> TestSprite has queued **23 tests** for **tallyroom-api** and will run them against this PR's deployment: https://tallyroom-git-fix-ui-errors-goats-projects-3f023cc9.vercel.app.
+
+This comment will update automatically when the run completes.  [View Execution Live ↗](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/cff45662-3eb7-465b-b637-bc01102e356a)
+
+---
+  Automated end-to-end testing powered by        
+2026-10-20T07:35:21Z  
+> [!WARNING]
+> ###  Ran into trouble — 1 failed
+>
+> The frontend suite is in very good shape overall: 32 of 33 executable tests passed, with no backend coverage in this run. That yields a 97.0% success rate on the executable subset, so the score is computed without any Blocked cases. Most core navigation, upload, dashboard, round-table, and Sankey flows are stable, which suggests the app is broadly reliable. The only notable regression is in the hero autoplay experience, where the page failed to advance to the expected second-round certified state within the 15-second wait. Because this is a user-facing demo flow, it has a direct impact on perceived product polish even though the rest of the app is healthy.
+>
+> **Results:**  **33** passed •  **1** failed • **34** total  ·  [View Full Report ↗](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/eef98f7b-2705-401a-84ad-2fa505e62e5f)
+
+ 
+
+ 
+   1 failed test  
+
+ 
+
+ **[ ui:hero-autoplay ](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/eef98f7b-2705-401a-84ad-2fa505e62e5f/test/0bd5c54b-70e5-491c-9c9f-77e16446afcf)**
+
+ 
+ 
+ 
+ Screenshot 
+ Error details 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+
+TEST FAILURE The hero demo did not reach the required second-round state within the 15-second wait. The final outcome and certification text could not be verified. Observations: - The demo shows “Maine 2018, U.S. House District 2” and “Ballots cast 296,077.” - After waiting without interaction, the visible round details still show first-round eliminations: Hoar and Bond. - “Round 2 / 2,” “Golden, Jared F.,” and “Matches the certified result” were not shown in the visible page state.
+
+ 
+ 
+ 
+ 
+
+**Suggested Fix Prompt** (Copy into your AI coding agent)
+
+````
+The hosting/build likely isn’t advancing the hero demo to the next round because the client-side animation/state machine is not running to completion in production. Check that the demo is actually initialized after hydration, that any timers/requestAnimationFrame callbacks are not being blocked by SSR/React hydration errors, and that there are no runtime errors preventing the round progression. A practical fix is to make the hero state progression deterministic and self-contained: preload the final round data, start the demo timer on mount, and ensure the transition from Round 1 to Round 2 is not dependent on user interaction, visibility, or an unreliable interval. Also verify production env/build settings so the correct dataset and animation code are deployed.
+````
+
+ 
+
+ 
+   33 passed tests  
+
+ 
+
+ 
+ 
+ 
+ Test Case 
+ Status 
+ Screenshot 
+ 
+ 
+ 
+ 
+  ui:upload-empty-and-seats  
+  Passed 
+  
+ 
+ 
+  ui:rounds-table-alaska  
+  Passed 
+  
+ 
+ 
+  ui:upload-tie  
+  Passed 
+  
+ 
+ 
+  ui:parity-ledger  
+  Passed 
+  
+ 
+ 
+  ui:round-step  
+  Passed 
+  
+ 
+ 
+  ui:sankey-transfers  
+  Passed 
+  
+ 
+ 
+  ui:round-keyboard  
+  Passed 
+  
+ 
+ 
+  ui:nav-anchors  
+  Passed 
+  
+ 
+ 
+  ui:sample-download  
+  Passed 
+  
+ 
+ 
+  ui:not-found  
+  Passed 
+  
+ 
+ 
+  ui:sankey-final-round  
+  Passed 
+  
+ 
+ 
+  ui:upload-irv-sample  
+  Passed 
+ — 
+ 
+ 
+  ui:rounds-table-nyc  
+  Passed 
+ — 
+ 
+ 
+  ui:upload-stv  
+  Passed 
+ — 
+ 
+ 
+  ui:nav-cta  
+  Passed 
+ — 
+ 
+ 
+  ui:dash-alaska  
+  Passed 
+ — 
+ 
+ 
+  ui:upload-no-ballots  
+  Passed 
+ — 
+ 
+ 
+  ui:upload-malformed  
+  Passed 
+ — 
+ 
+ 
+  ui:landing-hero  
+  Passed 
+ — 
+ 
+ 
+  ui:unknown-election  
+  Passed 
+ — 
+ 
+ 
+  ui:election-switch  
+  Passed 
+ — 
+ 
+ 
+  ui:parity-open-nyc  
+  Passed 
+ — 
+ 
+ 
+  ui:dash-nyc  
+  Passed 
+ — 
+ 
+ 
+  ui:round-deeplink  
+  Passed 
+ — 
+ 
+ 
+  ui:rounds-table-maine  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-step  
+  Passed 
+ — 
+ 
+ 
+  ui:dash-maine  
+  Passed 
+ — 
+ 
+ 
+  ui:sankey-render  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-pause  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-keyboard  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-rail  
+  Passed 
+ — 
+ 
+ 
+  ui:upload-overvote-skip  
+  Passed 
+ — 
+ 
+ 
+  ui:hero-restart  
+  Passed 
+ — 
+ 
+ 
+ 
+
+ 
+
+ 
+   Evaluation details  
+
+ 
+
+ **What could be better:** The main weakness is the hero autoplay flow: `ui:hero-autoplay` failed because the demo stayed on first-round eliminations (“Hoar and Bond”) instead of advancing to “Round 2 / 2,” “Golden, Jared F.,” and “Matches the certified result.” That indicates the autoplay timer, state progression, or demo initialization is not reliably reaching the certified end state within the allotted time. Everything else passed, so this looks isolated rather than systemic. There were no backend failures to diagnose in this run, and no Blocked tests to discount, but the one failure is in a high-visibility showcase path and should be treated as a priority UX issue.
+
+ **Recommended next steps:** Fix the hero autoplay state machine so it deterministically advances from the Maine 2018 first-round view to the certified second-round outcome within the test window. Verify the autoplay timer starts on load, the round transition occurs without user interaction, and the final certification text is rendered consistently. If the delay is intentional, reduce it or update the demo so the expected second-round state appears within 15 seconds. After the fix, re-run `ui:hero-autoplay`, then sanity-check `ui:hero-step`, `ui:hero-pause`, `ui:hero-restart`, and `ui:hero-keyboard` to confirm the hero controls still behave correctly.
+
+ 
+
+---
+  Automated end-to-end testing powered by        
+2026-10-20T07:40:15Z GREEN: TestSprite V3 on this head (eef98f7b): ui:upload-malformed, ui:upload-no-ballots, ui:upload-empty-and-seats and ui:rounds-table-maine now pass (33/34). The remaining ui:sankey-render failure is investigated separately.
+2026-10-20T18:33:23Z Correction: the remaining V3 failure on this head (eef98f7b) is `ui:hero-autoplay`, not `ui:sankey-render`. It is tracked as BUG-008 and fixed in the next PR.

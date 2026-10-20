@@ -1,0 +1,4 @@
+AFTER, captured 2026-10-21 00:59 Cairo (UTC+3) on production: POST https://tallyroom-rosy.vercel.app/api/tabulate  text/csv  '3,A\n2,B\n'
+(PR #13 cites docs/evidence/13/after.txt, which was never committed. This is a later capture on production, which includes the PR #13 fix; it is not the original PR-time output.)
+{"engineVersion":"0.1.0","method":"irv","candidates":["A","B"],"rules":{"overvote":"exhaust","skips":"continue","batch":false,"tiebreak":"previous-round"},"rounds":[{"round":1,"tallies":{"A":3,"B":2},"continuing":5,"inactive":{"blank":0,"overvote":0,"skips":0,"undervote":0,"exhausted":0},"threshold":3,"eliminated":[]}],"winner":"A","totalBallots":5}
+HTTP 200

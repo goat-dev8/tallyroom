@@ -1,0 +1,8 @@
+[
+  {
+    "kind": "snapshot",
+    "stepIndex": 5,
+    "summary": "Step 5 'The sample CSV should display the ballot record “7,Ann>Ben>Cy”.' failed. Error: TEST FAILURE\n\nThe Sample CSV link was not found on the upload page, and the sample CSV page returned a 404 instead of displaying the required ballot lines.\n\nObservations:\n- The upload page showed the required format-help wording.\n- No link labeled “Sample CSV” was found on the upload page.\n- The sample CSV URL displayed “404 — This page could not be found.”",
+    "path": "steps/05-snapshot.html"
+  }
+]

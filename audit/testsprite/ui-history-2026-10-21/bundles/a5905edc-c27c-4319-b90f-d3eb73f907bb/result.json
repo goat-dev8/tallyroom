@@ -1,0 +1,24 @@
+{
+  "testId": "44dc520c-ca8f-4702-9a82-45479d732440",
+  "status": "failed",
+  "startedAt": "2026-10-20T05:53:58.368Z",
+  "finishedAt": "2026-10-20T05:55:41.352Z",
+  "videoUrl": "https://testsprite-videos.s3.us-east-1.amazonaws.com/20261020-055538-c84bdf1d.webm?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZQ3DRZAIPCZPKBNY%2F20261020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261020T220035Z&X-Amz-Expires=604800&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEIH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIAEbLtphW5nM0ARjZB5%2FgqXjUZNovrsRMcO%2BzURczrVNAiEA5CpZ4ovWJpt3254S3iUzcyKkjC8OPqZ5Rj%2F5g7WrLbkq%2BwMIShAAGgw2NTQ2NTQ0MjUxMDQiDGtcI5hnd9WmiZoEcCrYA6sLNTr6cgRXAv7IW1AxGElUjC7BCEhv2T%2Bor1Z73Qs3z%2BJipykFbQLqlCrrobUBFm8AtmLSDnDn2pb6Hi%2BrHQUD%2FXH0%2BOuF8ydfCewGxjffe7cwtGL1%2BffhAtrT4eRKoisp9yZ4CQCUXPAxv3BlLbVyINv0arefWAYY%2Fmmnlj29bZKPHKeOsFaX7p0uDYsCUBvZpPXso9%2F9yCZ1BreS%2FcVOlbtJ21CK%2BpjGlQ7qj2kDMl9qC6qMavpSX84P3v8bSFHZokRT3MVGfl0Jx6CUUeNtMXSHYRGHZxqXbPqahYrCYc%2F3jjjVzN4qvxCOzsyA0srzpXShyRDI99Qv4CYUNdBOY7TsTngf1Iz%2FCm25hbfGOoFK6tzfKxDMYQTlOz1QTQ5PaagNN3jtWfr%2FSz%2B6eUH64frZeeMM7km%2B9rgvFDL4vYPqIv5m0ja42Z%2BTESQFBF4hWORKjFnKThtI5w%2FK3XV3eYbse%2Fs8ViUKF6BoIsmV4DmXHUWJkBu6Ra9S795rvg38W4xEezybx79Cx4%2F%2F2sV6Lvh563mrvmWFwZcNvjid2PXQDsdecn6fq1Xp9oODF%2F5xi50Prs0gOEEmvBjmIIL6NDBhG5AH1D5ceybLkOt6YgOLhZzcyF4wrqve1gY6pQG8cJghPihxlpcQ4RXuhutUYkxVrjL%2BMcunnGGxfOIjhRDuAr8aRux7wyMvQE1Pq0EV%2ByMOyUgj%2FF8RQbJ4tB8T8te%2Bgr%2BauBZuETsxAe6XCrrMOOrDaYQ1ayhbxfvoYx1u5lVytvlrfRaSVc8XcuduLk0kkfdGwN70afkw7k8bgcIC%2BI%2BvYtCFjwBnupCoySZiVP2kEPGrjulzZ%2FxJuZjcF8yN%2BXQ%3D&X-Amz-Signature=2e6b30e51e0ac79d76196de33ee6f8b8abfacd2a4a159ffbcb950cfac160a4c5&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+  "failureAnalysisUrl": null,
+  "snapshotId": "snap_37e1437aaa0cfa3c",
+  "runIdIfAvailable": "a5905edc-c27c-4319-b90f-d3eb73f907bb",
+  "codeVersion": null,
+  "targetUrl": "https://tallyroom-git-fix-csv-single-choice-goats-projects-3f023cc9.vercel.app",
+  "targetUrlSource": null,
+  "environment": {
+    "id": "6576d23e-38ce-47de-9e19-b2d712b869db",
+    "name": "github-pr-13"
+  },
+  "failedStepIndex": 3,
+  "failureKind": "assertion",
+  "verdict": "failed",
+  "executionStatus": "completed",
+  "summary": "Failed (assertion): The page is rendering the Sankey paths with the correct test hook (`data-testid=\"sankey-link\"`) but the actual DOM class list no longer contains `sankey-link`, likely due to a styling/refactor change in the chart component or a regression in the build output. The test expects that class to be present on each path, so the service is failing because the hosted version’s rendered SVG links do not match the expected class naming contract. Underlying error: TEST FAILURE\n\nThe resu… Target: environment github-pr-13 (https://tallyroom-git-fix-csv-single-choice-goats-projects-3f023cc9.vercel.app).",
+  "apiOutput": null,
+  "trace": null
+}

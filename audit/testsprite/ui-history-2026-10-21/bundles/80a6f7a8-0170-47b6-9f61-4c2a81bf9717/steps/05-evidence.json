@@ -1,0 +1,8 @@
+[
+  {
+    "kind": "snapshot",
+    "stepIndex": 5,
+    "summary": "Step 5 'The results remain at Round 1 instead of advancing to Round 2.' failed. Error: TEST FAILURE\n\nPressing ArrowRight did not advance the results from Round 1 to Round 2. The requested Round 2 URL state was not reached, so the ArrowLeft return check could not be completed.\n\nObservations:\n- The page shows “Round 1 of 2.”\n- The URL remains at round=1 after three ArrowRight attempts.",
+    "path": "steps/05-snapshot.html"
+  }
+]

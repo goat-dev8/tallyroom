@@ -18,7 +18,7 @@ curl -s https://tallyroom-rosy.vercel.app/api/tabulate -H 'content-type: applica
 | NYC 2021, Democratic mayor primary | 947,932 | official cast vote records | same |
 | Burlington VT 2009, mayor | 8,980 | PrefLib conversion of the city's ballot file | same (certified under the overvote rule "continuing") |
 
-4 of 4 elections are exact: 119 compared figures, 0 gaps (`audit/parity/README.md`). The tables are in `PARITY.md`, and `npm run parity` exits non-zero on any gap. The raw files are pinned by SHA-256 in the [`raw-cvr-v1`](https://github.com/goat-dev8/tallyroom/releases/tag/raw-cvr-v1) release. `parity-nightly.yml` rebuilds everything from those files. It has run once, started by hand ([run 39385031100](https://github.com/goat-dev8/tallyroom/actions/runs/39385031100), exact). Its cron has not fired yet.
+4 of 4 elections are exact: 119 compared figures, 0 gaps (`audit/parity/README.md`). A second, field-level check against the official round tables (those 4 plus 30 Scottish council wards) matches 4,344 of 4,345 fields; the one difference is the Burlington threshold definition (`audit/parity/field-parity.md`). The tables are in `PARITY.md` (Burlington added 2026-10-21), and `npm run parity` exits non-zero on any gap. The raw files are pinned by SHA-256 in the [`raw-cvr-v1`](https://github.com/goat-dev8/tallyroom/releases/tag/raw-cvr-v1) release. `parity-nightly.yml` rebuilds everything from those files. It has run once, started by hand ([run 39385031100](https://github.com/goat-dev8/tallyroom/actions/runs/39385031100), exact). Its cron has not fired yet.
 
 - `src/irv.ts`: single-winner IRV with configurable overvote, skipped-rank and duplicate rules, batch elimination, and previous-round or lot tie-breaks.
 - `src/stv.ts`: STV with Droop or Hare quota and Gregory surplus transfer, in exact BigInt rationals (`src/fraction.ts`).
@@ -30,8 +30,8 @@ curl -s https://tallyroom-rosy.vercel.app/api/tabulate -H 'content-type: applica
 |---|---|---|
 | TestSprite UI (`testsprite/frontend/`) | 34 plans, the same 34 tests in the TestSprite project | every PR preview, through the TestSprite V3 GitHub check |
 | TestSprite API (`testsprite/backend/`) | 22 tests, the same 22 `api:` tests in the TestSprite project | PR previews that touch API code (`testsprite-cli.yml`), and production after merges that touch app code (`testsprite-prod.yml`) |
-| Vitest (`test/`) | 247 tests (the 600-case fuzz corpus and the 120-case hostile corpus are 1 test each) | every PR and every push to main (`ci.yml`) |
-| Playwright (`tests/e2e/`) | 44 tests × 2 viewports | every PR (`ci.yml`, `playwright e2e` job) |
+| Vitest (`test/`) | 327 tests (counted by `npx vitest run` on 2026-10-21) (the 600-case fuzz corpus and the 120-case hostile corpus are 1 test each) | every PR and every push to main (`ci.yml`) |
+| Playwright (`tests/e2e/`) | 48 tests × 2 viewports = 96 (`npx playwright test --list`, 2026-10-21) | every PR (`ci.yml`, `playwright e2e` job) |
 
 Plans written but not yet created in TestSprite are in `testsprite/planned/`, and they aren't counted above. The V3 bot says it queued 23 API tests. That is because the TestSprite project still holds one old smoke test, `smoke:api-health-pr1-preview`, which isn't in this repo.
 
