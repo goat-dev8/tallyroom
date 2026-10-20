@@ -53,6 +53,6 @@ describe('GET /api/elections', () => {
     const r = handleElectionList('POST');
     expect(r.status).toBe(405);
     expect(r.headers).toEqual({ Allow: 'GET' });
-    expect(r.body).toEqual({ error: 'Method not allowed' });
+    expect(r.body).toEqual({ error: { code: 'METHOD_NOT_ALLOWED', message: 'Method not allowed', details: null } });
   });
 });

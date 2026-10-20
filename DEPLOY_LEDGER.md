@@ -14,8 +14,14 @@ Rules
 |---|---|---|---|---|---|---|---|---|
 | 2026-10-19 | 22:22 | – (push to main) | f6405bf | Built: READY, production, dpl_4GgLHxvrbvXhkUipJ2tiN5caVpFj | 1 | 0 | 0 | First deploy. Project prj_yw32SAP9ZGvSOJ0bgeeUxdeTiwxc created and linked to goat-dev8/tallyroom. The earlier push of 567ba2b came before the project existed, so it made no deploy. |
 | 2026-10-19 | 22:24 | – (push to main) | ad6094b | Skipped by ignoreCommand (CANCELED, docs-only), dpl_BCdNVAXuTsbSFQrZz8QZcx7AfUwW | 1 | 0 | 0 | Shows the ignoreCommand working. Not counted. |
-| 2026-10-19 | 22:40 | #1 (ui/foundation) | d80d87b | Built: READY, preview, dpl_oVutvdyGfee5X5Jhxjz7tNBr26M6 | 2 | 0 | 0 | First UI preview. |
-| 2026-10-19 | 23:18–23:23 | backend stream (feat/api-*) | 833093d, b9cf315, 1e73cf9, 3461630, b9ce2fd, 1b2d7d3, c7a676c | Built: 7 previews READY | 9 | 0 | 0 | Pushed by the backend stream; recorded here from the Vercel deployments list at 23:35 so the 24 h count stays accurate. |
+| 2026-10-19 | 22:40 | #1 (ui/foundation) | d80d87b | Built: READY, preview, dpl_oVutvdyGfee5X5Jhxjz7tNBr26M6 | 2 | 0 | 0 | UI foundation preview. |
+| 2026-10-19 | 23:18 | #2 | b9cf315 | Built: READY, preview, dpl_Bkqbj5fg1DbyRYxrPLjLftezY6oM | 3 | 0 | 0 | GET /api/elections. |
+| 2026-10-19 | 23:18 | #3 | 1e73cf9 | Built, preview, dpl_71FhZzqcGvCi4AudoLkbBcbdAb1H | 4 | 0 | 0 | GET /api/elections/[id]/rounds. |
+| 2026-10-19 | 23:18 | #4 | 3461630 | Built, preview, dpl_rmjfqtr1uFaKcEhKShTDSHwLJS4J | 5 | 0 | 0 | CSV/JSON on POST /api/tabulate. |
+| 2026-10-19 | 23:18 | #5 | b9ce2fd | Built, preview, dpl_GwDJMvB6JvgAbth8xFYwu9nTkPyT | 6 | 0 | 0 | /api/report. |
+| 2026-10-19 | 23:18 | #6 | 1b2d7d3 | Built, preview, dpl_ZZ455YntmrqssH18TbvFiL2k8w1Y | 7 | 0 | 0 | Options, write-ins, presets. |
+| 2026-10-19 | 23:18 | #7 | 833093d | Built: READY, preview, dpl_FcoRAcFNev7vXk32LoE6X5eNGBNM | 8 | 0 | 0 | First push. POST /api/elections/[id]/tabulate returned 500 (fixture path via webpack URL). |
+| 2026-10-19 | 23:35 | #7 | (this commit) | Built, preview | 9 | 0 | 0 | Second push: fixture path fix. |
 | 2026-10-19 | ~23:40 | #1 (ui/foundation) | this commit (landing redesign, worker dashboard, e2e) | Built: preview | 10 | 0 | 0 | One push for the whole redesign. Deployment id in the PR checks. |
 
 ## Daily totals

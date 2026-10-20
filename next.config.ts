@@ -3,6 +3,8 @@ import type { NextConfig } from 'next';
 // The engine uses NodeNext-style `./x.js` imports; map them to the .ts sources.
 const config: NextConfig = {
   typescript: { ignoreBuildErrors: true }, poweredByHeader: false, reactStrictMode: true,
+  // Bundled election fixtures are read from disk at request time by the tabulate route.
+  outputFileTracingIncludes: { '/api/elections/[id]/tabulate': ['./data/fixtures/*.tsv'] },
   webpack: (c) => { c.resolve.extensionAlias = { '.js': ['.ts', '.tsx', '.js'] }; return c; },
 };
 export default config;

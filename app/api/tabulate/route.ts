@@ -1,7 +1,8 @@
 import { handleTabulate } from '../../../src/api';
+import { fail, MAX_BODY_BYTES, tooLarge } from '../../../src/errors';
 
 export const runtime = 'nodejs';
-const MAX = 10 * 1024 * 1024;
+const MAX = MAX_BODY_BYTES;
 
 function send(r: { status: number; body: unknown; headers?: Record<string, string> }) {
   return new Response(JSON.stringify(r.body), {
@@ -16,11 +17,11 @@ async function respond(req: Request) {
   if (ct.toLowerCase().includes('multipart/form-data')) {
     let form: FormData;
     try { form = await req.formData(); }
-    catch { return send({ status: 400, body: { error: 'Could not read multipart form data' } }); }
+    catch { return send(fail(400, 'MULTIPART', 'Could not read multipart form data')); }
     const file = form.get('file') ?? form.get('ballots');
     if (typeof file === 'string') return send(handleTabulate('POST', file, { contentType: 'text/csv' }));
-    if (file == null) return send({ status: 400, body: { error: 'Expected a file field named "file" or "ballots"' } });
-    if (file.size > MAX) return send({ status: 413, body: { error: 'Ballot file too large (max 10 MB)' } });
+    if (file == null) return send(fail(400, 'MISSING_FILE', 'Expected a file field named "file" or "ballots"', { fields: ['file', 'ballots'] }));
+    if (file.size > MAX) return send(tooLarge());
     const raw = await file.text();
     const name = file.name ?? '';
     const type = file.type || (name.endsWith('.json') ? 'application/json' : 'text/csv');

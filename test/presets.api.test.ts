@@ -55,6 +55,6 @@ describe('named rule presets', () => {
   it('rejects an unknown preset id', () => {
     const r = handleTabulate('POST', JSON.stringify({ ballots: '1,A', rules: 'not-a-preset' }));
     expect(r.status).toBe(400);
-    expect(r.body).toEqual({ error: 'Unknown rules preset "not-a-preset". Expected maine-2018, alaska-2022, nyc-2021' });
+    expect(r.body).toEqual({ error: { code: 'UNKNOWN_PRESET', message: 'Unknown rules preset "not-a-preset". Expected maine-2018, alaska-2022, nyc-2021', details: null } });
   });
 });

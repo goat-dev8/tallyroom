@@ -1,5 +1,10 @@
 import { BallotGroup, Mark } from './types.js';
-export class ParseError extends Error { constructor(public line: number, msg: string) { super(`Line ${line}: ${msg}`); } }
+export class ParseError extends Error {
+  constructor(public line: number, msg: string, public column?: number, public candidate?: string) {
+    super(`Line ${line}: ${msg}`);
+    this.name = 'ParseError';
+  }
+}
 const clean = (s: string) => s.trim().replace(/^"(.*)"$/s, '$1').normalize('NFC');
 
 /** Ballot token for an unresolved write-in. Counted only when listed in the declared candidates. */
@@ -26,13 +31,13 @@ export function parseBallots(text: string, declared?: string[]): { ballots: Ball
     const line = raw.trim(); if (!line || line.startsWith('#')) return;
     const comma = line.indexOf(','); if (comma < 0) throw new ParseError(i + 1, 'expected "count,ranking"');
     const countStr = line.slice(0, comma).trim();
-    if (!/^[1-9]\d*$/.test(countStr)) throw new ParseError(i + 1, 'count must be a positive integer');
-    const marks: Mark[] = line.slice(comma + 1).split('>').map(tok => {
+    if (!/^[1-9]\d*$/.test(countStr)) throw new ParseError(i + 1, 'count must be a positive integer', 1);
+    const marks: Mark[] = line.slice(comma + 1).split('>').map((tok, idx) => {
       const t = tok.trim();
       if (t === '_' || t === '' || /^undervote$/i.test(t)) return { kind: 'skip' } as Mark;
       if (/^\[.*\]$/.test(t) || /^overvote$/i.test(t)) return { kind: 'overvote' } as Mark;
       const name = clean(t);
-      if (declared && !declared.includes(name) && name !== WRITE_IN) throw new ParseError(i + 1, `unknown candidate "${name}"`);
+      if (declared && !declared.includes(name) && name !== WRITE_IN) throw new ParseError(i + 1, `unknown candidate "${name}"`, idx + 1, name);
       remember(seen, name, declared);
       return { kind: 'candidate', name } as Mark;
     });
@@ -44,7 +49,10 @@ export function parseBallots(text: string, declared?: string[]): { ballots: Ball
 
 /** Well-formed ballot input that cannot be counted (empty file, bad count, unknown candidate). */
 export class BallotSemanticError extends Error {
-  constructor(message: string) { super(message); this.name = 'BallotSemanticError'; }
+  constructor(message: string, public row?: number, public column?: number, public candidate?: string) {
+    super(message);
+    this.name = 'BallotSemanticError';
+  }
 }
 
 const RANK_HEADER = /^(?:rank|choice|preference|pref)\s*\d+$|^\d+\s*(?:st|nd|rd|th)?(?:\s*(?:choice|rank|preference|pref))?$|^(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)(?:\s+(?:choice|rank|preference))?$/i;
@@ -52,21 +60,23 @@ const COUNT_HEADER = /^(?:count|weight|ballots|votes|qty|quantity)$/i;
 const IGNORE_HEADER = /^(?:id|ballot|ballot[_\s-]?id|#|precinct|style)$/i;
 const SKIP_CELL = /^(?:_|undervote|skip|blank)$/i;
 
-function marksFromRanking(ranking: string, declared: string[] | undefined, label: string): Mark[] {
+function marksFromRanking(ranking: string, declared: string[] | undefined, row: number): Mark[] {
   let parsed: { ballots: BallotGroup[] };
   try { parsed = parseBallots(`1,${ranking}`, declared); }
   catch (e) {
-    if (e instanceof ParseError) throw new BallotSemanticError(`${label}: ${e.message.replace(/^Line \d+: /, '')}`);
+    if (e instanceof ParseError) throw new BallotSemanticError(`Ballot ${row}: ${e.message.replace(/^Line \d+: /, '')}`, row, e.column, e.candidate);
     throw e;
   }
   return parsed.ballots[0].marks;
 }
 
-function cellMark(cell: string, declared: string[] | undefined, rowLabel: string): Mark {
+function cellMark(cell: string, declared: string[] | undefined, row: number, column: number): Mark {
   const t = clean(cell);
   if (t === '' || SKIP_CELL.test(t)) return { kind: 'skip' };
   if (/^overvote$/i.test(t) || /^\[.*\]$/.test(t)) return { kind: 'overvote' };
-  if (declared && !declared.includes(t) && t !== WRITE_IN) throw new BallotSemanticError(`${rowLabel}: unknown candidate "${t}"`);
+  if (declared && !declared.includes(t) && t !== WRITE_IN) {
+    throw new BallotSemanticError(`Row ${row}, column ${column}: unknown candidate "${t}"`, row, column, t);
+  }
   return { kind: 'candidate', name: t };
 }
 
@@ -98,11 +108,11 @@ export function parseRankCsv(text: string, declared?: string[]): { ballots: Ball
     let count = 1;
     if (countCol >= 0) {
       const raw = (cells[countCol] ?? '').trim();
-      if (!/^[1-9]\d*$/.test(raw)) throw new BallotSemanticError(`Row ${row}: count must be a positive integer`);
+      if (!/^[1-9]\d*$/.test(raw)) throw new BallotSemanticError(`Row ${row}, column ${countCol + 1}: count must be a positive integer`, row, countCol + 1);
       count = Number(raw);
     }
     const indexes = rankCols ?? cells.map((_, i) => i);
-    const marks = indexes.map(i => cellMark(cells[i] ?? '', declared, `Row ${row}`));
+    const marks = indexes.map(i => cellMark(cells[i] ?? '', declared, row, i + 1));
     return { count, marks };
   });
   return { ballots, candidates: collectCandidates(ballots, declared) };
@@ -123,27 +133,30 @@ export function parseCsvRows(text: string): string[][] {
   let cell = '';
   let inQuotes = false;
   let line = 1;
+  let col = 1;
   let quoteLine = 1;
+  let quoteCol = 1;
   for (let i = 0; i < src.length; i++) {
     const c = src[i];
     if (inQuotes) {
       if (c === '"') {
-        if (src[i + 1] === '"') { cell += '"'; i++; continue; }
-        inQuotes = false; continue;
+        if (src[i + 1] === '"') { cell += '"'; i++; col += 2; continue; }
+        inQuotes = false; col++; continue;
       }
-      if (c === '\n') line++;
-      cell += c; continue;
+      cell += c;
+      if (c === '\n') { line++; col = 1; } else col++;
+      continue;
     }
-    if (c === '"') { inQuotes = true; quoteLine = line; continue; }
-    if (c === ',') { row.push(cell); cell = ''; continue; }
+    if (c === '"') { inQuotes = true; quoteLine = line; quoteCol = col; col++; continue; }
+    if (c === ',') { row.push(cell); cell = ''; col++; continue; }
     if (c === '\n' || c === '\r') {
       if (c === '\r' && src[i + 1] === '\n') i++;
       row.push(cell); cell = ''; rows.push(row); row = []; cell = '';
-      line++; continue;
+      line++; col = 1; continue;
     }
-    cell += c;
+    cell += c; col++;
   }
-  if (inQuotes) throw new ParseError(quoteLine, 'unterminated quoted field');
+  if (inQuotes) throw new ParseError(quoteLine, 'unterminated quoted field', quoteCol);
   if (cell.length > 0 || row.length > 0) { row.push(cell); rows.push(row); }
   return rows;
 }
@@ -158,32 +171,33 @@ export function parseBallotJson(ballots: unknown, declared?: string[]): { ballot
   if (ballots.length === 0) throw new BallotSemanticError('No valid ballots to count');
   const groups: BallotGroup[] = ballots.map((item, i) => {
     const label = `Ballot ${i + 1}`;
-    if (typeof item === 'string') return { count: 1, marks: marksFromRanking(item, declared, label) };
+    const row = i + 1;
+    if (typeof item === 'string') return { count: 1, marks: marksFromRanking(item, declared, row) };
     if (Array.isArray(item)) {
       const marks = item.map((cell, j) => {
         if (cell == null || cell === '') return { kind: 'skip' } as Mark;
-        if (typeof cell !== 'string') throw new BallotSemanticError(`${label}: rank ${j + 1} must be a string`);
-        return cellMark(cell, declared, label);
+        if (typeof cell !== 'string') throw new BallotSemanticError(`${label}: rank ${j + 1} must be a string`, row, j + 1);
+        return cellMark(cell, declared, row, j + 1);
       });
       return { count: 1, marks };
     }
-    if (!item || typeof item !== 'object') throw new BallotSemanticError(`${label}: expected a ranking string, an array of ranks, or { count, ranks }`);
+    if (!item || typeof item !== 'object') throw new BallotSemanticError(`${label}: expected a ranking string, an array of ranks, or { count, ranks }`, row);
     const o = item as { count?: unknown; ranks?: unknown; ranking?: unknown };
     let count = 1;
     if (o.count !== undefined) {
-      if (typeof o.count !== 'number' || !Number.isInteger(o.count) || o.count < 1) throw new BallotSemanticError(`${label}: count must be a positive integer`);
+      if (typeof o.count !== 'number' || !Number.isInteger(o.count) || o.count < 1) throw new BallotSemanticError(`${label}: count must be a positive integer`, row);
       count = o.count;
     }
-    if (typeof o.ranking === 'string') return { count, marks: marksFromRanking(o.ranking, declared, label) };
+    if (typeof o.ranking === 'string') return { count, marks: marksFromRanking(o.ranking, declared, row) };
     if (Array.isArray(o.ranks)) {
       const marks = o.ranks.map((cell, j) => {
         if (cell == null || cell === '') return { kind: 'skip' } as Mark;
-        if (typeof cell !== 'string') throw new BallotSemanticError(`${label}: rank ${j + 1} must be a string`);
-        return cellMark(cell, declared, label);
+        if (typeof cell !== 'string') throw new BallotSemanticError(`${label}: rank ${j + 1} must be a string`, row, j + 1);
+        return cellMark(cell, declared, row, j + 1);
       });
       return { count, marks };
     }
-    throw new BallotSemanticError(`${label}: expected "ranks" or "ranking"`);
+    throw new BallotSemanticError(`${label}: expected "ranks" or "ranking"`, row);
   });
   return { ballots: groups, candidates: collectCandidates(groups, declared) };
 }

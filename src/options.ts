@@ -1,3 +1,4 @@
+import { fail } from './errors.js';
 import { PRESET_IDS, RULE_PRESETS } from './presets.js';
 import { DEFAULT_RULES } from './types.js';
 
@@ -7,7 +8,7 @@ export const OVERVOTE_OPTIONS = ['exhaust', 'skip'] as const;
 export const SKIP_OPTIONS = ['continue', 'two-exhaust'] as const;
 export const DUPLICATE_OPTIONS = ['ignore', 'skip'] as const;
 
-export interface OptionError { status: 422; body: { error: string } }
+export interface OptionError { status: 422; code: string; message: string; details?: Record<string, unknown> | null }
 
 interface LooseRules {
   overvote?: unknown;
@@ -18,43 +19,43 @@ interface LooseRules {
   lotOrder?: unknown;
 }
 
-function oneOf(field: string, value: unknown, allowed: readonly string[]): OptionError | null {
+function oneOf(field: string, value: unknown, allowed: readonly string[], code: string): OptionError | null {
   if (value === undefined) return null;
   if (typeof value === 'string' && (allowed as readonly string[]).includes(value)) return null;
-  return { status: 422, body: { error: `${field} must be one of: ${allowed.join(', ')}` } };
+  return { status: 422, code, message: `${field} must be one of: ${allowed.join(', ')}`, details: { field, value } };
 }
 
 /** Reject tie-break and STV option values the counter does not define. Unknown rule keys are handled earlier (400). */
 export function validateTabulateOptions(value: { seats?: unknown; quota?: unknown; rules?: LooseRules | null; candidates: string[] }): OptionError | null {
   const rules = value.rules ?? {};
-  const tiebreak = oneOf('rules.tiebreak', rules.tiebreak, TIEBREAK_OPTIONS);
+  const tiebreak = oneOf('rules.tiebreak', rules.tiebreak, TIEBREAK_OPTIONS, 'INVALID_TIEBREAK');
   if (tiebreak) return tiebreak;
-  const overvote = oneOf('rules.overvote', rules.overvote, OVERVOTE_OPTIONS);
+  const overvote = oneOf('rules.overvote', rules.overvote, OVERVOTE_OPTIONS, 'INVALID_OVERVOTE');
   if (overvote) return overvote;
-  const skips = oneOf('rules.skips', rules.skips, SKIP_OPTIONS);
+  const skips = oneOf('rules.skips', rules.skips, SKIP_OPTIONS, 'INVALID_SKIPS');
   if (skips) return skips;
-  const duplicates = oneOf('rules.duplicates', rules.duplicates, DUPLICATE_OPTIONS);
+  const duplicates = oneOf('rules.duplicates', rules.duplicates, DUPLICATE_OPTIONS, 'INVALID_DUPLICATES');
   if (duplicates) return duplicates;
   if (rules.batch !== undefined && typeof rules.batch !== 'boolean') {
-    return { status: 422, body: { error: 'rules.batch must be a boolean' } };
+    return { status: 422, code: 'INVALID_BATCH', message: 'rules.batch must be a boolean', details: { field: 'rules.batch' } };
   }
   if (rules.lotOrder !== undefined) {
     const lot = rules.lotOrder;
     if (!Array.isArray(lot) || lot.some(n => typeof n !== 'string')) {
-      return { status: 422, body: { error: 'rules.lotOrder must be an array of candidate names' } };
+      return { status: 422, code: 'INVALID_LOT_ORDER', message: 'rules.lotOrder must be an array of candidate names', details: { field: 'rules.lotOrder' } };
     }
     const names = lot as string[];
     const dup = names.find((n, i) => names.indexOf(n) !== i);
-    if (dup !== undefined) return { status: 422, body: { error: `rules.lotOrder contains a duplicate "${dup}"` } };
+    if (dup !== undefined) return { status: 422, code: 'INVALID_LOT_ORDER', message: `rules.lotOrder contains a duplicate "${dup}"`, details: { field: 'rules.lotOrder', candidate: dup } };
     for (const c of value.candidates) {
-      if (!names.includes(c)) return { status: 422, body: { error: `rules.lotOrder is missing candidate "${c}"` } };
+      if (!names.includes(c)) return { status: 422, code: 'INVALID_LOT_ORDER', message: `rules.lotOrder is missing candidate "${c}"`, details: { field: 'rules.lotOrder', candidate: c } };
     }
   }
   if (value.quota !== undefined && (typeof value.quota !== 'string' || !(QUOTA_OPTIONS as readonly string[]).includes(value.quota))) {
-    return { status: 422, body: { error: `quota must be one of: ${QUOTA_OPTIONS.join(', ')}` } };
+    return { status: 422, code: 'INVALID_QUOTA', message: `quota must be one of: ${QUOTA_OPTIONS.join(', ')}`, details: { field: 'quota', value: value.quota as string } };
   }
   if (value.seats !== undefined && !Number.isInteger(value.seats)) {
-    return { status: 422, body: { error: 'seats must be an integer from 1 to the number of candidates' } };
+    return { status: 422, code: 'INVALID_SEATS', message: 'seats must be an integer from 1 to the number of candidates', details: { field: 'seats' } };
   }
   return null;
 }
@@ -118,6 +119,6 @@ export function countingOptions() {
 }
 
 export function handleOptions(method: string): { status: number; body: unknown; headers?: Record<string, string> } {
-  if (method !== 'GET') return { status: 405, headers: { Allow: 'GET' }, body: { error: 'Method not allowed' } };
+  if (method !== 'GET') return fail(405, 'METHOD_NOT_ALLOWED', 'Method not allowed', null, { Allow: 'GET' });
   return { status: 200, body: countingOptions() };
 }

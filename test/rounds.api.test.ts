@@ -86,7 +86,7 @@ describe('GET /api/elections/[id]/rounds', () => {
     expect(handleElectionRounds('GET', 'alaska-2022-special').body).toEqual(handleElectionRounds('GET', 'alaska-2022').body);
     expect(handleElectionRounds('GET', 'nyc-2021-dem-mayor').body).toEqual(handleElectionRounds('GET', 'nyc-2021').body);
     expect(handleElectionRounds('GET', 'no-such').status).toBe(404);
-    expect(handleElectionRounds('GET', 'no-such').body).toEqual({ error: 'Unknown election "no-such"' });
+    expect(handleElectionRounds('GET', 'no-such').body).toEqual({ error: { code: 'UNKNOWN_ELECTION', message: 'Unknown election "no-such"', details: { id: 'no-such' } } });
   });
 
   it('405 on POST', () => {

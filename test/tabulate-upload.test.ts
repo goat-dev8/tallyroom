@@ -75,25 +75,39 @@ describe('POST /api/tabulate CSV and JSON ballots', () => {
   });
 
   it('400 on malformed JSON, malformed CSV, and the wrong ballots type', () => {
-    expect(handleTabulate('POST', '{x', { contentType: 'application/json' }).body).toEqual({ error: 'Invalid JSON body' });
+    expect(handleTabulate('POST', '{x', { contentType: 'application/json' }).body).toEqual({ error: { code: 'INVALID_JSON', message: 'Invalid JSON body', details: null } });
     expect(handleTabulate('POST', 'rank1,rank2\n"Alice,Bob\n', { contentType: 'text/csv' }).status).toBe(400);
-    expect(handleTabulate('POST', 'rank1\n"Alice,Bob\n', { contentType: 'text/csv' }).body).toEqual({ error: 'Line 2: unterminated quoted field' });
+    expect(handleTabulate('POST', 'rank1\n"Alice,Bob\n', { contentType: 'text/csv' }).body).toEqual({
+      error: { code: 'UNTERMINATED_QUOTE', message: 'Line 2: unterminated quoted field', details: { row: 2, column: 1 } },
+    });
     expect(handleTabulate('POST', JSON.stringify({ ballots: 12 })).status).toBe(400);
-    expect(handleTabulate('POST', JSON.stringify({ ballots: 12 })).body).toEqual({ error: 'Field "ballots" must be a ranking string or an array of ballots' });
-    expect(handleTabulate('POST', JSON.stringify({ ballots: '1,A', rules: { foo: 1 } })).body).toEqual({ error: 'Unknown rule key(s): foo' });
+    expect(handleTabulate('POST', JSON.stringify({ ballots: 12 })).body).toEqual({ error: { code: 'INVALID_BALLOTS', message: 'Field "ballots" must be a ranking string or an array of ballots', details: null } });
+    expect(handleTabulate('POST', JSON.stringify({ ballots: '1,A', rules: { foo: 1 } })).body).toEqual({ error: { code: 'UNKNOWN_RULE', message: 'Unknown rule key(s): foo', details: { keys: ['foo'] } } });
   });
 
-  it('422 when the upload is readable but cannot be counted', () => {
-    expect(handleTabulate('POST', 'rank1,rank2\n', { contentType: 'text/csv' })).toMatchObject({ status: 422, body: { error: 'No valid ballots to count' } });
-    expect(handleTabulate('POST', 'count,rank1\n0,A\n', { contentType: 'text/csv' })).toMatchObject({ status: 422, body: { error: 'Row 2: count must be a positive integer' } });
-    expect(handleTabulate('POST', JSON.stringify({ ballots: [] }))).toMatchObject({ status: 422, body: { error: 'No valid ballots to count' } });
-    expect(handleTabulate('POST', JSON.stringify({ ballots: [{ count: -2, ranks: ['A'] }] }))).toMatchObject({ status: 422, body: { error: 'Ballot 1: count must be a positive integer' } });
-    expect(handleTabulate('POST', JSON.stringify({ ballots: [{ ranks: ['Zed'] }], candidates: ['A', 'B'] }))).toMatchObject({ status: 422, body: { error: 'Ballot 1: unknown candidate "Zed"' } });
-    expect(handleTabulate('POST', JSON.stringify({ csv: 'rank1\nZed\n', candidates: ['A'] }))).toMatchObject({ status: 422, body: { error: 'Row 2: unknown candidate "Zed"' } });
+  it('422 when the upload is readable but cannot be counted, with row and column', () => {
+    expect(handleTabulate('POST', 'rank1,rank2\n', { contentType: 'text/csv' })).toMatchObject({ status: 422, body: { error: { code: 'NO_BALLOTS', message: 'No valid ballots to count', details: null } } });
+    expect(handleTabulate('POST', 'count,rank1\n0,A\n', { contentType: 'text/csv' }).body).toEqual({
+      error: { code: 'INVALID_COUNT', message: 'Row 2, column 1: count must be a positive integer', details: { row: 2, column: 1 } },
+    });
+    expect(handleTabulate('POST', JSON.stringify({ ballots: [] }))).toMatchObject({ status: 422, body: { error: { code: 'NO_BALLOTS', message: 'No valid ballots to count' } } });
+    expect(handleTabulate('POST', JSON.stringify({ ballots: [{ count: -2, ranks: ['A'] }] })).body).toEqual({
+      error: { code: 'INVALID_COUNT', message: 'Ballot 1: count must be a positive integer', details: { row: 1 } },
+    });
+    expect(handleTabulate('POST', JSON.stringify({ ballots: [{ ranks: ['Zed'] }], candidates: ['A', 'B'] })).body).toEqual({
+      error: { code: 'UNKNOWN_CANDIDATE', message: 'Row 1, column 1: unknown candidate "Zed"', details: { row: 1, column: 1, candidate: 'Zed' } },
+    });
+    expect(handleTabulate('POST', JSON.stringify({ csv: 'rank1,rank2\nA,Zed\n', candidates: ['A'] })).body).toEqual({
+      error: { code: 'UNKNOWN_CANDIDATE', message: 'Row 2, column 2: unknown candidate "Zed"', details: { row: 2, column: 2, candidate: 'Zed' } },
+    });
+    expect(handleTabulate('POST', JSON.stringify({ ballots: '1,A>Zed', candidates: ['A'] })).status).toBe(422);
+    expect(handleTabulate('POST', JSON.stringify({ ballots: '1,A>Zed', candidates: ['A'] })).body).toEqual({
+      error: { code: 'UNKNOWN_CANDIDATE', message: 'Line 1: unknown candidate "Zed"', details: { row: 1, column: 2, candidate: 'Zed' } },
+    });
   });
 
-  it('413 still applies to CSV bodies over 10 MB', () => {
-    expect(handleTabulate('POST', 'a,b\n' + 'x'.repeat(10 * 1024 * 1024), { contentType: 'text/csv' }).status).toBe(413);
+  it('413 still applies to a CSV body over 4 MB', () => {
+    expect(handleTabulate('POST', 'a,b\n' + 'x'.repeat(4 * 1024 * 1024), { contentType: 'text/csv' }).status).toBe(413);
   });
 
   it('route accepts a CSV content type and a multipart file upload', async () => {
@@ -111,6 +125,6 @@ describe('POST /api/tabulate CSV and JSON ballots', () => {
 
     const missing = await POST(new Request('http://localhost/api/tabulate', { method: 'POST', body: new FormData() }));
     expect(missing.status).toBe(400);
-    expect(await missing.json()).toEqual({ error: 'Expected a file field named "file" or "ballots"' });
+    expect(await missing.json()).toEqual({ error: { code: 'MISSING_FILE', message: 'Expected a file field named "file" or "ballots"', details: { fields: ['file', 'ballots'] } } });
   });
 });
