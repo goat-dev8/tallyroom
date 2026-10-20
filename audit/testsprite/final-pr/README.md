@@ -41,7 +41,9 @@ The local Playwright mirror (`pr25/hero-autoplay-strengthened.spec.ts`) failed 3
 ## This PR
 | Step | When | Check / run | Result | Screenshot |
 |---|---|---|---|---|
-| R′ pushed, PR opened | _pending_ | | expected UI 33/34 (`ui:hero-autoplay` failed); API 22/37 (15 `regress:` failed) | |
+| R′ pushed (e91c92e), PR #26 opened; #25 closed as superseded | 01:36 | | | |
+| App UI check on R′ | 01:46 | [e34f1719](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/e34f1719-cc5a-4eaf-a7ed-5f66b84b58f1), `ui:hero-autoplay` run 9c41c8b2 on the s4-final preview | **33/34 passed · 1 failed**: the replay showed `Round 1 / 2` again after round 2 (BUG-008) | |
+| App API check on R′ | 01:37 | 4e933fb3 | **internal error again**: all 37 failed in about 2.6 s, 0 steps, status stuck at '37 tests queued'. Not reds. Balance 222.4 → 193.6 (28.8) | |
 | Merge blocked while red | _pending_ | | | |
 | G′ pushed | _pending_ | | expected 34/34 and 37/37 | |
 | Merged | _pending_ | | | |
