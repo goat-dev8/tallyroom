@@ -16,3 +16,20 @@ body { font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiase
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+/* ---- Brand system (see qa/BRAND.md) ---- */
+.hero-grid { background-image: linear-gradient(to right, #ffffff09 1px, transparent 1px), linear-gradient(to bottom, #ffffff09 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 35%, transparent 80%); }
+.threads-mask { mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%); }
+.fade-in { animation: tr-fade 1.6s cubic-bezier(.22,1,.36,1) both; }
+@keyframes tr-fade { from { opacity: 0 } to { opacity: 1 } }
+.demo-frame { background: linear-gradient(180deg, #11131a 0%, #0b0c10 100%); border: 1px solid #23262e; box-shadow: 0 0 0 1px #00000080, 0 1px 0 0 #ffffff12 inset, 0 40px 120px -40px rgba(124,140,255,.35), 0 20px 50px -20px #000; }
+.skeleton { background: linear-gradient(90deg, #ffffff08 0%, #ffffff12 50%, #ffffff08 100%); background-size: 200% 100%; animation: tr-shimmer 1.4s linear infinite; }
+@keyframes tr-shimmer { from { background-position: 200% 0 } to { background-position: -200% 0 } }
+/* Headline is hidden only while JS motion is about to run; reduced motion and no-JS always see it. */
+@media (prefers-reduced-motion: no-preference) and (min-width: 1024px) { html.js:not(.motion-ready) [data-split] { visibility: hidden; } }
+[data-split] { font-kerning: none; }
+.step { transition: none; }
+:focus-visible { outline: 2px solid var(--color-tally); outline-offset: 2px; }
+/* Above-the-fold entrance runs in CSS (no JS wait), so the hero paints at first frame and LCP is not delayed. */
+.rise { animation: tr-rise .9s cubic-bezier(.22,1,.36,1) both; }
+@keyframes tr-rise { from { opacity: 0.001; transform: translateY(16px); } to { opacity: 1; transform: none; } }
