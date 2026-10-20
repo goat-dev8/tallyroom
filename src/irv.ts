@@ -40,7 +40,8 @@ export function tabulateIrv(ballots: BallotGroup[], candidates: string[], partia
   const rounds: Round[] = [];
   if (candidates.length === 0) throw new Error('No candidates');
   for (let r = 1; ; r++) {
-    const tallies: Record<string, number> = {}; for (const c of candidates) if (continuing.has(c)) tallies[c] = 0;
+    // BUG-003: null-prototype maps, so a candidate named "__proto__" or "constructor" keeps its votes.
+    const tallies: Record<string, number> = Object.create(null); for (const c of candidates) if (continuing.has(c)) tallies[c] = 0;
     const inactive: Record<InactiveReason, number> = { blank: 0, overvote: 0, skips: 0, undervote: 0, exhausted: 0 };
     for (const b of ballots) {
       const p = currentChoice(b.marks, continuing, rules);
@@ -52,7 +53,7 @@ export function tabulateIrv(ballots: BallotGroup[], candidates: string[], partia
     const threshold = Math.floor(cont / 2) + 1;
     const round: Round = { round: r, tallies, continuing: cont, inactive, threshold, eliminated: [] };
     const prev = rounds[rounds.length - 1];
-    if (prev) { round.transfers = {}; for (const c of Object.keys(tallies)) round.transfers[c] = tallies[c] - prev.tallies[c]; }
+    if (prev) { const tr: Record<string, number> = Object.create(null); for (const c of Object.keys(tallies)) tr[c] = tallies[c] - prev.tallies[c]; round.transfers = tr; }
     rounds.push(round);
     const ordered = Object.keys(tallies).sort((a, b) => tallies[b] - tallies[a] || lot.indexOf(a) - lot.indexOf(b));
     const top = ordered[0];

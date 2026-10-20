@@ -1,0 +1,11 @@
+{
+  "rootCauseHypothesis": "POST https://tallyroom-rosy.vercel.app/api/tabulate → 422\nResponse: {\"error\":{\"code\":\"CSV_FORMAT_AMBIGUOUS\",\"message\":\"Row 2, column 1: candidate name \\\"3\\\" is purely numeric. With no header, a leading count belongs in count,rank1,rank2,...\",\"details\":{\"row\":2,\"column\":1,\"candidate\":\"3\"}}}\n(422, '{\"error\":{\"code\":\"CSV_FORMAT_AMBIGUOUS\",\"message\":\"Row 2, column 1: candidate name \\\\\"3\\\\\" is purely numeric. With no header, a leading count belongs in count,rank1,rank2,...\",\"details\":{\"row\":2,\"column\":1,\"candidate\":\"3\"}}}')\nAnalysis: The test called https://tallyroom-rosy.vercel.app/api/tabulate and the target API returned 422 CSV_FORMAT_AMBIGUOUS for the first CSV case: with no header, a leading numeric value like \"3\" is parsed as an invalid candidate name. The test expected that input to be accepted. Underlying error: (422, '{\"error\":{\"code\":\"CSV_FORMAT_AMBIGUOUS\",\"message\":\"Row 2, column 1: candidate name \\\\\"3\\\\\" is purely numeric. With no header, a leading count belongs in count,rank1,rank2,...\",\"details\":{\"row\":2,\"column\":1,\"candidate\":\"3\"}}}')",
+  "recommendedFixTarget": {
+    "kind": "unknown",
+    "reference": "{",
+    "rationale": "I changed the test to use an explicit CSV header for the count/ranking format, so the numeric count is unambiguous, and kept the edge-case checks for missing ballots, prototype-like candidate names, and large counts."
+  },
+  "evidence": [],
+  "apiOutput": "",
+  "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 162, in <module>\n  File \"<string>\", line 150, in test\nAssertionError: (422, '{\"error\":{\"code\":\"CSV_FORMAT_AMBIGUOUS\",\"message\":\"Row 2, column 1: candidate name \\\\\"3\\\\\" is purely numeric. With no header, a leading count belongs in count,rank1,rank2,...\",\"details\":{\"row\":2,\"column\":1,\"candidate\":\"3\"}}}')\n"
+}

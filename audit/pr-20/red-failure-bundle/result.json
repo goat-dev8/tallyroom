@@ -1,0 +1,21 @@
+{
+  "testId": "6ea8ff4f-91fd-41d3-8dc3-b64230b55ccc",
+  "status": "failed",
+  "startedAt": "2026-10-20T07:18:24.228Z",
+  "finishedAt": "2026-10-20T07:18:28.710Z",
+  "videoUrl": null,
+  "failureAnalysisUrl": null,
+  "snapshotId": "snap_c90a6f3ac870eca3",
+  "runIdIfAvailable": "c5846629-6fe8-4ada-bb1d-1d87dda6724c",
+  "codeVersion": "v-dfb327926f18",
+  "targetUrl": null,
+  "targetUrlSource": null,
+  "environment": null,
+  "failedStepIndex": null,
+  "failureKind": "assertion",
+  "verdict": "failed",
+  "executionStatus": "completed",
+  "summary": "Failed (assertion): POST https://tallyroom-rosy.vercel.app/api/tabulate → 422\nResponse: {\"error\":{\"code\":\"CSV_FORMAT_AMBIGUOUS\",\"message\":\"Row 2, column 1: candidate name \\\"3\\\" is purely numeric. With no header, a leading count belongs in count,rank1,rank2,...\",\"details\":{\"row\":2,\"column\":1,\"candidate\":\"3\"}}}\n(422, '{\"error\":{\"code\":\"CSV_FORMAT_AMBIGUOUS\",\"message\":\"Row 2, column 1: candidate name \\\\\"3\\\\\" is purely numeric. With no header, a leading count belongs in count,rank1,rank2,...\",\"deta…",
+  "apiOutput": "",
+  "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 162, in <module>\n  File \"<string>\", line 150, in test\nAssertionError: (422, '{\"error\":{\"code\":\"CSV_FORMAT_AMBIGUOUS\",\"message\":\"Row 2, column 1: candidate name \\\\\"3\\\\\" is purely numeric. With no header, a leading count belongs in count,rank1,rank2,...\",\"details\":{\"row\":2,\"column\":1,\"candidate\":\"3\"}}}')\n"
+}
