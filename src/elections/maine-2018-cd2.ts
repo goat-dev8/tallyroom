@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { parsePatternTsv } from '../parse.js';
 import { Rules } from '../types.js';
 
@@ -17,7 +17,7 @@ export const MAINE_2018_CD2 = {
     rounds: 2,
   },
   load() {
-    const p = fileURLToPath(new URL('../../data/fixtures/maine-2018-cd2.patterns.tsv', import.meta.url));
+    const p = join(process.cwd(), 'data', 'fixtures', 'maine-2018-cd2.patterns.tsv');
     return parsePatternTsv(readFileSync(p, 'utf8'));
   },
 };

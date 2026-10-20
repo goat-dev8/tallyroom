@@ -1,0 +1,692 @@
+{
+  "id": "nyc-2021",
+  "name": "New York City 2021 Democratic primary, Mayor",
+  "method": "IRV",
+  "seats": 1,
+  "winner": "Eric L. Adams",
+  "totalBallots": 947932,
+  "rounds": [
+    {
+      "round": 1,
+      "tallies": {
+        "Eric L. Adams": 289403,
+        "Maya D. Wiley": 201127,
+        "Kathryn A. Garcia": 184463,
+        "Andrew Yang": 115130,
+        "Scott M. Stringer": 51778,
+        "Dianne Morales": 26495,
+        "Raymond J. McGuire": 25242,
+        "Shaun Donovan": 23167,
+        "Aaron S. Foldenauer": 7742,
+        "Art Chang": 7048,
+        "Paperboy Love Prince": 3964,
+        "Joycelyn Taylor": 2662,
+        "Isaac Wright Jr.": 2242,
+        "Write-in": 1568
+      },
+      "continuing": 942031,
+      "inactive": {
+        "blank": 0,
+        "overvote": 5901,
+        "skips": 0,
+        "undervote": 0,
+        "exhausted": 0
+      },
+      "threshold": 471016,
+      "eliminated": [
+        "Write-in"
+      ],
+      "transfers": []
+    },
+    {
+      "round": 2,
+      "tallies": {
+        "Eric L. Adams": 289603,
+        "Maya D. Wiley": 201193,
+        "Kathryn A. Garcia": 184571,
+        "Andrew Yang": 115301,
+        "Scott M. Stringer": 51850,
+        "Dianne Morales": 26534,
+        "Raymond J. McGuire": 25272,
+        "Shaun Donovan": 23189,
+        "Aaron S. Foldenauer": 7758,
+        "Art Chang": 7064,
+        "Paperboy Love Prince": 4007,
+        "Joycelyn Taylor": 2683,
+        "Isaac Wright Jr.": 2254
+      },
+      "continuing": 941279,
+      "inactive": {
+        "blank": 0,
+        "overvote": 5906,
+        "skips": 0,
+        "undervote": 698,
+        "exhausted": 49
+      },
+      "threshold": 470640,
+      "eliminated": [
+        "Isaac Wright Jr."
+      ],
+      "transfers": [
+        {
+          "from": "Write-in",
+          "to": "Eric L. Adams",
+          "count": 200
+        },
+        {
+          "from": "Write-in",
+          "to": "Maya D. Wiley",
+          "count": 66
+        },
+        {
+          "from": "Write-in",
+          "to": "Kathryn A. Garcia",
+          "count": 108
+        },
+        {
+          "from": "Write-in",
+          "to": "Andrew Yang",
+          "count": 171
+        },
+        {
+          "from": "Write-in",
+          "to": "Scott M. Stringer",
+          "count": 72
+        },
+        {
+          "from": "Write-in",
+          "to": "Dianne Morales",
+          "count": 39
+        },
+        {
+          "from": "Write-in",
+          "to": "Raymond J. McGuire",
+          "count": 30
+        },
+        {
+          "from": "Write-in",
+          "to": "Shaun Donovan",
+          "count": 22
+        },
+        {
+          "from": "Write-in",
+          "to": "Aaron S. Foldenauer",
+          "count": 16
+        },
+        {
+          "from": "Write-in",
+          "to": "Art Chang",
+          "count": 16
+        },
+        {
+          "from": "Write-in",
+          "to": "Paperboy Love Prince",
+          "count": 43
+        },
+        {
+          "from": "Write-in",
+          "to": "Joycelyn Taylor",
+          "count": 21
+        },
+        {
+          "from": "Write-in",
+          "to": "Isaac Wright Jr.",
+          "count": 12
+        },
+        {
+          "from": "Write-in",
+          "to": "exhausted",
+          "count": 752
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "tallies": {
+        "Eric L. Adams": 290055,
+        "Maya D. Wiley": 201518,
+        "Kathryn A. Garcia": 184669,
+        "Andrew Yang": 115502,
+        "Scott M. Stringer": 51951,
+        "Dianne Morales": 26645,
+        "Raymond J. McGuire": 25418,
+        "Shaun Donovan": 23314,
+        "Aaron S. Foldenauer": 7819,
+        "Art Chang": 7093,
+        "Paperboy Love Prince": 4060,
+        "Joycelyn Taylor": 2780
+      },
+      "continuing": 940824,
+      "inactive": {
+        "blank": 0,
+        "overvote": 5911,
+        "skips": 0,
+        "undervote": 1126,
+        "exhausted": 71
+      },
+      "threshold": 470413,
+      "eliminated": [
+        "Joycelyn Taylor",
+        "Paperboy Love Prince",
+        "Art Chang",
+        "Aaron S. Foldenauer"
+      ],
+      "transfers": [
+        {
+          "from": "Isaac Wright Jr.",
+          "to": "Eric L. Adams",
+          "count": 452
+        },
+        {
+          "from": "Isaac Wright Jr.",
+          "to": "Maya D. Wiley",
+          "count": 325
+        },
+        {
+          "from": "Isaac Wright Jr.",
+          "to": "Kathryn A. Garcia",
+          "count": 98
+        },
+        {
+          "from": "Isaac Wright Jr.",
+          "to": "Andrew Yang",
+          "count": 201
+        },
+        {
+          "from": "Isaac Wright Jr.",
+          "to": "Scott M. Stringer",
+          "count": 101
+        },
+        {
+          "from": "Isaac Wright Jr.",
+          "to": "Dianne Morales",
+          "count": 111
+        },
+        {
+          "from": "Isaac Wright Jr.",
+          "to": "Raymond J. McGuire",
+          "count": 146
+        },
+        {
+          "from": "Isaac Wright Jr.",
+          "to": "Shaun Donovan",
+          "count": 125
+        },
+        {
+          "from": "Isaac Wright Jr.",
+          "to": "Aaron S. Foldenauer",
+          "count": 61
+        },
+        {
+          "from": "Isaac Wright Jr.",
+          "to": "Art Chang",
+          "count": 29
+        },
+        {
+          "from": "Isaac Wright Jr.",
+          "to": "Paperboy Love Prince",
+          "count": 53
+        },
+        {
+          "from": "Isaac Wright Jr.",
+          "to": "Joycelyn Taylor",
+          "count": 97
+        },
+        {
+          "from": "Isaac Wright Jr.",
+          "to": "exhausted",
+          "count": 455
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "tallies": {
+        "Eric L. Adams": 291806,
+        "Maya D. Wiley": 206013,
+        "Kathryn A. Garcia": 186731,
+        "Andrew Yang": 118008,
+        "Scott M. Stringer": 53599,
+        "Dianne Morales": 30157,
+        "Raymond J. McGuire": 26361,
+        "Shaun Donovan": 24042
+      },
+      "continuing": 936717,
+      "inactive": {
+        "blank": 0,
+        "overvote": 6080,
+        "skips": 0,
+        "undervote": 4908,
+        "exhausted": 227
+      },
+      "threshold": 468359,
+      "eliminated": [
+        "Shaun Donovan"
+      ],
+      "transfers": [
+        {
+          "from": "Aaron S. Foldenauer",
+          "to": "Eric L. Adams",
+          "count": 594
+        },
+        {
+          "from": "Aaron S. Foldenauer",
+          "to": "Maya D. Wiley",
+          "count": 520
+        },
+        {
+          "from": "Aaron S. Foldenauer",
+          "to": "Kathryn A. Garcia",
+          "count": 512
+        },
+        {
+          "from": "Aaron S. Foldenauer",
+          "to": "Andrew Yang",
+          "count": 530
+        },
+        {
+          "from": "Aaron S. Foldenauer",
+          "to": "Scott M. Stringer",
+          "count": 899
+        },
+        {
+          "from": "Aaron S. Foldenauer",
+          "to": "Dianne Morales",
+          "count": 1828
+        },
+        {
+          "from": "Aaron S. Foldenauer",
+          "to": "Raymond J. McGuire",
+          "count": 580
+        },
+        {
+          "from": "Aaron S. Foldenauer",
+          "to": "Shaun Donovan",
+          "count": 209
+        },
+        {
+          "from": "Aaron S. Foldenauer",
+          "to": "exhausted",
+          "count": 2147
+        },
+        {
+          "from": "Art Chang",
+          "to": "Eric L. Adams",
+          "count": 566
+        },
+        {
+          "from": "Art Chang",
+          "to": "Maya D. Wiley",
+          "count": 1628
+        },
+        {
+          "from": "Art Chang",
+          "to": "Kathryn A. Garcia",
+          "count": 881
+        },
+        {
+          "from": "Art Chang",
+          "to": "Andrew Yang",
+          "count": 1415
+        },
+        {
+          "from": "Art Chang",
+          "to": "Scott M. Stringer",
+          "count": 374
+        },
+        {
+          "from": "Art Chang",
+          "to": "Dianne Morales",
+          "count": 781
+        },
+        {
+          "from": "Art Chang",
+          "to": "Raymond J. McGuire",
+          "count": 150
+        },
+        {
+          "from": "Art Chang",
+          "to": "Shaun Donovan",
+          "count": 305
+        },
+        {
+          "from": "Art Chang",
+          "to": "exhausted",
+          "count": 993
+        },
+        {
+          "from": "Paperboy Love Prince",
+          "to": "Eric L. Adams",
+          "count": 201
+        },
+        {
+          "from": "Paperboy Love Prince",
+          "to": "Maya D. Wiley",
+          "count": 1887
+        },
+        {
+          "from": "Paperboy Love Prince",
+          "to": "Kathryn A. Garcia",
+          "count": 368
+        },
+        {
+          "from": "Paperboy Love Prince",
+          "to": "Andrew Yang",
+          "count": 272
+        },
+        {
+          "from": "Paperboy Love Prince",
+          "to": "Scott M. Stringer",
+          "count": 237
+        },
+        {
+          "from": "Paperboy Love Prince",
+          "to": "Dianne Morales",
+          "count": 519
+        },
+        {
+          "from": "Paperboy Love Prince",
+          "to": "Raymond J. McGuire",
+          "count": 81
+        },
+        {
+          "from": "Paperboy Love Prince",
+          "to": "Shaun Donovan",
+          "count": 93
+        },
+        {
+          "from": "Paperboy Love Prince",
+          "to": "exhausted",
+          "count": 402
+        },
+        {
+          "from": "Joycelyn Taylor",
+          "to": "Eric L. Adams",
+          "count": 390
+        },
+        {
+          "from": "Joycelyn Taylor",
+          "to": "Maya D. Wiley",
+          "count": 460
+        },
+        {
+          "from": "Joycelyn Taylor",
+          "to": "Kathryn A. Garcia",
+          "count": 301
+        },
+        {
+          "from": "Joycelyn Taylor",
+          "to": "Andrew Yang",
+          "count": 289
+        },
+        {
+          "from": "Joycelyn Taylor",
+          "to": "Scott M. Stringer",
+          "count": 138
+        },
+        {
+          "from": "Joycelyn Taylor",
+          "to": "Dianne Morales",
+          "count": 384
+        },
+        {
+          "from": "Joycelyn Taylor",
+          "to": "Raymond J. McGuire",
+          "count": 132
+        },
+        {
+          "from": "Joycelyn Taylor",
+          "to": "Shaun Donovan",
+          "count": 121
+        },
+        {
+          "from": "Joycelyn Taylor",
+          "to": "exhausted",
+          "count": 565
+        }
+      ]
+    },
+    {
+      "round": 5,
+      "tallies": {
+        "Eric L. Adams": 295798,
+        "Maya D. Wiley": 209108,
+        "Kathryn A. Garcia": 191876,
+        "Andrew Yang": 121597,
+        "Scott M. Stringer": 56723,
+        "Dianne Morales": 30933,
+        "Raymond J. McGuire": 27934
+      },
+      "continuing": 933969,
+      "inactive": {
+        "blank": 0,
+        "overvote": 6155,
+        "skips": 0,
+        "undervote": 7455,
+        "exhausted": 353
+      },
+      "threshold": 466985,
+      "eliminated": [
+        "Raymond J. McGuire",
+        "Dianne Morales",
+        "Scott M. Stringer"
+      ],
+      "transfers": [
+        {
+          "from": "Shaun Donovan",
+          "to": "Eric L. Adams",
+          "count": 3992
+        },
+        {
+          "from": "Shaun Donovan",
+          "to": "Maya D. Wiley",
+          "count": 3095
+        },
+        {
+          "from": "Shaun Donovan",
+          "to": "Kathryn A. Garcia",
+          "count": 5145
+        },
+        {
+          "from": "Shaun Donovan",
+          "to": "Andrew Yang",
+          "count": 3589
+        },
+        {
+          "from": "Shaun Donovan",
+          "to": "Scott M. Stringer",
+          "count": 3124
+        },
+        {
+          "from": "Shaun Donovan",
+          "to": "Dianne Morales",
+          "count": 776
+        },
+        {
+          "from": "Shaun Donovan",
+          "to": "Raymond J. McGuire",
+          "count": 1573
+        },
+        {
+          "from": "Shaun Donovan",
+          "to": "exhausted",
+          "count": 2748
+        }
+      ]
+    },
+    {
+      "round": 6,
+      "tallies": {
+        "Eric L. Adams": 317092,
+        "Maya D. Wiley": 239174,
+        "Kathryn A. Garcia": 223634,
+        "Andrew Yang": 135686
+      },
+      "continuing": 915586,
+      "inactive": {
+        "blank": 0,
+        "overvote": 6629,
+        "skips": 0,
+        "undervote": 23579,
+        "exhausted": 2138
+      },
+      "threshold": 457794,
+      "eliminated": [
+        "Andrew Yang"
+      ],
+      "transfers": [
+        {
+          "from": "Scott M. Stringer",
+          "to": "Eric L. Adams",
+          "count": 10086
+        },
+        {
+          "from": "Scott M. Stringer",
+          "to": "Maya D. Wiley",
+          "count": 12075
+        },
+        {
+          "from": "Scott M. Stringer",
+          "to": "Kathryn A. Garcia",
+          "count": 18318
+        },
+        {
+          "from": "Scott M. Stringer",
+          "to": "Andrew Yang",
+          "count": 6873
+        },
+        {
+          "from": "Scott M. Stringer",
+          "to": "exhausted",
+          "count": 9371
+        },
+        {
+          "from": "Dianne Morales",
+          "to": "Eric L. Adams",
+          "count": 3037
+        },
+        {
+          "from": "Dianne Morales",
+          "to": "Maya D. Wiley",
+          "count": 14059
+        },
+        {
+          "from": "Dianne Morales",
+          "to": "Kathryn A. Garcia",
+          "count": 6428
+        },
+        {
+          "from": "Dianne Morales",
+          "to": "Andrew Yang",
+          "count": 2239
+        },
+        {
+          "from": "Dianne Morales",
+          "to": "exhausted",
+          "count": 5170
+        },
+        {
+          "from": "Raymond J. McGuire",
+          "to": "Eric L. Adams",
+          "count": 8171
+        },
+        {
+          "from": "Raymond J. McGuire",
+          "to": "Maya D. Wiley",
+          "count": 3932
+        },
+        {
+          "from": "Raymond J. McGuire",
+          "to": "Kathryn A. Garcia",
+          "count": 7012
+        },
+        {
+          "from": "Raymond J. McGuire",
+          "to": "Andrew Yang",
+          "count": 4977
+        },
+        {
+          "from": "Raymond J. McGuire",
+          "to": "exhausted",
+          "count": 3842
+        }
+      ]
+    },
+    {
+      "round": 7,
+      "tallies": {
+        "Eric L. Adams": 354657,
+        "Maya D. Wiley": 254728,
+        "Kathryn A. Garcia": 266932
+      },
+      "continuing": 876317,
+      "inactive": {
+        "blank": 0,
+        "overvote": 6943,
+        "skips": 0,
+        "undervote": 57195,
+        "exhausted": 7477
+      },
+      "threshold": 438159,
+      "eliminated": [
+        "Maya D. Wiley"
+      ],
+      "transfers": [
+        {
+          "from": "Andrew Yang",
+          "to": "Eric L. Adams",
+          "count": 37565
+        },
+        {
+          "from": "Andrew Yang",
+          "to": "Maya D. Wiley",
+          "count": 15554
+        },
+        {
+          "from": "Andrew Yang",
+          "to": "Kathryn A. Garcia",
+          "count": 43298
+        },
+        {
+          "from": "Andrew Yang",
+          "to": "exhausted",
+          "count": 39269
+        }
+      ]
+    },
+    {
+      "round": 8,
+      "tallies": {
+        "Eric L. Adams": 404513,
+        "Kathryn A. Garcia": 397316
+      },
+      "continuing": 801829,
+      "inactive": {
+        "blank": 0,
+        "overvote": 7376,
+        "skips": 0,
+        "undervote": 106799,
+        "exhausted": 31928
+      },
+      "threshold": 400915,
+      "eliminated": [],
+      "transfers": [
+        {
+          "from": "Maya D. Wiley",
+          "to": "Eric L. Adams",
+          "count": 49856
+        },
+        {
+          "from": "Maya D. Wiley",
+          "to": "Kathryn A. Garcia",
+          "count": 130384
+        },
+        {
+          "from": "Maya D. Wiley",
+          "to": "exhausted",
+          "count": 74488
+        }
+      ]
+    }
+  ]
+}
