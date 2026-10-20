@@ -1,0 +1,33 @@
+
+ RUN  v4.1.12 /tmp/pre26
+
+ ❯ test/stv-scale.test.ts (2 tests | 1 failed) 118932ms
+     × a count whose exact fractions explode is refused quickly with 422 STV_TOO_COMPLEX 115861ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/stv-scale.test.ts > BUG-026: STV cost is bounded > a count whose exact fractions explode is refused quickly with 422 STV_TOO_COMPLEX
+AssertionError: expected 200 to be 422 // Object.is equality
+
+- Expected
++ Received
+
+- 422
++ 200
+
+ ❯ test/stv-scale.test.ts:18:22
+     16|   it('a count whose exact fractions explode is refused quickly with 42…
+     17|     const r = run(body(30, 15, 3000, 0));
+     18|     expect(r.status).toBe(422); expect(r.body.error.code).toBe('STV_TO…
+       |                      ^
+     19|     expect(r.ms).toBeLessThan(5000);
+     20|   }, 20000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  23:03:52
+   Duration  119.29s (transform 105ms, setup 0ms, import 132ms, tests 118.93s, environment 0ms)
+

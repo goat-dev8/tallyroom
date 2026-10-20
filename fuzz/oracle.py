@@ -140,7 +140,10 @@ def irv(ballots, cands, rules):
         live = [c for c in live if c not in out]
 
 
-def stv(ballots, cands, seats, quota_kind, tiebreak="previous-round", lot=None):
+def stv(ballots, cands, seats, quota_kind, tiebreak="previous-round", lot=None, rules=None):
+    # BUG-019: ballots are read with the IRV ballot rules; once inactive, a paper stays inactive.
+    rules = {"overvote": "exhaust", "skips": "continue", "duplicates": "ignore", **(rules or {})}
+    dead = set()
     cands = [unicodedata.normalize("NFC", x) for x in cands]
     lot = [unicodedata.normalize("NFC", x) for x in (lot or cands)]
     hist = []
@@ -149,20 +152,20 @@ def stv(ballots, cands, seats, quota_kind, tiebreak="previous-round", lot=None):
     w = [Fraction(1)] * len(ballots)
     hope, won, rounds = list(cands), [], []
 
-    def top(marks):
-        for m in marks:
-            if m[0] == "ov":
-                return None
-            if m[0] == "c" and m[1] in hope:
-                return m[1]
-        return None
+    def top(i, marks):
+        if i in dead:
+            return None
+        c = irv_pick(marks, set(hope), rules)
+        if c is None:
+            dead.add(i)
+        return c
 
     while len(won) < seats:
         t = {c: Fraction(0) for c in hope}
         ex = Fraction(0)
         holder = []
         for i, (n, marks) in enumerate(ballots):
-            c = top(marks)
+            c = top(i, marks)
             holder.append(c)
             if c is None:
                 ex += w[i] * n

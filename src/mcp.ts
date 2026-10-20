@@ -28,8 +28,9 @@ export const MCP_TOOLS: Tool[] = [
   {
     name: 'count_ballots', title: 'Count ranked ballots',
     description: 'Run an exact ranked-choice count. One seat = instant runoff; seats > 1 = STV with exact fractions. Ballots are lines like "5,Ada>Bo>Cy" (count, then ranking; "_" = blank rank, "[Ada=Bo]" = overvote). Returns every round.',
-    inputSchema: { type: 'object', required: ['ballots'], additionalProperties: false, properties: {
-      ballots: { type: 'string' }, candidates: { type: 'array', items: { type: 'string' } }, rules: rulesSchema,
+    inputSchema: { type: 'object', anyOf: [{ required: ['ballots'] }, { required: ['csv'] }], additionalProperties: false, properties: {
+      ballots: { oneOf: [{ type: 'string' }, { type: 'array' }] }, csv: { type: 'string', description: 'Alternative to ballots: CSV text' },
+      candidates: { type: 'array', items: { type: 'string' } }, rules: rulesSchema,
       seats: { type: 'integer', minimum: 1 }, quota: { type: 'string', enum: [...QUOTA_OPTIONS] } } },
     run: a => handleTabulate('POST', JSON.stringify(a), { contentType: 'application/json' }),
   },
@@ -81,6 +82,13 @@ export function handleMcpMessage(msg: unknown): unknown {
       if (!tool) return bad(id, -32602, `Unknown tool "${String(params?.name)}"`);
       const args = (params?.arguments ?? {}) as Json;
       if (typeof args !== 'object' || Array.isArray(args)) return bad(id, -32602, 'arguments must be an object');
+      // BUG-025: arguments the tool's inputSchema doesn't declare are an error (additionalProperties: false), not ignored.
+      const props = Object.keys((tool.inputSchema.properties ?? {}) as Json);
+      const extra = Object.keys(args).filter(k => !props.includes(k));
+      if (extra.length) {
+        const body = { error: { code: 'UNKNOWN_ARGUMENT', message: `Unknown argument(s): ${extra.join(', ')}`, details: { keys: extra } } };
+        return ok(id, { content: [{ type: 'text', text: JSON.stringify(body) }], structuredContent: body, isError: true });
+      }
       const r = tool.run(args);
       const body = r.body as Json;
       return ok(id, { content: [{ type: 'text', text: JSON.stringify(body) }], structuredContent: body, isError: r.status !== 200 });

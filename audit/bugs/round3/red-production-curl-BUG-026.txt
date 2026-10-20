@@ -1,0 +1,11 @@
+# BUG-026 on production https://tallyroom-rosy.vercel.app (main 98d523f), 2026-10-20 22:58:24 Cairo (UTC+3)
+# body: /tmp/stv-case-1.json from audit/bugs/round3/stv-scale-probe.ts case 1 (30 candidates, seats 15, 3000 lines, 344640 bytes); sha256 66fb441a5333df44
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' --data-binary @stv-case-1.json --max-time 400
+HTTP 504  total 300.668166s  bytes 108
+body (first 300 bytes):
+An error occurred with your deployment
+
+FUNCTION_INVOCATION_TIMEOUT
+
+iad1::hpq4z-1792526304075-865290365aa7
+

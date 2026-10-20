@@ -54,7 +54,11 @@ def case(rng, i):
         c["rules"] = {"tiebreak": tb}
         if rng.random() < 0.4:
             c["rules"]["lotOrder"] = rng.sample(cands, k)
-        c["expected"] = stv(ballots, cands, c["seats"], c["quota"], tb, c["rules"].get("lotOrder"))
+        if rng.random() < 0.6:  # STV reads ballots with the same rules as IRV (BUG-019)
+            c["rules"].update({"overvote": rng.choice(["exhaust", "skip", "continuing"]),
+                               "skips": rng.choice(["continue", "two-exhaust"]),
+                               "duplicates": rng.choice(["ignore", "skip"])})
+        c["expected"] = stv(ballots, cands, c["seats"], c["quota"], tb, c["rules"].get("lotOrder"), c["rules"])
     else:
         if rng.random() < 0.3:  # no declared candidates: the engine infers them, bracket names included (BUG-021)
             c["inferred"] = True

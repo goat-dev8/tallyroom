@@ -39,8 +39,8 @@ export function openApiDocument() {
         } },
         responses: {
           200: json({ oneOf: [{ $ref: '#/components/schemas/IrvResult' }, { $ref: '#/components/schemas/StvResult' }] }, 'Count result'),
-          400: err('Malformed body, unknown rule key, unknown preset, or seats out of range'),
-          413: err('Body over 4 MB'), 422: err('Well-formed but not countable: unknown candidate, invalid option value, no ballots'),
+          400: err('Malformed body, unknown field or rule key, unknown preset, ballots and csv both sent, or seats out of range'),
+          413: err('Body over 4 MB'), 422: err('Well-formed but not countable: unknown candidate, invalid option value, no ballots, or STV_TOO_COMPLEX (exact fractions over the size limit)'),
           405: err('Only POST is allowed'),
         } } },
       '/api/report': {
@@ -69,7 +69,7 @@ export function openApiDocument() {
       Rules: { type: 'object', additionalProperties: false, properties: {
         overvote: { enum: [...OVERVOTE_OPTIONS] }, skips: { enum: [...SKIP_OPTIONS] }, duplicates: { enum: [...DUPLICATE_OPTIONS] },
         batch: { type: 'boolean', description: 'Single-winner IRV only; 422 INVALID_BATCH when true with seats > 1.' }, tiebreak: { enum: [...TIEBREAK_OPTIONS] }, lotOrder: { type: 'array', items: { type: 'string' } } } },
-      TabulateRequest: { type: 'object', properties: {
+      TabulateRequest: { type: 'object', additionalProperties: false, properties: {
         ballots: { oneOf: [{ type: 'string', description: '`count,A>B>C` lines; `_` blank rank, `[A=B]` overvote' }, { type: 'array' }] },
         csv: { type: 'string', description: 'Alternative to ballots: CSV text' },
         candidates: { type: 'array', items: { type: 'string' }, description: 'Declared candidates; unknown names on ballots are rejected' },

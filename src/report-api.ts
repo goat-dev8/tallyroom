@@ -69,7 +69,8 @@ function bundledReport(id: string): ApiResult {
 function uploadReport(value: ParsedTabulate): ShareableReport {
   const ballotCount = value.ballots.reduce((s, b) => s + b.count, 0);
   if (value.seats !== undefined && value.seats !== 1) {
-    const result = tabulateStv(value.ballots, value.candidates, value.seats, value.quota ?? 'droop', value.rules ?? {});
+    const stvRules: Rules = { ...DEFAULT_RULES, ...(value.rules ?? {}) }; // BUG-027: recorded in the sealed report
+    const result = tabulateStv(value.ballots, value.candidates, value.seats, value.quota ?? 'droop', stvRules);
     return seal({
       engineVersion: ENGINE_VERSION,
       election: null,
@@ -83,7 +84,7 @@ function uploadReport(value: ParsedTabulate): ShareableReport {
       certifiedWinner: null,
       winner: null,
       winners: result.winners,
-      rules: null,
+      rules: stvRules,
       quota: result.quota,
       source: null,
       rounds: result.rounds,

@@ -2,6 +2,17 @@ import { currentChoice } from './irv.js';
 import { DEFAULT_RULES, Rules } from './types.js';
 import { Fraction } from './fraction.js';
 import { BallotGroup } from './types.js';
+import { BallotSemanticError } from './parse.js';
+
+/** BUG-026: exact Gregory transfers can grow fractions without bound (and time with them). Past this size the count is refused (422). */
+export const MAX_EXACT_BITS = 24576;
+const gcdBig = (a: bigint, b: bigint): bigint => { while (b) [a, b] = [b, a % b]; return a; };
+const lcm = (a: bigint, b: bigint) => (a / gcdBig(a, b)) * b;
+const tooComplex = (round: number): never => {
+  throw new BallotSemanticError(`This count needs exact fractions larger than ${MAX_EXACT_BITS} bits (round ${round}); it is refused rather than left to time out. Fewer distinct rankings or fewer seats will fit.`,
+    undefined, undefined, undefined, 'STV_TOO_COMPLEX');
+};
+const bitLength = (n: bigint) => n.toString(16).length * 4;
 
 /** `tallies`/`exhausted` are display values (4 dp). `exact` holds the same values as reduced fractions "n/d",
  *  so clients can verify conservation (hopeful + exhausted + quota × seats filled = ballots) with no rounding. */
@@ -23,8 +34,13 @@ export function tabulateStv(ballots: BallotGroup[], candidates: string[], seats:
   if (!Number.isInteger(seats) || seats < 1 || seats > candidates.length) throw new RangeError(`Seats must be between 1 and ${candidates.length}`);
   const total = ballots.reduce((s, b) => s + b.count, 0);
   const quota = quotaKind === 'droop' ? Fraction.of(Math.floor(total / (seats + 1)) + 1) : new Fraction(total, seats);
-  type Paper = { marks: BallotGroup['marks']; weight: Fraction; count: number };
-  const papers: Paper[] = ballots.map(b => ({ marks: b.marks, count: b.count, weight: Fraction.of(1) }));
+  // BUG-026: papers share weight classes. A class's weight is the product of the transfer values it went through, so
+  // tallies are summed as integer counts per class and multiplied once, instead of one big-fraction add per paper.
+  type WeightClass = { weight: Fraction; next: Map<string, WeightClass> };
+  type Paper = { marks: BallotGroup['marks']; cls: WeightClass; count: number };
+  const unit: WeightClass = { weight: Fraction.of(1), next: new Map() };
+  const papers: Paper[] = ballots.map(b => ({ marks: b.marks, count: b.count, cls: unit }));
+  let commonDen = 1n;
   const hopeful = new Set(candidates); const elected: string[] = []; const rounds: StvRound[] = [];
   const dead = new Set<Paper>();
   const choice = (p: Paper) => {
@@ -38,7 +54,19 @@ export function tabulateStv(ballots: BallotGroup[], candidates: string[], seats:
   for (let r = 1; elected.length < seats; r++) {
     const tally = new Map<string, Fraction>(); for (const c of candidates) if (hopeful.has(c)) tally.set(c, Fraction.ZERO);
     let exhausted = Fraction.ZERO;
-    for (const p of papers) { const c = choice(p); const v = p.weight.mul(Fraction.of(p.count)); if (c) tally.set(c, tally.get(c)!.add(v)); else exhausted = exhausted.add(v); }
+    const sums = new Map<WeightClass, Map<string | null, bigint>>();
+    for (const p of papers) {
+      const c = choice(p); let m = sums.get(p.cls); if (!m) sums.set(p.cls, (m = new Map()));
+      m.set(c, (m.get(c) ?? 0n) + BigInt(p.count));
+    }
+    // commonDen is the lcm of every class weight's denominator,
+    // so each tally is one integer sum over commonDen and a single reduction.
+    const nums = new Map<string | null, bigint>();
+    for (const [cls, m] of sums) {
+      const scale = cls.weight.n * (commonDen / cls.weight.d);
+      for (const [c, n] of m) nums.set(c, (nums.get(c) ?? 0n) + scale * n);
+    }
+    for (const [c, n] of nums) { const v = new Fraction(n, commonDen); if (c) tally.set(c, v); else exhausted = v; }
     const round: StvRound = { round: r, tallies: Object.fromEntries([...tally].map(([k, v]) => [k, fmt(v)])), exhausted: fmt(exhausted), elected: [], eliminated: [],
       exact: { tallies: Object.fromEntries([...tally].map(([k, v]) => [k, exact(v)])), exhausted: exact(exhausted) } };
     rounds.push(round); history.push(tally);
@@ -48,7 +76,11 @@ export function tabulateStv(ballots: BallotGroup[], candidates: string[], seats:
     if (winners.length) {
       for (const c of winners) {
         const t = tally.get(c)!; const tv = t.sub(quota).div(t);
-        for (const p of papers) if (choice(p) === c) p.weight = p.weight.mul(tv);
+        const key = `${c}`;
+        for (const p of papers) if (choice(p) === c) {
+          let to = p.cls.next.get(key); if (!to) { p.cls.next.set(key, (to = { weight: p.cls.weight.mul(tv), next: new Map() })); commonDen = lcm(commonDen, to.weight.d); if (bitLength(commonDen) > MAX_EXACT_BITS) tooComplex(r); }
+          p.cls = to;
+        }
         elected.push(c); round.elected.push(c);
       }
       for (const c of winners) hopeful.delete(c);

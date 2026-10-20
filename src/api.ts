@@ -6,6 +6,7 @@ import { validateTabulateOptions } from './options.js';
 import { resolveRules } from './presets.js';
 import { BallotGroup, DEFAULT_RULES, Rules } from './types.js';
 export const ENGINE_VERSION = '0.1.0';
+export const REQUEST_FIELDS = new Set(['ballots', 'csv', 'candidates', 'rules', 'seats', 'quota']);
 const RULE_KEYS = new Set([...Object.keys(DEFAULT_RULES), 'duplicates', 'lotOrder']);
 export interface ApiResult { status: number; body: unknown; headers?: Record<string, string> }
 export interface TabulateOptions { contentType?: string }
@@ -77,6 +78,12 @@ export function parseTabulateBody(rawBody: string, contentType = ''): { ok: true
     try { req = JSON.parse(rawBody.replace(/^\uFEFF/, '')); } catch { return { ok: false, result: fail(400, 'INVALID_JSON', 'Invalid JSON body') }; } // BUG-023: BOM before JSON
     if (Array.isArray(req)) req = { ballots: req };
     if (!req || typeof req !== 'object') return { ok: false, result: fail(400, 'INVALID_BODY', 'JSON body must be an object') };
+    // BUG-024: top-level fields are checked like rule keys, so a typo ("seat") or a wrong type is an error, not ignored.
+    const unknownFields = Object.keys(req).filter(k => !REQUEST_FIELDS.has(k));
+    if (unknownFields.length) return { ok: false, result: fail(400, 'UNKNOWN_FIELD', `Unknown field(s): ${unknownFields.join(', ')}`, { keys: unknownFields }) };
+    if (req.candidates != null && !Array.isArray(req.candidates)) return { ok: false, result: fail(422, 'INVALID_CANDIDATES', 'candidates must be an array of names', { field: 'candidates' }) };
+    if (req.ballots != null && req.csv != null) return { ok: false, result: fail(400, 'AMBIGUOUS_BALLOTS', 'Send either "ballots" or "csv", not both') };
+    if (req.csv === null) delete req.csv;
     const hasBallots = req.ballots !== undefined;
     const hasCsv = typeof req.csv === 'string';
     if (!hasBallots && !hasCsv) return { ok: false, result: fail(400, 'MISSING_BALLOTS', 'Field "ballots" (string) is required') };

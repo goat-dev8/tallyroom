@@ -1,0 +1,64 @@
+
+ RUN  v4.1.12 /tmp/stack
+
+ ❯ test/report-stv-rules.test.ts (2 tests | 2 failed) 14ms
+     × rules appear in the report and differ when the result differs 11ms
+     × lotOrder is recorded too 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/report-stv-rules.test.ts > BUG-027: STV report records the rules it was counted with > rules appear in the report and differ when the result differs
+AssertionError: expected null to match object { overvote: 'exhaust', …(2) }
+
+- Expected:
+{
+  "overvote": "exhaust",
+  "skips": "continue",
+  "tiebreak": "previous-round",
+}
+
++ Received:
+null
+
+ ❯ test/report-stv-rules.test.ts:12:26
+     10|     const a = report({}); const b = report({ skips: 'two-exhaust' });
+     11|     expect(a.body.winners).toEqual(['A', 'B']); expect(b.body.winners)…
+     12|     expect(a.body.rules).toMatchObject({ overvote: 'exhaust', skips: '…
+       |                          ^
+     13|     expect(b.body.rules).toMatchObject({ skips: 'two-exhaust' });
+     14|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/report-stv-rules.test.ts > BUG-027: STV report records the rules it was counted with > lotOrder is recorded too
+AssertionError: expected null to match object { tiebreak: 'lot', …(1) }
+
+- Expected:
+{
+  "lotOrder": [
+    "C",
+    "B",
+    "A",
+  ],
+  "tiebreak": "lot",
+}
+
++ Received:
+null
+
+ ❯ test/report-stv-rules.test.ts:16:79
+     14|   });
+     15|   it('lotOrder is recorded too', () => {
+     16|     expect(report({ tiebreak: 'lot', lotOrder: ['C', 'B', 'A'] }).body…
+       |                                                                               ^
+     17|   });
+     18| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  23:04:25
+   Duration  471ms (transform 201ms, setup 0ms, import 248ms, tests 14ms, environment 0ms)
+
