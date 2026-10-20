@@ -2,7 +2,7 @@
 # Vercel ignoreCommand: exit 0 = SKIP the build, exit 1 = BUILD.
 # Skips deployments when every changed file is docs-only, TestSprite-plan-only or CI-only.
 # Saves Hobby deploy quota (~100/24h; we cap ourselves at 80, see DEPLOY_LEDGER.md).
-# Note: a skipped build produces no preview, so TestSprite does not run on that commit (intended).
+# Note: a skipped build produces no preview. TestSprite V3 still comments, with every UI test blocked (no credits spent).
 set -euo pipefail
 BASE="${VERCEL_GIT_PREVIOUS_SHA:-}"
 if [ -z "$BASE" ] || ! git cat-file -e "$BASE^{commit}" 2>/dev/null; then
