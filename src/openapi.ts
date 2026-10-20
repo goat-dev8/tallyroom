@@ -49,7 +49,7 @@ export function openApiDocument() {
           responses: { 200: json({ $ref: '#/components/schemas/Report' }, 'Report'), 400: err('Missing election'), 404: err('Unknown election') } },
         post: { operationId: 'reportUpload', summary: 'Shareable report for uploaded ballots (same body as /api/tabulate)',
           requestBody: { required: true, content: { 'application/json': { schema: { $ref: '#/components/schemas/TabulateRequest' } } } },
-          responses: { 200: json({ $ref: '#/components/schemas/Report' }, 'Report'), 400: err('Bad request'), 422: err('Not countable') } } },
+          responses: { 200: json({ $ref: '#/components/schemas/Report' }, 'Report'), 400: err('Bad request'), 413: err('Body over 4 MB'), 422: err('Not countable') } } },
       '/api/elections': { get: { operationId: 'listElections', summary: 'Bundled certified elections',
         responses: { 200: json({ type: 'object', required: ['elections'], properties: { elections: { type: 'array', items: { $ref: '#/components/schemas/ElectionMetadata' } } } }, 'List') } } },
       '/api/elections/{id}/rounds': { get: { operationId: 'electionRounds', summary: 'Precomputed rounds and transfers of a bundled election',
@@ -61,7 +61,7 @@ export function openApiDocument() {
         responses: { 200: json({ type: 'object', required: ['ok', 'engineVersion'], properties: { ok: { const: true }, engineVersion: { type: 'string' } } }, 'Healthy') } } },
       '/api/mcp': { post: { operationId: 'mcp', summary: 'Model Context Protocol endpoint (JSON-RPC 2.0, streamable HTTP, stateless). Tools: count_ballots, list_elections, election_rounds, counting_rules',
         requestBody: { required: true, content: { 'application/json': { schema: { type: 'object' } } } },
-        responses: { 200: json({ type: 'object' }, 'JSON-RPC response'), 202: { description: 'Notification accepted' } } } },
+        responses: { 200: json({ type: 'object' }, 'JSON-RPC response'), 202: { description: 'Notification accepted' }, 400: json({ type: 'object' }, 'JSON-RPC parse error (-32700) or invalid request') } } },
       '/api/openapi': { get: { operationId: 'openapi', summary: 'This document', responses: { 200: json({ type: 'object' }, 'OpenAPI 3.1') } } },
     },
     components: { schemas: {
