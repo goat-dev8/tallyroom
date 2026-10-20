@@ -1,0 +1,65 @@
+{
+  "id": "alaska-2022",
+  "name": "Alaska 2022, U.S. Representative special general (Aug 16)",
+  "method": "IRV",
+  "seats": 1,
+  "winner": "Peltola, Mary S.",
+  "totalBallots": 192289,
+  "rounds": [
+    {
+      "round": 1,
+      "tallies": {
+        "Begich, Nick": 53810,
+        "Palin, Sarah": 58973,
+        "Peltola, Mary S.": 75799
+      },
+      "continuing": 188582,
+      "inactive": {
+        "blank": 2777,
+        "overvote": 295,
+        "skips": 134,
+        "undervote": 501,
+        "exhausted": 0
+      },
+      "threshold": 94292,
+      "eliminated": [
+        "Begich, Nick"
+      ],
+      "transfers": []
+    },
+    {
+      "round": 2,
+      "tallies": {
+        "Palin, Sarah": 86026,
+        "Peltola, Mary S.": 91266
+      },
+      "continuing": 177292,
+      "inactive": {
+        "blank": 2777,
+        "overvote": 342,
+        "skips": 692,
+        "undervote": 11185,
+        "exhausted": 1
+      },
+      "threshold": 88647,
+      "eliminated": [],
+      "transfers": [
+        {
+          "from": "Begich, Nick",
+          "to": "Palin, Sarah",
+          "count": 27053
+        },
+        {
+          "from": "Begich, Nick",
+          "to": "Peltola, Mary S.",
+          "count": 15467
+        },
+        {
+          "from": "Begich, Nick",
+          "to": "exhausted",
+          "count": 11290
+        }
+      ]
+    }
+  ]
+}

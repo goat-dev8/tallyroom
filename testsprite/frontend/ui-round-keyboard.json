@@ -9,11 +9,11 @@
   },
   {
    "type": "action",
-   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear (counting runs in a browser worker)"
+   "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear"
   },
   {
    "type": "action",
-   "description": "Click on the 'round-title' heading to focus the page, then press ArrowRight"
+   "description": "Click on the 'round-title' heading, then press the ArrowRight key"
   },
   {
    "type": "assertion",
@@ -21,11 +21,11 @@
   },
   {
    "type": "action",
-   "description": "Press ArrowLeft"
+   "description": "Press the ArrowLeft key"
   },
   {
    "type": "assertion",
-   "description": "'round-title' reads 'Round 1'"
+   "description": "'round-title' reads 'Round 1' and the URL contains round=1"
   }
  ]
 }

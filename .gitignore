@@ -8,3 +8,4 @@ public/data/
 test-results/
 playwright-report/
 AGENTS.md
+.testsprite/

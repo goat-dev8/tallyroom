@@ -52,7 +52,7 @@ export function Sankey({ result, round }: { result: IrvResult; round: number }) 
         <g fill="none">{g.links.map((l: any, i: number) => (
           <motion.path key={`${round}-${i}`} d={path(l) ?? ''} stroke={l.color} strokeWidth={Math.max(1, l.width)} tabIndex={0} role="button" data-testid="sankey-link"
             aria-label={`${clean(l.source.label)} to ${clean(l.target.label)}: ${fmt(l.value)} ballots`}
-            className="cursor-pointer outline-none transition-[stroke-opacity] duration-150" strokeOpacity={tip && tip.from === clean(l.source.label) && tip.to === clean(l.target.label) ? 0.7 : 0.32}
+            className="sankey-link cursor-pointer outline-none transition-[stroke-opacity] duration-150" strokeOpacity={tip && tip.from === clean(l.source.label) && tip.to === clean(l.target.label) ? 0.7 : 0.32}
             initial={reduce ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1, delay: i * 0.03, ease: [0.22, 1, 0.36, 1] }}
             onMouseEnter={e => show(l, e.currentTarget)} onClick={e => show(l, e.currentTarget)} onFocus={e => show(l, e.currentTarget)} onBlur={() => setTip(null)} />))}</g>
         {g.nodes.map((n: any) => {
