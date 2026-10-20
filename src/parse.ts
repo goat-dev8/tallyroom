@@ -65,7 +65,15 @@ export function parseBallots(text: string, declared?: string[]): { ballots: Ball
     const marks: Mark[] = line.slice(comma + 1).split('>').map((tok, idx) => {
       const t = tok.trim();
       if (t === '_' || t === '' || /^undervote$/i.test(t)) return { kind: 'skip' } as Mark;
-      if (/^\[.*\]$/.test(t) || /^overvote$/i.test(t)) return overvoteMark(t);
+      if (/^\[.*\]$/.test(t) || /^overvote$/i.test(t)) {
+        // BUG-021: names inside brackets are candidates too: unknown ones are rejected and inferred ones are kept.
+        const m = overvoteMark(t);
+        for (const name of m.kind === 'overvote' ? m.names ?? [] : []) {
+          if (declared && !declared.includes(name) && name !== WRITE_IN) throw new ParseError(i + 1, `unknown candidate "${name}"`, idx + 1, name);
+          remember(seen, name, declared);
+        }
+        return m;
+      }
       const name = clean(t);
       if (declared && !declared.includes(name) && name !== WRITE_IN) throw new ParseError(i + 1, `unknown candidate "${name}"`, idx + 1, name);
       remember(seen, name, declared);
@@ -104,7 +112,12 @@ function marksFromRanking(ranking: string, declared: string[] | undefined, row: 
 function cellMark(cell: string, declared: string[] | undefined, row: number, column: number): Mark {
   const t = clean(cell);
   if (t === '' || SKIP_CELL.test(t)) return { kind: 'skip' };
-  if (/^overvote$/i.test(t) || /^\[.*\]$/.test(t)) return overvoteMark(t);
+  if (/^overvote$/i.test(t) || /^\[.*\]$/.test(t)) {
+    const m = overvoteMark(t); // BUG-021
+    for (const name of m.kind === 'overvote' ? m.names ?? [] : []) if (declared && !declared.includes(name) && name !== WRITE_IN)
+      throw new BallotSemanticError(`Row ${row}, column ${column}: unknown candidate "${name}"`, row, column, name);
+    return m;
+  }
   if (declared && !declared.includes(t) && t !== WRITE_IN) {
     throw new BallotSemanticError(`Row ${row}, column ${column}: unknown candidate "${t}"`, row, column, t);
   }
@@ -114,7 +127,10 @@ function cellMark(cell: string, declared: string[] | undefined, row: number, col
 function collectCandidates(ballots: BallotGroup[], declared?: string[]): string[] {
   if (declared) return declared;
   const seen: string[] = [];
-  for (const b of ballots) for (const m of b.marks) if (m.kind === 'candidate') remember(seen, m.name, declared);
+  for (const b of ballots) for (const m of b.marks) {
+    if (m.kind === 'candidate') remember(seen, m.name, declared);
+    else if (m.kind === 'overvote') for (const n of m.names ?? []) remember(seen, n, declared); // BUG-021
+  }
   return seen;
 }
 

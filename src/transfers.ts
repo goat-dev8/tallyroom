@@ -31,7 +31,11 @@ export function eliminationTransfers(
   const before = new Set(candidates.filter(c => !earlier.has(c)));
   const after = new Set(candidates.filter(c => !earlier.has(c) && !gone.has(c)));
   const counts = new Map<string, number>();
+  // BUG-022: a ballot that went inactive in an earlier round stays inactive (as in irv.ts), so it is not a transfer.
+  const hopefulAt = (j: number) => { const out = new Set<string>(); for (let k = 0; k < j; k++) for (const c of rounds[k].eliminated) out.add(c); return new Set(candidates.filter(c => !out.has(c))); };
+  const earlierSets = Array.from({ length: roundIndex - 1 }, (_, j) => hopefulAt(j));
   for (const b of ballots) {
+    if (earlierSets.some(h => currentChoice(b.marks, h, rules).kind !== 'candidate')) continue;
     const prev = currentChoice(b.marks, before, rules);
     if (prev.kind !== 'candidate' || !gone.has(prev.name)) continue;
     const next = currentChoice(b.marks, after, rules);

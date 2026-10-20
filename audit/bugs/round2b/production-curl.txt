@@ -1,0 +1,9 @@
+# Production https://tallyroom-rosy.vercel.app (main 98d523f), 2026-10-20 22:25:46 Cairo (UTC+3)
+## BOM + JSON body as application/json
+{"engineVersion":"0.1.0","method":"irv","candidates":["A","B"],"rules":{"overvote":"exhaust","skips":"continue","batch":false,"tiebreak":"previous-round"},"rounds":[{"round":1,"tallies":{"A":1,"B":2},"continuing":3,"inactive":{"blank":0,"overvote":0,"skips":0,"undervote":0,"exhausted":0},"threshold"
+## BOM + JSON body as text/csv
+{"engineVersion":"0.1.0","method":"irv","candidates":["{ballots:1,A\\n2,B}"],"rules":{"overvote":"exhaust","skips":"continue","batch":false,"tiebreak":"previous-round"},"rounds":[{"round":1,"tallies":{"{ballots:1,A\\n2,B}":1},"continuing":1,"inactive":{"blank":0,"overvote":0,"skips":0,"undervote":0,
+## BUG-021 inferred
+{"error":{"code":"INVALID_OVERVOTE","message":"rules.overvote must be one of: exhaust, skip","details":{"field":"rules.overvote","value":"continuing"}}}
+## BUG-021 unknown in brackets
+{"engineVersion":"0.1.0","method":"irv","candidates":["A","B"],"rules":{"overvote":"exhaust","skips":"continue","batch":false,"tiebreak":"previous-round"},"rounds":[{"round":1,"tallies":{"A":0,"B":0},"continuing":0,"inactive":{"blank":0,"overvote":1,"skips":0,"undervote":0,"exhausted":0},"threshold"

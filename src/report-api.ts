@@ -128,7 +128,7 @@ export function handleReport(method: string, input: ReportInput = {}): ApiResult
     || (!contentType.toLowerCase().includes('json') && trimmed.length > 0 && !trimmed.startsWith('{') && !trimmed.startsWith('['));
   if (!csv) {
     let req: any;
-    try { req = JSON.parse(raw); } catch { return fail(400, 'INVALID_JSON', 'Invalid JSON body'); }
+    try { req = JSON.parse(raw.replace(/^\uFEFF/, '')); } catch { return fail(400, 'INVALID_JSON', 'Invalid JSON body'); } // BUG-023
     if (Array.isArray(req)) {
       // A JSON array is a ballot list; counted below.
     } else if (!req || typeof req !== 'object') {

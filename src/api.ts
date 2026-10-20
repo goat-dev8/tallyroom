@@ -74,7 +74,7 @@ export function parseTabulateBody(rawBody: string, contentType = ''): { ok: true
       return checked({ ballots: parsed.ballots, candidates: parsed.candidates });
     }
     let req: any;
-    try { req = JSON.parse(rawBody); } catch { return { ok: false, result: fail(400, 'INVALID_JSON', 'Invalid JSON body') }; }
+    try { req = JSON.parse(rawBody.replace(/^\uFEFF/, '')); } catch { return { ok: false, result: fail(400, 'INVALID_JSON', 'Invalid JSON body') }; } // BUG-023: BOM before JSON
     if (Array.isArray(req)) req = { ballots: req };
     if (!req || typeof req !== 'object') return { ok: false, result: fail(400, 'INVALID_BODY', 'JSON body must be an object') };
     const hasBallots = req.ballots !== undefined;

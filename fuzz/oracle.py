@@ -24,6 +24,17 @@ from fractions import Fraction
 import unicodedata
 
 
+def inferred_candidates(ballots):
+    """Candidate order when none are declared: first appearance, names inside [X=Y] included (BUG-021)."""
+    out = []
+    for _, marks in ballots:
+        for m in marks:
+            for x in ((m[1],) if m[0] == "c" else m[1] if m[0] == "ov" else ()):
+                if x not in out:
+                    out.append(x)
+    return out
+
+
 def parse(text):
     out = []
     for line in text.replace("\r\n", "\n").replace("\r", "\n").split("\n"):
@@ -81,18 +92,26 @@ def irv(ballots, cands, rules):
     live = list(cands)
     dead = set()
     rounds = []
+    picks = {}
     while True:
         tally = {c: 0 for c in live}
+        moved = {}  # transfers off last round's eliminated candidates; inactive ballots stay inactive (BUG-022)
+        gone = set(rounds[-1]["eliminated"]) if rounds else set()
         for i, (n, marks) in enumerate(ballots):
             if i in dead:
                 continue
             p = irv_pick(marks, set(live), rules)
+            if picks.get(i) in gone:
+                key = (picks[i], p or "exhausted")
+                moved[key] = moved.get(key, 0) + n
+            picks[i] = p
             if p is None:
                 dead.add(i)
             else:
                 tally[p] += n
         cont = sum(tally.values())
-        rd = {"tallies": tally, "continuing": cont, "eliminated": []}
+        rd = {"tallies": tally, "continuing": cont, "eliminated": [],
+              "transfers": sorted([{"from": f, "to": t, "count": c} for (f, t), c in moved.items()], key=lambda e: (e["from"], e["to"]))}
         rounds.append(rd)
         top = max(live, key=lambda c: (tally[c], -lot.index(c)))
         if tally[top] >= cont // 2 + 1 or len(live) == 1:

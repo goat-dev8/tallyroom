@@ -1,7 +1,7 @@
 """Seeded election generator for the differential fuzz run.
 python3 fuzz/gen.py SEED COUNT > cases.jsonl   (one JSON case per line, with the oracle's answer attached)"""
 import json, random, sys, unicodedata
-from oracle import parse, irv, stv
+from oracle import parse, irv, stv, inferred_candidates
 
 NAMES = ["Ada", "Bo", "Cy", "Dee", "Eli", "Fay", "Gus"]
 # Decomposed (NFD) spellings: the engine must treat them as the composed name everywhere (review item 5).
@@ -56,12 +56,18 @@ def case(rng, i):
             c["rules"]["lotOrder"] = rng.sample(cands, k)
         c["expected"] = stv(ballots, cands, c["seats"], c["quota"], tb, c["rules"].get("lotOrder"))
     else:
+        if rng.random() < 0.3:  # no declared candidates: the engine infers them, bracket names included (BUG-021)
+            c["inferred"] = True
+            cands = inferred_candidates(ballots)
+            if not cands:
+                cands = list(c["candidates"])
+                c["inferred"] = False
         rules = {"overvote": rng.choice(["exhaust", "skip", "continuing"]),
                  "skips": rng.choice(["continue", "two-exhaust"]),
                  "duplicates": rng.choice(["ignore", "skip"]),
                  "batch": rng.random() < 0.35,
                  "tiebreak": rng.choice(["previous-round", "lot"])}
-        if rng.random() < 0.3:
+        if rng.random() < 0.3 and not c.get("inferred"):
             rules["lotOrder"] = rng.sample(cands, k)
         c["rules"] = rules
         c["expected"] = irv(ballots, cands, rules)
