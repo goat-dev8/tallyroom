@@ -1,0 +1,58 @@
+# TestSprite V3 result gate. Reads (never re-runs) the "TestSprite V3" commit status that the TestSprite
+# GitHub app posts on the PR head, and fails when that run reports any failed test.
+# Why: the app marks its status "success" even for "33/34 passed · 1 failed", so on its own it cannot block a merge.
+# Cost: zero TestSprite credits and zero Vercel deploys (.github/ is on the ignoreCommand skip list).
+name: TestSprite V3 gate
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  statuses: read
+
+jobs:
+  v3-gate:
+    name: testsprite-v3-gate
+    if: github.event.pull_request.head.repo.full_name == github.repository && !github.event.pull_request.draft
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SHA: ${{ github.event.pull_request.head.sha }}
+    steps:
+      - name: Wait for the TestSprite V3 status on this head, then check its counts
+        run: |
+          set -euo pipefail
+          get() { gh api "repos/$GITHUB_REPOSITORY/commits/$SHA/status" \
+                    --jq "[.statuses[] | select(.context==\"$1\")][0] | \"\(.state)|\(.description)|\(.target_url)\"" 2>/dev/null || true; }
+          st=""
+          for i in $(seq 330); do            # up to ~55 min (V3 waits for the preview, then runs the suite)
+            st=$(get "TestSprite V3")
+            case "$st" in
+              pending*|""|null*) ;;
+              *passed*) break ;;              # final status carries "N/M passed · K failed|blocked"
+            esac
+            sleep 10
+          done
+          state=${st%%|*}; rest=${st#*|}; desc=${rest%%|*}; url=${rest#*|}
+          echo "TestSprite V3 on $SHA: state=$state desc=\"$desc\" url=$url"
+          { echo "### TestSprite V3 gate"; echo; echo "Head: \`$SHA\`"; echo; echo "Status: \`$state\` — $desc"; echo; echo "Run: $url"; } >> "$GITHUB_STEP_SUMMARY"
+          case "$desc" in *passed*) ;; *) echo "::error::No final TestSprite V3 result for $SHA (last: '$st')"; exit 1 ;; esac
+          # Fail closed: pass only on an "N/N passed" (or "N of N passed") count. Text that doesn't parse fails the job;
+          # it used to fall back to 0 failed and pass.
+          if [[ "$desc" =~ ^[[:space:]]*([0-9]+)[[:space:]]*(/|of)[[:space:]]*([0-9]+)[[:space:]]+passed ]]; then
+            passed=${BASH_REMATCH[1]}; total=${BASH_REMATCH[3]}
+          else echo "::error::Can't read a pass count from the TestSprite V3 status: '$desc'"; exit 1; fi
+          if [ "$total" -eq 0 ]; then echo "::error::TestSprite V3 ran 0 tests: $desc"; exit 1; fi
+          if [ "$passed" -ne "$total" ]; then
+            failed=0; blocked=0
+            [[ "$desc" =~ ([0-9]+)[[:space:]]+failed ]] && failed=${BASH_REMATCH[1]}
+            [[ "$desc" =~ ([0-9]+)[[:space:]]+blocked ]] && blocked=${BASH_REMATCH[1]}
+            if [ "$failed" -gt 0 ] || [ $((passed + blocked)) -ne "$total" ]; then echo "::error::TestSprite V3: $passed of $total passed: $desc"; exit 1; fi
+            # Blocked is acceptable only when Vercel deliberately skipped the preview (docs/CI-only PR, no app change).
+            v=$(get "Vercel")
+            case "$v" in success*Ignored*|success*Canceled*) echo "::notice::$blocked blocked because the preview was skipped by ignoreCommand ($v)";;
+              *) echo "::error::TestSprite V3 reports $blocked blocked test(s) on a built preview: $desc"; exit 1 ;; esac
+          fi
+          echo "Gate passed: $desc"
