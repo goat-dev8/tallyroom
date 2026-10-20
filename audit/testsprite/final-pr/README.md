@@ -44,8 +44,22 @@ The local Playwright mirror (`pr25/hero-autoplay-strengthened.spec.ts`) failed 3
 | R′ pushed (e91c92e), PR #26 opened; #25 closed as superseded | 01:36 | | | |
 | App UI check on R′ | 01:46 | [e34f1719](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/e34f1719-cc5a-4eaf-a7ed-5f66b84b58f1), `ui:hero-autoplay` run 9c41c8b2 on the s4-final preview | **33/34 passed · 1 failed**: the replay showed `Round 1 / 2` again after round 2 (BUG-008) | |
 | App API check on R′ | 01:37 | 4e933fb3 | **internal error again**: all 37 failed in about 2.6 s, 0 steps, status stuck at '37 tests queued'. Not reds. Balance 222.4 → 193.6 (28.8) | |
-| Merge blocked while red | _pending_ | | | |
+| Regress guards by CLI on the R′ preview | 02:05 | 301b2e15, ed8b2c98, f4e9d9b2, f2d67159, 220f0dfb, 1c337be7, 8110c4d0, 938169f0, 6ba281ca, 4f2ec48c, 20ab7501, cfcafa91, a233b485, 997a84ac, e0bb13d0 (bug-009..030, `regress-rp/runs.jsonl`) | **0/15 passed: all 15 failed on assertions** (the bugs are live on R′). 3.0 credits | |
+| Merge blocked while red | 02:00 | PR #26 | merge box shows failing checks | `shots/rp-pr-checks.png`, `shots/rp-merge-box.png`, `shots/rp-portal-ui.png`, `shots/rp-portal-ui-hero.png`, `shots/rp-portal-api.png` |
 | G′ pushed | _pending_ | | expected 34/34 and 37/37 | |
 | Merged | _pending_ | | | |
 | Production | _pending_ | `/api/health`, `/proof` | 4 elections, 200 | |
 | Branch protection | _pending_ | | gate required, admins enforced | |
+
+## API App trigger: disabled after two internal errors
+Both API App runs failed every test in about 2 s with "TestSprite hit an internal error while running this test". Each showed 0 steps and `codeVersion: null`, and the GitHub status stayed at "37 tests queued".
+- 2d783a09 on PR #25
+- 4e933fb3 on PR #26
+
+These were not test results. Each appears to have been billed: the balance fell by the same 28.8 on both pushes. The api trigger was disabled at about 02:00 (`shots/api-trigger-disabled.png`); the web trigger stays active.
+
+From G′ on, the API side runs in our `testsprite-cli` job on the PR preview:
+- the `api:` suite
+- the 15 `regress:bug-*` guards, failing closed unless 15/15 pass
+
+The gate (`scripts/testsprite-gate.mjs`) requires the UI App run at N/N and a green `testsprite-cli` check on the same head.

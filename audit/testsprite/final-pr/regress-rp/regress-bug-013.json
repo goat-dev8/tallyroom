@@ -1,0 +1,30 @@
+{
+ "runId": "220f0dfb-d264-4da8-bc4f-90e080454fd8",
+ "testId": "2c7d0b96-c94f-45e9-8d8d-9792630a1a74",
+ "testTitle": "regress:bug-013",
+ "projectId": "a7aa06b0-0721-49ff-a7aa-0181ad8586d6",
+ "userId": "04180438-a0a1-70ab-b51f-4dce971c378f",
+ "status": "failed",
+ "source": "cli",
+ "createdAt": "2026-10-20T23:03:33.623Z",
+ "startedAt": "2026-10-20T23:03:33.623Z",
+ "finishedAt": "2026-10-20T23:03:37.558Z",
+ "codeVersion": "v-ff5562da0fcd",
+ "targetUrl": null,
+ "environment": null,
+ "createdFrom": null,
+ "failedStepIndex": null,
+ "failureKind": "assertion",
+ "error": "(200, {'engineVersion': '0.1.0', 'method': 'stv', 'quota': '2.0000', 'quotaExact': '2/1', 'winners': ['A', 'B'], 'rounds': [{'round': 1, 'tallies': {'A': '3.0000', 'B': '2.0000'}, 'exhausted': '0.0000', 'elected': ['A', 'B'], 'eliminated': [], 'exact': {'tallies': {'A': '3/1', 'B': '2/1'}, 'exhausted': '0/1'}}]})",
+ "videoUrl": null,
+ "stepSummary": {
+  "total": 0,
+  "completed": 0,
+  "passedCount": 0,
+  "failedCount": 0
+ },
+ "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/2c7d0b96-c94f-45e9-8d8d-9792630a1a74",
+ "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/f7538559-4e68-4b05-9728-8ddbbda9e3d6/test/220f0dfb-d264-4da8-bc4f-90e080454fd8",
+ "apiOutput": "",
+ "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 149, in test\nAssertionError: (200, {'engineVersion': '0.1.0', 'method': 'stv', 'quota': '2.0000', 'quotaExact': '2/1', 'winners': ['A', 'B'], 'rounds': [{'round': 1, 'tallies': {'A': '3.0000', 'B': '2.0000'}, 'exhausted': '0.0000', 'elected': ['A', 'B'], 'eliminated': [], 'exact': {'tallies': {'A': '3/1', 'B': '2/1'}, 'exhausted': '0/1'}}]})\n"
+}

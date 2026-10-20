@@ -10,6 +10,8 @@ on:
 
 permissions:
   statuses: read
+  checks: read
+  contents: read
 
 jobs:
   v3-gate:
@@ -24,5 +26,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
-      - name: Wait for both TestSprite V3 runs (UI and API) on this head, then check each count
+      - name: Wait for the TestSprite V3 UI run and the testsprite-cli job on this head, then check both
+        env:
+          NEED: ui
+          CLI_CHECK: testsprite-cli
         run: node scripts/testsprite-gate.mjs

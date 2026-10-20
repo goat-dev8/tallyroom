@@ -1,5 +1,7 @@
 // Fail-closed TestSprite V3 gate. The UI and API app runs both post the "TestSprite V3" context, and the newest one hides
 // the other on the PR, so read every status and split them by the project id in target_url.
+// NEED picks the App runs to require (default 'ui': the API App trigger is disabled after internal errors on
+// 2d783a09 and 4e933fb3). The testsprite-cli check (API suite + regress guards on the preview) is required too.
 export const PROJECTS = { ui: 'f312fcf5-741d-4116-bed4-c7ac9334859a', api: 'a7aa06b0-0721-49ff-a7aa-0181ad8586d6' };
 
 /** Parse a status description. Returns {passed,total,failed,blocked} or null when it carries no count. */
@@ -39,7 +41,7 @@ export function judge(s, previewSkipped = false) {
 if (import.meta.url === `file://${process.argv[1]}`) {
   const { execFileSync } = await import('node:child_process');
   const { appendFileSync } = await import('node:fs');
-  const repo = process.env.GITHUB_REPOSITORY, sha = process.env.SHA, need = (process.env.NEED ?? 'ui,api').split(',');
+  const repo = process.env.GITHUB_REPOSITORY, sha = process.env.SHA, need = (process.env.NEED ?? 'ui').split(',');
   const get = () => JSON.parse(execFileSync('gh', ['api', '--paginate', `repos/${repo}/commits/${sha}/statuses?per_page=100`]).toString());
   let res = {};
   for (let i = 0; i < 330; i++) {
@@ -49,7 +51,18 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     if (need.every(k => res[k].final)) break;
     await new Promise(r => setTimeout(r, 10000));
   }
+  // Our own CLI job (API suite + regress guards on the preview) must also have finished green on this head.
+  const cliName = process.env.CLI_CHECK ?? 'testsprite-cli';
+  let cli = { ok: false, msg: 'not found' };
+  for (let i = 0; i < 180 && cliName; i++) {
+    const runs = JSON.parse(execFileSync('gh', ['api', `repos/${repo}/commits/${sha}/check-runs?check_name=${cliName}&per_page=20`]).toString()).check_runs ?? [];
+    const c = runs[0];
+    if (c && c.status === 'completed') { cli = { ok: c.conclusion === 'success', msg: `${c.conclusion} ${c.html_url}` }; break; }
+    cli = { ok: false, msg: c ? `still ${c.status}` : 'not found' };
+    await new Promise(r => setTimeout(r, 10000));
+  }
   const lines = need.map(k => `- ${k}: ${res[k].ok ? 'pass' : 'FAIL'}: ${res[k].msg} ${res[k].url ?? ''}`);
+  if (cliName) { lines.push(`- ${cliName}: ${cli.ok ? 'pass' : 'FAIL'}: ${cli.msg}`); if (!cli.ok) need.push(cliName), res[cliName] = cli; }
   console.log(lines.join('\n'));
   if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### TestSprite V3 gate\n\nHead: \`${sha}\`\n\n${lines.join('\n')}\n`);
   const bad = need.filter(k => !res[k].ok);
