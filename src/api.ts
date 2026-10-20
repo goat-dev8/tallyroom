@@ -10,9 +10,16 @@ const RULE_KEYS = new Set([...Object.keys(DEFAULT_RULES), 'duplicates', 'lotOrde
 export interface ApiResult { status: number; body: unknown; headers?: Record<string, string> }
 export interface TabulateOptions { contentType?: string }
 
+/** BUG-011: a body labelled CSV that is a JSON object or array is JSON. A CSV that starts with "[" (an overvote cell) does not parse as JSON. */
+function looksLikeJson(rawBody: string): boolean {
+  const t = rawBody.trimStart().replace(/^\uFEFF/, '');
+  if (!t.startsWith('{') && !t.startsWith('[')) return false;
+  try { const v = JSON.parse(t); return typeof v === 'object' && v !== null; } catch { return false; }
+}
+
 function isCsvUpload(contentType: string, rawBody: string): boolean {
   const ct = contentType.toLowerCase();
-  if (ct.includes('text/csv') || ct.includes('application/csv')) return true;
+  if (ct.includes('text/csv') || ct.includes('application/csv')) return !looksLikeJson(rawBody);
   if (ct.includes('application/json') || ct.includes('+json')) return false;
   const trimmed = rawBody.trimStart().replace(/^\uFEFF/, '');
   if (!trimmed || trimmed.startsWith('{') || trimmed.startsWith('[')) return false;
@@ -59,7 +66,8 @@ export function errorResult(e: unknown): ApiResult {
 
 /** Parse a tabulate/report upload into ballots. Does not count. */
 export function parseTabulateBody(rawBody: string, contentType = ''): { ok: true; value: ParsedTabulate } | { ok: false; result: ApiResult } {
-  if (rawBody.length > MAX_BODY_BYTES) return { ok: false, result: tooLarge() };
+  // BUG-010: the limit is in UTF-8 bytes, not UTF-16 characters (an accented name is 2 bytes, CJK 3).
+  if (rawBody.length > MAX_BODY_BYTES || new TextEncoder().encode(rawBody).length > MAX_BODY_BYTES) return { ok: false, result: tooLarge() };
   try {
     if (isCsvUpload(contentType, rawBody)) {
       const parsed = parseRankCsv(rawBody);

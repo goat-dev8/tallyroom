@@ -131,7 +131,9 @@ export function parseRankCsv(text: string, declared?: string[]): { ballots: Ball
   const useful = rows.map((cells, index) => ({ cells, row: index + 1 })).filter(({ cells }) => {
     const trimmed = cells.map(c => c.trim());
     if (trimmed.every(c => c === '')) return false;
-    if (trimmed[0].startsWith('#') && trimmed.slice(1).every(c => c === '')) return false;
+    // BUG-009: a "#" line is a comment even when it contains commas. A lone "#" cell followed by more cells is the
+    // ballot-number header column (IGNORE_HEADER), not a comment.
+    if (trimmed[0].startsWith('#') && (trimmed[0] !== '#' || trimmed.slice(1).every(c => c === ''))) return false;
     return true;
   });
   if (useful.length === 0) throw new BallotSemanticError('No valid ballots to count');
