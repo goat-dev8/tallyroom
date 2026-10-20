@@ -4,7 +4,7 @@ import { handleTabulate } from '../src/api.js';
 // Defects found by the differential fuzz run (fuzz/), each reduced to the smallest request that shows it.
 const post = (body: unknown) => handleTabulate('POST', JSON.stringify(body), { contentType: 'application/json' });
 
-describe('BUG-028: overvote rule "continuing" through the public API', () => {
+describe('BUG-012: overvote rule "continuing" through the public API', () => {
   // Reduced from fuzz seed 1 case 24. Burlington 2009 is certified under this rule, but the API refused it.
   it('accepts rules.overvote = "continuing"', () => {
     const r = post({ ballots: '22,Bo>Ada\n8,Ada', candidates: ['Ada', 'Bo'], rules: { overvote: 'continuing' } });

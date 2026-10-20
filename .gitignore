@@ -12,3 +12,4 @@ AGENTS.md
 .stryker-tmp/
 reports/
 audit/mutation/latest.*
+__pycache__/

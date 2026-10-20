@@ -14,15 +14,19 @@ describe('engine agrees with the Python counter on the frozen fuzz corpus', () =
     for (const o of ['exhaust', 'skip', 'continuing']) expect(cases.some(c => c.rules?.overvote === o)).toBe(true);
     for (const f of ['text', 'spaced', 'columns']) expect(cases.some(c => c.format === f)).toBe(true);
   });
-  it.each(cases.map(c => [c.id, c]))('case %i', (_id, c: any) => {
-    const body: Record<string, unknown> = c.csv !== undefined ? { csv: c.csv, candidates: c.candidates } : { ballots: c.ballots, candidates: c.candidates };
-    if (c.seats) { body.seats = c.seats; body.quota = c.quota; } else body.rules = c.rules;
-    const r = handleTabulate('POST', JSON.stringify(body), { contentType: 'application/json' });
-    expect(r.status).toBe(200);
-    const b = r.body as any;
-    const got = c.seats
-      ? { winners: b.winners, quotaExact: b.quotaExact, rounds: b.rounds.map((x: any) => ({ tallies: x.exact.tallies, exhausted: x.exact.exhausted, elected: x.elected, eliminated: x.eliminated })) }
-      : { winner: b.winner, rounds: b.rounds.map((x: any) => ({ tallies: { ...x.tallies }, continuing: x.continuing, eliminated: x.eliminated })) };
-    expect(sortKeys(got)).toBe(sortKeys(c.expected));
+  it('all 600 frozen cases match the Python counter', () => {
+    const bad: unknown[] = [];
+    for (const c of cases) {
+        const body: Record<string, unknown> = c.csv !== undefined ? { csv: c.csv, candidates: c.candidates } : { ballots: c.ballots, candidates: c.candidates };
+        if (c.seats) { body.seats = c.seats; body.quota = c.quota; } else body.rules = c.rules;
+        const r = handleTabulate('POST', JSON.stringify(body), { contentType: 'application/json' });
+        if (r.status !== 200) { bad.push({ id: c.id, status: r.status }); continue; }
+        const b = r.body as any;
+        const got = c.seats
+          ? { winners: b.winners, quotaExact: b.quotaExact, rounds: b.rounds.map((x: any) => ({ tallies: x.exact.tallies, exhausted: x.exact.exhausted, elected: x.elected, eliminated: x.eliminated })) }
+          : { winner: b.winner, rounds: b.rounds.map((x: any) => ({ tallies: { ...x.tallies }, continuing: x.continuing, eliminated: x.eliminated })) };
+        if (sortKeys(got) !== sortKeys(c.expected)) bad.push({ id: c.id, engine: got, oracle: c.expected });
+    }
+    expect(bad).toEqual([]);
   });
 });

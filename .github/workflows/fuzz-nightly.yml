@@ -1,4 +1,4 @@
-# Nightly differential fuzz: fresh seeds every night, 100,000 random IRV/STV elections sent through the same request
+# Scheduled differential fuzz (the cron has not fired yet; see the Actions tab): fresh seeds each run, 100,000 random IRV/STV elections sent through the same request
 # handler as POST /api/tabulate and compared with the independent Python counter in fuzz/oracle.py.
 # Any divergence fails the job and uploads the offending requests (smallest first) for a red test.
 name: Differential fuzz (nightly)
@@ -33,6 +33,17 @@ jobs:
           print("| " + " | ".join(keys) + " |\n|" + "---|" * len(keys))
           print("| " + " | ".join(f"{sum(r[k] for r in rows):,}" for k in keys) + " |")
           PY
+          exit $code
+      - name: Hostile inputs, 2 fresh seeds x 400 (shapes of past bugs)
+        if: always()
+        run: |
+          FIRST="${{ inputs.first_seed }}"; FIRST="${FIRST:-$(( ${{ github.run_number }} * 1000 ))}"
+          code=0
+          for s in "$FIRST" "$((FIRST + 1))"; do
+            (cd fuzz && python3 hostile.py "$s" 400) > hostile.jsonl
+            npx tsx fuzz/hostile.ts hostile.jsonl "fuzz-divergences-hostile-$s.json" | tee -a hostile-summary.jsonl || code=1
+          done
+          { echo "### Hostile inputs"; echo; echo '```'; cat hostile-summary.jsonl; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
           exit $code
       - uses: actions/upload-artifact@v4
         if: always()

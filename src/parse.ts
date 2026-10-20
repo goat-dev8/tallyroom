@@ -7,7 +7,7 @@ export class ParseError extends Error {
 }
 const clean = (s: string) => s.trim().replace(/^"(.*)"$/s, '$1').normalize('NFC');
 
-/** `[A=B]` keeps the names it lists (needed by overvote rule "continuing", BUG-028); bare `overvote` has none. */
+/** `[A=B]` keeps the names it lists (needed by overvote rule "continuing", BUG-012); bare `overvote` has none. */
 function overvoteMark(t: string): Mark {
   const names = /^\[(.*)\]$/.exec(t)?.[1].split('=').map(clean).filter(Boolean);
   return names && names.length ? { kind: 'overvote', names } : { kind: 'overvote' };
