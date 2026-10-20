@@ -1,0 +1,44 @@
+# Nightly differential fuzz: fresh seeds every night, 100,000 random IRV/STV elections sent through the same request
+# handler as POST /api/tabulate and compared with the independent Python counter in fuzz/oracle.py.
+# Any divergence fails the job and uploads the offending requests (smallest first) for a red test.
+name: Differential fuzz (nightly)
+on:
+  schedule:
+    - cron: '30 2 * * *' # 05:30 Cairo
+  workflow_dispatch:
+    inputs:
+      first_seed: { description: 'First seed (default: derived from the run number)', required: false }
+permissions:
+  contents: read
+jobs:
+  fuzz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22', cache: npm }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: npm ci
+      - name: Sweep 20 seeds x 5,000 elections
+        run: |
+          FIRST="${{ inputs.first_seed }}"; FIRST="${FIRST:-$(( ${{ github.run_number }} * 1000 ))}"
+          set +e; fuzz/sweep.sh "$FIRST" "$((FIRST + 19))" 5000 | tee sweep.jsonl; code=${PIPESTATUS[0]}; set -e
+          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          rows = [json.loads(l) for l in open("sweep.jsonl")]
+          keys = ["cases", "irv", "stv", "rounds", "irvCasesWithTieBreak", "irvCasesWithBatch", "divergences"]
+          print(f"### Differential fuzz, seeds {rows[0]['seed']}-{rows[-1]['seed']}\n")
+          print("| " + " | ".join(keys) + " |\n|" + "---|" * len(keys))
+          print("| " + " | ".join(f"{sum(r[k] for r in rows):,}" for k in keys) + " |")
+          PY
+          exit $code
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fuzz-sweep
+          path: |
+            sweep.jsonl
+            fuzz-divergences-*.json
+          if-no-files-found: ignore

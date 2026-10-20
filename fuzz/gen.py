@@ -28,7 +28,22 @@ def case(rng, i):
     text = "\n".join(ballot_line(rng, cands) for _ in range(rng.randint(1, 25)))
     ballots = parse(text)
     stv_case = k >= 3 and rng.random() < 0.35
-    c = {"id": i, "candidates": cands, "ballots": text}
+    fmt = rng.choice(["text", "text", "spaced", "columns"])
+    c = {"id": i, "candidates": cands, "format": fmt}
+    if fmt == "text":
+        c["ballots"] = text
+    elif fmt == "spaced":  # same ballots, alternate spellings the parser documents
+        c["ballots"] = "count,ranking\n" + "\n".join(
+            n + ", " + " > ".join("undervote" if t == "_" else t for t in r.split(">"))
+            for n, r in (l.split(",", 1) for l in text.splitlines()))
+    else:  # one rank per CSV column; short rows are padded with blank (skipped) ranks
+        width = max(len(m) for _, m in ballots)
+        rows = ["count," + ",".join(f"rank{j + 1}" for j in range(width))]
+        for n, r in (l.split(",", 1) for l in text.splitlines()):
+            cells = ["" if t == "_" else t for t in r.split(">")]
+            rows.append(n + "," + ",".join(cells + [""] * (width - len(cells))))
+        c["csv"] = "\n".join(rows)
+        ballots = [(n, m + [("skip",)] * (width - len(m))) for n, m in ballots]
     if stv_case:
         c["seats"] = rng.randint(2, k - 1)
         c["quota"] = rng.choice(["droop", "hare"])
