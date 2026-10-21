@@ -1,5 +1,5 @@
 'use client';
-// Isometric line figures from @lucasmarkes/hairline (MIT, Lucas Marques).
+// Isometric line figures from @lucasmarkes/hairline (MIT, Lucas Marques), recoloured in app/globals.css.
 // Decorative here: kept out of the Tab order so keyboard paths stay as tested.
 import { Plot, Loupe, Branches, Cabinet, Relay, Slow, Terminal, Hub, Terrain, Sieve } from '@lucasmarkes/hairline/react';
 
