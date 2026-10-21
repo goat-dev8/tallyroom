@@ -1,0 +1,11 @@
+{
+  "rootCauseHypothesis": "POST https://tallyroom-rosy.vercel.app/api/tabulate → 200\nResponse: {\"engineVersion\":\"0.1.0\",\"method\":\"irv\",\"candidates\":[\"B\\r5,A\"],\"rules\":{\"overvote\":\"exhaust\",\"skips\":\"continue\",\"batch\":false,\"tiebreak\":\"previous-round\"},\"rounds\":[{\"round\":1,\"tallies\":{\"B\\r5,A\":1},\"continuing\":1,\"inactive\":{\"blank\":0,\"overvote\":0,\"skips\":0,\"undervote\":0,\"exhausted\":0},\"threshold\":1,\"eliminated\":[]}]…\n{'engineVersion': '0.1.0', 'method': 'irv', 'candidates': ['B\\r5,A'], 'rules': {'overvote': 'exhaust', 'skips': 'continue', 'batch': False, 'tiebreak': 'previous-round'}, 'rounds': [{'round': 1, 'tallies': {'B\\r5,A': 1}, 'continuing': 1, 'i…\nAnalysis: The test called https://tallyroom-rosy.vercel.app/api/tabulate and the target API returned 200, but it parsed the malformed CSV as a single candidate value (`\"B\\r5,A\"`). The request body did not use a bare carriage return as a line break. Underlying error: {'engineVersion': '0.1.0', 'method': 'irv', 'candidates': ['B\\r5,A'], 'rules': {'overvote': 'exhaust', 'skips': 'continue', 'batch': False, 'tiebreak': 'previous-round'}, 'rounds': [{'round': 1, 'tallies': {'B\\r5,A': 1}, 'continuing': 1, 'inactive': {'blank': 0, 'overvote': 0, 'skips': 0, 'undervote': 0, 'exhausted': 0}, 'threshold': 1, 'eliminated': []}], 'winner': 'B\\r5,A', 'totalBallots': 1}",
+  "recommendedFixTarget": {
+    "kind": "unknown",
+    "reference": "engineVersion",
+    "rationale": "I changed the test to send CSV with a real bare CR between ballot lines, then assert the expected tabulation result for the documented bug case."
+  },
+  "evidence": [],
+  "apiOutput": "",
+  "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 150, in test\nAssertionError: {'engineVersion': '0.1.0', 'method': 'irv', 'candidates': ['B\\r5,A'], 'rules': {'overvote': 'exhaust', 'skips': 'continue', 'batch': False, 'tiebreak': 'previous-round'}, 'rounds': [{'round': 1, 'tallies': {'B\\r5,A': 1}, 'continuing': 1, 'inactive': {'blank': 0, 'overvote': 0, 'skips': 0, 'undervote': 0, 'exhausted': 0}, 'threshold': 1, 'eliminated': []}], 'winner': 'B\\r5,A', 'totalBallots': 1}\n"
+}

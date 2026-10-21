@@ -1,0 +1,30 @@
+{
+ "runId": "35646e80-d514-43c3-8e50-eb37d21fa688",
+ "testId": "2c3b8c12-b610-49ef-a1c6-e730cd44564c",
+ "testTitle": "regress:bug-019",
+ "projectId": "a7aa06b0-0721-49ff-a7aa-0181ad8586d6",
+ "userId": "04180438-a0a1-70ab-b51f-4dce971c378f",
+ "status": "passed",
+ "source": "cli",
+ "createdAt": "2026-10-20T21:09:49.076Z",
+ "startedAt": "2026-10-20T21:09:49.076Z",
+ "finishedAt": "2026-10-20T21:09:50.332Z",
+ "codeVersion": "v-4c24a6dd9044",
+ "targetUrl": null,
+ "environment": null,
+ "createdFrom": null,
+ "failedStepIndex": null,
+ "failureKind": null,
+ "error": "",
+ "videoUrl": null,
+ "stepSummary": {
+  "total": 0,
+  "completed": 0,
+  "passedCount": 0,
+  "failedCount": 0
+ },
+ "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/2c3b8c12-b610-49ef-a1c6-e730cd44564c",
+ "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/a058c7cb-5e4f-4fb1-870c-395d6f451654/test/35646e80-d514-43c3-8e50-eb37d21fa688",
+ "apiOutput": "",
+ "trace": ""
+}

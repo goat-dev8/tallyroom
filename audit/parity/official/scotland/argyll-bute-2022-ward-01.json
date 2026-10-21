@@ -1,0 +1,61 @@
+{
+ "council": "Argyll and Bute",
+ "year": 2022,
+ "ward": "Ward 1 - South Kintyre",
+ "source": "ab2022-candidatevotesperstagereport_v0001_ward-1-south-kintyre_06052022_114419.pdf",
+ "sha256": "2767dd95d008a276f426371a046b619bfeb86301b0a4f4ae0dd0bd15545a3f5b",
+ "ballotSource": "ab2022-preferenceprofile_v0001_ward-1-south-kintyre_06052022_120128.blt",
+ "ballotSha256": "aa88f04f8085f0d2c759fa1144f2510ba05f8512a7d66d81346fddb69bf21217",
+ "ballotsReceived": 2405,
+ "validVotes": 2358,
+ "seats": 3,
+ "quota": 590,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "John ARMOUR": "773",
+    "Rory COLVILLE": "206",
+    "Donald KELLY": "848",
+    "Tommy MACPHERSON": "531",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "John ARMOUR",
+    "Donald KELLY"
+   ],
+   "total": "2358"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Donald KELLY",
+    "amount": "258.00000"
+   },
+   "transferred": {
+    "John ARMOUR": "0.00000",
+    "Rory COLVILLE": "104.65856",
+    "Donald KELLY": "-258.00000",
+    "Tommy MACPHERSON": "84.27448",
+    "nonTransferable": "69.06248",
+    "rounding": "0.00448"
+   },
+   "votes": {
+    "John ARMOUR": "773.00000",
+    "Rory COLVILLE": "310.65856",
+    "Donald KELLY": "590.00000",
+    "Tommy MACPHERSON": "615.27448",
+    "nonTransferable": "69.06248",
+    "rounding": "0.00448"
+   },
+   "elected": [
+    "Tommy MACPHERSON"
+   ],
+   "total": "2358.00000"
+  }
+ ]
+}

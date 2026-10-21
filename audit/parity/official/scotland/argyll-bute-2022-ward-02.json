@@ -1,0 +1,188 @@
+{
+ "council": "Argyll and Bute",
+ "year": 2022,
+ "ward": "Ward 2 - Kintyre and the Islands",
+ "source": "ab2022-candidatevotesperstagereport_v0001_ward-2-kintyre-and-the-islands_06052022_125439.pdf",
+ "sha256": "5543a68f6448653497fcbfab003d7d08c025dfcc3aa51e4b0485e6e09621fac0",
+ "ballotSource": "ab2022-preferenceprofile_v0002_ward-2-kintyre-and-the-islands_06052022_130502.blt",
+ "ballotSha256": "fbaa536cdd5d76e01b90d310e0a6dbdbf6fdcf05dae24af87af67b43aa93ea3f",
+ "ballotsReceived": 2938,
+ "validVotes": 2889,
+ "seats": 3,
+ "quota": 723,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Robin CURRIE": "474",
+    "Jane B KELLY": "122",
+    "John MCALPINE": "680",
+    "Dougie MCFADZEAN": "863",
+    "Alec MCNEILLY": "276",
+    "Alastair John REDMAN": "474",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Dougie MCFADZEAN"
+   ],
+   "total": "2889"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Dougie MCFADZEAN",
+    "amount": "140.00000"
+   },
+   "transferred": {
+    "Robin CURRIE": "41.69054",
+    "Jane B KELLY": "18.65530",
+    "John MCALPINE": "25.30632",
+    "Dougie MCFADZEAN": "-140.00000",
+    "Alec MCNEILLY": "1.29776",
+    "Alastair John REDMAN": "18.97974",
+    "nonTransferable": "34.06620",
+    "rounding": "0.00414"
+   },
+   "votes": {
+    "Robin CURRIE": "515.69054",
+    "Jane B KELLY": "140.65530",
+    "John MCALPINE": "705.30632",
+    "Dougie MCFADZEAN": "723.00000",
+    "Alec MCNEILLY": "277.29776",
+    "Alastair John REDMAN": "492.97974",
+    "nonTransferable": "34.06620",
+    "rounding": "0.00414"
+   },
+   "elected": [],
+   "total": "2889.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Jane B KELLY",
+    "amount": "140.65530"
+   },
+   "transferred": {
+    "Robin CURRIE": "64.40876",
+    "Jane B KELLY": "-140.65530",
+    "John MCALPINE": "34.21772",
+    "Dougie MCFADZEAN": "0.00000",
+    "Alec MCNEILLY": "7.00000",
+    "Alastair John REDMAN": "9.48666",
+    "nonTransferable": "25.54216",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Robin CURRIE": "580.09930",
+    "Jane B KELLY": "0.00000",
+    "John MCALPINE": "739.52404",
+    "Dougie MCFADZEAN": "723.00000",
+    "Alec MCNEILLY": "284.29776",
+    "Alastair John REDMAN": "502.46640",
+    "nonTransferable": "59.61250",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "John MCALPINE"
+   ],
+   "total": "2889.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "surplus",
+    "candidate": "John MCALPINE",
+    "amount": "16.52404"
+   },
+   "transferred": {
+    "Robin CURRIE": "3.73120",
+    "Jane B KELLY": "0.00000",
+    "John MCALPINE": "-16.52404",
+    "Dougie MCFADZEAN": "0.00000",
+    "Alec MCNEILLY": "2.04018",
+    "Alastair John REDMAN": "3.02304",
+    "nonTransferable": "7.72582",
+    "rounding": "0.00380"
+   },
+   "votes": {
+    "Robin CURRIE": "583.83050",
+    "Jane B KELLY": "0.00000",
+    "John MCALPINE": "723.00000",
+    "Dougie MCFADZEAN": "723.00000",
+    "Alec MCNEILLY": "286.33794",
+    "Alastair John REDMAN": "505.48944",
+    "nonTransferable": "67.33832",
+    "rounding": "0.00380"
+   },
+   "elected": [],
+   "total": "2889.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Alec MCNEILLY",
+    "amount": "286.33794"
+   },
+   "transferred": {
+    "Robin CURRIE": "86.80082",
+    "Jane B KELLY": "0.00000",
+    "John MCALPINE": "0.00000",
+    "Dougie MCFADZEAN": "0.00000",
+    "Alec MCNEILLY": "-286.33794",
+    "Alastair John REDMAN": "117.81008",
+    "nonTransferable": "81.72704",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Robin CURRIE": "670.63132",
+    "Jane B KELLY": "0.00000",
+    "John MCALPINE": "723.00000",
+    "Dougie MCFADZEAN": "723.00000",
+    "Alec MCNEILLY": "0.00000",
+    "Alastair John REDMAN": "623.29952",
+    "nonTransferable": "149.06916",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "2889.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Alastair John REDMAN",
+    "amount": "623.29952"
+   },
+   "transferred": {
+    "Robin CURRIE": "316.94262",
+    "Jane B KELLY": "0.00000",
+    "John MCALPINE": "0.00000",
+    "Dougie MCFADZEAN": "0.00000",
+    "Alec MCNEILLY": "0.00000",
+    "Alastair John REDMAN": "-623.29952",
+    "nonTransferable": "306.35690",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Robin CURRIE": "987.57394",
+    "Jane B KELLY": "0.00000",
+    "John MCALPINE": "723.00000",
+    "Dougie MCFADZEAN": "723.00000",
+    "Alec MCNEILLY": "0.00000",
+    "Alastair John REDMAN": "0.00000",
+    "nonTransferable": "455.42606",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Robin CURRIE"
+   ],
+   "total": "2889.00000"
+  }
+ ]
+}

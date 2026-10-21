@@ -1,0 +1,21 @@
+# Round 3: production https://tallyroom-rosy.vercel.app (main 98d523f), 2026-10-20 22:42:07 Cairo (UTC+3)
+
+## BUG-024a top-level typo 'seat' silently ignored (expected 400 unknown key; got single-winner IRV)
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' -d '{"ballots":"3,A\n2,B\n2,C","seat":2}'
+{"method": "irv", "winner": "A", "winners": null, "candidates": ["A", "B", "C"]}
+HTTP 200
+
+## BUG-024b candidates as a string silently ignored (expected 422 INVALID_CANDIDATES)
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' -d '{"ballots":"3,A\n2,B","candidates":"A,B,C"}'
+{"method": "irv", "winner": "A", "winners": null, "candidates": ["A", "B"]}
+HTTP 200
+
+## BUG-024c csv and ballots both given: csv silently ignored (expected 400)
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' -d '{"ballots":"3,A\n2,B","csv":"1,B\n9,C"}'
+{"method": "irv", "winner": "A", "winners": null, "candidates": ["A", "B"]}
+HTTP 200
+
+## control: unknown key inside rules is rejected
+$ curl -X POST $PROD/api/tabulate -H 'content-type: application/json' -d '{"ballots":"3,A\n2,B","rules":{"overvot":"skip"}}'
+{"code": "UNKNOWN_RULE", "message": "Unknown rule key(s): overvot", "details": {"keys": ["overvot"]}}
+HTTP 400

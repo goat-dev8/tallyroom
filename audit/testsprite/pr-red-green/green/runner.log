@@ -1,0 +1,75 @@
+idempotency-key: cli-run-02f9bfc1-fc47-4257-bb19-c4efc3dc98ed
+Run 679af9f0-d3ec-44a4-9cfa-3a41c71b974a
+Dashboard: https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/2baa46fc-8615-4c7f-ab83-e33806ae4190
+requestId: cli_09c6b4e9-a7b3-4f70-9059-4a9ec3ceb962
+{"name":"regress:bug-009","testId":"2baa46fc-8615-4c7f-ab83-e33806ae4190","runId":"679af9f0-d3ec-44a4-9cfa-3a41c71b974a","status":"passed","failureKind":null,"base":"https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app"}
+idempotency-key: cli-run-d586a93d-9cbd-4a08-bf04-7f67995eb50e
+Run 04794c80-7dcd-4017-b195-2ecfc6060980
+Dashboard: https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/640adff8-dc91-478d-9f41-f6d90424e920
+requestId: cli_adc62dc6-971a-42b4-b0bd-5e57b377dd89
+{"name":"regress:bug-010","testId":"640adff8-dc91-478d-9f41-f6d90424e920","runId":"04794c80-7dcd-4017-b195-2ecfc6060980","status":"passed","failureKind":null,"base":"https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app"}
+idempotency-key: cli-run-13159c9d-f258-46a5-a500-4b6706d8cc4a
+Run b9424bad-f1eb-4382-8ee5-78834782bc18
+Dashboard: https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/8b235a50-546d-406a-8867-08ab87ee56e2
+requestId: cli_6d7498db-5a18-4bc2-8540-950028f2d039
+{"name":"regress:bug-011","testId":"8b235a50-546d-406a-8867-08ab87ee56e2","runId":"b9424bad-f1eb-4382-8ee5-78834782bc18","status":"passed","failureKind":null,"base":"https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app"}
+idempotency-key: cli-run-582c71ec-eb88-46f5-b921-856faeb58ea0
+Run 2c4db206-aec0-4443-9172-68502f963240
+Dashboard: https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/9104fe07-c858-4e03-b179-14dd041dcc9e
+requestId: cli_551882a6-3670-4cb4-9cb7-da3e65bd87da
+{"name":"regress:bug-012","testId":"9104fe07-c858-4e03-b179-14dd041dcc9e","runId":"2c4db206-aec0-4443-9172-68502f963240","status":"passed","failureKind":null,"base":"https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app"}
+idempotency-key: cli-run-0f5a8df7-15a5-4abc-8556-f9276d82b885
+Run f36df358-5b3f-4a31-8aff-6ced2ec32029
+Dashboard: https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/2c7d0b96-c94f-45e9-8d8d-9792630a1a74
+requestId: cli_c8b49996-ab21-421f-b171-d34e94f98462
+{"name":"regress:bug-013","testId":"2c7d0b96-c94f-45e9-8d8d-9792630a1a74","runId":"f36df358-5b3f-4a31-8aff-6ced2ec32029","status":"passed","failureKind":null,"base":"https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app"}
+idempotency-key: cli-run-67b19c0d-4ed2-4b7d-bff8-4daa3bed859f
+Run 9d6494a5-331c-415c-9244-63681ea46e8b
+Dashboard: https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/baf3ae70-4438-4666-822a-b90b46a06d34
+requestId: cli_e5f6c207-ef2f-42c7-a868-9bb04fe5e133
+{"name":"regress:bug-014","testId":"baf3ae70-4438-4666-822a-b90b46a06d34","runId":"9d6494a5-331c-415c-9244-63681ea46e8b","status":"passed","failureKind":null,"base":"https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app"}
+idempotency-key: cli-run-bd3d725e-3e2c-4106-b2e4-03b443106254
+Run 26183258-85a1-4031-99d0-eedad5d28a5b
+Dashboard: https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/84802352-e942-4e7b-9f93-ef5c1a069f70
+requestId: cli_5a24e992-2d0b-40c2-9d8b-7b6775968a39
+{"name":"regress:bug-015","testId":"84802352-e942-4e7b-9f93-ef5c1a069f70","runId":"26183258-85a1-4031-99d0-eedad5d28a5b","status":"passed","failureKind":null,"base":"https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app"}
+idempotency-key: cli-run-dcf2fbdb-95e0-4f3d-a148-d13b1adc0387
+Run fc9c0c78-78eb-4fb2-8978-6ff5afb83df2
+Dashboard: https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/3e46dd98-f996-42a2-9acd-037ed87d1435
+requestId: cli_dd716207-ee2f-4cb0-bfdb-1fe3443de7d2
+{"name":"regress:bug-016","testId":"3e46dd98-f996-42a2-9acd-037ed87d1435","runId":"fc9c0c78-78eb-4fb2-8978-6ff5afb83df2","status":"passed","failureKind":null,"base":"https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app"}
+idempotency-key: cli-run-429e0f1d-834f-4fbe-93cd-867a63cc516f
+Run 988af040-334b-41f0-a30f-a865f099f671
+Dashboard: https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/cbdc897f-1356-4f5f-bb37-e5b4f0c56a8f
+requestId: cli_c5066cd0-648a-4773-9386-4984ca5705c5
+{"name":"regress:bug-018","testId":"cbdc897f-1356-4f5f-bb37-e5b4f0c56a8f","runId":"988af040-334b-41f0-a30f-a865f099f671","status":"passed","failureKind":null,"base":"https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app"}
+idempotency-key: cli-run-05a1e01f-9169-4b1e-8ac0-316713188ed4
+Run 35646e80-d514-43c3-8e50-eb37d21fa688
+Dashboard: https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/2c3b8c12-b610-49ef-a1c6-e730cd44564c
+requestId: cli_fa265942-d278-443a-9cbf-7643ddcfc630
+{"name":"regress:bug-019","testId":"2c3b8c12-b610-49ef-a1c6-e730cd44564c","runId":"35646e80-d514-43c3-8e50-eb37d21fa688","status":"passed","failureKind":null,"base":"https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app"}
+idempotency-key: cli-run-45114c47-6a1e-4ade-afaf-c8e32a70d9d4
+Run f85fd773-3f30-4e0f-b9aa-0a5057c7213b
+Dashboard: https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/aa98bbd6-0987-4ec8-9c9f-564c3de89f9f
+requestId: cli_7832862d-a23e-4a15-be8e-ad49c774072e
+{"name":"regress:bug-021","testId":"aa98bbd6-0987-4ec8-9c9f-564c3de89f9f","runId":"f85fd773-3f30-4e0f-b9aa-0a5057c7213b","status":"passed","failureKind":null,"base":"https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app"}
+idempotency-key: cli-run-b893ef97-f7c2-4783-836e-28ee525f70ca
+Run 0f552ccd-b4f5-46b3-9912-8114032c3cf3
+Dashboard: https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/28a6c190-394e-48b1-ba0a-ae78b929d580
+requestId: cli_cf8fcd05-7616-4349-b55c-31c0da1f0fbe
+{"name":"regress:bug-024","testId":"28a6c190-394e-48b1-ba0a-ae78b929d580","runId":"0f552ccd-b4f5-46b3-9912-8114032c3cf3","status":"passed","failureKind":null,"base":"https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app"}
+idempotency-key: cli-run-51388f75-4d6c-4f5b-be41-4987a39b0aa3
+Run 71575198-20b1-4ca0-8871-d27d63d185c2
+Dashboard: https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/b95fddab-e854-413b-a0e5-1854b13fed33
+requestId: cli_fd4f519f-2cef-491c-8224-98157a666fd0
+{"name":"regress:bug-028","testId":"b95fddab-e854-413b-a0e5-1854b13fed33","runId":"71575198-20b1-4ca0-8871-d27d63d185c2","status":"passed","failureKind":null,"base":"https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app"}
+idempotency-key: cli-run-2b3166ac-baf2-4466-9926-b9c0aaa64362
+Run b44fd754-c875-4bb8-86b5-f0b16fa4da86
+Dashboard: https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/2b7bbed5-2a37-4c8c-a8c5-e402af8529a1
+requestId: cli_87355906-9bac-4d0f-93c7-302131c372da
+{"name":"regress:bug-029","testId":"2b7bbed5-2a37-4c8c-a8c5-e402af8529a1","runId":"b44fd754-c875-4bb8-86b5-f0b16fa4da86","status":"passed","failureKind":null,"base":"https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app"}
+idempotency-key: cli-run-fa98f141-4023-44ea-86e0-1bc61c27b83b
+Run 15c49a1e-13e6-4c00-af25-59f61197606f
+Dashboard: https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/abef2d38-2f4d-402e-bf1c-44ed448dc370
+requestId: cli_2a1cdf92-c8a6-4d92-978c-a0f1b74e6795
+{"name":"regress:bug-030","testId":"abef2d38-2f4d-402e-bf1c-44ed448dc370","runId":"15c49a1e-13e6-4c00-af25-59f61197606f","status":"passed","failureKind":null,"base":"https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app"}

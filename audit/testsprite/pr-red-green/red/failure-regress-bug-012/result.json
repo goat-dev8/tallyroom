@@ -1,0 +1,21 @@
+{
+  "testId": "9104fe07-c858-4e03-b179-14dd041dcc9e",
+  "status": "failed",
+  "startedAt": "2026-10-20T21:06:09.913Z",
+  "finishedAt": "2026-10-20T21:06:13.898Z",
+  "videoUrl": null,
+  "failureAnalysisUrl": null,
+  "snapshotId": "snap_bd4e3491d5743538",
+  "runIdIfAvailable": "7b2f54b9-3260-49c2-aa4b-6be2a29980bb",
+  "codeVersion": "v-66252eb97acd",
+  "targetUrl": null,
+  "targetUrlSource": null,
+  "environment": null,
+  "failedStepIndex": null,
+  "failureKind": "assertion",
+  "verdict": "failed",
+  "executionStatus": "completed",
+  "summary": "Failed (assertion): POST https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app/api/tabulate → 422\nResponse: {\"error\":{\"code\":\"INVALID_OVERVOTE\",\"message\":\"rules.overvote must be one of: exhaust, skip\",\"details\":{\"field\":\"rules.overvote\",\"value\":\"continuing\"}}}\n(422, {'error': {'code': 'INVALID_OVERVOTE', 'message': 'rules.overvote must be one of: exhaust, skip', 'details': {'field': 'rules.overvote', 'value': 'continuing'}}})\nAnalysis: The test called https://tallyroom-git-ts-re…",
+  "apiOutput": "",
+  "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 149, in test\nAssertionError: (422, {'error': {'code': 'INVALID_OVERVOTE', 'message': 'rules.overvote must be one of: exhaust, skip', 'details': {'field': 'rules.overvote', 'value': 'continuing'}}})\n"
+}

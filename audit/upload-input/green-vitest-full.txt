@@ -1,0 +1,9 @@
+
+ RUN  v4.1.12 /tmp/csvfix
+
+
+ Test Files  24 passed (24)
+      Tests  153 passed (153)
+   Start at  12:13:35
+   Duration  2.65s (transform 1.91s, setup 0ms, import 4.18s, tests 4.69s, environment 7ms)
+

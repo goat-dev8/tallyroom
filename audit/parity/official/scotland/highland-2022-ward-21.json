@@ -1,0 +1,121 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "Fort William and Ardnamurchan",
+ "source": "hl2022-ward-21-2022_Local_Government_Election_Results_Ward_21_Fort_William_and_Ardnamurchan_Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "9c7cfbabd28a76c7e9cbc8dff859ab59c92d388526259e55b4582e894d8f8c6a",
+ "ballotSource": "hl2022-ward-21-2022_Local_Government_Election_Results_Ward_21_Fort_William_and_Ardnamurchan_Preference_Profile.blt",
+ "ballotSha256": "73a9dc4705f322e56a390dc8e08fa7c6b6a904fd83747e4483a90bc651d075ef",
+ "ballotsReceived": 4056,
+ "validVotes": 4003,
+ "seats": 4,
+ "quota": 801,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Sarah FANET": "1341",
+    "Fiona FAWCETT": "404",
+    "Angus MACDONALD": "1500",
+    "Thomas MACLENNAN": "373",
+    "Kate WILLIS": "385",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Sarah FANET",
+    "Angus MACDONALD"
+   ],
+   "total": "4003"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Angus MACDONALD",
+    "amount": "699.00000"
+   },
+   "transferred": {
+    "Sarah FANET": "0.00000",
+    "Fiona FAWCETT": "147.72200",
+    "Angus MACDONALD": "-699.00000",
+    "Thomas MACLENNAN": "267.48400",
+    "Kate WILLIS": "115.56800",
+    "nonTransferable": "168.22600",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Sarah FANET": "1341.00000",
+    "Fiona FAWCETT": "551.72200",
+    "Angus MACDONALD": "801.00000",
+    "Thomas MACLENNAN": "640.48400",
+    "Kate WILLIS": "500.56800",
+    "nonTransferable": "168.22600",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "4003.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Sarah FANET",
+    "amount": "540.00000"
+   },
+   "transferred": {
+    "Sarah FANET": "-540.00000",
+    "Fiona FAWCETT": "18.92596",
+    "Angus MACDONALD": "0.00000",
+    "Thomas MACLENNAN": "84.16012",
+    "Kate WILLIS": "297.98320",
+    "nonTransferable": "138.92460",
+    "rounding": "0.00612"
+   },
+   "votes": {
+    "Sarah FANET": "801.00000",
+    "Fiona FAWCETT": "570.64796",
+    "Angus MACDONALD": "801.00000",
+    "Thomas MACLENNAN": "724.64412",
+    "Kate WILLIS": "798.55120",
+    "nonTransferable": "307.15060",
+    "rounding": "0.00612"
+   },
+   "elected": [],
+   "total": "4003.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Fiona FAWCETT",
+    "amount": "570.64796"
+   },
+   "transferred": {
+    "Sarah FANET": "0.00000",
+    "Fiona FAWCETT": "-570.64796",
+    "Angus MACDONALD": "0.00000",
+    "Thomas MACLENNAN": "332.79824",
+    "Kate WILLIS": "39.00680",
+    "nonTransferable": "198.84292",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Sarah FANET": "801.00000",
+    "Fiona FAWCETT": "0.00000",
+    "Angus MACDONALD": "801.00000",
+    "Thomas MACLENNAN": "1057.44236",
+    "Kate WILLIS": "837.55800",
+    "nonTransferable": "505.99964",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Thomas MACLENNAN",
+    "Kate WILLIS"
+   ],
+   "total": "4003.00000"
+  }
+ ]
+}

@@ -9,7 +9,7 @@
   },
   {
    "type": "action",
-   "description": "Click 'demo-restart', then click 'demo-play' to pause, confirming 'demo-round' reads 'Round 1 / 2'"
+   "description": "Click 'demo-play' to pause (confirm 'hero-demo' has data-state='paused'), then click 'demo-restart' once; restart keeps the demo paused. Confirm 'demo-round' reads 'Round 1 / 2'"
   },
   {
    "type": "assertion",

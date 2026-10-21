@@ -1,0 +1,198 @@
+{
+ "council": "Argyll and Bute",
+ "year": 2022,
+ "ward": "Ward 6 - Cowal",
+ "source": "ab2022-candidatevotesperstagereport_v0001_ward-6-cowal_06052022_155001.pdf",
+ "sha256": "507cbd239f6a4fdcc51a532fb31d2ad77c0ff241034e2a7a366cb6d9c5ed07e0",
+ "ballotSource": "ab2022-preferenceprofile_v0007_ward-6-cowal_06052022_160055.blt",
+ "ballotSha256": "8c60e87ad397d8ba94894d5a43fd1bf32968ee4119f520bf165cbbcacee6bdb9",
+ "ballotsReceived": 3341,
+ "validVotes": 3277,
+ "seats": 3,
+ "quota": 820,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Gordon BLAIR": "1090",
+    "Mark FEINMANN": "251",
+    "Lachie MACQUARIE": "282",
+    "Yvonne MCNEILLY": "855",
+    "Fiona NELSON": "78",
+    "William SINCLAIR": "551",
+    "Kenneth WHYTE": "170",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Gordon BLAIR",
+    "Yvonne MCNEILLY"
+   ],
+   "total": "3277"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Gordon BLAIR",
+    "amount": "270.00000"
+   },
+   "transferred": {
+    "Gordon BLAIR": "-270.00000",
+    "Mark FEINMANN": "11.14650",
+    "Lachie MACQUARIE": "221.19610",
+    "Yvonne MCNEILLY": "0.00000",
+    "Fiona NELSON": "5.94480",
+    "William SINCLAIR": "12.38500",
+    "Kenneth WHYTE": "4.45860",
+    "nonTransferable": "14.86200",
+    "rounding": "0.00700"
+   },
+   "votes": {
+    "Gordon BLAIR": "820.00000",
+    "Mark FEINMANN": "262.14650",
+    "Lachie MACQUARIE": "503.19610",
+    "Yvonne MCNEILLY": "855.00000",
+    "Fiona NELSON": "83.94480",
+    "William SINCLAIR": "563.38500",
+    "Kenneth WHYTE": "174.45860",
+    "nonTransferable": "14.86200",
+    "rounding": "0.00700"
+   },
+   "elected": [],
+   "total": "3277.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Yvonne MCNEILLY",
+    "amount": "35.00000"
+   },
+   "transferred": {
+    "Gordon BLAIR": "0.00000",
+    "Mark FEINMANN": "5.64834",
+    "Lachie MACQUARIE": "0.28651",
+    "Yvonne MCNEILLY": "-35.00000",
+    "Fiona NELSON": "1.06418",
+    "William SINCLAIR": "14.12085",
+    "Kenneth WHYTE": "4.87067",
+    "nonTransferable": "9.00460",
+    "rounding": "0.00485"
+   },
+   "votes": {
+    "Gordon BLAIR": "820.00000",
+    "Mark FEINMANN": "267.79484",
+    "Lachie MACQUARIE": "503.48261",
+    "Yvonne MCNEILLY": "820.00000",
+    "Fiona NELSON": "85.00898",
+    "William SINCLAIR": "577.50585",
+    "Kenneth WHYTE": "179.32927",
+    "nonTransferable": "23.87360",
+    "rounding": "0.00485"
+   },
+   "elected": [],
+   "total": "3277.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Fiona NELSON",
+    "amount": "85.00898"
+   },
+   "transferred": {
+    "Gordon BLAIR": "0.00000",
+    "Mark FEINMANN": "5.57726",
+    "Lachie MACQUARIE": "28.98160",
+    "Yvonne MCNEILLY": "0.00000",
+    "Fiona NELSON": "-85.00898",
+    "William SINCLAIR": "10.35917",
+    "Kenneth WHYTE": "21.94563",
+    "nonTransferable": "18.14532",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Gordon BLAIR": "820.00000",
+    "Mark FEINMANN": "273.37210",
+    "Lachie MACQUARIE": "532.46421",
+    "Yvonne MCNEILLY": "820.00000",
+    "Fiona NELSON": "0.00000",
+    "William SINCLAIR": "587.86502",
+    "Kenneth WHYTE": "201.27490",
+    "nonTransferable": "42.02377",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3277.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Kenneth WHYTE",
+    "amount": "201.27490"
+   },
+   "transferred": {
+    "Gordon BLAIR": "0.00000",
+    "Mark FEINMANN": "30.19121",
+    "Lachie MACQUARIE": "33.52713",
+    "Yvonne MCNEILLY": "0.00000",
+    "Fiona NELSON": "0.00000",
+    "William SINCLAIR": "81.56939",
+    "Kenneth WHYTE": "-201.27490",
+    "nonTransferable": "55.98717",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Gordon BLAIR": "820.00000",
+    "Mark FEINMANN": "303.56331",
+    "Lachie MACQUARIE": "565.99134",
+    "Yvonne MCNEILLY": "820.00000",
+    "Fiona NELSON": "0.00000",
+    "William SINCLAIR": "669.43441",
+    "Kenneth WHYTE": "0.00000",
+    "nonTransferable": "98.01094",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3277.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Mark FEINMANN",
+    "amount": "303.56331"
+   },
+   "transferred": {
+    "Gordon BLAIR": "0.00000",
+    "Mark FEINMANN": "-303.56331",
+    "Lachie MACQUARIE": "30.31529",
+    "Yvonne MCNEILLY": "0.00000",
+    "Fiona NELSON": "0.00000",
+    "William SINCLAIR": "188.03155",
+    "Kenneth WHYTE": "0.00000",
+    "nonTransferable": "85.21647",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Gordon BLAIR": "820.00000",
+    "Mark FEINMANN": "0.00000",
+    "Lachie MACQUARIE": "596.30663",
+    "Yvonne MCNEILLY": "820.00000",
+    "Fiona NELSON": "0.00000",
+    "William SINCLAIR": "857.46596",
+    "Kenneth WHYTE": "0.00000",
+    "nonTransferable": "183.22741",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "William SINCLAIR"
+   ],
+   "total": "3277.00000"
+  }
+ ]
+}

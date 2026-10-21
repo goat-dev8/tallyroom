@@ -1,0 +1,328 @@
+{
+ "council": "Argyll and Bute",
+ "year": 2022,
+ "ward": "Ward 3 - Mid-Argyll",
+ "source": "ab2022-candidatevotesperstagereport_v0001_ward-3-mid-argyll_06052022_133410.pdf",
+ "sha256": "47bfa454fd9437de43647b32dfab8a89e1ad9d76da18e6b26a6fef1dbd4b952b",
+ "ballotSource": "ab2022-preferenceprofile_v0003_ward-3-mid-argyll_06052022_133803.blt",
+ "ballotSha256": "74c48e70133a3d7c43943614054ff294e61763444a0f6830a37603a0ab9e34d0",
+ "ballotsReceived": 3234,
+ "validVotes": 3197,
+ "seats": 3,
+ "quota": 800,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Abisola ADEPETUN": "54",
+    "David BARTON": "107",
+    "Jan BROWN": "993",
+    "Lesley BURT": "157",
+    "Andy CAMERON": "140",
+    "Garret CORNER": "371",
+    "Donnie MACMILLAN": "149",
+    "Douglas Trevor PHILAND": "1148",
+    "Ross Alistair WEIR": "78",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Jan BROWN",
+    "Douglas Trevor PHILAND"
+   ],
+   "total": "3197"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Douglas Trevor PHILAND",
+    "amount": "348.00000"
+   },
+   "transferred": {
+    "Abisola ADEPETUN": "13.94398",
+    "David BARTON": "28.49422",
+    "Jan BROWN": "0.00000",
+    "Lesley BURT": "21.21910",
+    "Andy CAMERON": "69.71990",
+    "Garret CORNER": "31.22239",
+    "Donnie MACMILLAN": "100.03290",
+    "Douglas Trevor PHILAND": "-348.00000",
+    "Ross Alistair WEIR": "29.10048",
+    "nonTransferable": "54.26027",
+    "rounding": "0.00676"
+   },
+   "votes": {
+    "Abisola ADEPETUN": "67.94398",
+    "David BARTON": "135.49422",
+    "Jan BROWN": "993.00000",
+    "Lesley BURT": "178.21910",
+    "Andy CAMERON": "209.71990",
+    "Garret CORNER": "402.22239",
+    "Donnie MACMILLAN": "249.03290",
+    "Douglas Trevor PHILAND": "800.00000",
+    "Ross Alistair WEIR": "107.10048",
+    "nonTransferable": "54.26027",
+    "rounding": "0.00676"
+   },
+   "elected": [],
+   "total": "3197.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Jan BROWN",
+    "amount": "193.00000"
+   },
+   "transferred": {
+    "Abisola ADEPETUN": "6.99696",
+    "David BARTON": "16.52060",
+    "Jan BROWN": "-193.00000",
+    "Lesley BURT": "26.62732",
+    "Andy CAMERON": "18.26984",
+    "Garret CORNER": "2.13796",
+    "Donnie MACMILLAN": "24.29500",
+    "Douglas Trevor PHILAND": "0.00000",
+    "Ross Alistair WEIR": "46.84076",
+    "nonTransferable": "51.31104",
+    "rounding": "0.00052"
+   },
+   "votes": {
+    "Abisola ADEPETUN": "74.94094",
+    "David BARTON": "152.01482",
+    "Jan BROWN": "800.00000",
+    "Lesley BURT": "204.84642",
+    "Andy CAMERON": "227.98974",
+    "Garret CORNER": "404.36035",
+    "Donnie MACMILLAN": "273.32790",
+    "Douglas Trevor PHILAND": "800.00000",
+    "Ross Alistair WEIR": "153.94124",
+    "nonTransferable": "105.57807",
+    "rounding": "0.00052"
+   },
+   "elected": [],
+   "total": "3197.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Abisola ADEPETUN",
+    "amount": "74.94094"
+   },
+   "transferred": {
+    "Abisola ADEPETUN": "-74.94094",
+    "David BARTON": "10.00812",
+    "Jan BROWN": "0.00000",
+    "Lesley BURT": "10.18432",
+    "Andy CAMERON": "21.59120",
+    "Garret CORNER": "1.90939",
+    "Donnie MACMILLAN": "7.37366",
+    "Douglas Trevor PHILAND": "0.00000",
+    "Ross Alistair WEIR": "10.77744",
+    "nonTransferable": "13.09681",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Abisola ADEPETUN": "0.00000",
+    "David BARTON": "162.02294",
+    "Jan BROWN": "800.00000",
+    "Lesley BURT": "215.03074",
+    "Andy CAMERON": "249.58094",
+    "Garret CORNER": "406.26974",
+    "Donnie MACMILLAN": "280.70156",
+    "Douglas Trevor PHILAND": "800.00000",
+    "Ross Alistair WEIR": "164.71868",
+    "nonTransferable": "118.67540",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3197.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "David BARTON",
+    "amount": "162.02294"
+   },
+   "transferred": {
+    "Abisola ADEPETUN": "0.00000",
+    "David BARTON": "-162.02294",
+    "Jan BROWN": "0.00000",
+    "Lesley BURT": "56.11094",
+    "Andy CAMERON": "21.39492",
+    "Garret CORNER": "12.92253",
+    "Donnie MACMILLAN": "18.91249",
+    "Douglas Trevor PHILAND": "0.00000",
+    "Ross Alistair WEIR": "7.54484",
+    "nonTransferable": "45.13722",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Abisola ADEPETUN": "0.00000",
+    "David BARTON": "0.00000",
+    "Jan BROWN": "800.00000",
+    "Lesley BURT": "271.14168",
+    "Andy CAMERON": "270.97586",
+    "Garret CORNER": "419.19227",
+    "Donnie MACMILLAN": "299.61405",
+    "Douglas Trevor PHILAND": "800.00000",
+    "Ross Alistair WEIR": "172.26352",
+    "nonTransferable": "163.81262",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3197.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Ross Alistair WEIR",
+    "amount": "172.26352"
+   },
+   "transferred": {
+    "Abisola ADEPETUN": "0.00000",
+    "David BARTON": "0.00000",
+    "Jan BROWN": "0.00000",
+    "Lesley BURT": "21.01010",
+    "Andy CAMERON": "43.83198",
+    "Garret CORNER": "7.99498",
+    "Donnie MACMILLAN": "30.18748",
+    "Douglas Trevor PHILAND": "0.00000",
+    "Ross Alistair WEIR": "-172.26352",
+    "nonTransferable": "69.23898",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Abisola ADEPETUN": "0.00000",
+    "David BARTON": "0.00000",
+    "Jan BROWN": "800.00000",
+    "Lesley BURT": "292.15178",
+    "Andy CAMERON": "314.80784",
+    "Garret CORNER": "427.18725",
+    "Donnie MACMILLAN": "329.80153",
+    "Douglas Trevor PHILAND": "800.00000",
+    "Ross Alistair WEIR": "0.00000",
+    "nonTransferable": "233.05160",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3197.00000"
+  },
+  {
+   "stage": 7,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Lesley BURT",
+    "amount": "292.15178"
+   },
+   "transferred": {
+    "Abisola ADEPETUN": "0.00000",
+    "David BARTON": "0.00000",
+    "Jan BROWN": "0.00000",
+    "Lesley BURT": "-292.15178",
+    "Andy CAMERON": "70.85014",
+    "Garret CORNER": "33.48745",
+    "Donnie MACMILLAN": "35.28714",
+    "Douglas Trevor PHILAND": "0.00000",
+    "Ross Alistair WEIR": "0.00000",
+    "nonTransferable": "152.52705",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Abisola ADEPETUN": "0.00000",
+    "David BARTON": "0.00000",
+    "Jan BROWN": "800.00000",
+    "Lesley BURT": "0.00000",
+    "Andy CAMERON": "385.65798",
+    "Garret CORNER": "460.67470",
+    "Donnie MACMILLAN": "365.08867",
+    "Douglas Trevor PHILAND": "800.00000",
+    "Ross Alistair WEIR": "0.00000",
+    "nonTransferable": "385.57865",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3197.00000"
+  },
+  {
+   "stage": 8,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Donnie MACMILLAN",
+    "amount": "365.08867"
+   },
+   "transferred": {
+    "Abisola ADEPETUN": "0.00000",
+    "David BARTON": "0.00000",
+    "Jan BROWN": "0.00000",
+    "Lesley BURT": "0.00000",
+    "Andy CAMERON": "110.99183",
+    "Garret CORNER": "41.27822",
+    "Donnie MACMILLAN": "-365.08867",
+    "Douglas Trevor PHILAND": "0.00000",
+    "Ross Alistair WEIR": "0.00000",
+    "nonTransferable": "212.81862",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Abisola ADEPETUN": "0.00000",
+    "David BARTON": "0.00000",
+    "Jan BROWN": "800.00000",
+    "Lesley BURT": "0.00000",
+    "Andy CAMERON": "496.64981",
+    "Garret CORNER": "501.95292",
+    "Donnie MACMILLAN": "0.00000",
+    "Douglas Trevor PHILAND": "800.00000",
+    "Ross Alistair WEIR": "0.00000",
+    "nonTransferable": "598.39727",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3197.00000"
+  },
+  {
+   "stage": 9,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Andy CAMERON",
+    "amount": "496.64981"
+   },
+   "transferred": {
+    "Abisola ADEPETUN": "0.00000",
+    "David BARTON": "0.00000",
+    "Jan BROWN": "0.00000",
+    "Lesley BURT": "0.00000",
+    "Andy CAMERON": "-496.64981",
+    "Garret CORNER": "159.78941",
+    "Donnie MACMILLAN": "0.00000",
+    "Douglas Trevor PHILAND": "0.00000",
+    "Ross Alistair WEIR": "0.00000",
+    "nonTransferable": "336.86040",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Abisola ADEPETUN": "0.00000",
+    "David BARTON": "0.00000",
+    "Jan BROWN": "800.00000",
+    "Lesley BURT": "0.00000",
+    "Andy CAMERON": "0.00000",
+    "Garret CORNER": "661.74233",
+    "Donnie MACMILLAN": "0.00000",
+    "Douglas Trevor PHILAND": "800.00000",
+    "Ross Alistair WEIR": "0.00000",
+    "nonTransferable": "935.25767",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Garret CORNER"
+   ],
+   "total": "3197.00000"
+  }
+ ]
+}

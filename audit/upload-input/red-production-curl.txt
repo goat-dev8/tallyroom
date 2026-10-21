@@ -1,0 +1,48 @@
+# Production red evidence, public deployment https://tallyroom-rosy.vercel.app (main 98d523f, before the fixes in this stack)
+## BUG-009 — '#' comment line with a comma, ranking CSV
+$ curl -X POST -H content-type: text/csv --data-binary # exported 2024-10-01, Ward 3
+3,A>B
+2,B $PROD/api/tabulate
+captured 2026-10-20 21:36:31 Cairo (UTC+3)
+{"error":{"code":"CSV_FORMAT_AMBIGUOUS","message":"Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...","details":{"row":2,"column":2}}}
+HTTP 422
+
+## BUG-009 — '#' comment with a comma above a rank-column header
+$ curl -X POST -H content-type: text/csv --data-binary # source: county, state
+rank1,rank2
+A,B $PROD/api/tabulate
+captured 2026-10-20 21:36:32 Cairo (UTC+3)
+{"engineVersion":"0.1.0","method":"irv","candidates":["# source: county","state","rank1","rank2","A","B"],"rules":{"overvote":"exhaust","skips":"continue","batch":false,"tiebreak":"previous-round"},"rounds":[{"round":1,"tallies":{"# source: county":1,"state":0,"rank1":1,"rank2":0,"A":1,"B":0},"continuing":3,"inactive":{"blank":0,"overvote":0,"skips":0,"undervote":0,"exhausted":0},"threshold":2,"el
+HTTP 200
+
+## BUG-010 — 5 MB body of accented names (2.5 M chars) vs a 4 MB byte limit
+$ curl -X POST -H content-type: text/csv --data-binary @big.csv $PROD/api/tabulate
+captured 2026-10-20 21:36:32 Cairo (UTC+3)
+Request Entity Too Large
+
+FUNCTION_PAYLOAD_TOO_LARGE
+
+iad1::mlqq7-1792521392487-d95dcd209b9f
+
+HTTP 413
+
+## BUG-010 — 4400003-byte body (2,200,002 chars): over the app's 4,194,304-byte limit, under Vercel's 4.5 MB platform cap
+$ curl -X POST -H 'content-type: text/csv' --data-binary @mid.csv $PROD/api/tabulate
+captured 2026-10-20 21:36:41 Cairo (UTC+3)
+{"engineVersion":"0.1.0","method":"irv","candidates":["é…"],"rules":{"overvote":"exhaust","skips":"continue","batch":false,"tiebreak":"previous-round"},"rounds":[{"round":1,"tallies":{"é…":3},"continuing":3,"inactive":{"blank":0,"overvote":0,"skips":0,"undervote":0,"exhausted":0},"threshold":2,"eliminated":[]}],"winner":"é…","totalBallots":3}
+HTTP 200
+
+(The 5,015,013-byte case above is stopped by Vercel's platform limit with FUNCTION_PAYLOAD_TOO_LARGE before it reaches the app, so on production the bug shows between 4,194,304 and about 4.5 MB.)
+
+## BUG-011 — JSON body sent as text/csv
+$ curl -X POST -H content-type: text/csv --data-binary {"ballots":["A","B"]} $PROD/api/tabulate
+captured 2026-10-20 21:36:32 Cairo (UTC+3)
+{"engineVersion":"0.1.0","method":"irv","candidates":["{ballots:[A","B]}"],"rules":{"overvote":"exhaust","skips":"continue","batch":false,"tiebreak":"previous-round"},"rounds":[{"round":1,"tallies":{"{ballots:[A":1,"B]}":0},"continuing":1,"inactive":{"blank":0,"overvote":0,"skips":0,"undervote":0,"exhausted":0},"threshold":1,"eliminated":[]}],"winner":"{ballots:[A","totalBallots":1}
+HTTP 200
+
+## context — /api/health elections
+$ curl $PROD/api/health
+captured 2026-10-20 21:36:32 Cairo (UTC+3)
+{"ok":true,"engineVersion":"0.1.0","status":"ok","version":"0.1.0","elections":["maine-2018-cd2","alaska-2022","nyc-2021"]}
+HTTP 200
+

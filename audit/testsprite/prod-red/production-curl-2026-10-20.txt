@@ -1,0 +1,37 @@
+Production https://tallyroom-rosy.vercel.app, fresh probes at 23:47 Cairo (UTC+3) 2026-10-20 (010 and 021 re-probed 23:49 with corrected bodies). Left: production; right: fixed stack 40716fe running locally.
+
+== production
+009 [422, "CSV_FORMAT_AMBIGUOUS", "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column."]
+010 EXC 'str' object has no attribute 'get'
+011 [422, "CSV_FORMAT_AMBIGUOUS", "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column."]
+012 [422, "INVALID_OVERVOTE", "rules.overvote must be one of: exhaust, skip"]
+013 [200, ["A", "B"], "2.0000"]
+014 [200, ["A", "C"]]
+015 [200, "C"]
+016 [200, ["B\r5,A"], "B\r5,A"]
+018 [422, "INVALID_LOT_ORDER", "rules.lotOrder is missing candidate \"Zoë\""]
+019 [200, ["A", "B"], [{"round": 1, "tallies": {"A": "3.0000", "B": "2.0000", "C": "2.0000"}, "exhausted": "0.0000", "elected": ["A"], "eliminated": [], "exact": {"tallies": {"A": "3/1", "B": "2/1", "C": "2/1"}, "exhausted": "0/1"}}, {"round": 2, "tallies": {"B": 
+021 [422, "INVALID_OVERVOTE", "rules.overvote must be one of: exhaust, skip"]
+024 [200, "irv", "A"]
+028 [200, "11/1", ["A", "B"]]
+029 [200, ["A", "B", "C", "F"]]
+030 [200, ["\"Ada", "Bo\"", "\"Bo", "Ada\"", "\"Cy"], "\"Ada"]
+010 prod (4,200,022-byte UTF-8 body, 2.1M chars): 200 counted; fixed: 413 PAYLOAD_TOO_LARGE
+021 prod ({"ballots":"1,[A=Zed]\n2,A\n1,B","candidates":["A","B"]}): 200; fixed: 422 UNKNOWN_CANDIDATE
+
+== fixed
+009 [200, ["A", "B"], "A"]
+010 [413, "PAYLOAD_TOO_LARGE", "Ballot file too large (max 4 MB)"]
+011 [200, ["A", "B"], "A"]
+012 [200, "B", [{"round": 1, "tallies": {"A": 0, "B": 2, "C": 2}, "continuing": 4, "inactive": {"blank": 0, "overvote": 3, "skips": 0, "undervote": 0, "exhausted": 0}, "threshold": 3, "eliminated": ["A"]}, {"round": 2, "tallies": {"B": 2, "C": 2}, "continuing": 4,
+013 [422, "DUPLICATE_CANDIDATE", "candidates lists \"A\" more than once"]
+014 [200, ["A", "B"]]
+015 [200, "B"]
+016 [200, ["B", "A"], "A"]
+018 [200, "Zoë"]
+019 [200, ["B", "C"], [{"round": 1, "tallies": {"A": "0.0000", "B": "2.0000", "C": "2.0000"}, "exhausted": "3.0000", "elected": ["B", "C"], "eliminated": [], "exact": {"tallies": {"A": "0/1", "B": "2/1", "C": "2/1"}, "exhausted": "3/1"}}]]
+021 [422, "UNKNOWN_CANDIDATE", "Line 1: unknown candidate \"Zed\""]
+024 [400, "UNKNOWN_FIELD", "Unknown field(s): seat"]
+028 [200, "8/1", ["A", "C"]]
+029 [200, ["A", "B", "C", "D"]]
+030 [200, ["Ada", "Bo", "Cy"], "Bo"]

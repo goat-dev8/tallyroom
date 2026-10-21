@@ -1,0 +1,30 @@
+{
+ "runId": "f4e9d9b2-032d-448f-9d6c-a25273ca582e",
+ "testId": "8b235a50-546d-406a-8867-08ab87ee56e2",
+ "testTitle": "regress:bug-011",
+ "projectId": "a7aa06b0-0721-49ff-a7aa-0181ad8586d6",
+ "userId": "04180438-a0a1-70ab-b51f-4dce971c378f",
+ "status": "failed",
+ "source": "cli",
+ "createdAt": "2026-10-20T23:03:21.777Z",
+ "startedAt": "2026-10-20T23:03:21.777Z",
+ "finishedAt": "2026-10-20T23:03:25.721Z",
+ "codeVersion": "v-2fdf34087475",
+ "targetUrl": null,
+ "environment": null,
+ "createdFrom": null,
+ "failedStepIndex": null,
+ "failureKind": "assertion",
+ "error": "(422, {'error': {'code': 'CSV_FORMAT_AMBIGUOUS', 'message': 'Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...', 'details': {'row': 1, 'column': 1}}})",
+ "videoUrl": null,
+ "stepSummary": {
+  "total": 0,
+  "completed": 0,
+  "passedCount": 0,
+  "failedCount": 0
+ },
+ "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/8b235a50-546d-406a-8867-08ab87ee56e2",
+ "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/e0326d86-ffa7-4e4b-bdc2-036dc80cd59a/test/f4e9d9b2-032d-448f-9d6c-a25273ca582e",
+ "apiOutput": "",
+ "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 149, in test\nAssertionError: (422, {'error': {'code': 'CSV_FORMAT_AMBIGUOUS', 'message': 'Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...', 'details': {'row': 1, 'column': 1}}})\n"
+}

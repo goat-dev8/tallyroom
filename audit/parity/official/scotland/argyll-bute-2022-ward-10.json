@@ -1,0 +1,231 @@
+{
+ "council": "Argyll and Bute",
+ "year": 2022,
+ "ward": "Ward 10 - Helensburgh Central",
+ "source": "ab2022-candidatevotesperstagereport_v0001_ward-10-helensburgh-central_06052022_180938.pdf",
+ "sha256": "4d5246bda05e34f47131b80e5602fbfb59a05044f5084bd727305d5e6f10a7ef",
+ "ballotSource": "ab2022-preferenceprofile_v0012_ward-10-helensburgh-central_06052022_182005.blt",
+ "ballotSha256": "7f20afba4a121dce1478463aef9b2eeed0e75aae5f145665e0321477699c715d",
+ "ballotsReceived": 4002,
+ "validVotes": 3947,
+ "seats": 4,
+ "quota": 790,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "James ALEXANDER-ROBB": "88",
+    "Sarah DAVIES": "268",
+    "Graham HARDIE": "440",
+    "Fiona HOWARD": "841",
+    "Ian James MACQUIRE": "843",
+    "Gary MULVANEY": "1205",
+    "Alison WILLMOT": "262",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Fiona HOWARD",
+    "Ian James MACQUIRE",
+    "Gary MULVANEY"
+   ],
+   "total": "3947"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Gary MULVANEY",
+    "amount": "415.00000"
+   },
+   "transferred": {
+    "James ALEXANDER-ROBB": "5.16585",
+    "Sarah DAVIES": "6.19902",
+    "Graham HARDIE": "39.94924",
+    "Fiona HOWARD": "0.00000",
+    "Ian James MACQUIRE": "0.00000",
+    "Gary MULVANEY": "-415.00000",
+    "Alison WILLMOT": "339.91293",
+    "nonTransferable": "23.76291",
+    "rounding": "0.01005"
+   },
+   "votes": {
+    "James ALEXANDER-ROBB": "93.16585",
+    "Sarah DAVIES": "274.19902",
+    "Graham HARDIE": "479.94924",
+    "Fiona HOWARD": "841.00000",
+    "Ian James MACQUIRE": "843.00000",
+    "Gary MULVANEY": "790.00000",
+    "Alison WILLMOT": "601.91293",
+    "nonTransferable": "23.76291",
+    "rounding": "0.01005"
+   },
+   "elected": [],
+   "total": "3947.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Ian James MACQUIRE",
+    "amount": "53.00000"
+   },
+   "transferred": {
+    "James ALEXANDER-ROBB": "2.70341",
+    "Sarah DAVIES": "31.49787",
+    "Graham HARDIE": "5.84691",
+    "Fiona HOWARD": "0.00000",
+    "Ian James MACQUIRE": "-53.00000",
+    "Gary MULVANEY": "0.00000",
+    "Alison WILLMOT": "1.06879",
+    "nonTransferable": "11.88243",
+    "rounding": "0.00059"
+   },
+   "votes": {
+    "James ALEXANDER-ROBB": "95.86926",
+    "Sarah DAVIES": "305.69689",
+    "Graham HARDIE": "485.79615",
+    "Fiona HOWARD": "841.00000",
+    "Ian James MACQUIRE": "790.00000",
+    "Gary MULVANEY": "790.00000",
+    "Alison WILLMOT": "602.98172",
+    "nonTransferable": "35.65539",
+    "rounding": "0.00059"
+   },
+   "elected": [],
+   "total": "3947.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Fiona HOWARD",
+    "amount": "51.00000"
+   },
+   "transferred": {
+    "James ALEXANDER-ROBB": "2.85008",
+    "Sarah DAVIES": "8.61088",
+    "Graham HARDIE": "19.82928",
+    "Fiona HOWARD": "-51.00000",
+    "Ian James MACQUIRE": "0.00000",
+    "Gary MULVANEY": "0.00000",
+    "Alison WILLMOT": "7.21616",
+    "nonTransferable": "12.49184",
+    "rounding": "0.00176"
+   },
+   "votes": {
+    "James ALEXANDER-ROBB": "98.71934",
+    "Sarah DAVIES": "314.30777",
+    "Graham HARDIE": "505.62543",
+    "Fiona HOWARD": "790.00000",
+    "Ian James MACQUIRE": "790.00000",
+    "Gary MULVANEY": "790.00000",
+    "Alison WILLMOT": "610.19788",
+    "nonTransferable": "48.14782",
+    "rounding": "0.00176"
+   },
+   "elected": [],
+   "total": "3947.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "James ALEXANDER-ROBB",
+    "amount": "98.71934"
+   },
+   "transferred": {
+    "James ALEXANDER-ROBB": "-98.71934",
+    "Sarah DAVIES": "27.24325",
+    "Graham HARDIE": "25.24910",
+    "Fiona HOWARD": "0.00000",
+    "Ian James MACQUIRE": "0.00000",
+    "Gary MULVANEY": "0.00000",
+    "Alison WILLMOT": "16.81576",
+    "nonTransferable": "29.41123",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "James ALEXANDER-ROBB": "0.00000",
+    "Sarah DAVIES": "341.55102",
+    "Graham HARDIE": "530.87453",
+    "Fiona HOWARD": "790.00000",
+    "Ian James MACQUIRE": "790.00000",
+    "Gary MULVANEY": "790.00000",
+    "Alison WILLMOT": "627.01364",
+    "nonTransferable": "77.56081",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3947.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Sarah DAVIES",
+    "amount": "341.55102"
+   },
+   "transferred": {
+    "James ALEXANDER-ROBB": "0.00000",
+    "Sarah DAVIES": "-341.55102",
+    "Graham HARDIE": "185.11696",
+    "Fiona HOWARD": "0.00000",
+    "Ian James MACQUIRE": "0.00000",
+    "Gary MULVANEY": "0.00000",
+    "Alison WILLMOT": "18.46524",
+    "nonTransferable": "137.96882",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "James ALEXANDER-ROBB": "0.00000",
+    "Sarah DAVIES": "0.00000",
+    "Graham HARDIE": "715.99149",
+    "Fiona HOWARD": "790.00000",
+    "Ian James MACQUIRE": "790.00000",
+    "Gary MULVANEY": "790.00000",
+    "Alison WILLMOT": "645.47888",
+    "nonTransferable": "215.52963",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "3947.00000"
+  },
+  {
+   "stage": 7,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Alison WILLMOT",
+    "amount": "645.47888"
+   },
+   "transferred": {
+    "James ALEXANDER-ROBB": "0.00000",
+    "Sarah DAVIES": "0.00000",
+    "Graham HARDIE": "293.49629",
+    "Fiona HOWARD": "0.00000",
+    "Ian James MACQUIRE": "0.00000",
+    "Gary MULVANEY": "0.00000",
+    "Alison WILLMOT": "-645.47888",
+    "nonTransferable": "351.98259",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "James ALEXANDER-ROBB": "0.00000",
+    "Sarah DAVIES": "0.00000",
+    "Graham HARDIE": "1009.48778",
+    "Fiona HOWARD": "790.00000",
+    "Ian James MACQUIRE": "790.00000",
+    "Gary MULVANEY": "790.00000",
+    "Alison WILLMOT": "0.00000",
+    "nonTransferable": "567.51222",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Graham HARDIE"
+   ],
+   "total": "3947.00000"
+  }
+ ]
+}

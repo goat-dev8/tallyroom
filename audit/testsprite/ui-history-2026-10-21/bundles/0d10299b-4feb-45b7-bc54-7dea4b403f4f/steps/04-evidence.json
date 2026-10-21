@@ -1,0 +1,8 @@
+[
+  {
+    "kind": "snapshot",
+    "stepIndex": 4,
+    "summary": "Step 4 'The election view reached Round 2, with round=2 in the URL.' failed. Error: TEST FAILURE\n\nPressing the left-arrow key did not return the election view to Round 1. The page remained on Round 2.\n\nObservations:\n- The page showed “Round 2 of 2” after the left-arrow key was pressed.\n- The URL still contained round=2.",
+    "path": "steps/04-snapshot.html"
+  }
+]

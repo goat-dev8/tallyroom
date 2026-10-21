@@ -1,0 +1,24 @@
+{
+  "testId": "44dc520c-ca8f-4702-9a82-45479d732440",
+  "status": "failed",
+  "startedAt": "2026-10-20T23:32:46.024Z",
+  "finishedAt": "2026-10-20T23:34:43.568Z",
+  "videoUrl": "https://testsprite-videos.s3.us-east-1.amazonaws.com/20261020-233441-d6457eb4.webm",
+  "failureAnalysisUrl": null,
+  "snapshotId": "snap_308aa3e1ddba474a",
+  "runIdIfAvailable": "71e3a6d8-b794-4537-a176-6012780cffc8",
+  "codeVersion": null,
+  "targetUrl": "https://tallyroom-git-s4-final-goats-projects-3f023cc9.vercel.app",
+  "targetUrlSource": null,
+  "environment": {
+    "id": "16313ea2-7af4-4b71-9ee8-a035bda94a3a",
+    "name": "github-pr-26"
+  },
+  "failedStepIndex": 3,
+  "failureKind": "assertion",
+  "verdict": "failed",
+  "executionStatus": "completed",
+  "summary": "Failed (assertion) on step 3: The hosted app is rendering a stale or incorrect Sankey label format, likely due to a production-side formatting regression or an older cached build. The data and chart are present, but the label text generator is omitting the required middle-dot character, causing the DOM text to differ from the expected test string. Underlying error: TEST FAILURE\n\nThe Sankey node labels do not match the required text. The candidate names and totals are shown, but the middle-dot s…",
+  "apiOutput": null,
+  "trace": null
+}

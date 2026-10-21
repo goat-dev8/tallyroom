@@ -1,0 +1,3 @@
+This log was captured before the renumbering in d5344e0, when this bug was called BUG-028.
+The two failing tests it titles "BUG-028: overvote rule \"continuing\" ..." are the BUG-012 tests (test/fuzz-findings.test.ts).
+The current BUG-028 (STV quota from valid ballots) is a different bug. The log itself is left as captured.

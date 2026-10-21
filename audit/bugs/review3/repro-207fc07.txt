@@ -1,0 +1,17 @@
+N1 quota/winners             ["11/1",["A","B"]]
+N1 control (no blanks)       ["8/1",["A","C"]]
+N2 winners                   ["A","B","C","F"]
+N3 quoted                    [200,"\"Ada",["\"Ada","Bo\"","\"Bo","Ada\"","\"Cy"]]
+N3 quoted comma              [200,"\"Ada, Jr.",["\"Ada, Jr.","Bo\"","\"Bo","Ada, Jr.\""]]
+N4 seat typo                 true
+N4 id array                  [false,"alaska-2022"]
+N4 arguments null            false
+N5 inactive name             7 nodes, 5 unique
+N5 out name                  9 nodes, 8 unique
+N6 edges                     [{"from":"Zed","to":"exhausted","count":5}]
+N9 id true                   {"jsonrpc":"2.0","id":true,"result":{}}
+N9 id {}                     {"jsonrpc":"2.0","id":{},"result":{}}
+N9 id null                   {"jsonrpc":"2.0","id":null,"result":{}}
+N9 posted response           {"status":200,"body":{"jsonrpc":"2.0","id":4,"error":{"code":-32600,"message":"Invalid request"}}}
+N9 empty batch               {"status":202,"body":null}
+N11 mcp 200 schema           [{"type":"object"},true]

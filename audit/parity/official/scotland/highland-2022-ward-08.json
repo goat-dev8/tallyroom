@@ -1,0 +1,233 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "Dingwall and Seaforth",
+ "source": "hl2022-ward-8-2022_Local_Government_Election_Results_Ward_8_Dingwall_and_Seaforth_Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "89b57751dcccfafba8a2d956dc5034f0bce7a2105cbd5e33ad523630ca49c230",
+ "ballotSource": "hl2022-ward-8-2022_Local_Government_Election_Results_Ward_8_Dingwall_and_Seaforth_Preference_Profile_Report.blt",
+ "ballotSha256": "84727497871994f8150e00551e872ee2fd263222c302da7f51466880c1e87a5f",
+ "ballotsReceived": 4700,
+ "validVotes": 4640,
+ "seats": 4,
+ "quota": 929,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Gavin BERKENHEGER": "650",
+    "Les HOOD": "216",
+    "Sean Edward KENNEDY": "599",
+    "Graham Alexander MACKENZIE": "1494",
+    "Angela MACLEAN": "773",
+    "Margaret PATERSON": "698",
+    "Thomas WIDROW": "210",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Graham Alexander MACKENZIE"
+   ],
+   "total": "4640"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Graham Alexander MACKENZIE",
+    "amount": "565.00000"
+   },
+   "transferred": {
+    "Gavin BERKENHEGER": "9.45425",
+    "Les HOOD": "33.65713",
+    "Sean Edward KENNEDY": "64.28890",
+    "Graham Alexander MACKENZIE": "-565.00000",
+    "Angela MACLEAN": "80.92838",
+    "Margaret PATERSON": "135.38486",
+    "Thomas WIDROW": "156.18421",
+    "nonTransferable": "85.08825",
+    "rounding": "0.01402"
+   },
+   "votes": {
+    "Gavin BERKENHEGER": "659.45425",
+    "Les HOOD": "249.65713",
+    "Sean Edward KENNEDY": "663.28890",
+    "Graham Alexander MACKENZIE": "929.00000",
+    "Angela MACLEAN": "853.92838",
+    "Margaret PATERSON": "833.38486",
+    "Thomas WIDROW": "366.18421",
+    "nonTransferable": "85.08825",
+    "rounding": "0.01402"
+   },
+   "elected": [],
+   "total": "4640.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Les HOOD",
+    "amount": "249.65713"
+   },
+   "transferred": {
+    "Gavin BERKENHEGER": "28.51268",
+    "Les HOOD": "-249.65713",
+    "Sean Edward KENNEDY": "30.78170",
+    "Graham Alexander MACKENZIE": "0.00000",
+    "Angela MACLEAN": "93.83242",
+    "Margaret PATERSON": "30.53804",
+    "Thomas WIDROW": "32.80706",
+    "nonTransferable": "33.18523",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Gavin BERKENHEGER": "687.96693",
+    "Les HOOD": "0.00000",
+    "Sean Edward KENNEDY": "694.07060",
+    "Graham Alexander MACKENZIE": "929.00000",
+    "Angela MACLEAN": "947.76080",
+    "Margaret PATERSON": "863.92290",
+    "Thomas WIDROW": "398.99127",
+    "nonTransferable": "118.28750",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Angela MACLEAN"
+   ],
+   "total": "4640.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Angela MACLEAN",
+    "amount": "18.76080"
+   },
+   "transferred": {
+    "Gavin BERKENHEGER": "3.08023",
+    "Les HOOD": "0.00000",
+    "Sean Edward KENNEDY": "3.00466",
+    "Graham Alexander MACKENZIE": "0.00000",
+    "Angela MACLEAN": "-18.76080",
+    "Margaret PATERSON": "7.42954",
+    "Thomas WIDROW": "2.06893",
+    "nonTransferable": "3.17187",
+    "rounding": "0.00557"
+   },
+   "votes": {
+    "Gavin BERKENHEGER": "691.04716",
+    "Les HOOD": "0.00000",
+    "Sean Edward KENNEDY": "697.07526",
+    "Graham Alexander MACKENZIE": "929.00000",
+    "Angela MACLEAN": "929.00000",
+    "Margaret PATERSON": "871.35244",
+    "Thomas WIDROW": "401.06020",
+    "nonTransferable": "121.45937",
+    "rounding": "0.00557"
+   },
+   "elected": [],
+   "total": "4640.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Thomas WIDROW",
+    "amount": "401.06020"
+   },
+   "transferred": {
+    "Gavin BERKENHEGER": "10.26630",
+    "Les HOOD": "0.00000",
+    "Sean Edward KENNEDY": "44.23125",
+    "Graham Alexander MACKENZIE": "0.00000",
+    "Angela MACLEAN": "0.00000",
+    "Margaret PATERSON": "161.69999",
+    "Thomas WIDROW": "-401.06020",
+    "nonTransferable": "184.86266",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Gavin BERKENHEGER": "701.31346",
+    "Les HOOD": "0.00000",
+    "Sean Edward KENNEDY": "741.30651",
+    "Graham Alexander MACKENZIE": "929.00000",
+    "Angela MACLEAN": "929.00000",
+    "Margaret PATERSON": "1033.05243",
+    "Thomas WIDROW": "0.00000",
+    "nonTransferable": "306.32760",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Margaret PATERSON"
+   ],
+   "total": "4640.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Margaret PATERSON",
+    "amount": "104.05243"
+   },
+   "transferred": {
+    "Gavin BERKENHEGER": "13.92131",
+    "Les HOOD": "0.00000",
+    "Sean Edward KENNEDY": "48.92729",
+    "Graham Alexander MACKENZIE": "0.00000",
+    "Angela MACLEAN": "0.00000",
+    "Margaret PATERSON": "-104.05243",
+    "Thomas WIDROW": "0.00000",
+    "nonTransferable": "41.19926",
+    "rounding": "0.00457"
+   },
+   "votes": {
+    "Gavin BERKENHEGER": "715.23477",
+    "Les HOOD": "0.00000",
+    "Sean Edward KENNEDY": "790.23380",
+    "Graham Alexander MACKENZIE": "929.00000",
+    "Angela MACLEAN": "929.00000",
+    "Margaret PATERSON": "929.00000",
+    "Thomas WIDROW": "0.00000",
+    "nonTransferable": "347.52686",
+    "rounding": "0.00457"
+   },
+   "elected": [],
+   "total": "4640.00000"
+  },
+  {
+   "stage": 7,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Gavin BERKENHEGER",
+    "amount": "715.23477"
+   },
+   "transferred": {
+    "Gavin BERKENHEGER": "-715.23477",
+    "Les HOOD": "0.00000",
+    "Sean Edward KENNEDY": "346.15003",
+    "Graham Alexander MACKENZIE": "0.00000",
+    "Angela MACLEAN": "0.00000",
+    "Margaret PATERSON": "0.00000",
+    "Thomas WIDROW": "0.00000",
+    "nonTransferable": "369.08474",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Gavin BERKENHEGER": "0.00000",
+    "Les HOOD": "0.00000",
+    "Sean Edward KENNEDY": "1136.38383",
+    "Graham Alexander MACKENZIE": "929.00000",
+    "Angela MACLEAN": "929.00000",
+    "Margaret PATERSON": "929.00000",
+    "Thomas WIDROW": "0.00000",
+    "nonTransferable": "716.61617",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Sean Edward KENNEDY"
+   ],
+   "total": "4640.00000"
+  }
+ ]
+}

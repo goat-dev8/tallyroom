@@ -1,0 +1,37 @@
+{
+  "testId": "9104fe07-c858-4e03-b179-14dd041dcc9e",
+  "type": "backend",
+  "codeVersion": "v-c206c8fe563d",
+  "createdAt": "2026-10-20T20:49:51.223Z",
+  "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/9104fe07-c858-4e03-b179-14dd041dcc9e",
+  "run": {
+    "runId": "82cd22d6-fc22-43f8-b5a4-b26061f23e32",
+    "testId": "9104fe07-c858-4e03-b179-14dd041dcc9e",
+    "testTitle": "api:prodred-bug-012",
+    "projectId": "a7aa06b0-0721-49ff-a7aa-0181ad8586d6",
+    "userId": "04180438-a0a1-70ab-b51f-4dce971c378f",
+    "status": "failed",
+    "source": "cli",
+    "createdAt": "2026-10-20T20:49:51.442Z",
+    "startedAt": "2026-10-20T20:49:51.442Z",
+    "finishedAt": "2026-10-20T20:49:54.834Z",
+    "codeVersion": "v-c206c8fe563d",
+    "targetUrl": null,
+    "environment": null,
+    "createdFrom": null,
+    "failedStepIndex": null,
+    "failureKind": "assertion",
+    "error": "(422, {'error': {'code': 'INVALID_OVERVOTE', 'message': 'rules.overvote must be one of: exhaust, skip', 'details': {'field': 'rules.overvote', 'value': 'continuing'}}})",
+    "videoUrl": null,
+    "stepSummary": {
+      "total": 0,
+      "completed": 0,
+      "passedCount": 0,
+      "failedCount": 0
+    },
+    "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/9104fe07-c858-4e03-b179-14dd041dcc9e",
+    "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/6407245d-7853-4bf1-812e-9e0e25c969d8/test/82cd22d6-fc22-43f8-b5a4-b26061f23e32",
+    "apiOutput": "",
+    "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 149, in test\nAssertionError: (422, {'error': {'code': 'INVALID_OVERVOTE', 'message': 'rules.overvote must be one of: exhaust, skip', 'details': {'field': 'rules.overvote', 'value': 'continuing'}}})\n"
+  }
+}

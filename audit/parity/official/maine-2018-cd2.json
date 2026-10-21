@@ -1,0 +1,63 @@
+{
+ "source": "maine-updated-summary-report-CD2.xls",
+ "sha256": "0fa571606ca07669489749c7202ec7eac7509a8bd92fe00cdb9ad5feeb8960f0",
+ "publisher": "Maine Secretary of State (RCV summary report)",
+ "rounds": [
+  {
+   "tallies": {
+    "Bond, Tiffany L.": 16552,
+    "Golden, Jared F.": 132013,
+    "Hoar, William R.S.": 6875,
+    "Poliquin, Bruce": 134184
+   },
+   "transfers": {
+    "Bond, Tiffany L.": -16552,
+    "Golden, Jared F.": 10427,
+    "Hoar, William R.S.": -6875,
+    "Poliquin, Bruce": 4747,
+    "overvotes": 98,
+    "undervotes": 7820,
+    "exhaustedChoices": 335
+   },
+   "categories": {
+    "overvotes": 435,
+    "undervotes": 6018,
+    "exhaustedChoices": 0,
+    "continuing": 289624,
+    "total": 296077
+   },
+   "threshold": 144813,
+   "eliminated": [
+    "Bond, Tiffany L.",
+    "Hoar, William R.S."
+   ]
+  },
+  {
+   "tallies": {
+    "Bond, Tiffany L.": 0,
+    "Golden, Jared F.": 142440,
+    "Hoar, William R.S.": 0,
+    "Poliquin, Bruce": 138931
+   },
+   "transfers": {
+    "Bond, Tiffany L.": 0,
+    "Golden, Jared F.": 0,
+    "Hoar, William R.S.": 0,
+    "Poliquin, Bruce": 0,
+    "overvotes": 0,
+    "undervotes": 0,
+    "exhaustedChoices": 0
+   },
+   "categories": {
+    "overvotes": 533,
+    "undervotes": 13838,
+    "exhaustedChoices": 335,
+    "continuing": 281371,
+    "total": 296077
+   },
+   "threshold": 140686,
+   "eliminated": []
+  }
+ ],
+ "winner": "Golden, Jared F."
+}

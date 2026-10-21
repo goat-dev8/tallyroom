@@ -1,0 +1,9 @@
+
+Running 1 test using 1 worker
+
+[1/1] tests/h2.spec.ts:3:5 › ui:hero-autoplay (strengthened)
+tests/h2.spec.ts:3:5 › ui:hero-autoplay (strengthened)
+samples: Round 2 of 2 Round 2 / 2 | Round 2 of 2 Round 2 / 2 | Round 2 of 2 Round 2 / 2 | Round 2 of 2 Round 2 / 2 | Round 2 of 2 Round 2 / 2 | Round 2 of 2 Round 2 / 2
+
+
+  1 passed (17.5s)

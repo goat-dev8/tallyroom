@@ -1,14 +1,18 @@
 /** One mark at one rank: a candidate name, an overvote (2+ candidates at the same rank), or a skip (blank rank). */
-export type Mark = { kind: 'candidate'; name: string } | { kind: 'overvote' } | { kind: 'skip' };
+export type Mark = { kind: 'candidate'; name: string } | { kind: 'overvote'; names?: string[] } | { kind: 'skip' };
 export interface BallotGroup { count: number; marks: Mark[] }
 
 export interface Rules {
-  /** exhaust: ballot becomes inactive when an overvote is reached (Maine). skip: treat overvoted rank as blank. */
-  overvote: 'exhaust' | 'skip';
+  /** exhaust: ballot becomes inactive when an overvote is reached (Maine). skip: treat overvoted rank as blank.
+   *  continuing: an overvote counts for the one continuing candidate it names, is passed over if it names none, and exhausts if it names 2+ (ChoicePlus, Burlington 2009). */
+  overvote: 'exhaust' | 'skip' | 'continuing';
   /** continue: any number of blank ranks is skipped (NYC). two-exhaust: two consecutive blanks exhaust (Maine). */
   skips: 'continue' | 'two-exhaust';
   /** ignore: a repeated candidate is passed over (resets the skip run). skip: a repeated candidate counts as a skipped rank (Dominion). */
   duplicates?: 'ignore' | 'skip';
+  /** STV only. When set, each paper's value after a surplus transfer is cut to this many decimal places, remainder
+   *  ignored (Scottish rule 48(3): 5). Unset (default): exact fractions. */
+  transferDecimals?: number;
   /** Eliminate every candidate who cannot mathematically win in one round (Maine 21-A §723). */
   batch: boolean;
   /** previous-round: break elimination ties by looking back at earlier rounds, then lot order. lot: lot order only. */

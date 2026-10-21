@@ -1,0 +1,11 @@
+{
+  "rootCauseHypothesis": "POST https://tallyroom-rosy.vercel.app/api/tabulate → 422\nResponse: {\"error\":{\"code\":\"CSV_FORMAT_AMBIGUOUS\",\"message\":\"Row 1, column 1: \\\">\\\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \\\"5,A>B\\\", or one candidate per column: count,rank1,rank2,...\",\"details\":{\"row\":1,\"column\":1}}}\n(422, {'error': {'code': 'CSV_FORMAT_AMBIGUOUS', 'message': 'Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...', …\nAnalysis: The test called https://tallyroom-rosy.vercel.app/api/tabulate with text/csv content, and the target API returned 422 CSV_FORMAT_AMBIGUOUS. The payload was parsed as a malformed CSV row, not as the intended tabulation input. Underlying error: (422, {'error': {'code': 'CSV_FORMAT_AMBIGUOUS', 'message': 'Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...', 'details': {'row': 1, 'column': 1}}})",
+  "recommendedFixTarget": {
+    "kind": "data",
+    "reference": "error",
+    "rationale": "I changed the test to send a valid CSV body in the format the endpoint accepts, so the request exercises tabulation instead of tripping the CSV parser on ambiguous cell contents."
+  },
+  "evidence": [],
+  "apiOutput": "",
+  "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 149, in test\nAssertionError: (422, {'error': {'code': 'CSV_FORMAT_AMBIGUOUS', 'message': 'Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...', 'details': {'row': 1, 'column': 1}}})\n"
+}

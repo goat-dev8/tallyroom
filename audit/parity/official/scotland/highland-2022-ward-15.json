@@ -1,0 +1,230 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "Inverness Ness-side",
+ "source": "hl2022-ward-15-2022_Local_Government_Election_Results_Ward_15_Inverness_Ness_Side_Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "d5b95433cc7fa9ee83e4d42cd91ce6af2caaae26a83e7a0615cf04b652414e5a",
+ "ballotSource": "hl2022-ward-15-2022_Local_Government_Election_Results_Ward_15_Inverness_Ness_Side_Preference_Profile_Report.blt",
+ "ballotSha256": "9afdeb610b2631685265029ecd86a128040f283c7d93761cc922db09a7c1fa71",
+ "ballotsReceived": 4379,
+ "validVotes": 4346,
+ "seats": 3,
+ "quota": 1087,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Alasdair CHRISTIE": "1934",
+    "Jackie HENDRY": "1270",
+    "Calum Mark LIPTROT": "18",
+    "Andrew MACKINTOSH": "276",
+    "Claire MACLEAN": "226",
+    "Ron MACWILLIAM": "243",
+    "Ric SCOTT": "379",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Alasdair CHRISTIE",
+    "Jackie HENDRY"
+   ],
+   "total": "4346"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Alasdair CHRISTIE",
+    "amount": "847.00000"
+   },
+   "transferred": {
+    "Alasdair CHRISTIE": "-847.00000",
+    "Jackie HENDRY": "0.00000",
+    "Calum Mark LIPTROT": "11.82465",
+    "Andrew MACKINTOSH": "177.36975",
+    "Claire MACLEAN": "94.15925",
+    "Ron MACWILLIAM": "161.16560",
+    "Ric SCOTT": "183.06310",
+    "nonTransferable": "219.41295",
+    "rounding": "0.00470"
+   },
+   "votes": {
+    "Alasdair CHRISTIE": "1087.00000",
+    "Jackie HENDRY": "1270.00000",
+    "Calum Mark LIPTROT": "29.82465",
+    "Andrew MACKINTOSH": "453.36975",
+    "Claire MACLEAN": "320.15925",
+    "Ron MACWILLIAM": "404.16560",
+    "Ric SCOTT": "562.06310",
+    "nonTransferable": "219.41295",
+    "rounding": "0.00470"
+   },
+   "elected": [],
+   "total": "4346.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Jackie HENDRY",
+    "amount": "183.00000"
+   },
+   "transferred": {
+    "Alasdair CHRISTIE": "0.00000",
+    "Jackie HENDRY": "-183.00000",
+    "Calum Mark LIPTROT": "3.45816",
+    "Andrew MACKINTOSH": "28.67391",
+    "Claire MACLEAN": "85.30128",
+    "Ron MACWILLIAM": "20.60487",
+    "Ric SCOTT": "2.01726",
+    "nonTransferable": "42.93882",
+    "rounding": "0.00570"
+   },
+   "votes": {
+    "Alasdair CHRISTIE": "1087.00000",
+    "Jackie HENDRY": "1087.00000",
+    "Calum Mark LIPTROT": "33.28281",
+    "Andrew MACKINTOSH": "482.04366",
+    "Claire MACLEAN": "405.46053",
+    "Ron MACWILLIAM": "424.77047",
+    "Ric SCOTT": "564.08036",
+    "nonTransferable": "262.35647",
+    "rounding": "0.00570"
+   },
+   "elected": [],
+   "total": "4346.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Calum Mark LIPTROT",
+    "amount": "33.28281"
+   },
+   "transferred": {
+    "Alasdair CHRISTIE": "0.00000",
+    "Jackie HENDRY": "0.00000",
+    "Calum Mark LIPTROT": "-33.28281",
+    "Andrew MACKINTOSH": "8.21837",
+    "Claire MACLEAN": "5.03430",
+    "Ron MACWILLIAM": "6.79178",
+    "Ric SCOTT": "2.87590",
+    "nonTransferable": "10.36246",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Alasdair CHRISTIE": "1087.00000",
+    "Jackie HENDRY": "1087.00000",
+    "Calum Mark LIPTROT": "0.00000",
+    "Andrew MACKINTOSH": "490.26203",
+    "Claire MACLEAN": "410.49483",
+    "Ron MACWILLIAM": "431.56225",
+    "Ric SCOTT": "566.95626",
+    "nonTransferable": "272.72463",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "4346.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Claire MACLEAN",
+    "amount": "410.49483"
+   },
+   "transferred": {
+    "Alasdair CHRISTIE": "0.00000",
+    "Jackie HENDRY": "0.00000",
+    "Calum Mark LIPTROT": "0.00000",
+    "Andrew MACKINTOSH": "116.24827",
+    "Claire MACLEAN": "-410.49483",
+    "Ron MACWILLIAM": "101.10735",
+    "Ric SCOTT": "7.52654",
+    "nonTransferable": "185.61267",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Alasdair CHRISTIE": "1087.00000",
+    "Jackie HENDRY": "1087.00000",
+    "Calum Mark LIPTROT": "0.00000",
+    "Andrew MACKINTOSH": "606.51030",
+    "Claire MACLEAN": "0.00000",
+    "Ron MACWILLIAM": "532.66960",
+    "Ric SCOTT": "574.48280",
+    "nonTransferable": "458.33730",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "4346.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Ron MACWILLIAM",
+    "amount": "532.66960"
+   },
+   "transferred": {
+    "Alasdair CHRISTIE": "0.00000",
+    "Jackie HENDRY": "0.00000",
+    "Calum Mark LIPTROT": "0.00000",
+    "Andrew MACKINTOSH": "175.85169",
+    "Claire MACLEAN": "0.00000",
+    "Ron MACWILLIAM": "-532.66960",
+    "Ric SCOTT": "97.54112",
+    "nonTransferable": "259.27679",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Alasdair CHRISTIE": "1087.00000",
+    "Jackie HENDRY": "1087.00000",
+    "Calum Mark LIPTROT": "0.00000",
+    "Andrew MACKINTOSH": "782.36199",
+    "Claire MACLEAN": "0.00000",
+    "Ron MACWILLIAM": "0.00000",
+    "Ric SCOTT": "672.02392",
+    "nonTransferable": "717.61409",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "4346.00000"
+  },
+  {
+   "stage": 7,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Ric SCOTT",
+    "amount": "672.02392"
+   },
+   "transferred": {
+    "Alasdair CHRISTIE": "0.00000",
+    "Jackie HENDRY": "0.00000",
+    "Calum Mark LIPTROT": "0.00000",
+    "Andrew MACKINTOSH": "233.95957",
+    "Claire MACLEAN": "0.00000",
+    "Ron MACWILLIAM": "0.00000",
+    "Ric SCOTT": "-672.02392",
+    "nonTransferable": "438.06435",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Alasdair CHRISTIE": "1087.00000",
+    "Jackie HENDRY": "1087.00000",
+    "Calum Mark LIPTROT": "0.00000",
+    "Andrew MACKINTOSH": "1016.32156",
+    "Claire MACLEAN": "0.00000",
+    "Ron MACWILLIAM": "0.00000",
+    "Ric SCOTT": "0.00000",
+    "nonTransferable": "1155.67844",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Andrew MACKINTOSH"
+   ],
+   "total": "4346.00000"
+  }
+ ]
+}

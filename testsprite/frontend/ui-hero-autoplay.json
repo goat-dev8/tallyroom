@@ -24,6 +24,14 @@
    "description": "Wait up to 15 seconds without clicking anything, until data-testid 'demo-round' reads 'Round 2 / 2'"
   },
   {
+   "type": "action",
+   "description": "Without clicking, scrolling or pressing any key, wait 2 seconds and read data-testid 'demo-round' again; repeat 6 times (12 seconds total), recording each reading"
+  },
+  {
+   "type": "assertion",
+   "description": "All 6 readings of data-testid 'demo-round' are exactly 'Round 2 / 2'; none of them is 'Round 1 / 2' (the replay must hold on the final round, not loop back)"
+  },
+  {
    "type": "assertion",
    "description": "data-testid 'demo-outcome' reads exactly 'Golden, Jared F.' and data-testid 'demo-certified' shows 'Matches the certified result'"
   }

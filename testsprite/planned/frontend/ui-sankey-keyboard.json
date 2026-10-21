@@ -1,0 +1,59 @@
+{
+ "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+ "type": "frontend",
+ "name": "ui:sankey-keyboard",
+ "planSteps": [
+  {
+   "type": "action",
+   "description": "Navigate to /app?election=nyc-2021-dem-mayor&round=1"
+  },
+  {
+   "type": "action",
+   "description": "Wait up to 60 seconds for the element with data-testid 'sankey' to appear, then wait 2 seconds for the flows to finish drawing"
+  },
+  {
+   "type": "action",
+   "description": "Press Tab repeatedly from the top of the page until the focused element has data-testid 'sankey-link'"
+  },
+  {
+   "type": "assertion",
+   "description": "Exactly one element with data-testid 'sankey-focus' exists, and the focused 'sankey-link' has no rectangular outline (its computed outline-style is 'none')"
+  },
+  {
+   "type": "assertion",
+   "description": "A tooltip data-testid 'sankey-tooltip' is visible and contains the word 'ballots'"
+  },
+  {
+   "type": "action",
+   "description": "Press ArrowDown three times"
+  },
+  {
+   "type": "assertion",
+   "description": "The focused element is still a 'sankey-link' but its aria-label differs from the first one, and 'sankey-tooltip' is visible near the right half of the diagram"
+  },
+  {
+   "type": "action",
+   "description": "Press Tab once"
+  },
+  {
+   "type": "assertion",
+   "description": "The focused element has data-testid 'transfer-toggle' (text 'Show transfers as a list')"
+  },
+  {
+   "type": "action",
+   "description": "Press Tab once"
+  },
+  {
+   "type": "assertion",
+   "description": "The focused element has data-testid 'rounds-table-region'"
+  },
+  {
+   "type": "action",
+   "description": "Press Shift+Tab twice"
+  },
+  {
+   "type": "assertion",
+   "description": "The focused element has data-testid 'sankey-link'"
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+[
+  {
+    "kind": "snapshot",
+    "stepIndex": 3,
+    "summary": "Step 3 'Test failed during execution (see the run log)' failed. Error: TEST FAILURE\n\nThe results view loaded and displayed the expected Sankey title, accessible label, and node labels. However, the Sankey paths did not include the required `sankey-link` class.\n\nObservations:\n- The Sankey title is “Transfers from round 1 into round 2,” and its accessible label is “Vote transfers from round 1 to round 2.”\n- Six paths with `data-testid=\"sankey-link\"` were found, but their inspected class attributes did not contain `sankey-link`.\n- The node labels “Golden, Jared F. · 142,440” and “Poliquin, Bruce · 138,931” are present.",
+    "path": "steps/03-snapshot.html"
+  }
+]

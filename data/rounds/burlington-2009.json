@@ -1,0 +1,156 @@
+{
+  "id": "burlington-2009",
+  "name": "Burlington VT 2009, Mayor (Mar 3)",
+  "method": "IRV",
+  "seats": 1,
+  "winner": "Bob Kiss",
+  "totalBallots": 8980,
+  "rounds": [
+    {
+      "round": 1,
+      "tallies": {
+        "Bob Kiss": 2585,
+        "Andy Montroll": 2063,
+        "James Simpson": 35,
+        "Dan Smith": 1306,
+        "Kurt Wright": 2951,
+        "Write-In": 36
+      },
+      "continuing": 8976,
+      "inactive": {
+        "blank": 0,
+        "overvote": 4,
+        "skips": 0,
+        "undervote": 0,
+        "exhausted": 0
+      },
+      "threshold": 4489,
+      "eliminated": [
+        "James Simpson",
+        "Write-In",
+        "Dan Smith"
+      ],
+      "transfers": []
+    },
+    {
+      "round": 2,
+      "tallies": {
+        "Bob Kiss": 2981,
+        "Andy Montroll": 2554,
+        "Kurt Wright": 3294
+      },
+      "continuing": 8829,
+      "inactive": {
+        "blank": 0,
+        "overvote": 4,
+        "skips": 0,
+        "undervote": 147,
+        "exhausted": 0
+      },
+      "threshold": 4415,
+      "eliminated": [
+        "Andy Montroll"
+      ],
+      "transfers": [
+        {
+          "from": "James Simpson",
+          "to": "Bob Kiss",
+          "count": 19
+        },
+        {
+          "from": "James Simpson",
+          "to": "Andy Montroll",
+          "count": 6
+        },
+        {
+          "from": "James Simpson",
+          "to": "Kurt Wright",
+          "count": 6
+        },
+        {
+          "from": "James Simpson",
+          "to": "exhausted",
+          "count": 4,
+          "exhausted": true
+        },
+        {
+          "from": "Dan Smith",
+          "to": "Bob Kiss",
+          "count": 370
+        },
+        {
+          "from": "Dan Smith",
+          "to": "Andy Montroll",
+          "count": 472
+        },
+        {
+          "from": "Dan Smith",
+          "to": "Kurt Wright",
+          "count": 332
+        },
+        {
+          "from": "Dan Smith",
+          "to": "exhausted",
+          "count": 132,
+          "exhausted": true
+        },
+        {
+          "from": "Write-In",
+          "to": "Bob Kiss",
+          "count": 7
+        },
+        {
+          "from": "Write-In",
+          "to": "Andy Montroll",
+          "count": 13
+        },
+        {
+          "from": "Write-In",
+          "to": "Kurt Wright",
+          "count": 5
+        },
+        {
+          "from": "Write-In",
+          "to": "exhausted",
+          "count": 11,
+          "exhausted": true
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "tallies": {
+        "Bob Kiss": 4313,
+        "Kurt Wright": 4061
+      },
+      "continuing": 8374,
+      "inactive": {
+        "blank": 0,
+        "overvote": 4,
+        "skips": 0,
+        "undervote": 602,
+        "exhausted": 0
+      },
+      "threshold": 4188,
+      "eliminated": [],
+      "transfers": [
+        {
+          "from": "Andy Montroll",
+          "to": "Bob Kiss",
+          "count": 1332
+        },
+        {
+          "from": "Andy Montroll",
+          "to": "Kurt Wright",
+          "count": 767
+        },
+        {
+          "from": "Andy Montroll",
+          "to": "exhausted",
+          "count": 455,
+          "exhausted": true
+        }
+      ]
+    }
+  ]
+}

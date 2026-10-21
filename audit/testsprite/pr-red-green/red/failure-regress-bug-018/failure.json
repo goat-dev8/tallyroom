@@ -1,0 +1,11 @@
+{
+  "rootCauseHypothesis": "POST https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app/api/tabulate → 422\nResponse: {\"error\":{\"code\":\"INVALID_LOT_ORDER\",\"message\":\"rules.lotOrder is missing candidate \\\"Zoë\\\"\",\"details\":{\"field\":\"rules.lotOrder\",\"candidate\":\"Zoë\"}}}\n(422, {'error': {'code': 'INVALID_LOT_ORDER', 'message': 'rules.lotOrder is missing candidate \"Zoë\"', 'details': {'field': 'rules.lotOrder', 'candidate': 'Zoë'}}})\nAnalysis: The test called https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app/api/tabulate and the target API returned 422 Unprocessable Entity: rules.lotOrder is missing candidate \"Zoë\". The request sent an NFD-normalized name that the API did not match to the ballot candidate. Underlying error: (422, {'error': {'code': 'INVALID_LOT_ORDER', 'message': 'rules.lotOrder is missing candidate \"Zoë\"', 'details': {'field': 'rules.lotOrder', 'candidate': 'Zoë'}}})",
+  "recommendedFixTarget": {
+    "kind": "unknown",
+    "reference": "error",
+    "rationale": "I’m adjusting the test to send the exact candidate spelling the API expects in rules.lotOrder, rather than a decomposed Unicode form, so the request validates and exercises the intended winner check."
+  },
+  "evidence": [],
+  "apiOutput": "",
+  "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 153, in <module>\n  File \"<string>\", line 150, in test\nAssertionError: (422, {'error': {'code': 'INVALID_LOT_ORDER', 'message': 'rules.lotOrder is missing candidate \"Zoë\"', 'details': {'field': 'rules.lotOrder', 'candidate': 'Zoë'}}})\n"
+}

@@ -1,0 +1,21 @@
+{
+  "testId": "640adff8-dc91-478d-9f41-f6d90424e920",
+  "status": "failed",
+  "startedAt": "2026-10-20T20:49:36.562Z",
+  "finishedAt": "2026-10-20T20:49:41.854Z",
+  "videoUrl": null,
+  "failureAnalysisUrl": null,
+  "snapshotId": "snap_8eda02832ac80b0e",
+  "runIdIfAvailable": "a78f86cd-ff62-4ba7-9589-0fb1ee6fbfa3",
+  "codeVersion": "v-84e993e7a1b7",
+  "targetUrl": null,
+  "targetUrlSource": null,
+  "environment": null,
+  "failedStepIndex": null,
+  "failureKind": "assertion",
+  "verdict": "failed",
+  "executionStatus": "completed",
+  "summary": "Failed (assertion): POST https://tallyroom-rosy.vercel.app/api/tabulate → 200\nResponse: {\"engineVersion\": \"0.1.0\", \"method\": \"irv\", \"candidates\": [\"\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u…\n(200, \"{'engineVersion': '0.1.0', 'method': 'irv', 'candidates': ['éééééééééééééééééééééé…",
+  "apiOutput": "",
+  "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 154, in <module>\n  File \"<string>\", line 151, in test\nAssertionError: (200, \"{'engineVersion': '0.1.0', 'method': 'irv', 'candidates': ['éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé\")\n"
+}

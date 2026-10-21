@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "cli-v1",
+  "snapshotId": "snap_37e1437aaa0cfa3c",
+  "testId": "44dc520c-ca8f-4702-9a82-45479d732440",
+  "projectId": "f312fcf5-741d-4116-bed4-c7ac9334859a",
+  "codeVersion": "v20.0",
+  "runIdIfAvailable": "a5905edc-c27c-4319-b90f-d3eb73f907bb",
+  "targetUrl": "https://tallyroom-git-fix-csv-single-choice-goats-projects-3f023cc9.vercel.app",
+  "failedStepIndex": 3,
+  "failureKind": "assertion",
+  "capturedAt": "2026-10-20T05:55:41.352Z",
+  "fetchedAt": "2026-10-20T22:00:35.754Z"
+}

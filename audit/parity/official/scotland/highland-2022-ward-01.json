@@ -1,0 +1,198 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "North West and Central Sutherland",
+ "source": "hl2022-ward-1-2022_local_government_election_results_Ward_1_North_West_and_Central_Sutherland_Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "1c7be8f8dd4fc01cf3bf96a1ae7adaaf1a3e304472ebfec605a0626447e87af9",
+ "ballotSource": "hl2022-ward-1-2022_local_government_election_results_Ward_1_North_West_and_Central_Sutherland_Preference_Report.blt",
+ "ballotSha256": "7734ef109a9e43c3490ec0fce42f916a997bb95138e80844c630ded91cbf7082",
+ "ballotsReceived": 2788,
+ "validVotes": 2756,
+ "seats": 3,
+ "quota": 690,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Michael BAIRD": "773",
+    "Charlotte GIBSON": "302",
+    "Marianne HUTCHISON": "968",
+    "Robert Alan JARDINE": "48",
+    "Hugh MORRISON": "477",
+    "Clive SOLEY": "108",
+    "Philipp TANZER": "80",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Michael BAIRD",
+    "Marianne HUTCHISON"
+   ],
+   "total": "2756"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Marianne HUTCHISON",
+    "amount": "278.00000"
+   },
+   "transferred": {
+    "Michael BAIRD": "0.00000",
+    "Charlotte GIBSON": "7.17975",
+    "Marianne HUTCHISON": "-278.00000",
+    "Robert Alan JARDINE": "10.33884",
+    "Hugh MORRISON": "96.49584",
+    "Clive SOLEY": "56.00205",
+    "Philipp TANZER": "12.34917",
+    "nonTransferable": "95.63427",
+    "rounding": "0.00008"
+   },
+   "votes": {
+    "Michael BAIRD": "773.00000",
+    "Charlotte GIBSON": "309.17975",
+    "Marianne HUTCHISON": "690.00000",
+    "Robert Alan JARDINE": "58.33884",
+    "Hugh MORRISON": "573.49584",
+    "Clive SOLEY": "164.00205",
+    "Philipp TANZER": "92.34917",
+    "nonTransferable": "95.63427",
+    "rounding": "0.00008"
+   },
+   "elected": [],
+   "total": "2756.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Michael BAIRD",
+    "amount": "83.00000"
+   },
+   "transferred": {
+    "Michael BAIRD": "-83.00000",
+    "Charlotte GIBSON": "24.48036",
+    "Marianne HUTCHISON": "0.00000",
+    "Robert Alan JARDINE": "3.11373",
+    "Hugh MORRISON": "21.36663",
+    "Clive SOLEY": "15.03180",
+    "Philipp TANZER": "4.08006",
+    "nonTransferable": "14.92443",
+    "rounding": "0.00299"
+   },
+   "votes": {
+    "Michael BAIRD": "690.00000",
+    "Charlotte GIBSON": "333.66011",
+    "Marianne HUTCHISON": "690.00000",
+    "Robert Alan JARDINE": "61.45257",
+    "Hugh MORRISON": "594.86247",
+    "Clive SOLEY": "179.03385",
+    "Philipp TANZER": "96.42923",
+    "nonTransferable": "110.55878",
+    "rounding": "0.00299"
+   },
+   "elected": [],
+   "total": "2756.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Robert Alan JARDINE",
+    "amount": "61.45257"
+   },
+   "transferred": {
+    "Michael BAIRD": "0.00000",
+    "Charlotte GIBSON": "4.29105",
+    "Marianne HUTCHISON": "0.00000",
+    "Robert Alan JARDINE": "-61.45257",
+    "Hugh MORRISON": "24.06330",
+    "Clive SOLEY": "2.00386",
+    "Philipp TANZER": "10.78912",
+    "nonTransferable": "20.30524",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Michael BAIRD": "690.00000",
+    "Charlotte GIBSON": "337.95116",
+    "Marianne HUTCHISON": "690.00000",
+    "Robert Alan JARDINE": "0.00000",
+    "Hugh MORRISON": "618.92577",
+    "Clive SOLEY": "181.03771",
+    "Philipp TANZER": "107.21835",
+    "nonTransferable": "130.86701",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "2756.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Philipp TANZER",
+    "amount": "107.21835"
+   },
+   "transferred": {
+    "Michael BAIRD": "0.00000",
+    "Charlotte GIBSON": "16.14615",
+    "Marianne HUTCHISON": "0.00000",
+    "Robert Alan JARDINE": "0.00000",
+    "Hugh MORRISON": "38.69980",
+    "Clive SOLEY": "16.65069",
+    "Philipp TANZER": "-107.21835",
+    "nonTransferable": "35.72171",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Michael BAIRD": "690.00000",
+    "Charlotte GIBSON": "354.09731",
+    "Marianne HUTCHISON": "690.00000",
+    "Robert Alan JARDINE": "0.00000",
+    "Hugh MORRISON": "657.62557",
+    "Clive SOLEY": "197.68840",
+    "Philipp TANZER": "0.00000",
+    "nonTransferable": "166.58872",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "2756.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Clive SOLEY",
+    "amount": "197.68840"
+   },
+   "transferred": {
+    "Michael BAIRD": "0.00000",
+    "Charlotte GIBSON": "29.45003",
+    "Marianne HUTCHISON": "0.00000",
+    "Robert Alan JARDINE": "0.00000",
+    "Hugh MORRISON": "56.77586",
+    "Clive SOLEY": "-197.68840",
+    "Philipp TANZER": "0.00000",
+    "nonTransferable": "111.46251",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Michael BAIRD": "690.00000",
+    "Charlotte GIBSON": "383.54734",
+    "Marianne HUTCHISON": "690.00000",
+    "Robert Alan JARDINE": "0.00000",
+    "Hugh MORRISON": "714.40143",
+    "Clive SOLEY": "0.00000",
+    "Philipp TANZER": "0.00000",
+    "nonTransferable": "278.05123",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Hugh MORRISON"
+   ],
+   "total": "2756.00000"
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+# 2026-10-21 run on ts-red-green 94d45b9 (src/stv.ts as of c8d92e4 plus the opt-in transferDecimals, unused here)
+
+ RUN  v4.1.12 /tmp/rg
+
+ ✓ test/stv-scale.test.ts > BUG-026: STV cost is bounded > a count whose exact fractions explode is refused quickly with 422 STV_TOO_COMPLEX 996ms
+ ✓ test/stv-scale.test.ts > BUG-026: STV cost is bounded > a large count that fits is still counted exactly and quickly 119ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  00:58:35
+   Duration  1.41s (transform 101ms, setup 0ms, import 126ms, tests 1.12s, environment 0ms)
+

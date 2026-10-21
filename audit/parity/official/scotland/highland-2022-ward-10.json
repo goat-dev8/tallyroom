@@ -1,0 +1,330 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "Eilean a' Cheò",
+ "source": "hl2022-ward-10-2022_Local_Government_Election_Results_Ward_10_Eilean_a__Che___Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "292eae7fde5511617cbee68884ee35b1d5e503ce87c1ffb690bf8c66537bc71a",
+ "ballotSource": "hl2022-ward-10-2022_Local_Government_Election_Results_Ward_10_Eilean_a__Che___Preference_Profile_Report.blt",
+ "ballotSha256": "7b28855a9e6b3a92b1865dcb41a5f29b07376d8e8167976c5a96a4f90fd71204",
+ "ballotsReceived": 4571,
+ "validVotes": 4515,
+ "seats": 4,
+ "quota": 904,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Jack CLARK": "157",
+    "John FINLAYSON": "1450",
+    "Donald MACDONALD": "240",
+    "Hector MACLEOD": "166",
+    "Drew MILLAR": "1019",
+    "Calum MUNRO": "583",
+    "Peter Ã“ DONNGHAILE": "157",
+    "Ruraidh STEWART": "485",
+    "Fay THOMSON": "258",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "John FINLAYSON",
+    "Drew MILLAR"
+   ],
+   "total": "4515"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "John FINLAYSON",
+    "amount": "546.00000"
+   },
+   "transferred": {
+    "Jack CLARK": "31.25365",
+    "John FINLAYSON": "-546.00000",
+    "Donald MACDONALD": "79.45205",
+    "Hector MACLEOD": "19.58060",
+    "Drew MILLAR": "0.00000",
+    "Calum MUNRO": "208.98525",
+    "Peter Ã“ DONNGHAILE": "23.34610",
+    "Ruraidh STEWART": "36.14880",
+    "Fay THOMSON": "81.71135",
+    "nonTransferable": "65.51970",
+    "rounding": "0.00250"
+   },
+   "votes": {
+    "Jack CLARK": "188.25365",
+    "John FINLAYSON": "904.00000",
+    "Donald MACDONALD": "319.45205",
+    "Hector MACLEOD": "185.58060",
+    "Drew MILLAR": "1019.00000",
+    "Calum MUNRO": "791.98525",
+    "Peter Ã“ DONNGHAILE": "180.34610",
+    "Ruraidh STEWART": "521.14880",
+    "Fay THOMSON": "339.71135",
+    "nonTransferable": "65.51970",
+    "rounding": "0.00250"
+   },
+   "elected": [],
+   "total": "4515.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Drew MILLAR",
+    "amount": "115.00000"
+   },
+   "transferred": {
+    "Jack CLARK": "8.46375",
+    "John FINLAYSON": "0.00000",
+    "Donald MACDONALD": "9.93080",
+    "Hector MACLEOD": "23.24710",
+    "Drew MILLAR": "-115.00000",
+    "Calum MUNRO": "21.66720",
+    "Peter Ã“ DONNGHAILE": "8.68945",
+    "Ruraidh STEWART": "1.24135",
+    "Fay THOMSON": "9.14085",
+    "nonTransferable": "32.61365",
+    "rounding": "0.00585"
+   },
+   "votes": {
+    "Jack CLARK": "196.71740",
+    "John FINLAYSON": "904.00000",
+    "Donald MACDONALD": "329.38285",
+    "Hector MACLEOD": "208.82770",
+    "Drew MILLAR": "904.00000",
+    "Calum MUNRO": "813.65245",
+    "Peter Ã“ DONNGHAILE": "189.03555",
+    "Ruraidh STEWART": "522.39015",
+    "Fay THOMSON": "348.85220",
+    "nonTransferable": "98.13585",
+    "rounding": "0.00585"
+   },
+   "elected": [],
+   "total": "4515.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Peter Ã“ DONNGHAILE",
+    "amount": "189.03555"
+   },
+   "transferred": {
+    "Jack CLARK": "61.28620",
+    "John FINLAYSON": "0.00000",
+    "Donald MACDONALD": "12.84475",
+    "Hector MACLEOD": "2.91960",
+    "Drew MILLAR": "0.00000",
+    "Calum MUNRO": "25.14090",
+    "Peter Ã“ DONNGHAILE": "-189.03555",
+    "Ruraidh STEWART": "12.75310",
+    "Fay THOMSON": "23.23255",
+    "nonTransferable": "50.85845",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Jack CLARK": "258.00360",
+    "John FINLAYSON": "904.00000",
+    "Donald MACDONALD": "342.22760",
+    "Hector MACLEOD": "211.74730",
+    "Drew MILLAR": "904.00000",
+    "Calum MUNRO": "838.79335",
+    "Peter Ã“ DONNGHAILE": "0.00000",
+    "Ruraidh STEWART": "535.14325",
+    "Fay THOMSON": "372.08475",
+    "nonTransferable": "149.00015",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "4515.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Hector MACLEOD",
+    "amount": "211.74730"
+   },
+   "transferred": {
+    "Jack CLARK": "13.91405",
+    "John FINLAYSON": "0.00000",
+    "Donald MACDONALD": "26.83365",
+    "Hector MACLEOD": "-211.74730",
+    "Drew MILLAR": "0.00000",
+    "Calum MUNRO": "89.47520",
+    "Peter Ã“ DONNGHAILE": "0.00000",
+    "Ruraidh STEWART": "3.11285",
+    "Fay THOMSON": "36.94535",
+    "nonTransferable": "41.46620",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Jack CLARK": "271.91765",
+    "John FINLAYSON": "904.00000",
+    "Donald MACDONALD": "369.06125",
+    "Hector MACLEOD": "0.00000",
+    "Drew MILLAR": "904.00000",
+    "Calum MUNRO": "928.26855",
+    "Peter Ã“ DONNGHAILE": "0.00000",
+    "Ruraidh STEWART": "538.25610",
+    "Fay THOMSON": "409.03010",
+    "nonTransferable": "190.46635",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Calum MUNRO"
+   ],
+   "total": "4515.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Calum MUNRO",
+    "amount": "24.26855"
+   },
+   "transferred": {
+    "Jack CLARK": "1.30719",
+    "John FINLAYSON": "0.00000",
+    "Donald MACDONALD": "7.11114",
+    "Hector MACLEOD": "0.00000",
+    "Drew MILLAR": "0.00000",
+    "Calum MUNRO": "-24.26855",
+    "Peter Ã“ DONNGHAILE": "0.00000",
+    "Ruraidh STEWART": "1.39534",
+    "Fay THOMSON": "7.78131",
+    "nonTransferable": "6.66822",
+    "rounding": "0.00535"
+   },
+   "votes": {
+    "Jack CLARK": "273.22484",
+    "John FINLAYSON": "904.00000",
+    "Donald MACDONALD": "376.17239",
+    "Hector MACLEOD": "0.00000",
+    "Drew MILLAR": "904.00000",
+    "Calum MUNRO": "904.00000",
+    "Peter Ã“ DONNGHAILE": "0.00000",
+    "Ruraidh STEWART": "539.65144",
+    "Fay THOMSON": "416.81141",
+    "nonTransferable": "197.13457",
+    "rounding": "0.00535"
+   },
+   "elected": [],
+   "total": "4515.00000"
+  },
+  {
+   "stage": 7,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Jack CLARK",
+    "amount": "273.22484"
+   },
+   "transferred": {
+    "Jack CLARK": "-273.22484",
+    "John FINLAYSON": "0.00000",
+    "Donald MACDONALD": "52.90150",
+    "Hector MACLEOD": "0.00000",
+    "Drew MILLAR": "0.00000",
+    "Calum MUNRO": "0.00000",
+    "Peter Ã“ DONNGHAILE": "0.00000",
+    "Ruraidh STEWART": "55.45751",
+    "Fay THOMSON": "47.24485",
+    "nonTransferable": "117.62098",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Jack CLARK": "0.00000",
+    "John FINLAYSON": "904.00000",
+    "Donald MACDONALD": "429.07389",
+    "Hector MACLEOD": "0.00000",
+    "Drew MILLAR": "904.00000",
+    "Calum MUNRO": "904.00000",
+    "Peter Ã“ DONNGHAILE": "0.00000",
+    "Ruraidh STEWART": "595.10895",
+    "Fay THOMSON": "464.05626",
+    "nonTransferable": "314.76090",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "4515.00000"
+  },
+  {
+   "stage": 8,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Donald MACDONALD",
+    "amount": "429.07389"
+   },
+   "transferred": {
+    "Jack CLARK": "0.00000",
+    "John FINLAYSON": "0.00000",
+    "Donald MACDONALD": "-429.07389",
+    "Hector MACLEOD": "0.00000",
+    "Drew MILLAR": "0.00000",
+    "Calum MUNRO": "0.00000",
+    "Peter Ã“ DONNGHAILE": "0.00000",
+    "Ruraidh STEWART": "59.63903",
+    "Fay THOMSON": "168.17159",
+    "nonTransferable": "201.26327",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Jack CLARK": "0.00000",
+    "John FINLAYSON": "904.00000",
+    "Donald MACDONALD": "0.00000",
+    "Hector MACLEOD": "0.00000",
+    "Drew MILLAR": "904.00000",
+    "Calum MUNRO": "904.00000",
+    "Peter Ã“ DONNGHAILE": "0.00000",
+    "Ruraidh STEWART": "654.74798",
+    "Fay THOMSON": "632.22785",
+    "nonTransferable": "516.02417",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "4515.00000"
+  },
+  {
+   "stage": 9,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Fay THOMSON",
+    "amount": "632.22785"
+   },
+   "transferred": {
+    "Jack CLARK": "0.00000",
+    "John FINLAYSON": "0.00000",
+    "Donald MACDONALD": "0.00000",
+    "Hector MACLEOD": "0.00000",
+    "Drew MILLAR": "0.00000",
+    "Calum MUNRO": "0.00000",
+    "Peter Ã“ DONNGHAILE": "0.00000",
+    "Ruraidh STEWART": "151.92526",
+    "Fay THOMSON": "-632.22785",
+    "nonTransferable": "480.30259",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Jack CLARK": "0.00000",
+    "John FINLAYSON": "904.00000",
+    "Donald MACDONALD": "0.00000",
+    "Hector MACLEOD": "0.00000",
+    "Drew MILLAR": "904.00000",
+    "Calum MUNRO": "904.00000",
+    "Peter Ã“ DONNGHAILE": "0.00000",
+    "Ruraidh STEWART": "806.67324",
+    "Fay THOMSON": "0.00000",
+    "nonTransferable": "996.32676",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Ruraidh STEWART"
+   ],
+   "total": "4515.00000"
+  }
+ ]
+}

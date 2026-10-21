@@ -1,0 +1,11 @@
+{
+  "rootCauseHypothesis": "POST https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app/api/tabulate → 200\nResponse: {\"engineVersion\":\"0.1.0\",\"method\":\"stv\",\"quota\":\"3.0000\",\"quotaExact\":\"3/1\",\"winners\":[\"A\",\"B\"],\"rounds\":[{\"round\":1,\"tallies\":{\"A\":\"3.0000\",\"B\":\"2.0000\",\"C\":\"2.0000\"},\"exhausted\":\"0.0000\",\"elected\":[\"A\"],\"eliminated\":[],\"exact\":{\"tallies\":{\"A\":\"3/1\",\"B\":\"2/1\",\"C\":\"2/1\"},\"exhausted\":\"0/1\"}},{\"round\":2,\"tallies\":{\"B\":\"2…\n{'round': 1, 'tallies': {'A': '3.0000', 'B': '2.0000', 'C': '2.0000'}, 'exhausted': '0.0000', 'elected': ['A'], 'eliminated': [], 'exact': {'tallies': {'A': '3/1', 'B': '2/1', 'C': '2/1'}, 'exhausted': '0/1'}} Underlying error: {'round': 1, 'tallies': {'A': '3.0000', 'B': '2.0000', 'C': '2.0000'}, 'exhausted': '0.0000', 'elected': ['A'], 'eliminated': [], 'exact': {'tallies': {'A': '3/1', 'B': '2/1', 'C': '2/1'}, 'exhausted': '0/1'}}",
+  "recommendedFixTarget": {
+    "kind": "unknown",
+    "reference": "round",
+    "rationale": "I’m updating the test to match the observed tabulation result instead of the incorrect elimination expectation: keep the same request, but assert that round 1 elects A and that the returned tallies/exact values are consistent with the response body."
+  },
+  "evidence": [],
+  "apiOutput": "",
+  "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 153, in <module>\n  File \"<string>\", line 150, in test\nAssertionError: {'round': 1, 'tallies': {'A': '3.0000', 'B': '2.0000', 'C': '2.0000'}, 'exhausted': '0.0000', 'elected': ['A'], 'eliminated': [], 'exact': {'tallies': {'A': '3/1', 'B': '2/1', 'C': '2/1'}, 'exhausted': '0/1'}}\n"
+}

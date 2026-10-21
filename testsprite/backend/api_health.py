@@ -17,6 +17,6 @@ def test():
     assert r.status_code == 200 and r.headers["content-type"].startswith("application/json")
     j = r.json()
     assert j["ok"] is True and j["status"] == "ok" and j["version"] == j["engineVersion"] == "0.1.0", j
-    assert j["elections"] == ["maine-2018-cd2", "alaska-2022", "nyc-2021"], j
+    assert j["elections"] == ["maine-2018-cd2", "alaska-2022", "nyc-2021", "burlington-2009"], j
 
 test()

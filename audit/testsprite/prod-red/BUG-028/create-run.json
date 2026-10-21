@@ -1,0 +1,37 @@
+{
+  "testId": "b95fddab-e854-413b-a0e5-1854b13fed33",
+  "type": "backend",
+  "codeVersion": "v-798985467cbf",
+  "createdAt": "2026-10-20T20:49:04.832Z",
+  "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/b95fddab-e854-413b-a0e5-1854b13fed33",
+  "run": {
+    "runId": "aa0b26f5-f7f4-4b65-82a1-3bb6f6f32cad",
+    "testId": "b95fddab-e854-413b-a0e5-1854b13fed33",
+    "testTitle": "api:prodred-bug-028",
+    "projectId": "a7aa06b0-0721-49ff-a7aa-0181ad8586d6",
+    "userId": "04180438-a0a1-70ab-b51f-4dce971c378f",
+    "status": "failed",
+    "source": "cli",
+    "createdAt": "2026-10-20T20:49:04.942Z",
+    "startedAt": "2026-10-20T20:49:04.942Z",
+    "finishedAt": "2026-10-20T20:49:08.814Z",
+    "codeVersion": "v-798985467cbf",
+    "targetUrl": null,
+    "environment": null,
+    "createdFrom": null,
+    "failedStepIndex": null,
+    "failureKind": "assertion",
+    "error": "{'engineVersion': '0.1.0', 'method': 'stv', 'quota': '11.0000', 'quotaExact': '11/1', 'winners': ['A', 'B'], 'rounds': [{'round': 1, 'tallies': {'A': '10.0000', 'B': '6.0000', 'C': '5.0000'}, 'exhausted': '9.0000', 'elected': [], 'eliminated': ['C'], 'exact': {'tallies': {'A': '10/1', 'B': '6/1', 'C': '5/1'}, 'exhausted': '9/1'}}, {'round': 2, 'tallies': {'A': '10.0000', 'B': '6.0000'}, 'exhausted': '14.0000', 'elected': ['A', 'B'], 'eliminated': [], 'exact': {'tallies': {'A': '10/1', 'B': '6/1'}, 'exhausted': '14/1'}}]}",
+    "videoUrl": null,
+    "stepSummary": {
+      "total": 0,
+      "completed": 0,
+      "passedCount": 0,
+      "failedCount": 0
+    },
+    "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/b95fddab-e854-413b-a0e5-1854b13fed33",
+    "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/72caf883-c917-4ca1-923f-c1f2f5ebd726/test/aa0b26f5-f7f4-4b65-82a1-3bb6f6f32cad",
+    "apiOutput": "",
+    "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 150, in test\nAssertionError: {'engineVersion': '0.1.0', 'method': 'stv', 'quota': '11.0000', 'quotaExact': '11/1', 'winners': ['A', 'B'], 'rounds': [{'round': 1, 'tallies': {'A': '10.0000', 'B': '6.0000', 'C': '5.0000'}, 'exhausted': '9.0000', 'elected': [], 'eliminated': ['C'], 'exact': {'tallies': {'A': '10/1', 'B': '6/1', 'C': '5/1'}, 'exhausted': '9/1'}}, {'round': 2, 'tallies': {'A': '10.0000', 'B': '6.0000'}, 'exhausted': '14.0000', 'elected': ['A', 'B'], 'eliminated': [], 'exact': {'tallies': {'A': '10/1', 'B': '6/1'}, 'exhausted': '14/1'}}]}\n"
+  }
+}

@@ -1,0 +1,48 @@
+# 2026-10-21: local red for BUG-004's JSON 1e308 case. Code at 332a7b0 (parent of the fix 9bb7a23); test file test/input-edges.test.ts from ts-red-green, run only for its '1e308' case. No production red exists: production was fixed before this capture.
+
+ RUN  v4.1.12 /tmp/w9b
+
+ ↓ test/input-edges-current.test.ts > BUG-002: count,ranking header line > is skipped, not counted as a ballot for candidates "count" and "ranking"
+ ↓ test/input-edges-current.test.ts > BUG-002: count,ranking header line > accepts CRLF, BOM and multi-rank rows after the header
+ ↓ test/input-edges-current.test.ts > BUG-002: count,ranking header line > a header with no ballots is NO_BALLOTS, not a 1-ballot election
+ ↓ test/input-edges-current.test.ts > BUG-003: candidate names that are Object.prototype keys > "__proto__" keeps its votes
+ ↓ test/input-edges-current.test.ts > BUG-003: candidate names that are Object.prototype keys > "constructor" keeps its votes
+ ↓ test/input-edges-current.test.ts > BUG-003: candidate names that are Object.prototype keys > "toString" keeps its votes
+ ↓ test/input-edges-current.test.ts > BUG-003: candidate names that are Object.prototype keys > "hasOwnProperty" keeps its votes
+ ↓ test/input-edges-current.test.ts > BUG-003: candidate names that are Object.prototype keys > also through JSON ranks
+ ↓ test/input-edges-current.test.ts > BUG-004: counts beyond exact integer range > CSV count above 2^53 is rejected, not silently rounded
+ × test/input-edges-current.test.ts > BUG-004: counts beyond exact integer range > JSON count 1e308 is rejected as INVALID_COUNT 10ms
+   → expected 200 to be 422 // Object.is equality
+ ↓ test/input-edges-current.test.ts > BUG-004: counts beyond exact integer range > a total above 2^53 is rejected even when each count is safe
+ ↓ test/input-edges-current.test.ts > BUG-004: counts beyond exact integer range > the largest safe count still counts exactly
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/input-edges-current.test.ts > BUG-004: counts beyond exact integer range > JSON count 1e308 is rejected as INVALID_COUNT
+AssertionError: expected 200 to be 422 // Object.is equality
+
+- Expected
++ Received
+
+- 422
++ 200
+
+ ❯ test/input-edges-current.test.ts:51:22
+     49|   it('JSON count 1e308 is rejected as INVALID_COUNT', () => {
+     50|     const r = json({ ballots: [{ count: 1e308, ranks: ['A'] }, { count…
+     51|     expect(r.status).toBe(422);
+       |                      ^
+     52|     expect(err(r).code).toBe('INVALID_COUNT');
+     53|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 11 skipped (12)
+   Start at  00:59:13
+   Duration  321ms (transform 98ms, setup 0ms, import 124ms, tests 12ms, environment 0ms)
+
+
+# Response body at 332a7b0 (handleTabulate, the code behind POST /api/tabulate):
+status 200 {"engineVersion":"0.1.0","method":"irv","candidates":["A","B"],"rules":{"overvote":"exhaust","skips":"continue","batch":false,"tiebreak":"previous-round"},"rounds":[{"round":1,"tallies":{"A":1e+308,"B":1},"continuing":1e+308,"inactive":{"blank":0,"overvote":0,"skips":0,"undervote":0,"exhausted":0},"threshold":5e+307,"eliminated":[]}],"winner":"A","totalBallots":1e+308}

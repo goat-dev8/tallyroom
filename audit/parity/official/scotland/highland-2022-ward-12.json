@@ -1,0 +1,231 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "Aird and Loch Ness",
+ "source": "hl2022-ward-12-2022_Local_Government_Election_Results_Ward_12_Aird_and_Loch_Ness_Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "578d5c9b833e9fe5423625f8f6e674f959022d270914e381e408dd7186998707",
+ "ballotSource": "hl2022-ward-12-2022_Local_Government_Election_Results_Ward_12_Aird_and_Loch_Ness_Preference_Profile_Report.blt",
+ "ballotSha256": "5e21aaa85b331d625f66923b9bceff1dd4581907af8736e431c7c61c90a296c1",
+ "ballotsReceived": 5255,
+ "validVotes": 5198,
+ "seats": 4,
+ "quota": 1040,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Chris BALLANCE": "528",
+    "Helen CRAWFORD": "1099",
+    "Aarron DUNCAN-MACLEOD": "430",
+    "David FRASER": "1182",
+    "Holly KINGHAM": "342",
+    "Emma KNOX": "1364",
+    "Michael PERERA": "253",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Helen CRAWFORD",
+    "David FRASER",
+    "Emma KNOX"
+   ],
+   "total": "5198"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Emma KNOX",
+    "amount": "324.00000"
+   },
+   "transferred": {
+    "Chris BALLANCE": "178.14750",
+    "Helen CRAWFORD": "0.00000",
+    "Aarron DUNCAN-MACLEOD": "41.80528",
+    "David FRASER": "0.00000",
+    "Holly KINGHAM": "27.31595",
+    "Emma KNOX": "-324.00000",
+    "Michael PERERA": "23.51547",
+    "nonTransferable": "53.20672",
+    "rounding": "0.00908"
+   },
+   "votes": {
+    "Chris BALLANCE": "706.14750",
+    "Helen CRAWFORD": "1099.00000",
+    "Aarron DUNCAN-MACLEOD": "471.80528",
+    "David FRASER": "1182.00000",
+    "Holly KINGHAM": "369.31595",
+    "Emma KNOX": "1040.00000",
+    "Michael PERERA": "276.51547",
+    "nonTransferable": "53.20672",
+    "rounding": "0.00908"
+   },
+   "elected": [],
+   "total": "5198.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "surplus",
+    "candidate": "David FRASER",
+    "amount": "142.00000"
+   },
+   "transferred": {
+    "Chris BALLANCE": "21.74353",
+    "Helen CRAWFORD": "0.00000",
+    "Aarron DUNCAN-MACLEOD": "63.30851",
+    "David FRASER": "-142.00000",
+    "Holly KINGHAM": "16.21755",
+    "Emma KNOX": "0.00000",
+    "Michael PERERA": "10.33118",
+    "nonTransferable": "30.39289",
+    "rounding": "0.00634"
+   },
+   "votes": {
+    "Chris BALLANCE": "727.89103",
+    "Helen CRAWFORD": "1099.00000",
+    "Aarron DUNCAN-MACLEOD": "535.11379",
+    "David FRASER": "1040.00000",
+    "Holly KINGHAM": "385.53350",
+    "Emma KNOX": "1040.00000",
+    "Michael PERERA": "286.84665",
+    "nonTransferable": "83.60869",
+    "rounding": "0.00634"
+   },
+   "elected": [],
+   "total": "5198.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Helen CRAWFORD",
+    "amount": "59.00000"
+   },
+   "transferred": {
+    "Chris BALLANCE": "2.09352",
+    "Helen CRAWFORD": "-59.00000",
+    "Aarron DUNCAN-MACLEOD": "20.98888",
+    "David FRASER": "0.00000",
+    "Holly KINGHAM": "12.72216",
+    "Emma KNOX": "0.00000",
+    "Michael PERERA": "5.04592",
+    "nonTransferable": "18.14384",
+    "rounding": "0.00568"
+   },
+   "votes": {
+    "Chris BALLANCE": "729.98455",
+    "Helen CRAWFORD": "1040.00000",
+    "Aarron DUNCAN-MACLEOD": "556.10267",
+    "David FRASER": "1040.00000",
+    "Holly KINGHAM": "398.25566",
+    "Emma KNOX": "1040.00000",
+    "Michael PERERA": "291.89257",
+    "nonTransferable": "101.75887",
+    "rounding": "0.00568"
+   },
+   "elected": [],
+   "total": "5198.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Michael PERERA",
+    "amount": "291.89257"
+   },
+   "transferred": {
+    "Chris BALLANCE": "52.98260",
+    "Helen CRAWFORD": "0.00000",
+    "Aarron DUNCAN-MACLEOD": "40.09059",
+    "David FRASER": "0.00000",
+    "Holly KINGHAM": "124.83947",
+    "Emma KNOX": "0.00000",
+    "Michael PERERA": "-291.89257",
+    "nonTransferable": "73.97991",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Chris BALLANCE": "782.96715",
+    "Helen CRAWFORD": "1040.00000",
+    "Aarron DUNCAN-MACLEOD": "596.19326",
+    "David FRASER": "1040.00000",
+    "Holly KINGHAM": "523.09513",
+    "Emma KNOX": "1040.00000",
+    "Michael PERERA": "0.00000",
+    "nonTransferable": "175.74446",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "5198.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Holly KINGHAM",
+    "amount": "523.09513"
+   },
+   "transferred": {
+    "Chris BALLANCE": "141.48761",
+    "Helen CRAWFORD": "0.00000",
+    "Aarron DUNCAN-MACLEOD": "177.92812",
+    "David FRASER": "0.00000",
+    "Holly KINGHAM": "-523.09513",
+    "Emma KNOX": "0.00000",
+    "Michael PERERA": "0.00000",
+    "nonTransferable": "203.67940",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Chris BALLANCE": "924.45476",
+    "Helen CRAWFORD": "1040.00000",
+    "Aarron DUNCAN-MACLEOD": "774.12138",
+    "David FRASER": "1040.00000",
+    "Holly KINGHAM": "0.00000",
+    "Emma KNOX": "1040.00000",
+    "Michael PERERA": "0.00000",
+    "nonTransferable": "379.42386",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "5198.00000"
+  },
+  {
+   "stage": 7,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Aarron DUNCAN-MACLEOD",
+    "amount": "774.12138"
+   },
+   "transferred": {
+    "Chris BALLANCE": "240.57338",
+    "Helen CRAWFORD": "0.00000",
+    "Aarron DUNCAN-MACLEOD": "-774.12138",
+    "David FRASER": "0.00000",
+    "Holly KINGHAM": "0.00000",
+    "Emma KNOX": "0.00000",
+    "Michael PERERA": "0.00000",
+    "nonTransferable": "533.54800",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Chris BALLANCE": "1165.02814",
+    "Helen CRAWFORD": "1040.00000",
+    "Aarron DUNCAN-MACLEOD": "0.00000",
+    "David FRASER": "1040.00000",
+    "Holly KINGHAM": "0.00000",
+    "Emma KNOX": "1040.00000",
+    "Michael PERERA": "0.00000",
+    "nonTransferable": "912.97186",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Chris BALLANCE"
+   ],
+   "total": "5198.00000"
+  }
+ ]
+}

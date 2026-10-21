@@ -1,0 +1,37 @@
+{
+  "testId": "2c3b8c12-b610-49ef-a1c6-e730cd44564c",
+  "type": "backend",
+  "codeVersion": "v-66acf3e80d49",
+  "createdAt": "2026-10-20T20:50:30.754Z",
+  "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/2c3b8c12-b610-49ef-a1c6-e730cd44564c",
+  "run": {
+    "runId": "15d96113-8f9e-4104-9cb3-0e080fc715a7",
+    "testId": "2c3b8c12-b610-49ef-a1c6-e730cd44564c",
+    "testTitle": "api:prodred-bug-019",
+    "projectId": "a7aa06b0-0721-49ff-a7aa-0181ad8586d6",
+    "userId": "04180438-a0a1-70ab-b51f-4dce971c378f",
+    "status": "failed",
+    "source": "cli",
+    "createdAt": "2026-10-20T20:50:30.859Z",
+    "startedAt": "2026-10-20T20:50:30.859Z",
+    "finishedAt": "2026-10-20T20:50:34.680Z",
+    "codeVersion": "v-66acf3e80d49",
+    "targetUrl": null,
+    "environment": null,
+    "createdFrom": null,
+    "failedStepIndex": null,
+    "failureKind": "assertion",
+    "error": "{'round': 1, 'tallies': {'A': '3.0000', 'B': '2.0000', 'C': '2.0000'}, 'exhausted': '0.0000', 'elected': ['A'], 'eliminated': [], 'exact': {'tallies': {'A': '3/1', 'B': '2/1', 'C': '2/1'}, 'exhausted': '0/1'}}",
+    "videoUrl": null,
+    "stepSummary": {
+      "total": 0,
+      "completed": 0,
+      "passedCount": 0,
+      "failedCount": 0
+    },
+    "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/2c3b8c12-b610-49ef-a1c6-e730cd44564c",
+    "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/e834f8f4-050c-4d4b-812a-8f973ca96965/test/15d96113-8f9e-4104-9cb3-0e080fc715a7",
+    "apiOutput": "",
+    "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 153, in <module>\n  File \"<string>\", line 150, in test\nAssertionError: {'round': 1, 'tallies': {'A': '3.0000', 'B': '2.0000', 'C': '2.0000'}, 'exhausted': '0.0000', 'elected': ['A'], 'eliminated': [], 'exact': {'tallies': {'A': '3/1', 'B': '2/1', 'C': '2/1'}, 'exhausted': '0/1'}}\n"
+  }
+}

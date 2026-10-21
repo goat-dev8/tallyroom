@@ -1,0 +1,198 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "Culloden and Ardersier",
+ "source": "hl2022-ward-17-2022_Local_Government_Election_Results_Ward_17_Culloden_and_Ardersier_Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "1526f09eb32cf089c44afc41ed206ca09bd193a3df3448bf65eccb2c0cd0a9df",
+ "ballotSource": "hl2022-ward-17-2022_Local_Government_Election_Results_Ward_17_Culloden_and_Ardersier_Preference_Profile.blt",
+ "ballotSha256": "6c8b95705affbc46a24e4b7954d5f1866b22980385cb6d157abd4aae0f37f291",
+ "ballotsReceived": 4140,
+ "validVotes": 4100,
+ "seats": 3,
+ "quota": 1026,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Steven CALVERT": "413",
+    "Glynis CAMPBELL-SINCLAIR": "1542",
+    "Mya CHEMONGES-MURZYNOWSKA": "137",
+    "Morven REID": "626",
+    "MEL ROBERTSON": "24",
+    "TRISH ROBERTSON": "626",
+    "Mary SCANLON": "732",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Glynis CAMPBELL-SINCLAIR"
+   ],
+   "total": "4100"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Glynis CAMPBELL-SINCLAIR",
+    "amount": "516.00000"
+   },
+   "transferred": {
+    "Steven CALVERT": "92.35788",
+    "Glynis CAMPBELL-SINCLAIR": "-516.00000",
+    "Mya CHEMONGES-MURZYNOWSKA": "107.41623",
+    "Morven REID": "95.03492",
+    "MEL ROBERTSON": "7.36186",
+    "TRISH ROBERTSON": "67.92989",
+    "Mary SCANLON": "11.04279",
+    "nonTransferable": "134.85589",
+    "rounding": "0.00054"
+   },
+   "votes": {
+    "Steven CALVERT": "505.35788",
+    "Glynis CAMPBELL-SINCLAIR": "1026.00000",
+    "Mya CHEMONGES-MURZYNOWSKA": "244.41623",
+    "Morven REID": "721.03492",
+    "MEL ROBERTSON": "31.36186",
+    "TRISH ROBERTSON": "693.92989",
+    "Mary SCANLON": "743.04279",
+    "nonTransferable": "134.85589",
+    "rounding": "0.00054"
+   },
+   "elected": [],
+   "total": "4100.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "MEL ROBERTSON",
+    "amount": "31.36186"
+   },
+   "transferred": {
+    "Steven CALVERT": "1.66926",
+    "Glynis CAMPBELL-SINCLAIR": "0.00000",
+    "Mya CHEMONGES-MURZYNOWSKA": "0.66926",
+    "Morven REID": "19.35019",
+    "MEL ROBERTSON": "-31.36186",
+    "TRISH ROBERTSON": "2.00389",
+    "Mary SCANLON": "2.00000",
+    "nonTransferable": "5.66926",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Steven CALVERT": "507.02714",
+    "Glynis CAMPBELL-SINCLAIR": "1026.00000",
+    "Mya CHEMONGES-MURZYNOWSKA": "245.08549",
+    "Morven REID": "740.38511",
+    "MEL ROBERTSON": "0.00000",
+    "TRISH ROBERTSON": "695.93378",
+    "Mary SCANLON": "745.04279",
+    "nonTransferable": "140.52569",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "4100.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Mya CHEMONGES-MURZYNOWSKA",
+    "amount": "245.08549"
+   },
+   "transferred": {
+    "Steven CALVERT": "38.06224",
+    "Glynis CAMPBELL-SINCLAIR": "0.00000",
+    "Mya CHEMONGES-MURZYNOWSKA": "-245.08549",
+    "Morven REID": "90.82486",
+    "MEL ROBERTSON": "0.00000",
+    "TRISH ROBERTSON": "31.72372",
+    "Mary SCANLON": "8.33852",
+    "nonTransferable": "76.13615",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Steven CALVERT": "545.08938",
+    "Glynis CAMPBELL-SINCLAIR": "1026.00000",
+    "Mya CHEMONGES-MURZYNOWSKA": "0.00000",
+    "Morven REID": "831.20997",
+    "MEL ROBERTSON": "0.00000",
+    "TRISH ROBERTSON": "727.65750",
+    "Mary SCANLON": "753.38131",
+    "nonTransferable": "216.66184",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "4100.00000"
+  },
+  {
+   "stage": 5,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Steven CALVERT",
+    "amount": "545.08938"
+   },
+   "transferred": {
+    "Steven CALVERT": "-545.08938",
+    "Glynis CAMPBELL-SINCLAIR": "0.00000",
+    "Mya CHEMONGES-MURZYNOWSKA": "0.00000",
+    "Morven REID": "128.76651",
+    "MEL ROBERTSON": "0.00000",
+    "TRISH ROBERTSON": "204.13226",
+    "Mary SCANLON": "51.68093",
+    "nonTransferable": "160.50968",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Steven CALVERT": "0.00000",
+    "Glynis CAMPBELL-SINCLAIR": "1026.00000",
+    "Mya CHEMONGES-MURZYNOWSKA": "0.00000",
+    "Morven REID": "959.97648",
+    "MEL ROBERTSON": "0.00000",
+    "TRISH ROBERTSON": "931.78976",
+    "Mary SCANLON": "805.06224",
+    "nonTransferable": "377.17152",
+    "rounding": "0.00000"
+   },
+   "elected": [],
+   "total": "4100.00000"
+  },
+  {
+   "stage": 6,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Mary SCANLON",
+    "amount": "805.06224"
+   },
+   "transferred": {
+    "Steven CALVERT": "0.00000",
+    "Glynis CAMPBELL-SINCLAIR": "0.00000",
+    "Mya CHEMONGES-MURZYNOWSKA": "0.00000",
+    "Morven REID": "188.00778",
+    "MEL ROBERTSON": "0.00000",
+    "TRISH ROBERTSON": "366.35019",
+    "Mary SCANLON": "-805.06224",
+    "nonTransferable": "250.70427",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Steven CALVERT": "0.00000",
+    "Glynis CAMPBELL-SINCLAIR": "1026.00000",
+    "Mya CHEMONGES-MURZYNOWSKA": "0.00000",
+    "Morven REID": "1147.98426",
+    "MEL ROBERTSON": "0.00000",
+    "TRISH ROBERTSON": "1298.13995",
+    "Mary SCANLON": "0.00000",
+    "nonTransferable": "627.87579",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Morven REID",
+    "TRISH ROBERTSON"
+   ],
+   "total": "4100.00000"
+  }
+ ]
+}

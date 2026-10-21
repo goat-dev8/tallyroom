@@ -1,0 +1,21 @@
+{
+  "testId": "3e46dd98-f996-42a2-9acd-037ed87d1435",
+  "status": "failed",
+  "startedAt": "2026-10-20T20:50:18.164Z",
+  "finishedAt": "2026-10-20T20:50:21.445Z",
+  "videoUrl": null,
+  "failureAnalysisUrl": null,
+  "snapshotId": "snap_2ba0640c1b65661f",
+  "runIdIfAvailable": "c6184fa4-154d-4b2d-8e34-28e2f5250204",
+  "codeVersion": "v-b32f99f4ca20",
+  "targetUrl": null,
+  "targetUrlSource": null,
+  "environment": null,
+  "failedStepIndex": null,
+  "failureKind": "assertion",
+  "verdict": "failed",
+  "executionStatus": "completed",
+  "summary": "Failed (assertion): POST https://tallyroom-rosy.vercel.app/api/tabulate → 200\nResponse: {\"engineVersion\":\"0.1.0\",\"method\":\"irv\",\"candidates\":[\"B\\r5,A\"],\"rules\":{\"overvote\":\"exhaust\",\"skips\":\"continue\",\"batch\":false,\"tiebreak\":\"previous-round\"},\"rounds\":[{\"round\":1,\"tallies\":{\"B\\r5,A\":1},\"continuing\":1,\"inactive\":{\"blank\":0,\"overvote\":0,\"skips\":0,\"undervote\":0,\"exhausted\":0},\"threshold\":1,\"eliminated\":[]}]…\n{'engineVersion': '0.1.0', 'method': 'irv', 'candidates': ['B\\r5,A'], 'rules': {'overvote…",
+  "apiOutput": "",
+  "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 150, in test\nAssertionError: {'engineVersion': '0.1.0', 'method': 'irv', 'candidates': ['B\\r5,A'], 'rules': {'overvote': 'exhaust', 'skips': 'continue', 'batch': False, 'tiebreak': 'previous-round'}, 'rounds': [{'round': 1, 'tallies': {'B\\r5,A': 1}, 'continuing': 1, 'inactive': {'blank': 0, 'overvote': 0, 'skips': 0, 'undervote': 0, 'exhausted': 0}, 'threshold': 1, 'eliminated': []}], 'winner': 'B\\r5,A', 'totalBallots': 1}\n"
+}

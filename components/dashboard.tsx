@@ -1,10 +1,10 @@
 'use client';
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { motion, useReducedMotion } from 'motion/react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { AlertTriangle, BadgeCheck, ChevronLeft, ChevronRight, Database, Download, FileUp, Inbox, Link2, Loader2, Upload, Vote, X } from 'lucide-react';
 import type { IrvResult } from '../src/types';
-import { CATALOG, CERTIFIED, colorFor, fmt, pct, type CatalogEntry } from '../lib/catalog';
+import { API_ID_TO_SLUG, CATALOG, CERTIFIED, colorFor, fmt, pct, type CatalogEntry } from '../lib/catalog';
 import { countBundled, unsubscribe, type Progress } from '../lib/engine';
 import { Logo } from './logo';
 import { RoundBars, shortName } from './round-bars';
@@ -14,14 +14,17 @@ import { SpotlightCard } from './spotlight-card';
 import { CountUp } from './count-up';
 import { Badge, Button, cn } from './ui';
 type Source = { kind: 'bundled'; slug: string } | { kind: 'upload' };
-type Stv = { method: 'stv'; quota: string; winners: string[]; rounds: { round: number; tallies: Record<string, string>; exhausted: string; elected: string[]; eliminated: string[] }[] };
+type Stv = { method: 'stv'; quota: string; winners: string[]; rounds: { round: number; tallies: Record<string, string>; exhausted: string; elected: string[]; eliminated: string[]; exact: { tallies: Record<string, string>; exhausted: string } }[] };
+// BUG-038: the "Tallies (exact)" column shows the API's exact fractions ("14/3"; whole numbers without "/1").
+const exactText = (f: string) => f.endsWith('/1') ? f.slice(0, -2) : f;
 const SAMPLE = '# count,first>second>third\n8,Alice>Bob\n6,Bob>Cara\n5,Cara>Bob\n2,Dev>Alice\n';
 const STV_SAMPLE = '# 2 seats: set Seats to 2\n12,Alice>Bob>Cara\n6,Bob>Alice\n5,Cara>Dev\n4,Dev>Cara\n3,Bob>Cara\n';
 const MAX_BYTES = 10 * 1024 * 1024;
 const PHASE: Record<Progress['phase'], string> = { download: 'Downloading cast vote record', parse: 'Reading ballot patterns', count: 'Counting rounds', done: 'Done' };
 
 function readUrl(): { src: Source; round: number | null; note: string } {
-  const p = new URLSearchParams(window.location.search); const e = p.get('election'); const r = Number(p.get('round'));
+  const p = new URLSearchParams(window.location.search); const asked = p.get('election'); const r = Number(p.get('round'));
+  const e = asked && !CATALOG.some(c => c.slug === asked) && API_ID_TO_SLUG[asked] ? API_ID_TO_SLUG[asked] : asked; // BUG-039
   const round = Number.isInteger(r) && r > 0 ? r - 1 : null;
   if (e === 'upload') return { src: { kind: 'upload' }, round: null, note: '' };
   if (e && !CATALOG.some(c => c.slug === e)) return { src: { kind: 'bundled', slug: CATALOG[0].slug }, round: null, note: `No election called “${e}”. Showing ${CATALOG[0].short} ${CATALOG[0].year}.` };
@@ -35,7 +38,9 @@ export function Dashboard() {
   const [res, setRes] = useState<IrvResult | null>(null); const [stv, setStv] = useState<Stv | null>(null);
   const [busy, setBusy] = useState(true); const [err, setErr] = useState(''); const [note, setNote] = useState('');
   const [round, setRound] = useState(0); const [progress, setProgress] = useState<Progress | null>(null);
-  const [text, setText] = useState(SAMPLE); const [seats, setSeats] = useState(1); const [fileName, setFileName] = useState(''); const [drag, setDrag] = useState(false);
+  const [text, setText] = useState(SAMPLE); const [seatsText, setSeatsText] = useState('1'); const seats = Math.min(50, Math.max(1, Number(seatsText) || 1)); const setSeats = (n: number) => setSeatsText(String(n));
+  const [toast, setToast] = useState<{ id: number; text: string; ms: number } | null>(null);
+  const mainRef = useRef<HTMLElement>(null); const [holdH, setHoldH] = useState<number | null>(null); const [fileName, setFileName] = useState(''); const [drag, setDrag] = useState(false);
   const wantRound = useRef<number | null>(null);
   const entry: CatalogEntry | null = src.kind === 'bundled' ? CATALOG.find(c => c.slug === src.slug) ?? null : null;
 
@@ -49,6 +54,10 @@ export function Dashboard() {
       e => live && setErr(String(e.message ?? e))).finally(() => live && setBusy(false));
     return () => { live = false; unsubscribe(entry.slug, on); };
   }, [ready, entry?.slug]);
+  // Toast: an overlay that never moves the page, gone after its time.
+  useEffect(() => { if (!toast) return; const t = setTimeout(() => setToast(x => (x?.id === toast.id ? null : x)), toast.ms); return () => clearTimeout(t); }, [toast]);
+  // While a new election counts, keep the old height so the page does not collapse and jump.
+  useEffect(() => { if (res || err || stv) setHoldH(null); }, [res, err, stv]);
   // Keep the URL shareable.
   useEffect(() => {
     if (!ready) return; const p = new URLSearchParams();
@@ -56,7 +65,7 @@ export function Dashboard() {
     window.history.replaceState(null, '', `${window.location.pathname}?${p}`);
   }, [ready, src, round, res]);
 
-  const pick = (s: Source) => { if (s.kind === src.kind && (s.kind === 'upload' || (src.kind === 'bundled' && src.slug === s.slug))) return; if (s.kind === 'upload') setBusy(false); setNote(''); setErr(''); setStv(null); setRes(null); setRound(0); setSrc(s); };
+  const pick = (s: Source) => { if (s.kind === src.kind && (s.kind === 'upload' || (src.kind === 'bundled' && src.slug === s.slug))) return; if (s.kind === 'upload') setBusy(false); else if (mainRef.current) setHoldH(mainRef.current.offsetHeight); setNote(''); setErr(''); setStv(null); setRes(null); setRound(0); setSrc(s); };
   async function runUpload() {
     setErr(''); setRes(null); setStv(null);
     if (!text.split(/\r?\n/).some(l => l.trim() && !l.trim().startsWith('#'))) { setErr('Add at least one ballot line, for example 5,Alice>Bob>Cara'); return; }
@@ -78,7 +87,7 @@ export function Dashboard() {
     const blob = new Blob([JSON.stringify(stv ?? res, null, 2)], { type: 'application/json' });
     const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `${entry?.slug ?? 'tallyroom-result'}.json`; a.click(); URL.revokeObjectURL(a.href);
   }
-  async function copyLink() { try { await navigator.clipboard.writeText(window.location.href); setNote('Link copied.'); } catch { setNote(window.location.href); } }
+  async function copyLink() { try { await navigator.clipboard.writeText(window.location.href); setToast({ id: Date.now(), text: 'Link copied.', ms: 2500 }); } catch { setToast({ id: Date.now(), text: `Copy this link: ${window.location.href}`, ms: 8000 }); } }
   const r = res?.rounds[round]; const n = res?.rounds.length ?? 0;
   const matches = !!(entry && res && res.winner === entry.certifiedWinner && n === CERTIFIED[entry.slug].rounds);
   // Arrow keys step rounds from anywhere on the page (window listener, so focus on <body> works too).
@@ -116,7 +125,7 @@ export function Dashboard() {
         <p className="mt-8 hidden px-2 text-[11px] leading-relaxed text-mute md:block">Counting runs in your browser on the same verified files the parity tests use. Use ← → to step rounds.</p>
       </aside>
 
-      <main className="min-w-0 p-5 md:p-8" data-testid="dashboard">
+      <main ref={mainRef} className="min-w-0 p-5 md:p-8" data-testid="dashboard" style={holdH ? { minHeight: holdH } : undefined}>
         <div className="flex flex-wrap items-start gap-3">
           <div className="min-w-0 flex-1">
             <h1 className="text-xl font-semibold tracking-tight" data-testid="dash-title">{entry ? entry.title : 'Count your own ballots'}</h1>
@@ -143,7 +152,7 @@ export function Dashboard() {
               <button type="button" className="text-xs text-mute underline-offset-2 hover:text-fg hover:underline" data-testid="sample-irv" onClick={() => { setText(SAMPLE); setSeats(1); setFileName(''); setRes(null); setStv(null); setErr(''); }}>IRV sample</button>
               <button type="button" className="text-xs text-mute underline-offset-2 hover:text-fg hover:underline" data-testid="sample-stv" onClick={() => { setText(STV_SAMPLE); setSeats(2); setFileName(''); setRes(null); setStv(null); setErr(''); }}>STV sample</button>
               <a href="/samples/ballots.csv" download="ballots.csv" className="text-xs text-mute underline-offset-2 hover:text-fg hover:underline" data-testid="sample-download">Sample CSV</a>
-              <label className="ml-auto flex items-center gap-2 text-mute">Seats <input type="number" min={1} max={50} value={seats} data-testid="seats-input" onChange={e => setSeats(Math.min(50, Math.max(1, Number(e.target.value) || 1)))} className="w-16 rounded-md border border-line bg-ink px-2 py-1 text-fg" /></label>
+              <label className="ml-auto flex items-center gap-2 text-mute">Seats <input type="text" inputMode="numeric" pattern="[0-9]*" maxLength={2} aria-label="Seats (1 to 50)" value={seatsText} data-testid="seats-input" onChange={e => setSeatsText(e.target.value.replace(/\D/g, ''))} onBlur={() => setSeatsText(String(seats))} className="w-16 rounded-md border border-line bg-ink px-2 py-1 text-base text-fg sm:text-sm" /></label>
               <Button variant="tally" onClick={runUpload} disabled={busy} data-testid="run-count">{busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Vote className="h-4 w-4" />} Count</Button>
             </div>
           </div>
@@ -181,10 +190,11 @@ export function Dashboard() {
               <RoundBars result={res} round={round} />
               {r.eliminated.length > 0 && <motion.p key={`el-${round}`} initial={reduce ? false : { opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.42, delay: 0.5, ease: [0.22, 1, 0.36, 1] }} className="mt-4 flex flex-wrap items-center gap-2 rounded-lg border border-line bg-white/[.02] px-3 py-2 text-sm text-mute" data-testid="eliminated"><X className="h-3.5 w-3.5 text-mute" />Eliminated after round {round + 1}: <span className="text-fg">{r.eliminated.map(shortName).join(', ')}</span>{r.tieNote && ` (tie broken by ${r.tieNote})`}{round < n - 1 && <span className="ml-auto font-mono text-[11px] text-iris">their ballots transfer ↓</span>}</motion.p>}
             </section>
-            <section className="card p-5" aria-label="Transfers"><h2 className="mb-1 font-medium" data-testid="sankey-title">{n > 1 ? `Transfers from round ${Math.min(round, n - 2) + 1} into round ${Math.min(round, n - 2) + 2}` : 'Transfers'}</h2><p className="mb-4 text-xs text-mute">Hover or focus a flow for the exact ballot count.</p><Sankey result={res} round={n > 1 ? Math.min(round, n - 2) : 0} /></section>
-            <section className="card overflow-x-auto p-0" aria-label="All rounds">
+            <section className="card p-5" aria-label="Transfers"><h2 className="mb-1 font-medium" data-testid="sankey-title">{n > 1 ? `Transfers from round ${Math.min(round, n - 2) + 1} into round ${Math.min(round, n - 2) + 2}` : 'Transfers'}</h2><p className="mb-4 text-xs text-mute">Hover a flow or node for exact counts. Keyboard: Tab to the diagram, then arrow keys move between flows.</p><Sankey result={res} round={n > 1 ? Math.min(round, n - 2) : 0} /></section>
+            {/* oxlint-disable-next-line jsx-a11y/no-noninteractive-tabindex -- a horizontally scrollable table must be reachable by keyboard (WCAG 2.1.1) */}
+            <section className="card overflow-x-auto p-0" aria-label="All rounds" tabIndex={0} data-testid="rounds-table-region">
               <table className="w-full text-sm tnum" data-testid="rounds-table"><thead className="text-left font-mono text-[11px] text-mute"><tr className="border-b border-line"><th className="p-3 font-normal">Candidate</th>{res.rounds.map(x => <th key={x.round} className={cn('p-3 text-right font-normal', x.round === round + 1 && 'text-tally')}>R{x.round}</th>)}</tr></thead>
-                <tbody>{res.candidates.map(c => <tr key={c} className="border-b border-line/60 last:border-0" data-testid="table-row" data-candidate={c}><td className="p-3 whitespace-nowrap"><span className="mr-2 inline-block h-2 w-2 rounded-[2px]" style={{ background: colorFor(res.candidates, c) }} />{c}</td>{res.rounds.map(x => <td key={x.round} data-testid={`cell-r${x.round}`} className={cn('p-3 text-right', x.round === round + 1 && 'bg-white/[.02]')}>{x.tallies[c] !== undefined ? fmt(x.tallies[c]) : <span className="text-mute" title="Eliminated" data-testid="cell-out">—</span>}</td>)}</tr>)}
+                <tbody>{res.candidates.map(c => <tr key={c} className="border-b border-line/60 last:border-0" data-testid="table-row" data-candidate={c}><td className="p-3 whitespace-nowrap"><span className="mr-2 inline-block h-2 w-2 rounded-[2px]" style={{ background: colorFor(res.candidates, c) }} />{c}</td>{res.rounds.map(x => <td key={x.round} data-testid={`cell-r${x.round}`} title={x.tallies[c] === undefined ? 'Eliminated' : undefined} className={cn('p-3 text-right', x.round === round + 1 && 'bg-white/[.02]', x.tallies[c] === undefined && 'text-mute')}>{x.tallies[c] !== undefined ? fmt(x.tallies[c]) : <span data-testid="cell-out">—</span>}</td>)}</tr>)}
                   <tr className="text-mute" data-testid="table-inactive"><td className="p-3">Inactive</td>{res.rounds.map(x => <td key={x.round} className="p-3 text-right">{fmt(Object.values(x.inactive).reduce((s, v) => s + v, 0))}</td>)}</tr></tbody></table>
             </section>
           </motion.div>
@@ -195,10 +205,12 @@ export function Dashboard() {
             <div className="grid grid-cols-2 gap-3 lg:grid-cols-4"><Kpi k="Method" v="STV (Gregory)" testid="stv-method" /><Kpi k="Seats" v={String(stv.winners.length)} testid="stv-seats" /><Kpi k="Quota" v={stv.quota} testid="stv-quota" /><Kpi k="Rounds" v={String(stv.rounds.length)} testid="stv-rounds" /></div>
             <div className="card p-5"><h2 className="font-medium">Elected</h2><div className="mt-3 flex flex-wrap gap-2" data-testid="stv-winners">{stv.winners.map((w, i) => <Badge key={w} className="border-win/30 py-1 text-sm text-win"><span className="font-mono text-[11px] text-mute">{i + 1}</span> {w}</Badge>)}</div></div>
             <div className="card overflow-x-auto p-0"><table className="w-full text-sm tnum"><thead className="text-left font-mono text-[11px] text-mute"><tr className="border-b border-line"><th className="p-3 font-normal">Round</th><th className="p-3 font-normal">Tallies (exact)</th><th className="p-3 font-normal">Exhausted</th><th className="p-3 font-normal">Outcome</th></tr></thead>
-              <tbody>{stv.rounds.map(x => <tr key={x.round} className="border-b border-line/60 last:border-0 align-top" data-testid="stv-round" data-round={x.round}><td className="p-3 font-mono">R{x.round}</td><td className="p-3 font-mono text-xs">{Object.entries(x.tallies).map(([k, v]) => <div key={k}>{k}: {v}</div>)}</td><td className="p-3 font-mono text-xs">{x.exhausted}</td>
+              <tbody>{stv.rounds.map(x => <tr key={x.round} className="border-b border-line/60 last:border-0 align-top" data-testid="stv-round" data-round={x.round}><td className="p-3 font-mono">R{x.round}</td><td className="p-3 font-mono text-xs">{Object.entries(x.exact.tallies).map(([k, v]) => <div key={k} title={x.tallies[k]}>{k}: {exactText(v)}</div>)}</td><td className="p-3 font-mono text-xs" title={x.exhausted}>{exactText(x.exact.exhausted)}</td>
                 <td className="p-3 text-xs">{x.elected.length > 0 && <div className="text-win">Elected {x.elected.join(', ')}</div>}{x.eliminated.length > 0 && <div className="text-mute">Eliminated {x.eliminated.join(', ')}</div>}</td></tr>)}</tbody></table></div>
           </motion.section>
         )}
+      <AnimatePresence>{toast && <motion.div key={toast.id} role="status" aria-live="polite" data-testid="toast" initial={reduce ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8, transition: { duration: 0.25 } }}
+          className="pointer-events-none fixed bottom-6 left-1/2 z-50 max-w-[90vw] -translate-x-1/2 break-all rounded-xl border border-white/10 bg-[#0e1013]/95 px-4 py-2 text-sm text-fg shadow-[0_12px_40px_-8px_rgba(0,0,0,.8)] backdrop-blur-md">{toast.text}</motion.div>}</AnimatePresence>
       </main>
     </div>
   );

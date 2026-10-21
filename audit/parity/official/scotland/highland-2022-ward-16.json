@@ -1,0 +1,114 @@
+{
+ "council": "Highland",
+ "year": 2022,
+ "ward": "Inverness Millburn",
+ "source": "hl2022-ward-16-2022_Local_Government_Election_Results_Ward_16_Inverness_Millburn_Candidate_Votes_Per_Stage_Report.pdf",
+ "sha256": "0b8f4b7fea1ced5ab371c352f01406e59d6d22685a5a25792b95ce02ede836ef",
+ "ballotSource": "hl2022-ward-16-2022_Local_Government_Election_Results_Ward_16_Inverness_Millburn_Preference_Profile.blt",
+ "ballotSha256": "cf0be6490aedebdc5ad6424daca843ee53067819d5e45b2f4be9013838d11862",
+ "ballotsReceived": 3553,
+ "validVotes": 3508,
+ "seats": 3,
+ "quota": 878,
+ "stages": [
+  {
+   "stage": 1,
+   "action": null,
+   "transferred": {},
+   "votes": {
+    "Ian BROWN": "1430",
+    "David GREGG": "835",
+    "Isabelle MACKENZIE": "757",
+    "Lewis WHYTE": "486",
+    "nonTransferable": "0",
+    "rounding": "0"
+   },
+   "elected": [
+    "Ian BROWN"
+   ],
+   "total": "3508"
+  },
+  {
+   "stage": 2,
+   "action": {
+    "kind": "surplus",
+    "candidate": "Ian BROWN",
+    "amount": "552.00000"
+   },
+   "transferred": {
+    "Ian BROWN": "-552.00000",
+    "David GREGG": "174.09051",
+    "Isabelle MACKENZIE": "24.70464",
+    "Lewis WHYTE": "171.77445",
+    "nonTransferable": "181.42470",
+    "rounding": "0.00570"
+   },
+   "votes": {
+    "Ian BROWN": "878.00000",
+    "David GREGG": "1009.09051",
+    "Isabelle MACKENZIE": "781.70464",
+    "Lewis WHYTE": "657.77445",
+    "nonTransferable": "181.42470",
+    "rounding": "0.00570"
+   },
+   "elected": [
+    "David GREGG"
+   ],
+   "total": "3508.00000"
+  },
+  {
+   "stage": 3,
+   "action": {
+    "kind": "surplus",
+    "candidate": "David GREGG",
+    "amount": "131.09051"
+   },
+   "transferred": {
+    "Ian BROWN": "0.00000",
+    "David GREGG": "-131.09051",
+    "Isabelle MACKENZIE": "36.85984",
+    "Lewis WHYTE": "64.57494",
+    "nonTransferable": "29.64486",
+    "rounding": "0.01087"
+   },
+   "votes": {
+    "Ian BROWN": "878.00000",
+    "David GREGG": "878.00000",
+    "Isabelle MACKENZIE": "818.56448",
+    "Lewis WHYTE": "722.34939",
+    "nonTransferable": "211.07526",
+    "rounding": "0.01087"
+   },
+   "elected": [],
+   "total": "3508.00000"
+  },
+  {
+   "stage": 4,
+   "action": {
+    "kind": "exclusion",
+    "candidate": "Lewis WHYTE",
+    "amount": "722.34939"
+   },
+   "transferred": {
+    "Ian BROWN": "0.00000",
+    "David GREGG": "0.00000",
+    "Isabelle MACKENZIE": "282.84626",
+    "Lewis WHYTE": "-722.34939",
+    "nonTransferable": "439.50313",
+    "rounding": "0.00000"
+   },
+   "votes": {
+    "Ian BROWN": "878.00000",
+    "David GREGG": "878.00000",
+    "Isabelle MACKENZIE": "1101.41074",
+    "Lewis WHYTE": "0.00000",
+    "nonTransferable": "650.58926",
+    "rounding": "0.00000"
+   },
+   "elected": [
+    "Isabelle MACKENZIE"
+   ],
+   "total": "3508.00000"
+  }
+ ]
+}

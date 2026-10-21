@@ -1,0 +1,30 @@
+{
+ "runId": "b50d72fa-c97f-4842-9400-7663d9cbaebc",
+ "testId": "2b7bbed5-2a37-4c8c-a8c5-e402af8529a1",
+ "testTitle": "regress:bug-029",
+ "projectId": "a7aa06b0-0721-49ff-a7aa-0181ad8586d6",
+ "userId": "04180438-a0a1-70ab-b51f-4dce971c378f",
+ "status": "failed",
+ "source": "cli",
+ "createdAt": "2026-10-20T21:07:09.897Z",
+ "startedAt": "2026-10-20T21:07:09.897Z",
+ "finishedAt": "2026-10-20T21:07:15.028Z",
+ "codeVersion": "v-126a4fa3c0bb",
+ "targetUrl": null,
+ "environment": null,
+ "createdFrom": null,
+ "failedStepIndex": null,
+ "failureKind": "assertion",
+ "error": "{'engineVersion': '0.1.0', 'method': 'stv', 'quota': '49.0000', 'quotaExact': '49/1', 'winners': ['A', 'B', 'C', 'F'], 'rounds': [{'round': 1, 'tallies': {'A': '91.0000', 'B': '55.0000', 'C': '10.0000', 'D': '40.0000', 'F': '44.0000'}, 'exhausted': '0.0000', 'elected': ['A', 'B'], 'eliminated': [], 'exact': {'tallies': {'A': '91/1', 'B': '55/1', 'C': '10/1', 'D': '40/1', 'F': '44/1'}, 'exhausted': '0/1'}}, {'round': 2, 'tallies': {'C': '58.0000', 'D': '40.0000', 'F': '44.0000'}, 'exhausted': '0.0000', 'elected': ['C'], 'eliminated': [], 'exact': {'tallies': {'C': '58/1', 'D': '40/1', 'F': '44/1'}, 'exhausted': '0/1'}}, {'round': 3, 'tallies': {'D': '40.9310', 'F': '44.0000'}, 'exhausted': '8.0690', 'elected': [], 'eliminated': ['D'], 'exact': {'tallies': {'D': '1187/29', 'F': '44/1'}, 'exhausted': '234/29'}}, {'round': 4, 'tallies': {'F': '44.0000'}, 'exhausted': '49.0000', 'elected': ['F'], 'eliminated': [], 'exact': {'tallies': {'F': '44/1'}, 'exhausted': '49/1'}}]}",
+ "videoUrl": null,
+ "stepSummary": {
+  "total": 0,
+  "completed": 0,
+  "passedCount": 0,
+  "failedCount": 0
+ },
+ "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/2b7bbed5-2a37-4c8c-a8c5-e402af8529a1",
+ "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/b56cd0c8-2344-4e93-a72e-88aa1d604cc8/test/b50d72fa-c97f-4842-9400-7663d9cbaebc",
+ "apiOutput": "",
+ "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 150, in test\nAssertionError: {'engineVersion': '0.1.0', 'method': 'stv', 'quota': '49.0000', 'quotaExact': '49/1', 'winners': ['A', 'B', 'C', 'F'], 'rounds': [{'round': 1, 'tallies': {'A': '91.0000', 'B': '55.0000', 'C': '10.0000', 'D': '40.0000', 'F': '44.0000'}, 'exhausted': '0.0000', 'elected': ['A', 'B'], 'eliminated': [], 'exact': {'tallies': {'A': '91/1', 'B': '55/1', 'C': '10/1', 'D': '40/1', 'F': '44/1'}, 'exhausted': '0/1'}}, {'round': 2, 'tallies': {'C': '58.0000', 'D': '40.0000', 'F': '44.0000'}, 'exhausted': '0.0000', 'elected': ['C'], 'eliminated': [], 'exact': {'tallies': {'C': '58/1', 'D': '40/1', 'F': '44/1'}, 'exhausted': '0/1'}}, {'round': 3, 'tallies': {'D': '40.9310', 'F': '44.0000'}, 'exhausted': '8.0690', 'elected': [], 'eliminated': ['D'], 'exact': {'tallies': {'D': '1187/29', 'F': '44/1'}, 'exhausted': '234/29'}}, {'round': 4, 'tallies': {'F': '44.0000'}, 'exhausted': '49.0000', 'elected': ['F'], 'eliminated': [], 'exact': {'tallies': {'F': '44/1'}, 'exhausted': '49/1'}}]}\n"
+}

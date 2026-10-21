@@ -9,7 +9,7 @@
   },
   {
    "type": "action",
-   "description": "Click 'demo-play' to pause, then click 'demo-restart' and click 'demo-play' again so it is paused at round 1"
+   "description": "Click 'demo-play' to pause, then click 'demo-restart' once so the demo is paused at round 1 (restart keeps a paused demo paused)"
   },
   {
    "type": "action",
@@ -29,7 +29,15 @@
   },
   {
    "type": "action",
-   "description": "Press the R key"
+   "description": "Press ArrowRight, then press the R key"
+  },
+  {
+   "type": "assertion",
+   "description": "'demo-round' reads 'Round 1 / 2' and 'hero-demo' has data-state='paused'"
+  },
+  {
+   "type": "action",
+   "description": "Press the Space key"
   },
   {
    "type": "assertion",

@@ -1,0 +1,21 @@
+{
+  "testId": "cbdc897f-1356-4f5f-bb37-e5b4f0c56a8f",
+  "status": "failed",
+  "startedAt": "2026-10-20T21:06:39.670Z",
+  "finishedAt": "2026-10-20T21:06:44.164Z",
+  "videoUrl": null,
+  "failureAnalysisUrl": null,
+  "snapshotId": "snap_32e500845e5afada",
+  "runIdIfAvailable": "c3a79747-7068-4633-87d2-e2ab27c09e78",
+  "codeVersion": "v-42f30309f7b1",
+  "targetUrl": null,
+  "targetUrlSource": null,
+  "environment": null,
+  "failedStepIndex": null,
+  "failureKind": "assertion",
+  "verdict": "failed",
+  "executionStatus": "completed",
+  "summary": "Failed (assertion): POST https://tallyroom-git-ts-red-green-goats-projects-3f023cc9.vercel.app/api/tabulate → 422\nResponse: {\"error\":{\"code\":\"INVALID_LOT_ORDER\",\"message\":\"rules.lotOrder is missing candidate \\\"Zoë\\\"\",\"details\":{\"field\":\"rules.lotOrder\",\"candidate\":\"Zoë\"}}}\n(422, {'error': {'code': 'INVALID_LOT_ORDER', 'message': 'rules.lotOrder is missing candidate \"Zoë\"', 'details': {'field': 'rules.lotOrder', 'candidate': 'Zoë'}}})\nAnalysis: The test called https://tallyroom-git-ts-red-green-…",
+  "apiOutput": "",
+  "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 153, in <module>\n  File \"<string>\", line 150, in test\nAssertionError: (422, {'error': {'code': 'INVALID_LOT_ORDER', 'message': 'rules.lotOrder is missing candidate \"Zoë\"', 'details': {'field': 'rules.lotOrder', 'candidate': 'Zoë'}}})\n"
+}

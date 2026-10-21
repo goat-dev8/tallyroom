@@ -1,0 +1,37 @@
+{
+  "testId": "cbdc897f-1356-4f5f-bb37-e5b4f0c56a8f",
+  "type": "backend",
+  "codeVersion": "v-c1b37f815d1d",
+  "createdAt": "2026-10-20T20:50:24.666Z",
+  "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/cbdc897f-1356-4f5f-bb37-e5b4f0c56a8f",
+  "run": {
+    "runId": "0becbade-d477-42bd-91b6-85c98181a084",
+    "testId": "cbdc897f-1356-4f5f-bb37-e5b4f0c56a8f",
+    "testTitle": "api:prodred-bug-018",
+    "projectId": "a7aa06b0-0721-49ff-a7aa-0181ad8586d6",
+    "userId": "04180438-a0a1-70ab-b51f-4dce971c378f",
+    "status": "failed",
+    "source": "cli",
+    "createdAt": "2026-10-20T20:50:24.783Z",
+    "startedAt": "2026-10-20T20:50:24.783Z",
+    "finishedAt": "2026-10-20T20:50:28.321Z",
+    "codeVersion": "v-c1b37f815d1d",
+    "targetUrl": null,
+    "environment": null,
+    "createdFrom": null,
+    "failedStepIndex": null,
+    "failureKind": "assertion",
+    "error": "(422, {'error': {'code': 'INVALID_LOT_ORDER', 'message': 'rules.lotOrder is missing candidate \"Zoë\"', 'details': {'field': 'rules.lotOrder', 'candidate': 'Zoë'}}})",
+    "videoUrl": null,
+    "stepSummary": {
+      "total": 0,
+      "completed": 0,
+      "passedCount": 0,
+      "failedCount": 0
+    },
+    "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/cbdc897f-1356-4f5f-bb37-e5b4f0c56a8f",
+    "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/c39605f1-f914-4d49-8e76-cf3a9a51a834/test/0becbade-d477-42bd-91b6-85c98181a084",
+    "apiOutput": "",
+    "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 153, in <module>\n  File \"<string>\", line 150, in test\nAssertionError: (422, {'error': {'code': 'INVALID_LOT_ORDER', 'message': 'rules.lotOrder is missing candidate \"Zoë\"', 'details': {'field': 'rules.lotOrder', 'candidate': 'Zoë'}}})\n"
+  }
+}

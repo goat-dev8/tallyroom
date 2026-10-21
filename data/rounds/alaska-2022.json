@@ -57,7 +57,8 @@
         {
           "from": "Begich, Nick",
           "to": "exhausted",
-          "count": 11290
+          "count": 11290,
+          "exhausted": true
         }
       ]
     }

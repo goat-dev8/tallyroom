@@ -1,0 +1,14 @@
+seed 300 fixed (working tree): {"cases":20000,"irv":14151,"stv":5849,"rounds":51449,"irvCasesWithTieBreak":1784,"irvCasesWithBatch":1287,"divergences":0}
+seed 300 pre-BUG-019 (9f120a5): {"cases":20000,"irv":14147,"stv":5849,"rounds":51449,"irvCasesWithTieBreak":1771,"irvCasesWithBatch":1286,"divergences":1875}
+seed 301 fixed (working tree): {"cases":20000,"irv":14148,"stv":5852,"rounds":51769,"irvCasesWithTieBreak":1814,"irvCasesWithBatch":1308,"divergences":0}
+seed 301 pre-BUG-019 (9f120a5): {"cases":20000,"irv":14143,"stv":5852,"rounds":51769,"irvCasesWithTieBreak":1804,"irvCasesWithBatch":1307,"divergences":1834}
+seed 302 fixed (working tree): {"cases":20000,"irv":14113,"stv":5887,"rounds":51885,"irvCasesWithTieBreak":1783,"irvCasesWithBatch":1324,"divergences":0}
+seed 302 pre-BUG-019 (9f120a5): {"cases":20000,"irv":14104,"stv":5887,"rounds":51885,"irvCasesWithTieBreak":1769,"irvCasesWithBatch":1319,"divergences":1875}
+seed 303 fixed (working tree): {"cases":20000,"irv":14239,"stv":5761,"rounds":51750,"irvCasesWithTieBreak":1835,"irvCasesWithBatch":1255,"divergences":0}
+seed 303 pre-BUG-019 (9f120a5): {"cases":20000,"irv":14234,"stv":5761,"rounds":51750,"irvCasesWithTieBreak":1815,"irvCasesWithBatch":1253,"divergences":1818}
+seed 304 fixed (working tree): {"cases":20000,"irv":14110,"stv":5890,"rounds":51748,"irvCasesWithTieBreak":1870,"irvCasesWithBatch":1380,"divergences":0}
+seed 304 pre-BUG-019 (9f120a5): {"cases":20000,"irv":14108,"stv":5890,"rounds":51748,"irvCasesWithTieBreak":1860,"irvCasesWithBatch":1378,"divergences":1875}
+1162a4b5f924142f46e4cb68330c5d3c5b5dde175d25eebb34da9ee63d2eab1d  fuzz/gen.py
+c1406b24c628edf5f9326dbc0f9c98883553c9d1f5b5d7a72b5d84666f81a852  fuzz/oracle.py
+eb17d07a424b20627a29eb871890521ea2d17d30fb94a474b725cab09abb0da9  fuzz/run.ts
+seed 300 pre-BUG-019 breakdown: 1875 divergences, 1302 STV, 1302 of them STV cases sending overvote/skips/duplicates rules (BUG-019 shape); the remaining 573 are IRV cases (BUG-021/022 shapes, fixed after 9f120a5)

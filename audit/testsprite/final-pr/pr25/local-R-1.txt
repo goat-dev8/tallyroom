@@ -1,0 +1,37 @@
+
+Running 1 test using 1 worker
+
+[1/1] tests/h2.spec.ts:3:5 › ui:hero-autoplay (strengthened)
+tests/h2.spec.ts:3:5 › ui:hero-autoplay (strengthened)
+samples: Round 2 of 2 Round 2 / 2 | Round 2 of 2 Round 2 / 2 | Round 1 of 2 Round 1 / 2 | Round 2 of 2 Round 2 / 2 | Round 2 of 2 Round 2 / 2 | Round 1 of 2 Round 1 / 2
+
+
+  1) tests/h2.spec.ts:3:5 › ui:hero-autoplay (strengthened) ────────────────────────────────────────
+
+    Error: never back on round 1 over 12 s
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "Round 1 of 2 Round 1 / 2",
+    +   "Round 1 of 2 Round 1 / 2",
+    + ]
+
+      13 |   for (let i = 0; i < 6; i++) { await page.waitForTimeout(2000); seen.push((await page.getByTestId('demo-round').innerText()).replace(/\s+/g, ' ')); }
+      14 |   console.log('samples:', seen.join(' | '));
+    > 15 |   expect(seen.filter(s => /Round 1 \//.test(s)), 'never back on round 1 over 12 s').toEqual([]);
+         |                                                                                     ^
+      16 |   await expect(page.getByTestId('demo-outcome')).toHaveText('Golden, Jared F.');
+      17 |   await expect(page.getByTestId('demo-certified')).toContainText('Matches the certified result');
+      18 | });
+        at /tmp/s4pw/tests/h2.spec.ts:15:85
+
+    Error Context: test-results/tests-h2-ui-hero-autoplay-strengthened-/error-context.md
+
+
+  1 failed
+    tests/h2.spec.ts:3:5 › ui:hero-autoplay (strengthened) ─────────────────────────────────────────

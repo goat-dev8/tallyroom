@@ -1,0 +1,3435 @@
+{
+ "summary": {
+  "cases": 400,
+  "shapes": {
+   "big-safe": 39,
+   "reserved": 30,
+   "bytes-over": 47,
+   "big-over": 48,
+   "crlf-bom": 33,
+   "header-only": 41,
+   "comments": 39,
+   "json-as-csv": 36,
+   "unicode": 43,
+   "bytes-under": 44
+  },
+  "divergences": 213
+ },
+ "divergences": [
+  {
+   "id": 1,
+   "shape": "reserved",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "engine": {
+     "winner": "valueOf",
+     "rounds": [
+      {
+       "tallies": {
+        "valueOf": 63,
+        "__defineGetter__": 0,
+        "Bo": 0
+       },
+       "continuing": 63,
+       "eliminated": []
+      }
+     ]
+    }
+   },
+   "body": "14,__proto__\n25,valueOf>__defineGetter__>Bo>__proto__\n8,valueOf>__proto__\n30,valueOf"
+  },
+  {
+   "id": 2,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097213
+   }
+  },
+  {
+   "id": 3,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "22,Bo\n18,Cy>Bo>Ada\n15,Cy>Ada>Bo\n17,Bo>Cy\n24,Bo\n2,Cy>Bo\n21,Ada\n9007199254740983,Ada"
+  },
+  {
+   "id": 4,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "18,Bo\n17,Bo>Ada\n30,Ada>Bo\n26,Ada\n9007199254740985,Ada"
+  },
+  {
+   "id": 8,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097191
+   }
+  },
+  {
+   "id": 9,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking"
+  },
+  {
+   "id": 10,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 4, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 4,
+      "column": 2
+     }
+    }
+   },
+   "body": "# exported 2024-10-01, Ward 3\n1,Ada\n# source: county, state\n28,Cy>Ada\n# source: county, state\n11,Ada>Bo\n# a,b,c\n22,Bo\n30,Bo>Cy>Ada"
+  },
+  {
+   "id": 11,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count, ranking\n\n"
+  },
+  {
+   "id": 12,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"19,Bo\\n12,Ada>Bo\\n29,Ada>Bo\\n27,Ada>Bo\"}"
+  },
+  {
+   "id": 14,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"23,Bo>Ada\\n7,Bo>Ada>Cy\\n1,Cy>Bo\\n15,Bo>Cy\\n3,Bo\"}"
+  },
+  {
+   "id": 17,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "13,Bo\n18,Ada\n1,Bo\n25,Bo>Ada\n9007199254740989,Ada"
+  },
+  {
+   "id": 20,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097192
+   }
+  },
+  {
+   "id": 21,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097199
+   }
+  },
+  {
+   "id": 23,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097164
+   }
+  },
+  {
+   "id": 24,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking\n"
+  },
+  {
+   "id": 26,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking\n"
+  },
+  {
+   "id": 27,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097204
+   }
+  },
+  {
+   "id": 28,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count, ranking\n\n"
+  },
+  {
+   "id": 31,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097173
+   }
+  },
+  {
+   "id": 35,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking\n"
+  },
+  {
+   "id": 37,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "12,Ada>Bo\n18,Ada>Bo\n30,Bo\n9007199254740982,Ada"
+  },
+  {
+   "id": 43,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "# exported 2024-10-01, Ward 3\n13,Bo>Cy\n18,Ada>Cy>Bo\n9,Ada>Cy>Bo\n# exported 2024-10-01, Ward 3\n6,Cy>Ada\n26,Cy\n# source: county, state\n22,Cy>Ada"
+  },
+  {
+   "id": 44,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097180
+   }
+  },
+  {
+   "id": 45,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "14,Cy>Bo\n18,Bo\n24,Bo\n14,Ada\n9007199254740983,Ada"
+  },
+  {
+   "id": 46,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"13,Cy>Bo>Ada\\n12,Ada>Cy\"}"
+  },
+  {
+   "id": 47,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking\n"
+  },
+  {
+   "id": 48,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking\n"
+  },
+  {
+   "id": 50,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097206
+   }
+  },
+  {
+   "id": 52,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "4,Bo>Ada\n29,Ada>Bo\n4,Bo\n20,Ada\n17,Bo>Ada\n28,Ada>Bo\n28,Ada>Bo\n9007199254740981,Ada"
+  },
+  {
+   "id": 53,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "# a,b,c\n18,Bo>Cy>Ada"
+  },
+  {
+   "id": 54,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count, ranking\n\n"
+  },
+  {
+   "id": 55,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 2
+     }
+    }
+   },
+   "body": "11,Bo>Ada\n# source: county, state\n4,Ada\n23,Ada>Bo\n21,Ada"
+  },
+  {
+   "id": 56,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking\n"
+  },
+  {
+   "id": 58,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"19,Bo>Ada\\n29,Bo\\n18,Ada\\n20,Ada\\n8,Bo\\n9,Bo\\n18,Bo>Ada\\n5,Ada>Bo\"}"
+  },
+  {
+   "id": 63,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"10,Bo>Ada\\n21,Cy>Ada>Bo\\n11,Ada>Cy>Bo\\n29,Cy>Ada\\n19,Bo\\n29,Bo\"}"
+  },
+  {
+   "id": 67,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 1: candidate name \"25\" is purely numeric. With no header, a leading count belongs in count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 1,
+      "candidate": "25"
+     }
+    }
+   },
+   "body": "# exported 2024-10-01, Ward 3\n25,Ada\n13,Ada"
+  },
+  {
+   "id": 68,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "13,Ada>Bo\n13,Ada\n21,Ada>Bo\n25,Ada\n9007199254740987,Ada"
+  },
+  {
+   "id": 70,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking"
+  },
+  {
+   "id": 71,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097174
+   }
+  },
+  {
+   "id": 72,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "12,Cy>Bo\n3,Bo>Ada>Cy\n1,Cy>Ada\n9007199254740982,Ada"
+  },
+  {
+   "id": 75,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"4,Cy\\n24,Bo\\n27,Ada>Cy\\n20,Ada>Bo>Cy\"}"
+  },
+  {
+   "id": 76,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "22,Bo\n29,Bo\n2,Ada\n28,Bo>Ada\n19,Bo\n3,Bo>Ada\n9007199254740987,Ada"
+  },
+  {
+   "id": 77,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "# a,b,c\n18,Ada>Bo"
+  },
+  {
+   "id": 80,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "# exported 2024-10-01, Ward 3\n21,Cy>Ada"
+  },
+  {
+   "id": 81,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097202
+   }
+  },
+  {
+   "id": 82,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097185
+   }
+  },
+  {
+   "id": 83,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "9,Ada>Bo\n26,Ada\n9007199254740983,Ada"
+  },
+  {
+   "id": 84,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "# source: county, state\n28,Ada>Cy>Bo\n27,Cy>Ada\n1,Bo>Ada\n29,Ada>Bo>Cy\n# exported 2024-10-01, Ward 3\n29,Ada"
+  },
+  {
+   "id": 85,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 2
+     }
+    }
+   },
+   "body": "30,Cy>Bo>Ada\n# # , ,\n30,Ada>Cy>Bo\n# # , ,\n2,Bo\n29,Ada>Cy>Bo\n# exported 2024-10-01, Ward 3\n25,Cy\n# source: county, state\n27,Ada"
+  },
+  {
+   "id": 86,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "20,Bo>Ada\n16,Ada\n22,Cy>Bo>Ada\n11,Cy\n14,Cy\n17,Cy>Bo\n20,Cy>Bo>Ada\n9007199254740989,Ada"
+  },
+  {
+   "id": 87,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking\n"
+  },
+  {
+   "id": 88,
+   "shape": "reserved",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "engine": {
+     "winner": "hasOwnProperty",
+     "rounds": [
+      {
+       "tallies": {
+        "hasOwnProperty": 48,
+        "valueOf": 0
+       },
+       "continuing": 48,
+       "eliminated": []
+      }
+     ]
+    }
+   },
+   "body": "23,hasOwnProperty\n4,__proto__>valueOf>hasOwnProperty\n25,hasOwnProperty>__proto__>valueOf\n8,__proto__"
+  },
+  {
+   "id": 91,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count, ranking\n\n"
+  },
+  {
+   "id": 93,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "10,Ada\n26,Ada>Bo\n27,Ada>Bo\n9007199254740991,Ada"
+  },
+  {
+   "id": 94,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking"
+  },
+  {
+   "id": 95,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "2,Ada\n24,Ada\n9007199254740988,Ada"
+  },
+  {
+   "id": 96,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking\n"
+  },
+  {
+   "id": 97,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097171
+   }
+  },
+  {
+   "id": 100,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 6, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 6,
+      "column": 2
+     }
+    }
+   },
+   "body": "# exported 2024-10-01, Ward 3\n16,Ada\n# # , ,\n24,Bo\n# a,b,c\n24,Bo>Ada"
+  },
+  {
+   "id": 103,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097154
+   }
+  },
+  {
+   "id": 104,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "18,Ada\n28,Bo>Cy\n5,Ada>Bo\n22,Cy>Bo>Ada\n29,Ada>Bo>Cy\n14,Bo\n3,Cy>Bo>Ada\n6,Ada>Bo\n9007199254740987,Ada"
+  },
+  {
+   "id": 105,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking\n"
+  },
+  {
+   "id": 107,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097208
+   }
+  },
+  {
+   "id": 108,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 2
+     }
+    }
+   },
+   "body": "5,Ada>Bo\n19,Ada>Bo\n# source: county, state\n16,Ada"
+  },
+  {
+   "id": 109,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097195
+   }
+  },
+  {
+   "id": 115,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "# # , ,\n27,Ada>Cy>Bo\n18,Cy\n# # , ,\n30,Ada\n25,Cy>Ada\n11,Ada>Bo\n# source: county, state\n12,Cy>Bo\n# a,b,c\n7,Ada>Bo"
+  },
+  {
+   "id": 116,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"4,Ada>Bo\\n3,Ada>Bo\\n18,Bo\\n5,Bo>Ada\\n18,Ada>Bo\"}"
+  },
+  {
+   "id": 119,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "# a,b,c\n23,Bo>Ada\n# source: county, state\n14,Bo>Ada\n14,Bo>Ada\n7,Ada\n8,Ada\n8,Bo>Ada\n19,Ada\n# # , ,\n6,Ada"
+  },
+  {
+   "id": 122,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097178
+   }
+  },
+  {
+   "id": 124,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "16,Bo\n18,Bo>Ada\n22,Bo\n30,Bo>Ada\n9,Bo>Ada\n9007199254740983,Ada"
+  },
+  {
+   "id": 129,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 4, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 4,
+      "column": 2
+     }
+    }
+   },
+   "body": "# source: county, state\n6,Ada\n26,Bo\n3,Bo>Ada"
+  },
+  {
+   "id": 130,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097178
+   }
+  },
+  {
+   "id": 137,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "15,Bo\n9007199254740990,Ada"
+  },
+  {
+   "id": 138,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking"
+  },
+  {
+   "id": 139,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "17,Bo>Cy>Ada\n30,Bo>Cy\n2,Ada\n21,Ada>Cy\n9007199254740990,Ada"
+  },
+  {
+   "id": 140,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 8, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 8,
+      "column": 2
+     }
+    }
+   },
+   "body": "4,Cy\n# source: county, state\n28,Ada\n1,Cy\n# exported 2024-10-01, Ward 3\n29,Cy\n# exported 2024-10-01, Ward 3\n20,Cy>Ada>Bo"
+  },
+  {
+   "id": 142,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097154
+   }
+  },
+  {
+   "id": 146,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "22,Bo\n27,Ada>Bo\n# exported 2024-10-01, Ward 3\n14,Bo>Ada\n# a,b,c\n16,Ada>Bo\n# # , ,\n4,Bo>Ada\n19,Bo"
+  },
+  {
+   "id": 149,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"22,Ada>Bo\\n20,Bo>Ada\\n17,Bo>Ada\\n11,Ada\\n16,Ada>Bo\"}"
+  },
+  {
+   "id": 152,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"3,Cy\\n15,Bo>Cy>Ada\\n23,Cy>Bo>Ada\\n6,Ada\\n11,Bo>Ada\"}"
+  },
+  {
+   "id": 155,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "23,Cy>Bo>Ada\n18,Ada>Bo\n15,Ada\n24,Bo>Ada>Cy\n21,Bo>Ada>Cy\n12,Ada>Bo>Cy\n19,Cy\n9007199254740986,Ada"
+  },
+  {
+   "id": 156,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"28,Bo\\n13,Ada\\n1,Bo>Ada\\n13,Ada\\n30,Bo>Ada\\n26,Bo>Ada\\n24,Bo\\n18,Ada>Bo\"}"
+  },
+  {
+   "id": 159,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"18,Ada>Bo\\n27,Ada>Bo\\n17,Ada\"}"
+  },
+  {
+   "id": 161,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097170
+   }
+  },
+  {
+   "id": 162,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097204
+   }
+  },
+  {
+   "id": 163,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "# a,b,c\n4,Ada>Bo\n23,Bo>Ada>Cy\n# a,b,c\n8,Ada>Bo>Cy\n9,Bo\n# source: county, state\n25,Ada>Bo>Cy\n# # , ,\n3,Bo>Ada>Cy\n4,Bo>Ada\n4,Bo>Ada>Cy"
+  },
+  {
+   "id": 164,
+   "shape": "reserved",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "engine": {
+     "winner": "prototype",
+     "rounds": [
+      {
+       "tallies": {
+        "prototype": 48,
+        "toString": 0
+       },
+       "continuing": 48,
+       "eliminated": []
+      }
+     ]
+    }
+   },
+   "body": "21,__proto__\n14,prototype>toString>__proto__\n4,prototype\n11,prototype>toString>__proto__\n19,prototype>toString>__proto__"
+  },
+  {
+   "id": 165,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 2
+     }
+    }
+   },
+   "body": "8,Bo>Ada\n# # , ,\n23,Ada\n# # , ,\n20,Ada\n20,Bo\n28,Bo>Ada\n# # , ,\n20,Ada\n# a,b,c\n13,Ada"
+  },
+  {
+   "id": 166,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097185
+   }
+  },
+  {
+   "id": 169,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "11,Bo\n9007199254740991,Ada"
+  },
+  {
+   "id": 174,
+   "shape": "reserved",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "engine": {
+     "winner": "prototype",
+     "rounds": [
+      {
+       "tallies": {
+        "prototype": 77,
+        "__defineGetter__": 0,
+        "valueOf": 17
+       },
+       "continuing": 94,
+       "eliminated": []
+      }
+     ]
+    }
+   },
+   "body": "21,prototype>__defineGetter__>__proto__>valueOf\n20,__proto__>valueOf>prototype>__defineGetter__\n17,valueOf>__defineGetter__>prototype\n20,prototype>__proto__>valueOf\n12,prototype>__defineGetter__>__pro…"
+  },
+  {
+   "id": 176,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"9,Bo\\n7,Bo>Ada\"}"
+  },
+  {
+   "id": 177,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking\n"
+  },
+  {
+   "id": 178,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"25,Cy\\n14,Bo>Ada\\n3,Ada>Bo>Cy\\n19,Cy>Bo\\n4,Ada>Bo\\n20,Ada\\n8,Bo>Cy>Ada\\n22,Ada\"}"
+  },
+  {
+   "id": 182,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097207
+   }
+  },
+  {
+   "id": 183,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097158
+   }
+  },
+  {
+   "id": 186,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "17,Bo\n6,Bo\n30,Bo>Ada\n9007199254740991,Ada"
+  },
+  {
+   "id": 188,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097179
+   }
+  },
+  {
+   "id": 189,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking"
+  },
+  {
+   "id": 190,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097209
+   }
+  },
+  {
+   "id": 191,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"10,Cy>Ada>Bo\\n30,Ada>Cy\\n2,Cy\"}"
+  },
+  {
+   "id": 193,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097194
+   }
+  },
+  {
+   "id": 194,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "20,Ada\n25,Bo\n9,Ada>Bo\n9007199254740991,Ada"
+  },
+  {
+   "id": 196,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "2,Ada\n20,Ada>Bo\n5,Bo>Ada\n19,Ada>Bo\n6,Bo\n12,Ada\n30,Ada\n11,Ada>Bo\n9007199254740982,Ada"
+  },
+  {
+   "id": 197,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 1: candidate name \"20\" is purely numeric. With no header, a leading count belongs in count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 1,
+      "candidate": "20"
+     }
+    }
+   },
+   "body": "# exported 2024-10-01, Ward 3\n20,Bo\n# a,b,c\n28,Bo\n# a,b,c\n20,Bo"
+  },
+  {
+   "id": 201,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "12,Ada\n9007199254740983,Ada"
+  },
+  {
+   "id": 202,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097210
+   }
+  },
+  {
+   "id": 207,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "9,Bo\n27,Bo\n13,Ada\n9007199254740990,Ada"
+  },
+  {
+   "id": 210,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "# # , ,\n6,Ada>Bo\n# exported 2024-10-01, Ward 3\n1,Cy>Ada>Bo\n# a,b,c\n18,Ada>Bo\n4,Cy\n# # , ,\n19,Bo\n# a,b,c\n3,Ada>Bo\n19,Bo\n16,Bo>Ada>Cy"
+  },
+  {
+   "id": 211,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "12,Bo\n26,Ada\n20,Ada>Bo\n11,Ada\n24,Ada>Bo\n19,Bo>Ada\n12,Ada>Bo\n1,Bo\n9007199254740989,Ada"
+  },
+  {
+   "id": 214,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "19,Bo>Ada\n26,Bo\n29,Ada\n1,Ada\n27,Ada\n9007199254740983,Ada"
+  },
+  {
+   "id": 215,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count, ranking\n\n"
+  },
+  {
+   "id": 217,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count, ranking\n\n"
+  },
+  {
+   "id": 220,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"26,Bo>Ada\"}"
+  },
+  {
+   "id": 221,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking\n"
+  },
+  {
+   "id": 223,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "10,Cy>Bo\n30,Ada\n22,Cy\n9,Ada>Cy\n9007199254740991,Ada"
+  },
+  {
+   "id": 224,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 2
+     }
+    }
+   },
+   "body": "27,Bo>Ada\n# exported 2024-10-01, Ward 3\n8,Ada>Bo\n# a,b,c\n8,Ada\n# # , ,\n14,Bo\n# # , ,\n13,Ada>Bo\n# # , ,\n28,Bo>Ada\n23,Bo>Ada"
+  },
+  {
+   "id": 226,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"3,Ada>Bo\\n19,Bo\\n27,Ada>Cy\"}"
+  },
+  {
+   "id": 227,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking"
+  },
+  {
+   "id": 228,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097210
+   }
+  },
+  {
+   "id": 229,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"16,Ada>Cy>Bo\\n21,Ada\\n20,Cy>Bo>Ada\\n17,Ada\\n30,Ada>Bo>Cy\"}"
+  },
+  {
+   "id": 231,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097190
+   }
+  },
+  {
+   "id": 232,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking\n"
+  },
+  {
+   "id": 240,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"1,Ada\\n3,Ada>Bo\\n14,Ada>Bo\"}"
+  },
+  {
+   "id": 242,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"28,Bo>Ada>Cy\\n5,Cy\"}"
+  },
+  {
+   "id": 244,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"29,Bo\\n27,Ada>Bo\\n4,Bo\\n9,Bo\\n19,Bo>Ada\\n29,Bo\\n13,Bo>Ada\"}"
+  },
+  {
+   "id": 245,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097183
+   }
+  },
+  {
+   "id": 247,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "# source: county, state\n1,Cy>Ada>Bo\n20,Bo\n# exported 2024-10-01, Ward 3\n30,Ada>Bo\n11,Ada>Cy"
+  },
+  {
+   "id": 248,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking"
+  },
+  {
+   "id": 249,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"15,Ada>Bo\\n20,Bo>Ada\\n18,Ada\"}"
+  },
+  {
+   "id": 254,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "25,Ada\n14,Bo\n5,Ada>Bo>Cy\n9007199254740982,Ada"
+  },
+  {
+   "id": 255,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097168
+   }
+  },
+  {
+   "id": 256,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "21,Cy>Ada\n2,Bo>Ada>Cy\n16,Ada>Bo>Cy\n20,Bo\n4,Ada>Bo\n11,Ada\n28,Ada>Bo\n25,Cy\n9007199254740983,Ada"
+  },
+  {
+   "id": 259,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"22,Ada>Bo\\n7,Bo\\n6,Ada\\n14,Bo\"}"
+  },
+  {
+   "id": 260,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097185
+   }
+  },
+  {
+   "id": 263,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"9,Bo\\n13,Bo>Ada\\n27,Bo\\n8,Bo\"}"
+  },
+  {
+   "id": 267,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count, ranking\n\n"
+  },
+  {
+   "id": 269,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"1,Bo>Ada\\n14,Ada\\n14,Bo\"}"
+  },
+  {
+   "id": 271,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count, ranking\n\n"
+  },
+  {
+   "id": 272,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking\n"
+  },
+  {
+   "id": 273,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "17,Bo>Ada\n13,Bo>Ada\n28,Bo\n22,Ada\n3,Ada\n9,Ada>Bo\n21,Ada>Bo\n9007199254740986,Ada"
+  },
+  {
+   "id": 274,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"7,Bo\\n30,Ada\\n5,Cy>Bo\\n20,Bo>Cy>Ada\\n12,Bo>Cy>Ada\\n15,Cy>Bo\\n2,Ada>Cy>Bo\"}"
+  },
+  {
+   "id": 275,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "23,Bo>Cy>Ada\n1,Bo>Ada\n11,Ada\n9007199254740985,Ada"
+  },
+  {
+   "id": 276,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "22,Bo>Ada>Cy\n5,Ada>Bo\n9007199254740983,Ada"
+  },
+  {
+   "id": 278,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "engine": {
+     "winner": "{ballots: 21,Bo\\n10,Bo\\n5,Bo}",
+     "rounds": [
+      {
+       "tallies": {
+        "{ballots: 21,Bo\\n10,Bo\\n5,Bo}": 1
+       },
+       "continuing": 1,
+       "eliminated": []
+      }
+     ]
+    }
+   },
+   "body": "{\"ballots\": \"21,Bo\\n10,Bo\\n5,Bo\"}"
+  },
+  {
+   "id": 279,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097171
+   }
+  },
+  {
+   "id": 280,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 2
+     }
+    }
+   },
+   "body": "2,Bo>Cy>Ada\n# source: county, state\n12,Cy>Ada\n# a,b,c\n25,Ada>Cy>Bo"
+  },
+  {
+   "id": 281,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097208
+   }
+  },
+  {
+   "id": 282,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking"
+  },
+  {
+   "id": 283,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "# source: county, state\n28,Cy>Ada>Bo\n# source: county, state\n1,Bo>Cy\n# a,b,c\n25,Ada>Bo\n6,Ada"
+  },
+  {
+   "id": 284,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking"
+  },
+  {
+   "id": 285,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking\n"
+  },
+  {
+   "id": 286,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "# source: county, state\n27,Ada>Bo\n18,Ada>Bo\n# # , ,\n29,Bo\n28,Bo"
+  },
+  {
+   "id": 287,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097199
+   }
+  },
+  {
+   "id": 288,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking"
+  },
+  {
+   "id": 292,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097206
+   }
+  },
+  {
+   "id": 294,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "engine": {
+     "winner": "{ballots: 28,Ada}",
+     "rounds": [
+      {
+       "tallies": {
+        "{ballots: 28,Ada}": 1
+       },
+       "continuing": 1,
+       "eliminated": []
+      }
+     ]
+    }
+   },
+   "body": "{\"ballots\": \"28,Ada\"}"
+  },
+  {
+   "id": 295,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count, ranking\n\n"
+  },
+  {
+   "id": 297,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "6,Bo>Ada\n27,Ada\n16,Ada\n13,Bo>Ada\n9007199254740982,Ada"
+  },
+  {
+   "id": 301,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097193
+   }
+  },
+  {
+   "id": 302,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097167
+   }
+  },
+  {
+   "id": 305,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 2
+     }
+    }
+   },
+   "body": "24,Ada>Bo\n# source: county, state\n30,Bo>Ada\n# exported 2024-10-01, Ward 3\n9,Ada>Bo\n# source: county, state\n22,Ada"
+  },
+  {
+   "id": 308,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097202
+   }
+  },
+  {
+   "id": 309,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"1,Cy>Ada>Bo\\n3,Bo>Ada\\n4,Cy>Bo>Ada\\n13,Bo>Cy>Ada\\n26,Ada>Cy\\n16,Bo>Ada>Cy\\n24,Cy\\n13,Ada>Cy\"}"
+  },
+  {
+   "id": 310,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"6,Ada>Bo\\n19,Ada>Bo\\n10,Bo\\n3,Bo\\n30,Bo>Ada\\n26,Bo\\n2,Ada>Bo\\n7,Ada>Bo\"}"
+  },
+  {
+   "id": 312,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "# source: county, state\n1,Cy>Bo\n8,Cy>Ada>Bo\n14,Bo>Ada>Cy\n20,Cy>Bo>Ada\n# exported 2024-10-01, Ward 3\n26,Cy>Ada\n5,Ada>Cy\n19,Cy\n# source: county, state\n27,Ada>Bo"
+  },
+  {
+   "id": 313,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking\n"
+  },
+  {
+   "id": 315,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "30,Ada>Cy\n12,Cy>Bo>Ada\n9007199254740982,Ada"
+  },
+  {
+   "id": 316,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 9, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 9,
+      "column": 2
+     }
+    }
+   },
+   "body": "22,Ada\n27,Ada\n15,Ada\n# # , ,\n12,Ada\n# source: county, state\n13,Bo\n28,Bo\n23,Ada>Bo"
+  },
+  {
+   "id": 319,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "19,Ada>Bo>Cy\n9007199254740990,Ada"
+  },
+  {
+   "id": 324,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097177
+   }
+  },
+  {
+   "id": 327,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "6,Cy>Ada\n8,Ada>Bo>Cy\n6,Cy\n9007199254740989,Ada"
+  },
+  {
+   "id": 330,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "3,Cy>Ada\n18,Bo\n10,Bo>Cy\n7,Cy>Ada\n22,Ada>Cy>Bo\n7,Cy>Ada\n5,Cy>Ada>Bo\n2,Bo>Cy>Ada\n9007199254740981,Ada"
+  },
+  {
+   "id": 331,
+   "shape": "reserved",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "engine": {
+     "winner": "toString",
+     "rounds": [
+      {
+       "tallies": {
+        "toString": 29
+       },
+       "continuing": 29,
+       "eliminated": []
+      }
+     ]
+    }
+   },
+   "body": "6,__proto__>toString\n29,toString"
+  },
+  {
+   "id": 332,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "engine": {
+     "winner": "{ballots: 18,Cy}",
+     "rounds": [
+      {
+       "tallies": {
+        "{ballots: 18,Cy}": 1
+       },
+       "continuing": 1,
+       "eliminated": []
+      }
+     ]
+    }
+   },
+   "body": "{\"ballots\": \"18,Cy\"}"
+  },
+  {
+   "id": 333,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "14,Ada\n29,Bo>Ada\n1,Bo>Ada\n15,Bo>Ada\n24,Bo\n2,Bo>Ada\n9007199254740991,Ada"
+  },
+  {
+   "id": 334,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"7,Bo>Ada\\n8,Ada\\n14,Ada>Bo\\n2,Ada>Bo\\n1,Ada\\n23,Bo>Ada\\n4,Bo>Ada\\n20,Ada\"}"
+  },
+  {
+   "id": 335,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "# source: county, state\n21,Cy>Bo"
+  },
+  {
+   "id": 338,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097167
+   }
+  },
+  {
+   "id": 340,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "# source: county, state\n16,Bo>Ada\n15,Ada\n19,Ada\n# source: county, state\n2,Ada>Bo\n15,Ada\n# # , ,\n10,Ada>Bo\n# exported 2024-10-01, Ward 3\n30,Ada\n22,Ada"
+  },
+  {
+   "id": 341,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "2,Ada\n20,Bo\n19,Ada\n6,Bo\n24,Ada>Bo\n9007199254740985,Ada"
+  },
+  {
+   "id": 342,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "4,Cy>Bo>Ada\n10,Cy>Ada>Bo\n2,Bo\n12,Cy\n17,Bo>Ada\n9007199254740991,Ada"
+  },
+  {
+   "id": 343,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097177
+   }
+  },
+  {
+   "id": 345,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 4, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 4,
+      "column": 2
+     }
+    }
+   },
+   "body": "28,Bo\n10,Bo\n# # , ,\n14,Bo>Ada\n26,Ada\n# source: county, state\n9,Ada>Bo"
+  },
+  {
+   "id": 346,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "28,Ada\n24,Ada\n14,Ada>Bo\n15,Ada\n9007199254740982,Ada"
+  },
+  {
+   "id": 347,
+   "shape": "reserved",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "engine": {
+     "winner": "toString",
+     "rounds": [
+      {
+       "tallies": {
+        "toString": 23
+       },
+       "continuing": 23,
+       "eliminated": []
+      }
+     ]
+    }
+   },
+   "body": "13,toString>__proto__\n10,toString>__proto__"
+  },
+  {
+   "id": 348,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking"
+  },
+  {
+   "id": 350,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking"
+  },
+  {
+   "id": 351,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking\n"
+  },
+  {
+   "id": 352,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097156
+   }
+  },
+  {
+   "id": 354,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "26,Cy>Ada\n19,Cy\n9,Cy>Ada>Bo\n24,Cy>Bo>Ada\n18,Cy\n1,Cy>Ada\n29,Cy>Bo\n23,Bo>Cy>Ada\n9007199254740986,Ada"
+  },
+  {
+   "id": 355,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "engine": {
+     "winner": "{ballots: 4,Bo\\n7,Ada}",
+     "rounds": [
+      {
+       "tallies": {
+        "{ballots: 4,Bo\\n7,Ada}": 1
+       },
+       "continuing": 1,
+       "eliminated": []
+      }
+     ]
+    }
+   },
+   "body": "{\"ballots\": \"4,Bo\\n7,Ada\"}"
+  },
+  {
+   "id": 363,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count, ranking\n\n"
+  },
+  {
+   "id": 373,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097194
+   }
+  },
+  {
+   "id": 376,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "2,Ada\n1,Cy>Bo\n10,Cy>Ada>Bo\n5,Cy>Ada>Bo\n25,Ada\n27,Bo>Cy>Ada\n9007199254740988,Ada"
+  },
+  {
+   "id": 378,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "24,Ada\n23,Bo>Ada\n2,Ada>Bo\n21,Bo\n21,Ada>Bo\n1,Ada\n9007199254740991,Ada"
+  },
+  {
+   "id": 379,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "30,Ada>Cy\n8,Ada>Cy\n7,Ada>Bo>Cy\n24,Cy\n9007199254740990,Ada"
+  },
+  {
+   "id": 380,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "# exported 2024-10-01, Ward 3\n30,Ada>Bo\n3,Bo\n11,Bo>Ada\n# # , ,\n30,Ada\n# exported 2024-10-01, Ward 3\n4,Bo>Ada\n21,Bo\n1,Ada>Bo\n10,Bo>Ada"
+  },
+  {
+   "id": 381,
+   "shape": "reserved",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "engine": {
+     "winner": "hasOwnProperty",
+     "rounds": [
+      {
+       "tallies": {
+        "hasOwnProperty": 40,
+        "constructor": 34,
+        "Bo": 0
+       },
+       "continuing": 74,
+       "eliminated": []
+      }
+     ]
+    }
+   },
+   "body": "9,hasOwnProperty>constructor>__proto__\n7,hasOwnProperty>constructor>__proto__>Bo\n30,constructor\n4,constructor\n30,__proto__>hasOwnProperty>constructor>Bo\n6,hasOwnProperty\n18,hasOwnProperty>constructor>…"
+  },
+  {
+   "id": 382,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097164
+   }
+  },
+  {
+   "id": 383,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "# source: county, state\n19,Ada>Bo\n# # , ,\n15,Bo>Ada\n# source: county, state\n15,Bo>Ada\n# # , ,\n4,Bo>Ada\n3,Bo\n14,Ada\n24,Bo>Ada\n# exported 2024-10-01, Ward 3\n28,Ada"
+  },
+  {
+   "id": 385,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking\n"
+  },
+  {
+   "id": 386,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking"
+  },
+  {
+   "id": 387,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"2,Cy>Ada\\n28,Cy>Ada\\n5,Ada>Cy\"}"
+  },
+  {
+   "id": 388,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"19,Ada\\n16,Bo>Ada\\n8,Ada\\n19,Bo\\n5,Ada>Bo\\n23,Ada\"}"
+  },
+  {
+   "id": 391,
+   "shape": "header-only",
+   "expect": {
+    "status": 422,
+    "code": "NO_BALLOTS"
+   },
+   "got": {
+    "status": 200,
+    "winner": "count"
+   },
+   "body": "count,ranking"
+  },
+  {
+   "id": 392,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "27,Ada>Cy>Bo\n20,Bo>Ada>Cy\n29,Cy>Ada>Bo\n15,Cy>Bo\n9007199254740986,Ada"
+  },
+  {
+   "id": 393,
+   "shape": "bytes-over",
+   "expect": {
+    "status": 413
+   },
+   "got": {
+    "status": 200,
+    "winner": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé…"
+   },
+   "body": {
+    "prefix": "3,",
+    "char": "é",
+    "n": 2097178
+   }
+  },
+  {
+   "id": 394,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"4,Cy>Ada\\n20,Ada\\n7,Bo\"}"
+  },
+  {
+   "id": 395,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "9,Bo>Cy\n2,Ada>Cy\n15,Bo\n13,Bo\n9007199254740986,Ada"
+  },
+  {
+   "id": 396,
+   "shape": "big-over",
+   "expect": {
+    "status": 422,
+    "code": "INVALID_COUNT"
+   },
+   "got": {
+    "status": 200,
+    "winner": "Ada"
+   },
+   "body": "13,Ada>Bo>Cy\n21,Bo>Cy>Ada\n15,Cy>Bo\n16,Cy>Bo>Ada\n17,Ada>Cy\n21,Cy>Ada\n15,Bo\n6,Bo>Cy>Ada\n9007199254740988,Ada"
+  },
+  {
+   "id": 398,
+   "shape": "json-as-csv",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 1, column 1: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 1,
+      "column": 1
+     }
+    }
+   },
+   "body": "{\"ballots\": \"7,Ada>Bo\"}"
+  },
+  {
+   "id": 399,
+   "shape": "comments",
+   "expect": {
+    "status": 200
+   },
+   "got": {
+    "status": 422,
+    "error": {
+     "code": "CSV_FORMAT_AMBIGUOUS",
+     "message": "Row 2, column 2: \">\" joins ranks inside one cell, so this is not one candidate per column. Use ranking lines such as \"5,A>B\", or one candidate per column: count,rank1,rank2,...",
+     "details": {
+      "row": 2,
+      "column": 2
+     }
+    }
+   },
+   "body": "# a,b,c\n20,Bo>Cy>Ada\n# # , ,\n13,Bo>Ada\n8,Cy>Bo\n3,Bo>Ada>Cy\n23,Bo\n# source: county, state\n7,Cy\n2,Ada>Cy\n22,Bo"
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+  "testId": "b225cc65-1d59-4b8b-9df3-856e58919049",
+  "status": "failed",
+  "startedAt": "2026-10-19T21:53:52.737Z",
+  "finishedAt": "2026-10-19T21:55:15.758Z",
+  "videoUrl": "https://testsprite-videos.s3.us-east-1.amazonaws.com/20261019-215513-a28c022b.webm?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZQ3DRZAIPCZPKBNY%2F20261020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261020T220030Z&X-Amz-Expires=604800&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEIH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIAEbLtphW5nM0ARjZB5%2FgqXjUZNovrsRMcO%2BzURczrVNAiEA5CpZ4ovWJpt3254S3iUzcyKkjC8OPqZ5Rj%2F5g7WrLbkq%2BwMIShAAGgw2NTQ2NTQ0MjUxMDQiDGtcI5hnd9WmiZoEcCrYA6sLNTr6cgRXAv7IW1AxGElUjC7BCEhv2T%2Bor1Z73Qs3z%2BJipykFbQLqlCrrobUBFm8AtmLSDnDn2pb6Hi%2BrHQUD%2FXH0%2BOuF8ydfCewGxjffe7cwtGL1%2BffhAtrT4eRKoisp9yZ4CQCUXPAxv3BlLbVyINv0arefWAYY%2Fmmnlj29bZKPHKeOsFaX7p0uDYsCUBvZpPXso9%2F9yCZ1BreS%2FcVOlbtJ21CK%2BpjGlQ7qj2kDMl9qC6qMavpSX84P3v8bSFHZokRT3MVGfl0Jx6CUUeNtMXSHYRGHZxqXbPqahYrCYc%2F3jjjVzN4qvxCOzsyA0srzpXShyRDI99Qv4CYUNdBOY7TsTngf1Iz%2FCm25hbfGOoFK6tzfKxDMYQTlOz1QTQ5PaagNN3jtWfr%2FSz%2B6eUH64frZeeMM7km%2B9rgvFDL4vYPqIv5m0ja42Z%2BTESQFBF4hWORKjFnKThtI5w%2FK3XV3eYbse%2Fs8ViUKF6BoIsmV4DmXHUWJkBu6Ra9S795rvg38W4xEezybx79Cx4%2F%2F2sV6Lvh563mrvmWFwZcNvjid2PXQDsdecn6fq1Xp9oODF%2F5xi50Prs0gOEEmvBjmIIL6NDBhG5AH1D5ceybLkOt6YgOLhZzcyF4wrqve1gY6pQG8cJghPihxlpcQ4RXuhutUYkxVrjL%2BMcunnGGxfOIjhRDuAr8aRux7wyMvQE1Pq0EV%2ByMOyUgj%2FF8RQbJ4tB8T8te%2Bgr%2BauBZuETsxAe6XCrrMOOrDaYQ1ayhbxfvoYx1u5lVytvlrfRaSVc8XcuduLk0kkfdGwN70afkw7k8bgcIC%2BI%2BvYtCFjwBnupCoySZiVP2kEPGrjulzZ%2FxJuZjcF8yN%2BXQ%3D&X-Amz-Signature=7623ddbff4a4547cd3714486f1678a4ac87913e1f8ac4a1c4430253190804d32&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+  "failureAnalysisUrl": null,
+  "snapshotId": "snap_a3bea4f7b8fd7acc",
+  "runIdIfAvailable": "0d10299b-4feb-45b7-bc54-7dea4b403f4f",
+  "codeVersion": null,
+  "targetUrl": "https://tallyroom-git-test-frontend-testids-goats-projects-3f023cc9.vercel.app",
+  "targetUrlSource": null,
+  "environment": {
+    "id": "2b86a6ea-7d71-4e33-8adc-711d4fe24f3b",
+    "name": "github-pr-10"
+  },
+  "failedStepIndex": 4,
+  "failureKind": "assertion",
+  "verdict": "failed",
+  "executionStatus": "completed",
+  "summary": "Failed (assertion) on step 4: The hosted app likely has a regression in the round navigation keyboard handler: pressing ArrowLeft does not trigger state/URL updates, so the election view stays on Round 2 and the query string remains round=2. This could be caused by missing event-listener registration in the deployed build, a logic bug that only handles ArrowRight or ignores ArrowLeft, or a routing/state-sync issue where the keyboard action changes neither the component state nor the URL. Underl…",
+  "apiOutput": null,
+  "trace": null
+}

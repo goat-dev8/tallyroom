@@ -6,13 +6,21 @@ import { validateTabulateOptions } from './options.js';
 import { resolveRules } from './presets.js';
 import { BallotGroup, DEFAULT_RULES, Rules } from './types.js';
 export const ENGINE_VERSION = '0.1.0';
+export const REQUEST_FIELDS = new Set(['ballots', 'csv', 'candidates', 'rules', 'seats', 'quota']);
 const RULE_KEYS = new Set([...Object.keys(DEFAULT_RULES), 'duplicates', 'lotOrder']);
 export interface ApiResult { status: number; body: unknown; headers?: Record<string, string> }
 export interface TabulateOptions { contentType?: string }
 
+/** BUG-011: a body labelled CSV that is a JSON object or array is JSON. A CSV that starts with "[" (an overvote cell) does not parse as JSON. */
+function looksLikeJson(rawBody: string): boolean {
+  const t = rawBody.trimStart().replace(/^\uFEFF/, '');
+  if (!t.startsWith('{') && !t.startsWith('[')) return false;
+  try { const v = JSON.parse(t); return typeof v === 'object' && v !== null; } catch { return false; }
+}
+
 function isCsvUpload(contentType: string, rawBody: string): boolean {
   const ct = contentType.toLowerCase();
-  if (ct.includes('text/csv') || ct.includes('application/csv')) return true;
+  if (ct.includes('text/csv') || ct.includes('application/csv')) return !looksLikeJson(rawBody);
   if (ct.includes('application/json') || ct.includes('+json')) return false;
   const trimmed = rawBody.trimStart().replace(/^\uFEFF/, '');
   if (!trimmed || trimmed.startsWith('{') || trimmed.startsWith('[')) return false;
@@ -52,23 +60,31 @@ export function errorResult(e: unknown): ApiResult {
     const status = e instanceof BallotSemanticError ? 422 : 400;
     return fail(status, status === 422 ? 'UNPROCESSABLE' : 'PARSE_ERROR', e.message, details);
   }
-  if (e instanceof RangeError) return fail(400, 'SEATS_OUT_OF_RANGE', e.message, null);
+  // BUG-034: only the engine's own seats check is SEATS_OUT_OF_RANGE; any other RangeError is not the client's seats.
+  if (e instanceof RangeError && e.message.startsWith('Seats must be')) return fail(400, 'SEATS_OUT_OF_RANGE', e.message, null);
   if (e instanceof Error) return fail(400, 'BAD_REQUEST', e.message, null);
   throw e;
 }
 
 /** Parse a tabulate/report upload into ballots. Does not count. */
 export function parseTabulateBody(rawBody: string, contentType = ''): { ok: true; value: ParsedTabulate } | { ok: false; result: ApiResult } {
-  if (rawBody.length > MAX_BODY_BYTES) return { ok: false, result: tooLarge() };
+  // BUG-010: the limit is in UTF-8 bytes, not UTF-16 characters (an accented name is 2 bytes, CJK 3).
+  if (rawBody.length > MAX_BODY_BYTES || new TextEncoder().encode(rawBody).length > MAX_BODY_BYTES) return { ok: false, result: tooLarge() };
   try {
     if (isCsvUpload(contentType, rawBody)) {
       const parsed = parseRankCsv(rawBody);
       return checked({ ballots: parsed.ballots, candidates: parsed.candidates });
     }
     let req: any;
-    try { req = JSON.parse(rawBody); } catch { return { ok: false, result: fail(400, 'INVALID_JSON', 'Invalid JSON body') }; }
+    try { req = JSON.parse(rawBody.replace(/^\uFEFF/, '')); } catch { return { ok: false, result: fail(400, 'INVALID_JSON', 'Invalid JSON body') }; } // BUG-023: BOM before JSON
     if (Array.isArray(req)) req = { ballots: req };
     if (!req || typeof req !== 'object') return { ok: false, result: fail(400, 'INVALID_BODY', 'JSON body must be an object') };
+    // BUG-024: top-level fields are checked like rule keys, so a typo ("seat") or a wrong type is an error, not ignored.
+    const unknownFields = Object.keys(req).filter(k => !REQUEST_FIELDS.has(k));
+    if (unknownFields.length) return { ok: false, result: fail(400, 'UNKNOWN_FIELD', `Unknown field(s): ${unknownFields.join(', ')}`, { keys: unknownFields }) };
+    if (req.candidates != null && !Array.isArray(req.candidates)) return { ok: false, result: fail(422, 'INVALID_CANDIDATES', 'candidates must be an array of names', { field: 'candidates' }) };
+    if (req.ballots != null && req.csv != null) return { ok: false, result: fail(400, 'AMBIGUOUS_BALLOTS', 'Send either "ballots" or "csv", not both') };
+    if (req.csv === null) delete req.csv;
     const hasBallots = req.ballots !== undefined;
     const hasCsv = typeof req.csv === 'string';
     if (!hasBallots && !hasCsv) return { ok: false, result: fail(400, 'MISSING_BALLOTS', 'Field "ballots" (string) is required') };
@@ -80,10 +96,23 @@ export function parseTabulateBody(rawBody: string, contentType = ''): { ok: true
       const code = resolved.error.startsWith('Unknown rules preset') ? 'UNKNOWN_PRESET' : 'INVALID_RULES';
       return { ok: false, result: fail(400, code, resolved.error) };
     }
-    const rules = resolved.rules;
+    let rules = resolved.rules;
+    // BUG-018: lotOrder names get the same trim + NFC as ballot and candidate names.
+    if (rules && Array.isArray(rules.lotOrder)) rules = { ...rules, lotOrder: (rules.lotOrder as unknown[]).map(n => (typeof n === 'string' ? n.trim().normalize('NFC') : n)) as string[] };
     const unknown = Object.keys(rules ?? {}).filter(k => !RULE_KEYS.has(k));
     if (unknown.length) return { ok: false, result: fail(400, 'UNKNOWN_RULE', `Unknown rule key(s): ${unknown.join(', ')}`, { keys: unknown }) };
-    const declared = Array.isArray(req.candidates) ? req.candidates.map((c: unknown) => String(c)) : undefined;
+    // BUG-013: declared names get the same trim + NFC as ballot names, and must be non-blank strings with no repeats
+    // (a repeat used to raise the STV seat limit, and blanks or objects became phantom candidates).
+    let declared: string[] | undefined;
+    if (Array.isArray(req.candidates)) {
+      declared = [];
+      for (const [i, c] of (req.candidates as unknown[]).entries()) {
+        const name = typeof c === 'string' ? c.trim().normalize('NFC') : '';
+        if (!name) return { ok: false, result: fail(422, 'INVALID_CANDIDATES', `candidates[${i}] must be a non-blank string`, { field: 'candidates', index: i }) };
+        if (declared.includes(name)) return { ok: false, result: fail(422, 'DUPLICATE_CANDIDATE', `candidates lists "${name}" more than once`, { field: 'candidates', candidate: name }) };
+        declared.push(name);
+      }
+    }
     const parsed = hasBallots ? parseBallotJson(req.ballots, declared) : parseRankCsv(req.csv, declared);
     return checked({ seats: req.seats, quota: req.quota, rules, ballots: parsed.ballots, candidates: parsed.candidates });
   } catch (e) {
@@ -99,7 +128,7 @@ function checked(value: ParsedTabulate): { ok: true; value: ParsedTabulate } | {
 
 function finish(value: ParsedTabulate): ApiResult {
   if (value.seats !== undefined && value.seats !== 1) {
-    return { status: 200, body: { engineVersion: ENGINE_VERSION, method: 'stv', ...tabulateStv(value.ballots, value.candidates, value.seats, value.quota ?? 'droop') } };
+    return { status: 200, body: { engineVersion: ENGINE_VERSION, method: 'stv', ...tabulateStv(value.ballots, value.candidates, value.seats, value.quota ?? 'droop', value.rules ?? {}) } };
   }
   const rules: Rules = { ...DEFAULT_RULES, ...(value.rules ?? {}) };
   return { status: 200, body: { engineVersion: ENGINE_VERSION, method: 'irv', ...tabulateIrv(value.ballots, value.candidates, rules) } };

@@ -1,0 +1,8 @@
+[
+  {
+    "kind": "snapshot",
+    "stepIndex": 13,
+    "summary": "Step 13 'The demo should show Round 2 / 2 with Golden, Jared F.' failed. Error: TEST FAILURE\n\nThe demo could not be verified paused at Round 1 after restart. Each pause attempt left it at Round 2, so the required Round 1 pause and subsequent single Next round action were not completed.\n\nObservations:\n- After restart, the demo displayed Round 1 / 2 with Hoar, Bond eliminated, but playback was active.\n- The pause attempts left the demo paused at Round 2 / 2.\n- The visible Round 2 state shows Golden, Jared F. and majority needed 140,686; the Next round control was not used.",
+    "path": "steps/13-snapshot.html"
+  }
+]

@@ -1,0 +1,30 @@
+{
+ "runId": "20ab7501-56cb-4541-894b-2630f32e151b",
+ "testId": "aa98bbd6-0987-4ec8-9c9f-564c3de89f9f",
+ "testTitle": "regress:bug-021",
+ "projectId": "a7aa06b0-0721-49ff-a7aa-0181ad8586d6",
+ "userId": "04180438-a0a1-70ab-b51f-4dce971c378f",
+ "status": "failed",
+ "source": "cli",
+ "createdAt": "2026-10-20T23:04:07.867Z",
+ "startedAt": "2026-10-20T23:04:07.867Z",
+ "finishedAt": "2026-10-20T23:04:12.128Z",
+ "codeVersion": "v-8214473b7e90",
+ "targetUrl": null,
+ "environment": null,
+ "createdFrom": null,
+ "failedStepIndex": null,
+ "failureKind": "assertion",
+ "error": "(200, {'engineVersion': '0.1.0', 'method': 'irv', 'candidates': ['A', 'B'], 'rules': {'overvote': 'exhaust', 'skips': 'continue', 'batch': False, 'tiebreak': 'previous-round'}, 'rounds': [{'round': 1, 'tallies': {'A': 2, 'B': 1}, 'continuing': 3, 'inactive': {'blank': 0, 'overvote': 1, 'skips': 0, 'undervote': 0, 'exhausted': 0}, 'threshold': 2, 'eliminated': []}], 'winner': 'A', 'totalBallots': 4})",
+ "videoUrl": null,
+ "stepSummary": {
+  "total": 0,
+  "completed": 0,
+  "passedCount": 0,
+  "failedCount": 0
+ },
+ "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/aa98bbd6-0987-4ec8-9c9f-564c3de89f9f",
+ "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/573e849a-902b-415c-8707-86851ff5d683/test/20ab7501-56cb-4541-894b-2630f32e151b",
+ "apiOutput": "",
+ "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 149, in test\nAssertionError: (200, {'engineVersion': '0.1.0', 'method': 'irv', 'candidates': ['A', 'B'], 'rules': {'overvote': 'exhaust', 'skips': 'continue', 'batch': False, 'tiebreak': 'previous-round'}, 'rounds': [{'round': 1, 'tallies': {'A': 2, 'B': 1}, 'continuing': 3, 'inactive': {'blank': 0, 'overvote': 1, 'skips': 0, 'undervote': 0, 'exhausted': 0}, 'threshold': 2, 'eliminated': []}], 'winner': 'A', 'totalBallots': 4})\n"
+}

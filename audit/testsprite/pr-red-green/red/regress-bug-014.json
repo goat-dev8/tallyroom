@@ -1,0 +1,30 @@
+{
+ "runId": "f4626c2f-1c1d-48fa-92f2-d9e323040a67",
+ "testId": "baf3ae70-4438-4666-822a-b90b46a06d34",
+ "testTitle": "regress:bug-014",
+ "projectId": "a7aa06b0-0721-49ff-a7aa-0181ad8586d6",
+ "userId": "04180438-a0a1-70ab-b51f-4dce971c378f",
+ "status": "failed",
+ "source": "cli",
+ "createdAt": "2026-10-20T21:06:21.365Z",
+ "startedAt": "2026-10-20T21:06:21.365Z",
+ "finishedAt": "2026-10-20T21:06:25.529Z",
+ "codeVersion": "v-e02023fb3195",
+ "targetUrl": null,
+ "environment": null,
+ "createdFrom": null,
+ "failedStepIndex": null,
+ "failureKind": "assertion",
+ "error": "{'engineVersion': '0.1.0', 'method': 'stv', 'quota': '6.0000', 'quotaExact': '6/1', 'winners': ['A', 'C'], 'rounds': [{'round': 1, 'tallies': {'A': '8.0000', 'C': '3.0000', 'B': '5.0000'}, 'exhausted': '0.0000', 'elected': ['A'], 'eliminated': [], 'exact': {'tallies': {'A': '8/1', 'C': '3/1', 'B': '5/1'}, 'exhausted': '0/1'}}, {'round': 2, 'tallies': {'C': '5.0000', 'B': '5.0000'}, 'exhausted': '0.0000', 'elected': [], 'eliminated': ['B'], 'exact': {'tallies': {'C': '5/1', 'B': '5/1'}, 'exhausted': '0/1'}}, {'round': 3, 'tallies': {'C': '5.0000'}, 'exhausted': '5.0000', 'elected': ['C'], 'eliminated': [], 'exact': {'tallies': {'C': '5/1'}, 'exhausted': '5/1'}}]}",
+ "videoUrl": null,
+ "stepSummary": {
+  "total": 0,
+  "completed": 0,
+  "passedCount": 0,
+  "failedCount": 0
+ },
+ "dashboardUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/test-cases/baf3ae70-4438-4666-822a-b90b46a06d34",
+ "executionUrl": "https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/a7aa06b0-0721-49ff-a7aa-0181ad8586d6/execution/f4ec802e-f511-4966-8d83-16103375a5c1/test/f4626c2f-1c1d-48fa-92f2-d9e323040a67",
+ "apiOutput": "",
+ "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 150, in test\nAssertionError: {'engineVersion': '0.1.0', 'method': 'stv', 'quota': '6.0000', 'quotaExact': '6/1', 'winners': ['A', 'C'], 'rounds': [{'round': 1, 'tallies': {'A': '8.0000', 'C': '3.0000', 'B': '5.0000'}, 'exhausted': '0.0000', 'elected': ['A'], 'eliminated': [], 'exact': {'tallies': {'A': '8/1', 'C': '3/1', 'B': '5/1'}, 'exhausted': '0/1'}}, {'round': 2, 'tallies': {'C': '5.0000', 'B': '5.0000'}, 'exhausted': '0.0000', 'elected': [], 'eliminated': ['B'], 'exact': {'tallies': {'C': '5/1', 'B': '5/1'}, 'exhausted': '0/1'}}, {'round': 3, 'tallies': {'C': '5.0000'}, 'exhausted': '5.0000', 'elected': ['C'], 'eliminated': [], 'exact': {'tallies': {'C': '5/1'}, 'exhausted': '5/1'}}]}\n"
+}

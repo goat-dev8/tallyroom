@@ -1,0 +1,33 @@
+# TestSprite V3 result gate. Reads (never re-runs) the "TestSprite V3" commit status that the TestSprite
+# GitHub app posts on the PR head (one per project: UI and API share the context), and fails unless both report N/N.
+# Why: the app marks its status "success" even for "33/34 passed · 1 failed", so on its own it cannot block a merge.
+# Cost: zero TestSprite credits and zero Vercel deploys (.github/ is on the ignoreCommand skip list).
+name: TestSprite V3 gate
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  statuses: read
+  checks: read
+  contents: read
+
+jobs:
+  v3-gate:
+    name: testsprite-v3-gate
+    if: github.event.pull_request.head.repo.full_name == github.repository && !github.event.pull_request.draft
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SHA: ${{ github.event.pull_request.head.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Wait for the TestSprite V3 UI run and the testsprite-cli job on this head, then check both
+        env:
+          NEED: ui
+          CLI_CHECK: testsprite-cli
+        run: node scripts/testsprite-gate.mjs

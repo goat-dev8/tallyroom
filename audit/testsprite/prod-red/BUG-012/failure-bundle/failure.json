@@ -1,0 +1,11 @@
+{
+  "rootCauseHypothesis": "POST https://tallyroom-rosy.vercel.app/api/tabulate → 422\nResponse: {\"error\":{\"code\":\"INVALID_OVERVOTE\",\"message\":\"rules.overvote must be one of: exhaust, skip\",\"details\":{\"field\":\"rules.overvote\",\"value\":\"continuing\"}}}\n(422, {'error': {'code': 'INVALID_OVERVOTE', 'message': 'rules.overvote must be one of: exhaust, skip', 'details': {'field': 'rules.overvote', 'value': 'continuing'}}})\nAnalysis: The test called https://tallyroom-rosy.vercel.app/api/tabulate with rules.overvote=\"continuing\", but the target API returned 422 Unprocessable Entity: rules.overvote must be one of exhaust or skip. Underlying error: (422, {'error': {'code': 'INVALID_OVERVOTE', 'message': 'rules.overvote must be one of: exhaust, skip', 'details': {'field': 'rules.overvote', 'value': 'continuing'}}})",
+  "recommendedFixTarget": {
+    "kind": "unknown",
+    "reference": "continuing",
+    "rationale": "I’m changing the test to use a supported overvote value and assert the tabulation response for that valid rule instead of the rejected \"continuing\" value."
+  },
+  "evidence": [],
+  "apiOutput": "",
+  "trace": "Traceback (most recent call last):\n  File \"/var/task/runner.py\", line 226, in run\n    exec(code, env)\n  File \"<string>\", line 152, in <module>\n  File \"<string>\", line 149, in test\nAssertionError: (422, {'error': {'code': 'INVALID_OVERVOTE', 'message': 'rules.overvote must be one of: exhaust, skip', 'details': {'field': 'rules.overvote', 'value': 'continuing'}}})\n"
+}

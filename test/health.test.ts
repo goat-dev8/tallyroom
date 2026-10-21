@@ -11,7 +11,7 @@ describe('GET /api/health', () => {
       engineVersion: ENGINE_VERSION,
       status: 'ok',
       version: ENGINE_VERSION,
-      elections: ['maine-2018-cd2', 'alaska-2022', 'nyc-2021'],
+      elections: ['maine-2018-cd2', 'alaska-2022', 'nyc-2021', 'burlington-2009'],
     });
     expect(body.version).toBe('0.1.0');
     expect(body.version).toBe(body.engineVersion);
