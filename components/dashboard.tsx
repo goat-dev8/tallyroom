@@ -111,7 +111,7 @@ export function Dashboard() {
             const on = src.kind === 'bundled' && src.slug === c.slug;
             return (
               <button key={c.slug} data-testid={`election-${c.slug}`} aria-pressed={on} data-active={on} onClick={() => pick({ kind: 'bundled', slug: c.slug })}
-                className={cn('flex min-w-0 items-center gap-2.5 rounded-lg border border-line px-2.5 py-2 text-left text-sm transition-colors hover:bg-white/5 md:border-transparent', on && 'border-tally/30 bg-white/[.07] text-fg')}>
+                className={cn('flex min-w-0 items-center gap-2.5 rounded-lg border border-line px-2.5 py-2 text-left text-sm max-[420px]:gap-2 max-[420px]:px-2 max-[420px]:text-[13px] transition-colors hover:bg-white/5 md:border-transparent', on && 'border-tally/30 bg-white/[.07] text-fg')}>
                 <Database className={cn('h-3.5 w-3.5', on ? 'text-tally' : 'text-mute')} /><span className="truncate">{c.short} <span className="text-mute">{c.year}</span></span>
               </button>
             );
@@ -239,7 +239,7 @@ function Kpi({ k, v, accent, testid, i = 0, hint }: { k: string; v: React.ReactN
       <SpotlightCard className={cn('h-full p-4', accent && 'border-win/25')} color={accent ? 'rgba(61,220,151,.14)' : undefined}>
         {accent && <span aria-hidden className="absolute inset-x-4 -top-px h-px bg-gradient-to-r from-transparent via-win/70 to-transparent" />}
         <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[.12em] text-mute"><span>{k}</span>{hint && <span className="hidden normal-case sm:inline tracking-normal text-mute/70">{hint}</span>}</div>
-        <div className={cn('mt-2 truncate text-xl font-semibold tracking-tight tnum', accent && 'text-win')} data-testid={testid}>{v}</div>
+        <div className={cn('mt-2 line-clamp-2 break-words text-lg leading-tight md:text-xl font-semibold tracking-tight tnum', accent && 'text-win')} data-testid={testid}>{v}</div>
       </SpotlightCard>
     </motion.div>
   );

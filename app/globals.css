@@ -35,3 +35,8 @@ html.lenis, html.lenis body { height: auto; }
 /* Above-the-fold entrance runs in CSS (no JS wait), so the hero paints at first frame and LCP is not delayed. */
 .rise { animation: tr-rise .9s cubic-bezier(.22,1,.36,1) both; }
 @keyframes tr-rise { from { opacity: 0.001; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+/* Hairline figures, tuned to the Tallyroom palette */
+.hairline { --hairline-plate: #0b0d10; --hairline-hi: var(--color-tally); --hairline-edge: #9aa0aa; --hairline-mid: #3a3f48; --hairline-lo: #1c1f25; --hairline-stroke: 0.9; }
+.hairline-iris { --hairline-hi: var(--color-iris); }
+.hairline-win { --hairline-hi: var(--color-win); }
