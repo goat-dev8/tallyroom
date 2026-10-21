@@ -1,6 +1,6 @@
 'use client';
 // Isometric line figures from @lucasmarkes/hairline (MIT, Lucas Marques), recoloured in app/globals.css.
-// Decorative here: kept out of the Tab order so keyboard paths stay as tested.
+// Decorative: kept out of the Tab order, so keyboard paths stay as the e2e and TestSprite plans expect.
 import { Plot, Loupe, Branches, Cabinet, Relay, Slow, Terminal, Hub, Terrain, Sieve } from '@lucasmarkes/hairline/react';
 
 const FIGURES = { plot: Plot, loupe: Loupe, branches: Branches, cabinet: Cabinet, relay: Relay, slow: Slow, terminal: Terminal, hub: Hub, terrain: Terrain, sieve: Sieve } as const;
