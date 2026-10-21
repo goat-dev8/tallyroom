@@ -12,16 +12,24 @@
    "description": "Wait up to 60 seconds for the element with data-testid 'result' to appear (counting runs in a browser worker)"
   },
   {
-   "type": "assertion",
-   "description": "In 'rounds-table', the row data-candidate='DEM Golden, Jared F.' shows R1 132,013 and R2 142,440"
+   "type": "action",
+   "description": "Scroll the table data-testid 'rounds-table' (near the bottom of the page) into view"
   },
   {
    "type": "assertion",
-   "description": "The row data-candidate='REP Poliquin, Bruce' shows R1 134,184 and R2 138,931"
+   "description": "In 'rounds-table', the row with data-candidate='DEM Golden, Jared F.' has cell-r1 '132,013' and cell-r2 '142,440'"
   },
   {
    "type": "assertion",
-   "description": "The row 'table-inactive' shows R1 6,453 and R2 14,706. In the 'Bond, Tiffany L.' row, cell-r1 shows 16,552 and cell-r2 contains only the em dash character '\u2014' (data-testid 'cell-out'; its hover title 'Eliminated' is a tooltip, not cell text)"
+   "description": "The row with data-candidate='REP Poliquin, Bruce' has cell-r1 '134,184' and cell-r2 '138,931', and the row 'table-inactive' shows R1 '6,453' and R2 '14,706'"
+  },
+  {
+   "type": "assertion",
+   "description": "The row with data-candidate='Bond, Tiffany L.' has cell-r1 '16,552'. Its cell-r2 element has the title attribute 'Eliminated', contains a child element with data-testid 'cell-out', and contains no digits (no vote count is shown for an eliminated candidate)"
+  },
+  {
+   "type": "assertion",
+   "description": "The row with data-candidate='Hoar, William R.S.' has cell-r1 '6,875', and its cell-r2 element likewise has title 'Eliminated', contains a 'cell-out' child and no digits"
   }
  ]
 }

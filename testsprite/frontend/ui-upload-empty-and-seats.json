@@ -5,7 +5,7 @@
  "planSteps": [
   {
    "type": "action",
-   "description": "Navigate to /app?election=upload"
+   "description": "Navigate to /app?election=upload and wait for the 'ballots-input' textarea"
   },
   {
    "type": "action",
@@ -17,7 +17,11 @@
   },
   {
    "type": "action",
-   "description": "Click 'sample-irv', set 'seats-input' to 5, and click 'run-count'"
+   "description": "Click the button data-testid 'sample-irv' once, then wait up to 5 seconds until the value of 'ballots-input' contains the line '8,Alice>Bob' (read the textarea's value, not its initial HTML)"
+  },
+  {
+   "type": "action",
+   "description": "Set 'seats-input' to 5 and click 'run-count'"
   },
   {
    "type": "assertion",

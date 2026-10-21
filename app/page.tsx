@@ -9,6 +9,7 @@ import { MotionLazy } from '../components/motion-lazy';
 import { CountScene } from '../components/count-scene';
 import { GlyphBallot, GlyphMajority, GlyphRank, GlyphTransfer, APPROX } from '../components/glyphs';
 import { buttonVariants } from '../components/ui';
+import { HairlineFigure } from '../components/hairline-figure';
 import { CATALOG, CERTIFIED, fmt } from '../lib/catalog';
 
 const STEPS = [
@@ -161,14 +162,15 @@ export default function Landing() {
 
       {/* API */}
       <section id="api" className="border-t border-line">
-        <div className="mx-auto grid max-w-[1200px] gap-12 px-5 py-32 md:px-6 lg:grid-cols-2 lg:items-center">
+        <div className="mx-auto grid max-w-[1200px] gap-12 px-5 py-32 md:px-6 lg:grid-cols-2 lg:items-start">
           <div>
             <Eyebrow n="04">Open API</Eyebrow>
             <h2 data-reveal className="mt-5 text-[32px] leading-[1.05] font-semibold tracking-[-0.035em] md:text-5xl">One request. The whole count.</h2>
             <p data-reveal className="mt-5 max-w-md text-mute">Send ballots as <code className="font-mono text-fg">count,A&gt;B&gt;C</code> lines. Use <code className="font-mono text-fg">_</code> for a skipped rank and <code className="font-mono text-fg">[A=B]</code> for an overvote. Add <code className="font-mono text-fg">seats</code> for STV. Every round, transfer and inactive category comes back as JSON.</p>
             <a data-reveal href="/api/health" className="mt-7 inline-flex items-center gap-2 font-mono text-xs text-mute hover:text-fg" data-testid="api-health"><span className="h-1.5 w-1.5 rounded-full bg-win" /> GET /api/health</a>
+            <HairlineFigure name="terminal" label="A terminal window scrolling through a count" className="hairline-iris mt-6 hidden w-full max-w-[260px] lg:block" />
           </div>
-          <pre data-reveal className="card overflow-x-auto p-6 font-mono text-[12.5px] leading-[1.8] text-[#c9ccd2]"><span className="text-mute">$</span> curl -X POST https://tallyroom-rosy.vercel.app/api/tabulate \{'\n'}  -H <span className="text-tally">&apos;content-type: application/json&apos;</span> \{'\n'}  -d <span className="text-tally">{`'{"ballots":"5,A>B\\n4,B>C\\n2,C>B"}'`}</span>{'\n\n'}<span className="text-mute">{'{'}</span>{'\n'}  <span className="text-iris">&quot;method&quot;</span>: &quot;irv&quot;,{'\n'}  <span className="text-iris">&quot;winner&quot;</span>: <span className="text-win">&quot;B&quot;</span>,{'\n'}  <span className="text-iris">&quot;rounds&quot;</span>: [ <span className="text-mute">{'{ "round": 1, "tallies": {…}, "threshold": 6 }'}</span>, … ]{'\n'}<span className="text-mute">{'}'}</span></pre>
+          <pre data-reveal className="card overflow-x-auto p-6 lg:mt-16 font-mono text-[12.5px] leading-[1.8] text-[#c9ccd2]"><span className="text-mute">$</span> curl -X POST https://tallyroom-rosy.vercel.app/api/tabulate \{'\n'}  -H <span className="text-tally">&apos;content-type: application/json&apos;</span> \{'\n'}  -d <span className="text-tally">{`'{"ballots":"5,A>B\\n4,B>C\\n2,C>B"}'`}</span>{'\n\n'}<span className="text-mute">{'{'}</span>{'\n'}  <span className="text-iris">&quot;method&quot;</span>: &quot;irv&quot;,{'\n'}  <span className="text-iris">&quot;winner&quot;</span>: <span className="text-win">&quot;B&quot;</span>,{'\n'}  <span className="text-iris">&quot;rounds&quot;</span>: [ <span className="text-mute">{'{ "round": 1, "tallies": {…}, "threshold": 6 }'}</span>, … ]{'\n'}<span className="text-mute">{'}'}</span></pre>
         </div>
       </section>
 
@@ -176,13 +178,14 @@ export default function Landing() {
       <section className="relative overflow-hidden border-t border-line">
         <div className="hero-grid pointer-events-none absolute inset-0 -z-10 opacity-60" />
         <div className="mx-auto max-w-[1200px] px-5 py-32 text-center md:px-6">
+          <HairlineFigure name="hub" label="A hub with tiles on every side, none favoured" className="mx-auto mb-8 w-full max-w-[220px]" />
           <Logo className="justify-center text-lg" />
           <h2 data-reveal className="mx-auto mt-8 max-w-[20ch] text-[32px] leading-[1.05] font-semibold tracking-[-0.035em] md:text-5xl">Neutral by construction. Counting math and official figures only.</h2>
           <p data-reveal className="mx-auto mt-5 max-w-lg text-mute">No commentary, no predictions, no party colours. Pick a certified election or bring your own ballots.</p>
           <div data-reveal className="mt-9 flex justify-center gap-3"><Link href="/app" className={buttonVariants({ variant: 'tally' })} data-testid="cta-closing">Open the dashboard <ArrowRight className="h-4 w-4" /></Link><a href="https://github.com/goat-dev8/tallyroom" className={buttonVariants({ variant: 'outline' })}>Read the source</a></div>
         </div>
       </section>
-      <footer className="border-t border-line"><div className="mx-auto flex max-w-[1200px] flex-wrap items-center gap-x-6 gap-y-3 px-5 py-8 font-mono text-[11px] text-mute md:px-6"><Logo className="font-sans text-sm text-fg" /><span>Open source</span><span>Background threads by React Bits</span><a className="ml-auto hover:text-fg" href="https://github.com/goat-dev8/tallyroom">GitHub</a><a className="hover:text-fg" href="/proof">Proof</a><a className="hover:text-fg" href="/api/health">API status</a></div></footer>
+      <footer className="border-t border-line"><div className="mx-auto flex max-w-[1200px] flex-wrap items-center gap-x-6 gap-y-3 px-5 py-8 font-mono text-[11px] text-mute md:px-6"><Logo className="font-sans text-sm text-fg" /><span>Open source</span><span>Background threads by React Bits</span><span>Line figures by Hairline</span><a className="ml-auto hover:text-fg" href="https://github.com/goat-dev8/tallyroom">GitHub</a><a className="hover:text-fg" href="/proof">Proof</a><a className="hover:text-fg" href="/api/health">API status</a></div></footer>
     </main>
   );
 }

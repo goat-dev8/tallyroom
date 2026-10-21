@@ -50,9 +50,9 @@ The local Playwright mirror (`pr25/hero-autoplay-strengthened.spec.ts`) failed 3
 | App UI check on G′ | 02:09 | fb723d72 | **33/34 passed · 1 failed**: `ui:hero-autoplay` now passes; `ui:rounds-table-maine` (run 1fe56bcf) failed. All the numbers matched, but the agent couldn't read Bond's R2 em dash (rendered as a span titled "Eliminated"). This is test fragility, not an app bug | |
 | testsprite-cli on G′ | 02:08 | `api:` 22/22 passed; regress 15/15 passed (40b1a449, c798bdcd, 7a149137, 64365c9b, a09960b9, 569c9d6d, bb634546, ddd4677c, 10acda51, ee6f5be9, e07d7dc4, e7d10329, 96e825f5, 3c91f3ea, efecaa05) | green | |
 | Gate on G′ | 02:10 | testsprite-v3-gate | red (correctly: UI 33/34) | |
-| Merged | _pending_ | | | |
-| Production | _pending_ | `/api/health`, `/proof` | 4 elections, 200 | |
-| Branch protection | _pending_ | | gate required, admins enforced | |
+| Merged | 03:00 | merge 876052f | see the table below | |
+| Production | after 03:00 | `/api/health`, `/proof` | 200 | |
+| Branch protection | after merge | GitHub API | requires `testsprite-v3-gate`, `testsprite-cli`, `lint + typecheck + vitest`, `playwright e2e`; admins enforced | |
 
 ## API App trigger: disabled after two internal errors
 Both API App runs failed every test in about 2 s with "TestSprite hit an internal error while running this test". Each showed 0 steps and `codeVersion: null`, and the GitHub status stayed at "37 tests queued".
@@ -78,6 +78,15 @@ The full local e2e run under `next dev` showed the same dev-mode failures with a
 | App UI check | 02:28 | 28a96482 | **All 34 tests passed** |
 | testsprite-cli | 02:27 | UI-only diff, so no API suites picked | success |
 | testsprite-v3-gate | 02:28 | | success |
-| lint + typecheck + vitest | 02:25 | | **failure**: an oxlint error in `scripts/testsprite-gate.mjs:65` (a comma expression), also red on G′ 9d01828. Fixed locally, not yet pushed |
+| lint + typecheck + vitest | 02:25 | | **failure**: an oxlint error in `scripts/testsprite-gate.mjs:65` (a comma expression), also red on G′ 9d01828. Fixed in ef08f17 |
 
 Credits after this round: 149.2. The redo has used 73.2 (28.8 + 3.0 + 24.4 + 17.0).
+
+## After the lint fix: one more real bug, then 34/34 and the merge
+Times from the GitHub commit statuses, converted to Cairo.
+
+| Step | When | Check / run | Result |
+|---|---|---|---|
+| lint fix pushed (ef08f17) | 02:32 | App UI check [adac70d0](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/adac70d0-8e0a-48bb-be69-90a18639f145) | **31/34 passed · 2 failed · 1 blocked** (finished 02:35). `ui:sankey-render` failed on a real bug, BUG-041 (the Sankey label had no `·` between name and count); the other two were a restart/autoplay race in the test path and a table below the fold, both fixed in the plans or the app. Gate red; CI, Playwright and testsprite-cli green |
+| fixes pushed (76e67ce) | 02:56 | App UI check [f118839c](https://www.testsprite.com/dashboard-v3/o/dd10cd84-8b8f-5d0b-87b0-254e74a42770/projects/f312fcf5-741d-4116-bed4-c7ac9334859a/execution/f118839c-f6b3-4ad0-8d2c-12275d9754e2) | **All 34 tests passed** (03:00). Gate, testsprite-cli, lint + typecheck + vitest and playwright e2e all success |
+| PR #26 merged | 03:00:56 | merge commit 876052f | PR #24 was marked merged two seconds later, because its head was already in main |
